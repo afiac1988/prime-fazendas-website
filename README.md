@@ -52,6 +52,13 @@ O fluxo canônico hoje é:
 4. Dê push.
 5. A Vercel publica automaticamente.
 
+## Antes de publicar
+
+Confira os dois pontos que mais travam o fluxo:
+
+- `conteudo/config.json` — troque os dados de contato de teste pelos reais
+- `manutencao.local.json` — se estiver ativo, preencha a senha e o caminho absoluto do `.htpasswd`; para teste local, deixe desativado
+
 ---
 
 ## Estrutura curta
@@ -82,4 +89,3 @@ prime-fazendas-website/
 Se a mudança for de conteúdo, vá em `conteudo/`.
 Se a mudança for visual, vá em `tema/assets/`.
 Se a mudança for de publicação, o caminho é Vercel via `main`.
-

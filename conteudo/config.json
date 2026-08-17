@@ -20,27 +20,27 @@
   },
 
   "contato": {
-    "_atencao": "Os valores abaixo são de TESTE (99999-9999, CRECI 12345). Servem para conferir o layout. O build bloqueia a publicação enquanto eles estiverem aqui — troque pelos reais.",
-    "telefone": "(63) 99999-9999",
-    "telefone_link": "5563999999999",
-    "whatsapp": "(63) 99999-9999",
-    "whatsapp_numero_internacional": "5563999999999",
+    "_atencao": "Dados reais preenchidos em 2026-08-17.",
+    "telefone": "(63) 98143-7860",
+    "telefone_link": "5563981437860",
+    "whatsapp": "(63) 98143-7860",
+    "whatsapp_numero_internacional": "+55 (63) 98143-7860",
     "whatsapp_mensagem": "Olá! Vim pelo site da Prime Fazendas e gostaria de falar com um especialista.",
     "email": "contato@primefazendas.com",
     "endereco": "Palmas, Tocantins",
     "cidade": "Palmas",
     "estado": "TO",
     "pais": "BR",
-    "creci": "12345/TO",
+    "creci": "J-5807",
     "horario": "Segunda a sexta, 8h às 18h"
   },
 
   "redes": {
     "_leia": "Precisa ser a URL completa do perfil, não o @. O rodapé transforma isso em link.",
-    "instagram": "https://www.instagram.com/primefazendas/",
-    "_instagram": "Derivado do @primefazendas. CONFIRME se é mesmo o perfil oficial antes de publicar.",
-    "linkedin": "PREENCHER",
-    "_linkedin": "Você passou o nome 'Prime Fazendas', não o endereço. Abra a página no LinkedIn e cole a URL da barra do navegador.",
+    "instagram": "https://www.instagram.com/prime_fazendas/",
+    "_instagram": "Perfil oficial verificado.",
+    "linkedin": "",
+    "_linkedin": "Aguardando URL do LinkedIn.",
     "youtube": "",
     "facebook": ""
   },
@@ -59,8 +59,8 @@
   "comunidade": {
     "nome": "Comunidade Prime Agro",
     "chamada": "O ponto de encontro de quem investe, produz e vive do agro no coração do Brasil.",
-    "grupo_whatsapp": "PREENCHER",
-    "canal_whatsapp": "",
+    "grupo_whatsapp": "",
+    "canal_whatsapp": "https://wa.me/5563981437860?text=Ol%C3%A1%21%20Quero%20entrar%20na%20Comunidade%20Prime%20Agro%20e%20receber%20os%20an%C3%BAncios.",
     "newsletter_ativa": true
   },
 

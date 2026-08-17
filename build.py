@@ -625,15 +625,16 @@ def carregar_manutencao() -> dict:
 
     if not preenchido(dados.get("hash")):
         bloqueio("manutencao.local.json tem ativa=true mas nao tem hash de senha. "
-                 "Rode: .\\manutencao.ps1 -Ativar")
+                 "Se for teste local, desative ativa=true; se for publicar, rode: "
+                 ".\\manutencao.ps1 -Ativar")
         return {"ativa": False}
 
     if not preenchido(dados.get("caminho_no_servidor")):
         bloqueio("manutencao.local.json tem ativa=true mas 'caminho_no_servidor' esta "
                  "vazio. O Apache exige o caminho ABSOLUTO do .htpasswd no servidor; "
-                 "sem ele a protecao nao funciona e o site subiria aberto sem avisar. "
-                 "Pegue em hPanel > Arquivos > Gerenciador de Arquivos, ou rode "
-                 ".\\manutencao.ps1 -Descobrir")
+                 "se for teste local, desative ativa=true; se for publicar, preencha "
+                 "esse campo. Pegue em hPanel > Arquivos > Gerenciador de Arquivos, ou "
+                 "rode .\\manutencao.ps1 -Descobrir")
         return {"ativa": False}
 
     return dados
@@ -1239,13 +1240,17 @@ def gerar_comunidade(cfg, pag) -> str:
     com = cfg.get("comunidade", {})
 
     grupo = com.get("grupo_whatsapp")
+    canal = com.get("canal_whatsapp")
     botoes = ""
     if preenchido(grupo):
         botoes = (f'<a class="btn btn--dourado" href="{e(grupo)}" target="_blank" rel="noopener">'
                   f'Entrar no grupo do WhatsApp</a>')
+    elif preenchido(canal):
+        botoes = (f'<a class="btn btn--dourado" href="{e(canal)}" target="_blank" rel="noopener">'
+                  f'Falar no WhatsApp</a>')
     else:
         botoes = '<a class="btn btn--dourado" href="/contato/">Quero entrar</a>'
-        aviso("comunidade: 'grupo_whatsapp' está em PREENCHER — o botão aponta para /contato/ até você colar o link do convite.")
+        aviso("comunidade: 'grupo_whatsapp' e 'canal_whatsapp' estão vazios — o botão aponta para /contato/ até você colar um link válido.")
 
     corpo = [hero(cfg, olho="Comunidade", titulo=s.get("titulo", com.get("nome", "Comunidade")),
                   texto=s.get("chamada", ""), botoes=botoes, interno=True)]
@@ -1598,9 +1603,13 @@ def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos
             suspeitos.append(f"contato.{chave} = {valor} ({motivo})")
 
     if suspeitos:
-        bloqueio("dados de contato aparentemente ficticios: "
-                 + "; ".join(suspeitos)
-                 + ". Troque pelos reais antes de publicar.")
+        bloqueio(
+            "dados de contato aparentemente ficticios em conteudo/config.json "
+            "(contato.telefone, contato.telefone_link, contato.whatsapp, "
+            "contato.whatsapp_numero_internacional, contato.creci): "
+            + "; ".join(suspeitos)
+            + ". Troque pelos reais antes de publicar."
+        )
 
     exemplos = [i["arquivo"] for i in imoveis if i.get("_exemplo") and not i.get("_rascunho")]
     if exemplos:

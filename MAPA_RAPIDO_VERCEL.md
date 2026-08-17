@@ -43,6 +43,11 @@ Este é o caminho canônico para qualquer atualização do site hoje.
 5. dar push
 6. conferir o deploy na Vercel
 
+## Antes de publicar
+
+- confira `conteudo/config.json` e troque os contatos de teste pelos reais
+- confira `manutencao.local.json`: se estiver ativo, preencha senha e caminho absoluto do `.htpasswd`; para teste local, deixe desativado
+
 ## O que não é mais o caminho principal
 
 - o fluxo antigo de hospedagem fica como legado
