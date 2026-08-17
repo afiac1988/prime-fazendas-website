@@ -1,16 +1,16 @@
-#!/usr/bin/env python3
+﻿#!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Prime Fazendas — gerador do site.
+Prime Fazendas â€” gerador do site.
 
-Lê conteudo/ e escreve site/. Zero dependências: só a biblioteca padrão do Python.
+LÃª conteudo/ e escreve site/. Zero dependÃªncias: sÃ³ a biblioteca padrÃ£o do Python.
 
     python build.py                     gera o site
-    python build.py --auditar            só valida o conteúdo e sai (não escreve nada)
-    python build.py --demo --saida TMP   gera uma prévia fora do site/
+    python build.py --auditar            sÃ³ valida o conteÃºdo e sai (nÃ£o escreve nada)
+    python build.py --demo --saida TMP   gera uma prÃ©via fora do site/
 
-O que você edita fica em conteudo/. Este arquivo é a máquina; normalmente
-você não precisa abri-lo.
+O que vocÃª edita fica em conteudo/. Este arquivo Ã© a mÃ¡quina; normalmente
+vocÃª nÃ£o precisa abri-lo.
 """
 
 from __future__ import annotations
@@ -64,7 +64,7 @@ def bloqueio(msg: str) -> None:
 
 def ler_json(caminho: Path) -> dict:
     if not caminho.exists():
-        bloqueio(f"arquivo obrigatório não encontrado: {caminho.relative_to(RAIZ)}")
+        bloqueio(f"arquivo obrigatÃ³rio nÃ£o encontrado: {caminho.relative_to(RAIZ)}")
         return {}
     try:
         # utf-8-sig, e nao utf-8: o Bloco de Notas e o PowerShell gravam UTF-8
@@ -75,8 +75,8 @@ def ler_json(caminho: Path) -> dict:
     except json.JSONDecodeError as e:
         bloqueio(
             f"{caminho.relative_to(RAIZ)} tem erro de JSON na linha {e.lineno}, "
-            f"coluna {e.colno}: {e.msg}. Provavelmente falta uma vírgula, "
-            f"sobra uma vírgula no fim de uma lista, ou uma aspa não foi fechada."
+            f"coluna {e.colno}: {e.msg}. Provavelmente falta uma vÃ­rgula, "
+            f"sobra uma vÃ­rgula no fim de uma lista, ou uma aspa nÃ£o foi fechada."
         )
         return {}
 
@@ -96,7 +96,7 @@ def preenchido(valor) -> bool:
 
 
 def limpar_meta(d: dict) -> dict:
-    """Remove as chaves de anotação (que começam com _)."""
+    """Remove as chaves de anotaÃ§Ã£o (que comeÃ§am com _)."""
     return {k: v for k, v in d.items() if not k.startswith("_")}
 
 
@@ -136,7 +136,7 @@ def fmt_reais(valor) -> str:
     return "R$ " + fmt_num(round(v))
 
 
-MESES = ["janeiro", "fevereiro", "março", "abril", "maio", "junho", "julho",
+MESES = ["janeiro", "fevereiro", "marÃ§o", "abril", "maio", "junho", "julho",
          "agosto", "setembro", "outubro", "novembro", "dezembro"]
 
 
@@ -145,15 +145,15 @@ def fmt_data(d: date) -> str:
 
 
 TIPOS = {
-    "agricola": "Agrícola",
-    "pecuaria": "Pecuária",
+    "agricola": "AgrÃ­cola",
+    "pecuaria": "PecuÃ¡ria",
     "mista": "Mista",
     "reflorestamento": "Reflorestamento",
     "lazer": "Lazer",
 }
 
 STATUS = {
-    "disponivel": ("Disponível", "selo--azul"),
+    "disponivel": ("DisponÃ­vel", "selo--azul"),
     "reservado": ("Reservado", "selo--dourado"),
     "vendido": ("Vendido", "selo--vendido"),
 }
@@ -161,9 +161,9 @@ STATUS = {
 
 def slugificar(texto: str) -> str:
     t = str(texto).lower().strip()
-    acentos = {"á": "a", "à": "a", "â": "a", "ã": "a", "ä": "a", "é": "e", "ê": "e",
-               "è": "e", "í": "i", "ì": "i", "ó": "o", "ô": "o", "õ": "o", "ò": "o",
-               "ú": "u", "ù": "u", "û": "u", "ü": "u", "ç": "c", "ñ": "n"}
+    acentos = {"Ã¡": "a", "Ã ": "a", "Ã¢": "a", "Ã£": "a", "Ã¤": "a", "Ã©": "e", "Ãª": "e",
+               "Ã¨": "e", "Ã­": "i", "Ã¬": "i", "Ã³": "o", "Ã´": "o", "Ãµ": "o", "Ã²": "o",
+               "Ãº": "u", "Ã¹": "u", "Ã»": "u", "Ã¼": "u", "Ã§": "c", "Ã±": "n"}
     for a, b in acentos.items():
         t = t.replace(a, b)
     t = re.sub(r"[^a-z0-9]+", "-", t)
@@ -182,7 +182,7 @@ def md_inline(t: str) -> str:
 
 
 def markdown(texto: str) -> str:
-    """Subconjunto de Markdown: h2-h4, listas, citação, parágrafo, hr."""
+    """Subconjunto de Markdown: h2-h4, listas, citaÃ§Ã£o, parÃ¡grafo, hr."""
     linhas = texto.replace("\r\n", "\n").split("\n")
     saida: list[str] = []
     buffer_p: list[str] = []
@@ -330,7 +330,7 @@ def ler_markdown_com_frontmatter(caminho: Path) -> tuple[dict, str]:
     return meta, corpo.strip()
 
 
-# ========================================================== peças visuais ==
+# ========================================================== peÃ§as visuais ==
 
 SVG_HORIZONTE = (
     '<svg class="hero__horizonte" viewBox="0 0 1440 220" preserveAspectRatio="none" '
@@ -354,12 +354,12 @@ SVG_CAPA = (
 
 # Marca da Prime Fazendas: sol sobre os sulcos do plantio.
 # O desenho vem de tema/assets/marca.svg, gerado por ferramentas/gerar_og.py a
-# partir da mesma geometria da imagem de compartilhamento — logo do site e
+# partir da mesma geometria da imagem de compartilhamento â€” logo do site e
 # miniatura do WhatsApp sao o mesmo desenho, nunca divergem.
 _MARCA_SVG = (TEMA / "assets" / "marca.svg").read_text(encoding="utf-8")     if (TEMA / "assets" / "marca.svg").exists() else ""
 
 if not _MARCA_SVG:
-    aviso("tema/assets/marca.svg nao encontrado — rode: python ferramentas/gerar_og.py")
+    aviso("tema/assets/marca.svg nao encontrado â€” rode: python ferramentas/gerar_og.py")
 
 
 def svg_marca(classe: str = "marca__selo", tam: int = 40, ident: str = "pf") -> str:
@@ -419,14 +419,14 @@ def cabecalho(cfg: dict, url_atual: str) -> str:
 
     return f"""<header class="topo">
   <div class="env topo__int">
-    <a class="marca" href="/" aria-label="{e(cfg['marca']['nome'])} — página inicial">
+    <a class="marca" href="/" aria-label="{e(cfg['marca']['nome'])} â€” pÃ¡gina inicial">
       {SVG_SELO}
       <span class="marca__txt">
         <span class="marca__nome">{e(cfg['marca']['nome'])}</span>
-        <span class="marca__sub">Imóveis Rurais</span>
+        <span class="marca__sub">ImÃ³veis Rurais</span>
       </span>
     </a>
-    <nav class="nav" id="nav-principal" aria-label="Navegação principal">
+    <nav class="nav" id="nav-principal" aria-label="NavegaÃ§Ã£o principal">
       {''.join(itens)}
       {cta_mobile}
     </nav>
@@ -478,26 +478,26 @@ def rodape(cfg: dict) -> str:
         <a class="marca" href="/" aria-label="{e(cfg['marca']['nome'])}">
           {SVG_SELO_RODAPE}
           <span class="marca__txt"><span class="marca__nome">{e(cfg['marca']['nome'])}</span>
-          <span class="marca__sub">Imóveis Rurais</span></span>
+          <span class="marca__sub">ImÃ³veis Rurais</span></span>
         </a>
         {f'<p class="rodape__tagline">{e(cfg["marca"]["tagline"])}</p>' if preenchido(cfg['marca'].get('tagline')) else ''}
         <p class="rodape__sobre">{e(rod.get('sobre_curto', ''))}</p>
         {redes}
       </div>
       <div>
-        <h4>Navegação</h4>
+        <h4>NavegaÃ§Ã£o</h4>
         <ul class="rodape__lista">{nav}</ul>
       </div>
       <div>
         <h4>Contato</h4>
-        <ul class="rodape__lista">{''.join(linhas) or '<li>Em atualização</li>'}</ul>
+        <ul class="rodape__lista">{''.join(linhas) or '<li>Em atualizaÃ§Ã£o</li>'}</ul>
       </div>
       <div>
         <h4>{e(cfg.get('comunidade', {}).get('nome', 'Comunidade'))}</h4>
         <ul class="rodape__lista">
           <li><a href="/comunidade/">Entrar na comunidade</a></li>
           <li><a href="/blog/">Blog e insights</a></li>
-          <li><a href="/imoveis/">Imóveis à venda</a></li>
+          <li><a href="/imoveis/">ImÃ³veis Ã  venda</a></li>
         </ul>
       </div>
     </div>
@@ -532,8 +532,8 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 
     faixa = ""
     if rascunho:
-        faixa = ('<div class="aviso-rascunho">Pré-visualização local — este conteúdo contém '
-                 'dados de exemplo e não deve ir ao ar.</div>')
+        faixa = ('<div class="aviso-rascunho">PrÃ©-visualizaÃ§Ã£o local â€” este conteÃºdo contÃ©m '
+                 'dados de exemplo e nÃ£o deve ir ao ar.</div>')
 
     ld = f'<script type="application/ld+json">{json_ld}</script>' if json_ld else ""
 
@@ -566,7 +566,7 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 </head>
 <body>
 {faixa}
-<a class="pular" href="#principal">Ir para o conteúdo</a>
+<a class="pular" href="#principal">Ir para o conteÃºdo</a>
 {cabecalho(cfg, url)}
 <main id="principal">
 {corpo}
@@ -600,7 +600,7 @@ def migalhas(trilha: list[tuple[str, str]]) -> str:
         if i:
             partes.append("<span>/</span>")
         partes.append(f'<a href="{e(url)}">{e(rotulo)}</a>' if url else f"<span>{e(rotulo)}</span>")
-    return f'<nav class="migalhas" aria-label="Trilha de navegação">{"".join(partes)}</nav>'
+    return f'<nav class="migalhas" aria-label="Trilha de navegaÃ§Ã£o">{"".join(partes)}</nav>'
 
 
 def cta_faixa(cfg: dict, titulo: str, texto: str, botao: str = "Falar com um especialista") -> str:
@@ -619,12 +619,12 @@ def cta_faixa(cfg: dict, titulo: str, texto: str, botao: str = "Falar com um esp
 </section>"""
 
 
-# =============================================================== conteúdo ==
+# =============================================================== conteÃºdo ==
 
 def carregar_manutencao() -> dict:
     """
     Le manutencao.local.json (fora do versionamento). Quando ativo, o site
-    inteiro fica atras de autenticacao HTTP do Apache — o servidor nao entrega
+    inteiro fica atras de autenticacao HTTP do Apache â€” o servidor nao entrega
     nem o HTML sem a senha, diferente de uma tela de senha em JavaScript, que
     manda a pagina toda para o navegador e so esconde visualmente.
     """
@@ -671,7 +671,7 @@ def carregar_imoveis() -> list[dict]:
         d["arquivo"] = arq.name
 
         if not d.get("titulo"):
-            aviso(f"{arq.name}: sem título — imóvel ignorado.")
+            aviso(f"{arq.name}: sem tÃ­tulo â€” imÃ³vel ignorado.")
             continue
 
         if not d.get("publicado"):
@@ -691,7 +691,7 @@ def carregar_imoveis() -> list[dict]:
         for f in (d.get("fotos") or []):
             origem = CONTEUDO / "midia" / "imoveis" / pasta_fotos / f
             if not origem.exists():
-                aviso(f"{arq.name}: a foto '{f}' não existe em conteudo/midia/imoveis/{pasta_fotos}/")
+                aviso(f"{arq.name}: a foto '{f}' nÃ£o existe em conteudo/midia/imoveis/{pasta_fotos}/")
 
         itens.append(d)
 
@@ -713,7 +713,7 @@ def carregar_posts() -> list[dict]:
         if rascunho and not MOSTRAR_RASCUNHOS:
             continue
         if not meta.get("titulo"):
-            aviso(f"{arq.name}: sem 'titulo' no cabeçalho — post ignorado.")
+            aviso(f"{arq.name}: sem 'titulo' no cabeÃ§alho â€” post ignorado.")
             continue
 
         try:
@@ -740,7 +740,7 @@ def carregar_posts() -> list[dict]:
     return posts
 
 
-# ================================================================ páginas ==
+# ================================================================ pÃ¡ginas ==
 
 def card_imovel(im: dict) -> str:
     selos = []
@@ -748,24 +748,26 @@ def card_imovel(im: dict) -> str:
     if im.get("status") != "disponivel":
         selos.append(f'<span class="selo {classe}">{e(rotulo)}</span>')
     if im.get("certificacao_ambiental"):
-        selos.append('<span class="selo">Documentação verificada</span>')
+        selos.append('<span class="selo">DocumentaÃ§Ã£o verificada</span>')
     if im.get("_rascunho"):
-        selos.append('<span class="selo selo--aviso">Rascunho — não publicado</span>')
+        selos.append('<span class="selo selo--aviso">Rascunho â€” nÃ£o publicado</span>')
     if im.get("_exemplo"):
         selos.append('<span class="selo selo--aviso">Exemplo</span>')
 
     if im["fotos_url"]:
-        capa = f'<img src="{e(im["fotos_url"][0])}" alt="{e(im["titulo"])}" loading="lazy">'
+        capa = (f'<a class="imovel__capa-link" href="{e(im["fotos_url"][0])}" target="_blank" rel="noopener noreferrer" title="Abrir foto em nova aba">'
+                f'<img src="{e(im["fotos_url"][0])}" alt="{e(im["titulo"])}" loading="lazy">'
+                f'</a>')
     else:
         capa = SVG_CAPA
 
     local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
     tipo = TIPOS.get(im.get("tipo", ""), "")
-    cabeca = " · ".join(x for x in [local, tipo] if x)
+    cabeca = " Â· ".join(x for x in [local, tipo] if x)
 
     dados = []
     if im.get("area_total_ha"):
-        dados.append(f'<div class="dado"><span class="dado__rot">Área total</span>'
+        dados.append(f'<div class="dado"><span class="dado__rot">Ãrea total</span>'
                      f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
     if im.get("preco_sob_consulta") or not im.get("preco"):
         dados.append('<div class="dado"><span class="dado__rot">Valor</span>'
@@ -792,7 +794,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     h = pag.get("home", {})
     zap = montar_url_zap(cfg)
 
-    botoes = f'<a class="btn btn--dourado" href="/imoveis/">{e(h.get("hero_cta", "Ver imóveis"))}</a>'
+    botoes = f'<a class="btn btn--dourado" href="/imoveis/">{e(h.get("hero_cta", "Ver imÃ³veis"))}</a>'
     if zap:
         botoes += (f'<a class="btn btn--claro" href="{e(zap)}" target="_blank" rel="noopener">'
                    f'{e(h.get("hero_cta_secundario", "Falar com um especialista"))}</a>')
@@ -800,7 +802,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
         botoes += (f'<a class="btn btn--claro" href="/contato/">'
                    f'{e(h.get("hero_cta_secundario", "Falar com um especialista"))}</a>')
 
-    corpo = [hero(cfg, olho=f"{cfg['contato'].get('cidade', '')} · {cfg['contato'].get('estado', '')} · Matopiba".strip(" ·"),
+    corpo = [hero(cfg, olho=f"{cfg['contato'].get('cidade', '')} Â· {cfg['contato'].get('estado', '')} Â· Matopiba".strip(" Â·"),
                   titulo=h.get("hero_titulo", cfg["marca"]["slogan"]),
                   texto=h.get("hero_texto", ""), botoes=botoes)]
 
@@ -830,7 +832,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     <div class="cabeca-secao">
       <p class="olho">Oportunidades</p>
       <h2>Propriedades em destaque</h2>
-      <p class="chamada chamada--larga">Portfólio verificado. Cada propriedade passou por análise
+      <p class="chamada chamada--larga">PortfÃ³lio verificado. Cada propriedade passou por anÃ¡lise
       documental, ambiental e de mercado antes de ser apresentada.</p>
     </div>
     <div class="grade-imoveis">{''.join(card_imovel(i) for i in destaques[:3])}</div>
@@ -843,7 +845,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     if indics:
         blocos = ""
         for i in indics:
-            fonte = f'{e(i.get("fonte", ""))} · {e(i.get("ano", ""))}'
+            fonte = f'{e(i.get("fonte", ""))} Â· {e(i.get("ano", ""))}'
             if preenchido(i.get("url")):
                 fonte = f'<a href="{e(i["url"])}" target="_blank" rel="noopener">{fonte}</a>'
             blocos += (f'<div class="indic"><span class="indic__valor">{e(i.get("valor", ""))}</span>'
@@ -860,7 +862,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     if pubs:
         cards_dep = "".join(
             f'<article class="card"><p style="font-family:var(--fonte-display);font-size:1.1rem;'
-            f'color:var(--azul-800);margin-bottom:1.2rem">“{e(d["texto"])}”</p>'
+            f'color:var(--azul-800);margin-bottom:1.2rem">â€œ{e(d["texto"])}â€</p>'
             f'<p><strong>{e(d["nome"])}</strong>'
             + (f'<br><span style="font-size:.88rem;color:var(--tinta-suave)">{e(d.get("cargo", ""))}</span>'
                if d.get("cargo") else "")
@@ -870,14 +872,14 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
         corpo.append(f"""<section class="secao secao--branca">
   <div class="env">
     <div class="cabeca-secao cabeca-secao--centro">
-      <p class="olho olho--centro">Quem já negociou com a gente</p>
+      <p class="olho olho--centro">Quem jÃ¡ negociou com a gente</p>
       <h2>Depoimentos</h2>
     </div>
     <div class="grade grade--3">{cards_dep}</div>
   </div>
 </section>""")
 
-    # últimos posts
+    # Ãºltimos posts
     if posts:
         cards_post = "".join(card_post(p) for p in posts[:3])
         corpo.append(f"""<section class="secao secao--clara">
@@ -892,8 +894,8 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
 
     corpo.append(cta_faixa(
         cfg,
-        "Vamos conversar sobre a sua próxima propriedade.",
-        "Comprar, vender, avaliar ou regularizar. Conte o que você precisa e um especialista responde.",
+        "Vamos conversar sobre a sua prÃ³xima propriedade.",
+        "Comprar, vender, avaliar ou regularizar. Conte o que vocÃª precisa e um especialista responde.",
     ))
 
     ld = json.dumps({
@@ -923,7 +925,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
 def card_post(p: dict) -> str:
     return f"""<article class="post-card">
   <p class="post-card__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
-  <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time></p>
+  <span>Â·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time></p>
   <h3><a href="{e(p['url'])}">{e(p['titulo'])}</a></h3>
   {f"<p>{e(p['resumo'])}</p>" if p.get('resumo') else ''}
   <a class="link-seta" href="{e(p['url'])}">Ler o artigo</a>
@@ -932,7 +934,7 @@ def card_post(p: dict) -> str:
 
 def gerar_sobre(cfg, pag) -> str:
     s = pag.get("sobre", {})
-    corpo = [hero(cfg, olho="Sobre nós", titulo=s.get("titulo", "Sobre a Prime Fazendas"),
+    corpo = [hero(cfg, olho="Sobre nÃ³s", titulo=s.get("titulo", "Sobre a Prime Fazendas"),
                   texto=s.get("chamada", ""), interno=True)]
 
     corpo.append(f"""<section class="secao">
@@ -947,8 +949,8 @@ def gerar_sobre(cfg, pag) -> str:
     corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="prosa">
-      <p class="olho">{e(s.get('historia_titulo', 'A história'))}</p>
-      <h2>De corretor aos 18 ao coração do agro brasileiro</h2>
+      <p class="olho">{e(s.get('historia_titulo', 'A histÃ³ria'))}</p>
+      <h2>De corretor aos 18 ao coraÃ§Ã£o do agro brasileiro</h2>
       {paragrafos(s.get('historia'))}
     </div>
   </div>
@@ -974,8 +976,8 @@ def gerar_sobre(cfg, pag) -> str:
   <div class="env">
     <div class="grade grade--2" style="align-items:start">
       <div>
-        <p class="olho">{e(s.get('missao_titulo', 'Nossa missão'))}</p>
-        <h2>Missão</h2>
+        <p class="olho">{e(s.get('missao_titulo', 'Nossa missÃ£o'))}</p>
+        <h2>MissÃ£o</h2>
         <p class="chamada">{e(s.get('missao', ''))}</p>
       </div>
       <div>
@@ -986,17 +988,17 @@ def gerar_sobre(cfg, pag) -> str:
   </div>
 </section>""")
 
-    corpo.append(cta_faixa(cfg, "Quer conhecer o nosso portfólio?",
-                           "Boa parte das nossas negociações acontece antes do anúncio público."))
+    corpo.append(cta_faixa(cfg, "Quer conhecer o nosso portfÃ³lio?",
+                           "Boa parte das nossas negociaÃ§Ãµes acontece antes do anÃºncio pÃºblico."))
 
-    return pagina(cfg, titulo=s.get("titulo", "Sobre nós"),
+    return pagina(cfg, titulo=s.get("titulo", "Sobre nÃ³s"),
                   descricao=s.get("chamada", cfg["site"]["descricao_padrao"]),
                   url="/sobre/", corpo="\n".join(corpo))
 
 
 def gerar_servicos(cfg, pag) -> str:
     s = pag.get("servicos", {})
-    corpo = [hero(cfg, olho="Serviços", titulo=s.get("titulo", "Nossos serviços"),
+    corpo = [hero(cfg, olho="ServiÃ§os", titulo=s.get("titulo", "Nossos serviÃ§os"),
                   texto=s.get("chamada", ""), interno=True)]
 
     cards = "".join(
@@ -1008,10 +1010,10 @@ def gerar_servicos(cfg, pag) -> str:
   <div class="env"><div class="grade grade--2">{cards}</div></div>
 </section>""")
 
-    corpo.append(cta_faixa(cfg, s.get("cta_titulo", "Cada propriedade é um caso."),
+    corpo.append(cta_faixa(cfg, s.get("cta_titulo", "Cada propriedade Ã© um caso."),
                            s.get("cta_texto", ""), s.get("cta_botao", "Solicitar consultoria")))
 
-    return pagina(cfg, titulo=s.get("titulo", "Serviços"),
+    return pagina(cfg, titulo=s.get("titulo", "ServiÃ§os"),
                   descricao=s.get("chamada", ""), url="/servicos/", corpo="\n".join(corpo))
 
 
@@ -1031,7 +1033,7 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
     if args:
         corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
-    <div class="cabeca-secao"><p class="olho">A tese</p><h2>Por que terra agrícola</h2></div>
+    <div class="cabeca-secao"><p class="olho">A tese</p><h2>Por que terra agrÃ­cola</h2></div>
     <div class="grade grade--2">{args}</div>
   </div>
 </section>""")
@@ -1040,7 +1042,7 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
     if indics:
         blocos = ""
         for i in indics:
-            fonte = f'{e(i.get("fonte", ""))} · {e(i.get("ano", ""))}'
+            fonte = f'{e(i.get("fonte", ""))} Â· {e(i.get("ano", ""))}'
             if preenchido(i.get("url")):
                 fonte = f'<a href="{e(i["url"])}" target="_blank" rel="noopener">{fonte}</a>'
             blocos += (f'<div class="indic"><span class="indic__valor">{e(i.get("valor", ""))}</span>'
@@ -1055,7 +1057,7 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
   <div class="env">
     <div class="grade grade--2" style="align-items:start">
       <div>
-        <p class="olho">A região</p>
+        <p class="olho">A regiÃ£o</p>
         <h2>{e(s.get('regiao_titulo', 'Tocantins e Matopiba'))}</h2>
       </div>
       <ul class="marcada marcada--check">{fatores}</ul>
@@ -1065,22 +1067,22 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
 
     corpo.append(f"""<section class="secao secao--clara">
   <div class="env"><div class="prosa">
-    <p class="olho">Atenção</p>
+    <p class="olho">AtenÃ§Ã£o</p>
     <h2>{e(s.get('fechamento_titulo', ''))}</h2>
     {paragrafos(s.get('fechamento_texto'))}
   </div></div>
 </section>""")
 
     corpo.append(cta_faixa(cfg, "Quer avaliar uma oportunidade?",
-                           "Analisamos a propriedade — solo, documentação, passivo e preço — antes de você comprometer capital."))
+                           "Analisamos a propriedade â€” solo, documentaÃ§Ã£o, passivo e preÃ§o â€” antes de vocÃª comprometer capital."))
 
-    return pagina(cfg, titulo=s.get("titulo", "Por que investir no agronegócio"),
+    return pagina(cfg, titulo=s.get("titulo", "Por que investir no agronegÃ³cio"),
                   descricao=s.get("chamada", ""), url="/investir-no-agro/", corpo="\n".join(corpo))
 
 
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     s = pag.get("imoveis", {})
-    corpo = [hero(cfg, olho="Portfólio", titulo=s.get("titulo", "Imóveis rurais à venda"),
+    corpo = [hero(cfg, olho="PortfÃ³lio", titulo=s.get("titulo", "ImÃ³veis rurais Ã  venda"),
                   texto=s.get("chamada", ""), interno=True)]
 
     if imoveis:
@@ -1108,7 +1110,7 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
         corpo.append(f"""<section class="secao">
   <div class="env">
     <div class="vazio">
-      <h2>{e(s.get('vazio_titulo', 'Portfólio em atualização'))}</h2>
+      <h2>{e(s.get('vazio_titulo', 'PortfÃ³lio em atualizaÃ§Ã£o'))}</h2>
       <p>{e(s.get('vazio_texto', ''))}</p>
       <div class="grupo-btn" style="justify-content:center;margin-top:2rem">
         <a class="btn btn--principal" href="/contato/">Falar com um especialista</a>
@@ -1117,10 +1119,10 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
   </div>
 </section>""")
 
-    corpo.append(cta_faixa(cfg, "Procura algo específico?",
-                           "Diga região, tamanho, aptidão e faixa de investimento. Boa parte do que negociamos não chega a ser anunciado."))
+    corpo.append(cta_faixa(cfg, "Procura algo especÃ­fico?",
+                           "Diga regiÃ£o, tamanho, aptidÃ£o e faixa de investimento. Boa parte do que negociamos nÃ£o chega a ser anunciado."))
 
-    return pagina(cfg, titulo=s.get("titulo", "Imóveis rurais à venda"),
+    return pagina(cfg, titulo=s.get("titulo", "ImÃ³veis rurais Ã  venda"),
                   descricao=s.get("chamada", ""), url="/imoveis/",
                   corpo="\n".join(corpo),
                   rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
@@ -1128,10 +1130,10 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
 
 def gerar_ficha_imovel(cfg, im) -> str:
     local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
-    olho = " · ".join(x for x in [local, TIPOS.get(im.get("tipo", ""), ""), im.get("regiao", "")] if x)
+    olho = " Â· ".join(x for x in [local, TIPOS.get(im.get("tipo", ""), ""), im.get("regiao", "")] if x)
 
     corpo = [f'<section class="secao secao--compacta"><div class="env">'
-             + migalhas([("Início", "/"), ("Imóveis", "/imoveis/"), (im["titulo"], "")])
+             + migalhas([("InÃ­cio", "/"), ("ImÃ³veis", "/imoveis/"), (im["titulo"], "")])
              + f'<p class="olho">{e(olho)}</p><h1>{e(im["titulo"])}</h1>'
              + (f'<p class="chamada chamada--larga">{e(im["subtitulo"])}</p>' if im.get("subtitulo") else "")
              + "</div></section>"]
@@ -1139,22 +1141,20 @@ def gerar_ficha_imovel(cfg, im) -> str:
     # galeria
     if im["fotos_url"]:
         fotos = "".join(
-            f'<img src="{e(u)}" alt="{e(im["titulo"])} — foto {n + 1}" loading="lazy">'
+            f'<a class="galeria__link" href="{e(u)}" target="_blank" rel="noopener noreferrer" '
+            f'title="Abrir foto {n + 1} em nova aba">'
+            f'<img src="{e(u)}" alt="{e(im["titulo"])} â€” foto {n + 1}" loading="lazy">'
+            f'</a>'
             for n, u in enumerate(im["fotos_url"])
         )
         galeria = f'<div class="galeria">{fotos}</div>'
-    else:
-        galeria = f'<div class="galeria galeria--vazia">{SVG_CAPA}</div>'
-
-    # blocos de conteúdo
-    blocos = [galeria]
     if im.get("descricao"):
         blocos.append(f'<div class="bloco-ficha"><h3>A propriedade</h3>'
                       f'<div class="prosa">{paragrafos(im["descricao"])}</div></div>')
 
-    for titulo, chave in [("Características", "caracteristicas"),
+    for titulo, chave in [("CaracterÃ­sticas", "caracteristicas"),
                           ("Infraestrutura", "infraestrutura"),
-                          ("Documentação", "documentacao")]:
+                          ("DocumentaÃ§Ã£o", "documentacao")]:
         itens = im.get(chave) or []
         if itens:
             marcador = "marcada marcada--check" if chave == "documentacao" else "marcada"
@@ -1164,12 +1164,12 @@ def gerar_ficha_imovel(cfg, im) -> str:
 
     if preenchido(im.get("video_youtube")):
         vid = e(im["video_youtube"])
-        blocos.append(f'<div class="bloco-ficha"><h3>Vídeo</h3><div class="mapa">'
+        blocos.append(f'<div class="bloco-ficha"><h3>VÃ­deo</h3><div class="mapa">'
                       f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
-                      f'title="Vídeo da propriedade" loading="lazy" allowfullscreen></iframe></div></div>')
+                      f'title="VÃ­deo da propriedade" loading="lazy" allowfullscreen></iframe></div></div>')
 
     if preenchido(im.get("mapa_embed")):
-        blocos.append(f'<div class="bloco-ficha"><h3>Localização</h3><div class="mapa">'
+        blocos.append(f'<div class="bloco-ficha"><h3>LocalizaÃ§Ã£o</h3><div class="mapa">'
                       f'<iframe src="{e(im["mapa_embed"])}" title="Mapa da propriedade" '
                       f'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>')
 
@@ -1181,30 +1181,30 @@ def gerar_ficha_imovel(cfg, im) -> str:
         preco_html = f'<p class="painel__preco">{e(fmt_reais(im["preco"]))}</p>'
         nota = ""
         if im.get("preco_ha"):
-            nota = (f'<p class="painel__preco-nota">≈ R$ {fmt_num(round(im["preco_ha"]))} por hectare</p>')
+            nota = (f'<p class="painel__preco-nota">â‰ˆ R$ {fmt_num(round(im["preco_ha"]))} por hectare</p>')
 
     linhas = []
     if im.get("area_total_ha"):
-        linhas.append(("Área total", f'{fmt_num(im["area_total_ha"])} ha'))
+        linhas.append(("Ãrea total", f'{fmt_num(im["area_total_ha"])} ha'))
     if im.get("area_aberta_ha"):
-        linhas.append(("Área aberta", f'{fmt_num(im["area_aberta_ha"])} ha'))
+        linhas.append(("Ãrea aberta", f'{fmt_num(im["area_aberta_ha"])} ha'))
     if im.get("area_reserva_ha"):
         linhas.append(("Reserva / APP", f'{fmt_num(im["area_reserva_ha"])} ha'))
     if local:
-        linhas.append(("Localização", local))
+        linhas.append(("LocalizaÃ§Ã£o", local))
     if im.get("regiao"):
-        linhas.append(("Região", im["regiao"]))
+        linhas.append(("RegiÃ£o", im["regiao"]))
     if im.get("tipo"):
-        linhas.append(("Aptidão", TIPOS.get(im["tipo"], im["tipo"])))
+        linhas.append(("AptidÃ£o", TIPOS.get(im["tipo"], im["tipo"])))
     rotulo_status, _ = STATUS.get(im.get("status", "disponivel"), STATUS["disponivel"])
-    linhas.append(("Situação", rotulo_status))
+    linhas.append(("SituaÃ§Ã£o", rotulo_status))
 
     linhas_html = "".join(
         f'<li><span class="rot">{e(r)}</span><span class="val">{e(v)}</span></li>'
         for r, v in linhas
     )
 
-    msg = f"Olá! Tenho interesse na {im['titulo']} ({local}). Vi no site da Prime Fazendas."
+    msg = f"OlÃ¡! Tenho interesse na {im['titulo']} ({local}). Vi no site da Prime Fazendas."
     zap = montar_url_zap(cfg, msg)
     acoes = f'<a class="btn btn--principal btn--bloco" href="/contato/">Agendar visita</a>'
     if zap:
@@ -1216,23 +1216,23 @@ def gerar_ficha_imovel(cfg, im) -> str:
   {preco_html}{nota}
   <ul class="painel__linhas">{linhas_html}</ul>
   {acoes}
-  <p class="form__nota" style="margin-top:1.1rem">Dados sujeitos a confirmação em due diligence.</p>
+  <p class="form__nota" style="margin-top:1.1rem">Dados sujeitos a confirmaÃ§Ã£o em due diligence.</p>
 </aside>"""
 
     corpo.append(f'<section class="secao secao--compacta"><div class="env">'
                  f'<div class="ficha"><div>{"".join(blocos)}</div>{painel}</div></div></section>')
 
-    corpo.append(cta_faixa(cfg, "Quer ver outras opções?",
-                           "Temos propriedades que não estão publicadas no site.",
+    corpo.append(cta_faixa(cfg, "Quer ver outras opÃ§Ãµes?",
+                           "Temos propriedades que nÃ£o estÃ£o publicadas no site.",
                            "Falar com um especialista"))
 
-    desc = im.get("subtitulo") or f"{im['titulo']} — {local}."
+    desc = im.get("subtitulo") or f"{im['titulo']} â€” {local}."
     ld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Product",
         "name": im["titulo"],
         "description": desc,
-        "category": "Imóvel rural",
+        "category": "ImÃ³vel rural",
         **({"offers": {
             "@type": "Offer",
             "price": im["preco"],
@@ -1263,7 +1263,7 @@ def gerar_comunidade(cfg, pag) -> str:
                   f'Falar no WhatsApp</a>')
     else:
         botoes = '<a class="btn btn--dourado" href="/contato/">Quero entrar</a>'
-        aviso("comunidade: 'grupo_whatsapp' e 'canal_whatsapp' estão vazios — o botão aponta para /contato/ até você colar um link válido.")
+        aviso("comunidade: 'grupo_whatsapp' e 'canal_whatsapp' estÃ£o vazios â€” o botÃ£o aponta para /contato/ atÃ© vocÃª colar um link vÃ¡lido.")
 
     corpo = [hero(cfg, olho="Comunidade", titulo=s.get("titulo", com.get("nome", "Comunidade")),
                   texto=s.get("chamada", ""), botoes=botoes, interno=True)]
@@ -1278,7 +1278,7 @@ def gerar_comunidade(cfg, pag) -> str:
     if bens:
         corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
-    <div class="cabeca-secao"><p class="olho">O que você recebe</p>
+    <div class="cabeca-secao"><p class="olho">O que vocÃª recebe</p>
     <h2>Por que participar</h2></div>
     <div class="grade grade--2">{bens}</div>
   </div>
@@ -1322,10 +1322,10 @@ def gerar_post(cfg, p, outros) -> str:
     corpo = [f"""<section class="secao secao--compacta">
   <div class="env">
     <div class="artigo">
-      {migalhas([("Início", "/"), ("Blog", "/blog/"), (p['titulo'], "")])}
+      {migalhas([("InÃ­cio", "/"), ("Blog", "/blog/"), (p['titulo'], "")])}
       <p class="artigo__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
-      <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time>
-      <span>·</span><span>{e(p['autor'])}</span></p>
+      <span>Â·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time>
+      <span>Â·</span><span>{e(p['autor'])}</span></p>
       <h1>{e(p['titulo'])}</h1>
       {f'<p class="chamada chamada--larga">{e(p["resumo"])}</p>' if p.get('resumo') else ''}
     </div>
@@ -1346,7 +1346,7 @@ def gerar_post(cfg, p, outros) -> str:
   </div>
 </section>""")
 
-    corpo.append(cta_faixa(cfg, "Tem uma propriedade ou uma dúvida?",
+    corpo.append(cta_faixa(cfg, "Tem uma propriedade ou uma dÃºvida?",
                            "Fale com quem negocia terra no Tocantins todos os dias."))
 
     ld = json.dumps({
@@ -1391,34 +1391,34 @@ def gerar_contato(cfg, pag) -> str:
   </div>
   <div class="campo--duplo">
     <div class="campo">
-      <label for="interesse">O que você busca</label>
+      <label for="interesse">O que vocÃª busca</label>
       <select id="interesse" name="interesse">
         <option>Comprar uma propriedade</option>
         <option>Vender minha propriedade</option>
         <option>Avaliar uma propriedade</option>
-        <option>Regularização fundiária ou ambiental</option>
+        <option>RegularizaÃ§Ã£o fundiÃ¡ria ou ambiental</option>
         <option>Investir no agro</option>
         <option>Outro assunto</option>
       </select>
     </div>
     <div class="campo">
-      <label for="regiao">Região de interesse</label>
+      <label for="regiao">RegiÃ£o de interesse</label>
       <input type="text" id="regiao" name="regiao" placeholder="Ex: Palmas, Matopiba, Vale do Araguaia">
     </div>
   </div>
   <div class="campo">
     <label for="investimento">Faixa de investimento</label>
     <select id="investimento" name="investimento">
-      <option>Prefiro não informar</option>
-      <option>Até R$ 5 milhões</option>
-      <option>R$ 5 a 20 milhões</option>
-      <option>R$ 20 a 50 milhões</option>
-      <option>Acima de R$ 50 milhões</option>
+      <option>Prefiro nÃ£o informar</option>
+      <option>AtÃ© R$ 5 milhÃµes</option>
+      <option>R$ 5 a 20 milhÃµes</option>
+      <option>R$ 20 a 50 milhÃµes</option>
+      <option>Acima de R$ 50 milhÃµes</option>
     </select>
   </div>
   <div class="campo">
     <label for="mensagem">Mensagem</label>
-    <textarea id="mensagem" name="mensagem" placeholder="Conte o que você procura: tamanho, aptidão, região, prazo."></textarea>
+    <textarea id="mensagem" name="mensagem" placeholder="Conte o que vocÃª procura: tamanho, aptidÃ£o, regiÃ£o, prazo."></textarea>
   </div>
   <div class="grupo-btn">
     <button class="btn btn--principal" type="submit">Enviar pelo WhatsApp</button>
@@ -1439,7 +1439,7 @@ def gerar_contato(cfg, pag) -> str:
     if preenchido(c.get("email")):
         itens.append(("E-mail", f'<a href="mailto:{e(c["email"])}">{e(c["email"])}</a>'))
     if preenchido(c.get("endereco")):
-        itens.append(("Endereço", e(c["endereco"])))
+        itens.append(("EndereÃ§o", e(c["endereco"])))
     cidade = ", ".join(x for x in [c.get("cidade"), c.get("estado")] if preenchido(x))
     if cidade:
         itens.append(("Onde estamos", e(cidade)))
@@ -1452,7 +1452,7 @@ def gerar_contato(cfg, pag) -> str:
         f'<div class="contato-item"><p class="contato-item__rot">{e(r)}</p>'
         f'<p class="contato-item__val">{v}</p></div>'
         for r, v in itens
-    ) or '<div class="contato-item"><p class="contato-item__val">Dados de contato em atualização.</p></div>'
+    ) or '<div class="contato-item"><p class="contato-item__val">Dados de contato em atualizaÃ§Ã£o.</p></div>'
 
     corpo.append(f"""<section class="secao">
   <div class="env">
@@ -1478,17 +1478,17 @@ def gerar_404(cfg) -> str:
     corpo = [f"""<section class="secao">
   <div class="env centro" style="padding-block:clamp(3rem,10vw,6rem)">
     <p class="olho olho--centro">Erro 404</p>
-    <h1>Esta página não existe</h1>
+    <h1>Esta pÃ¡gina nÃ£o existe</h1>
     <p class="chamada chamada--larga" style="margin-inline:auto">
-      O endereço pode ter mudado ou a propriedade que você procurava já foi negociada.
+      O endereÃ§o pode ter mudado ou a propriedade que vocÃª procurava jÃ¡ foi negociada.
     </p>
     <div class="grupo-btn" style="justify-content:center;margin-top:2.25rem">
-      <a class="btn btn--principal" href="/">Ir para o início</a>
-      <a class="btn btn--vazado" href="/imoveis/">Ver imóveis</a>
+      <a class="btn btn--principal" href="/">Ir para o inÃ­cio</a>
+      <a class="btn btn--vazado" href="/imoveis/">Ver imÃ³veis</a>
     </div>
   </div>
 </section>"""]
-    return pagina(cfg, titulo="Página não encontrada", descricao="Página não encontrada.",
+    return pagina(cfg, titulo="PÃ¡gina nÃ£o encontrada", descricao="PÃ¡gina nÃ£o encontrada.",
                   url="/404.html", corpo="\n".join(corpo))
 
 
@@ -1521,9 +1521,9 @@ Require valid-user
 """
 
 
-HTACCESS = """# Prime Fazendas — configuração de servidor (Apache / site estatíco)
+HTACCESS = """# Prime Fazendas â€” configuraÃ§Ã£o de servidor (Apache / site estatÃ­co)
 
-# HTTPS obrigatório
+# HTTPS obrigatÃ³rio
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTPS} !=on
@@ -1537,12 +1537,12 @@ HTACCESS = """# Prime Fazendas — configuração de servidor (Apache / site est
 
 ErrorDocument 404 /404.html
 
-# Compressão
+# CompressÃ£o
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
 </IfModule>
 
-# Cache dos estáticos
+# Cache dos estÃ¡ticos
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
@@ -1554,7 +1554,7 @@ ErrorDocument 404 /404.html
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
-# Segurança
+# SeguranÃ§a
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
@@ -1588,15 +1588,15 @@ def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos
             if chave.startswith("_"):
                 continue
             if str(valor).strip() == PENDENTE:
-                aviso(f"config.json → {grupo}.{chave} ainda está em {PENDENTE}.")
+                aviso(f"config.json â†’ {grupo}.{chave} ainda estÃ¡ em {PENDENTE}.")
 
     if MOSTRAR_RASCUNHOS:
         n_r = sum(1 for i in imoveis if i.get("_rascunho")) + sum(1 for p in posts if p.get("_rascunho"))
         aviso(f"MODO RASCUNHO (--demo): {n_r} item(ns) nao publicado(s) estao aparecendo. "
-              f"Isso e so para voce ver o layout — o fluxo de publicacao ignora este modo.")
+              f"Isso e so para voce ver o layout â€” o fluxo de publicacao ignora este modo.")
 
     # Dado de teste que escapa para o ar e pior do que campo vazio: telefone que
-    # ninguem atende perde lead, e CRECI falso e numero de registro regulado —
+    # ninguem atende perde lead, e CRECI falso e numero de registro regulado â€”
     # publicar um inventado expoe a empresa a sancao administrativa.
     suspeitos = []
     for chave in ("telefone", "telefone_link", "whatsapp",
@@ -1626,21 +1626,21 @@ def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos
 
     exemplos = [i["arquivo"] for i in imoveis if i.get("_exemplo") and not i.get("_rascunho")]
     if exemplos:
-        bloqueio("imóveis de EXEMPLO publicados: " + ", ".join(exemplos)
+        bloqueio("imÃ³veis de EXEMPLO publicados: " + ", ".join(exemplos)
                  + ". Troque pelos dados reais ou marque publicado=false antes de subir.")
 
     nao_verif = [i.get("rotulo", "?") for i in dados_agro.get("indicadores", []) if i.get("verificar")]
     if nao_verif:
-        aviso(f"{len(nao_verif)} indicador(es) em dados-agro.json com verificar=true — "
-              f"não estão sendo exibidos no site até você confirmar a fonte.")
+        aviso(f"{len(nao_verif)} indicador(es) em dados-agro.json com verificar=true â€” "
+              f"nÃ£o estÃ£o sendo exibidos no site atÃ© vocÃª confirmar a fonte.")
 
     if not imoveis:
-        aviso("nenhum imóvel publicado — a página /imoveis/ vai mostrar o estado 'em atualização'.")
+        aviso("nenhum imÃ³vel publicado â€” a pÃ¡gina /imoveis/ vai mostrar o estado 'em atualizaÃ§Ã£o'.")
     if not posts:
-        aviso("nenhum post publicado — /blog/ vai mostrar 'em breve'.")
+        aviso("nenhum post publicado â€” /blog/ vai mostrar 'em breve'.")
 
     if not any(d.get("publicado") for d in depoimentos.get("depoimentos", [])):
-        aviso("nenhum depoimento publicado — a seção de prova social não aparece na home.")
+        aviso("nenhum depoimento publicado â€” a seÃ§Ã£o de prova social nÃ£o aparece na home.")
 
 
 def main() -> int:
@@ -1672,7 +1672,7 @@ def main() -> int:
         relatar(0)
         return 1 if bloqueios else 0
 
-    # limpa a saída, preservando o .git se alguém apontar para lá por engano
+    # limpa a saÃ­da, preservando o .git se alguÃ©m apontar para lÃ¡ por engano
     if SAIDA.exists():
         for item in SAIDA.iterdir():
             if item.name == ".git":
@@ -1683,7 +1683,7 @@ def main() -> int:
                 item.unlink()
     SAIDA.mkdir(parents=True, exist_ok=True)
 
-    # estáticos
+    # estÃ¡ticos
     shutil.copytree(TEMA / "assets", SAIDA / "assets", dirs_exist_ok=True)
     escrever("assets/favicon.svg", FAVICON)
 
@@ -1691,7 +1691,7 @@ def main() -> int:
     if midia.exists():
         shutil.copytree(midia, SAIDA / "midia", dirs_exist_ok=True)
 
-    # páginas
+    # pÃ¡ginas
     escrever("index.html", gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos))
     escrever("sobre/index.html", gerar_sobre(cfg, pag))
     escrever("servicos/index.html", gerar_servicos(cfg, pag))
@@ -1744,29 +1744,29 @@ def main() -> int:
 def relatar(n_html: int, imoveis=None, posts=None) -> None:
     print()
     print("=" * 68)
-    print("  PRIME FAZENDAS — build")
+    print("  PRIME FAZENDAS â€” build")
     print("=" * 68)
 
     if n_html:
-        print(f"  páginas geradas .... {n_html}")
-        print(f"  imóveis ............ {len(imoveis or [])}")
+        print(f"  pÃ¡ginas geradas .... {n_html}")
+        print(f"  imÃ³veis ............ {len(imoveis or [])}")
         print(f"  artigos ............ {len(posts or [])}")
         try:
             destino = SAIDA.relative_to(RAIZ)
             destino_txt = f"{destino.as_posix()}/"
         except Exception:
             destino_txt = str(SAIDA)
-        print(f"  saída .............. {destino_txt}")
+        print(f"  saÃ­da .............. {destino_txt}")
 
     if avisos:
         print()
-        print(f"  AVISOS ({len(avisos)}) — o site funciona, mas confira:")
+        print(f"  AVISOS ({len(avisos)}) â€” o site funciona, mas confira:")
         for a in avisos:
-            print(f"    · {a}")
+            print(f"    Â· {a}")
 
     if bloqueios:
         print()
-        print(f"  BLOQUEIOS ({len(bloqueios)}) — resolva antes de publicar:")
+        print(f"  BLOQUEIOS ({len(bloqueios)}) â€” resolva antes de publicar:")
         for b in bloqueios:
             print(f"    ! {b}")
     elif n_html:
