@@ -32,7 +32,7 @@ O fluxo canônico hoje é:
 ### Geração e publicação
 
 - `build.py` — gera a pasta `site/`
-- `ver.ps1` — preview local, sem publicar
+- `ver.ps1` — preview local, sem publicar; no modo `-Demo` usa pasta temporária e não mexe no `site/` versionado
 - `vercel.json` — configuração da publicação na Vercel
 
 ---

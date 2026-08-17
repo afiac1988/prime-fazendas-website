@@ -5,8 +5,9 @@ Prime Fazendas — gerador do site.
 
 Lê conteudo/ e escreve site/. Zero dependências: só a biblioteca padrão do Python.
 
-    python build.py            gera o site
-    python build.py --auditar   só valida o conteúdo e sai (não escreve nada)
+    python build.py                     gera o site
+    python build.py --auditar            só valida o conteúdo e sai (não escreve nada)
+    python build.py --demo --saida TMP   gera uma prévia fora do site/
 
 O que você edita fica em conteudo/. Este arquivo é a máquina; normalmente
 você não precisa abri-lo.
@@ -26,7 +27,19 @@ from pathlib import Path
 RAIZ = Path(__file__).resolve().parent
 CONTEUDO = RAIZ / "conteudo"
 TEMA = RAIZ / "tema"
-SAIDA = RAIZ / "site"
+
+
+def _saida_padrao() -> Path:
+    if "--saida" in sys.argv:
+        i = sys.argv.index("--saida")
+        if i + 1 >= len(sys.argv) or sys.argv[i + 1].startswith("--"):
+            bloqueio("--saida exige um caminho logo depois dela.")
+            return RAIZ / "site"
+        return Path(sys.argv[i + 1]).expanduser()
+    return RAIZ / "site"
+
+
+SAIDA = _saida_padrao()
 
 PENDENTE = "PREENCHER"
 
@@ -1738,7 +1751,12 @@ def relatar(n_html: int, imoveis=None, posts=None) -> None:
         print(f"  páginas geradas .... {n_html}")
         print(f"  imóveis ............ {len(imoveis or [])}")
         print(f"  artigos ............ {len(posts or [])}")
-        print(f"  saída .............. site/")
+        try:
+            destino = SAIDA.relative_to(RAIZ)
+            destino_txt = f"{destino.as_posix()}/"
+        except Exception:
+            destino_txt = str(SAIDA)
+        print(f"  saída .............. {destino_txt}")
 
     if avisos:
         print()

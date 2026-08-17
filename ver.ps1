@@ -4,7 +4,8 @@
 #  Uso:  .\ver.ps1
 #
 #  Gera o site a partir de conteudo/ e abre no navegador em http://127.0.0.1:8099
-#  Nada sai do seu computador. Pode rodar quantas vezes quiser.
+#  No modo -Demo, a prévia é gerada numa pasta temporária separada do site/
+#  versionado, para não correr o risco de misturar rascunho com publicação.
 # =============================================================================
 
 param([switch]$Demo)
@@ -35,11 +36,16 @@ if (-not $python) {
 $env:PYTHONUTF8 = '1'
 $env:PYTHONIOENCODING = 'utf-8'
 
+$saidaPreview = Join-Path ([System.IO.Path]::GetTempPath()) ("prime-fazendas-preview-" + ([guid]::NewGuid().ToString("N")))
+if (-not (Test-Path $saidaPreview)) {
+    New-Item -ItemType Directory -Path $saidaPreview -Force | Out-Null
+}
+
 Write-Host ""
 Write-Host "  Gerando o site..." -ForegroundColor Cyan
 if ($Demo) {
     Write-Host "  (modo rascunho: mostrando tambem o que esta com publicado=false)" -ForegroundColor Yellow
-    & $python "$raiz\build.py" --demo
+    & $python "$raiz\build.py" --demo --saida $saidaPreview
 } else {
     & $python "$raiz\build.py"
 }
@@ -64,5 +70,9 @@ Write-Host ""
 
 Start-Process "http://127.0.0.1:$porta"
 
-Set-Location "$raiz\site"
+if ($Demo) {
+    Set-Location $saidaPreview
+} else {
+    Set-Location "$raiz\site"
+}
 & $python -m http.server $porta --bind 127.0.0.1
