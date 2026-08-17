@@ -136,6 +136,41 @@ def fmt_reais(valor) -> str:
     return "R$ " + fmt_num(round(v))
 
 
+def resumo_fator_regiao(texto: str, indice: int) -> tuple[str, str]:
+    """Transforma a lista bruta de fatores regionais em titulo + resumo curto."""
+    texto = str(texto).strip().rstrip(".")
+    mapa = {
+        "Logística conectada aos corredores Norte e ao Arco Norte": (
+            "Logística",
+            "Conexão com os corredores Norte e com a saída mais estratégica da produção.",
+        ),
+        "Solo e clima com aptidão para soja, milho, algodão e pecuária": (
+            "Aptidão produtiva",
+            "Base técnica forte para grãos, fibras e pecuária em escala.",
+        ),
+        "Custo por hectare ainda abaixo das regiões consolidadas do Centro-Sul": (
+            "Preço de entrada",
+            "Ainda há janela de aquisição abaixo das praças já totalmente consolidadas.",
+        ),
+        "Base tecnológica e serviços agrícolas em expansão": (
+            "Ecossistema",
+            "A oferta de tecnologia, insumos e suporte técnico amadureceu muito na região.",
+        ),
+        "Disponibilidade hídrica e potencial de irrigação": (
+            "Água",
+            "A leitura hídrica continua sendo peça central para produtividade e valorização.",
+        ),
+    }
+    if texto in mapa:
+        return mapa[texto]
+
+    partes = texto.split()
+    titulo = " ".join(partes[:2]).strip() if len(partes) >= 2 else texto[:24].strip()
+    if not titulo:
+        titulo = f"Item {indice:02d}"
+    return titulo, texto
+
+
 MESES = ["janeiro", "fevereiro", "marÃ§o", "abril", "maio", "junho", "julho",
          "agosto", "setembro", "outubro", "novembro", "dezembro"]
 
@@ -400,6 +435,29 @@ def montar_url_zap(cfg: dict, mensagem: str | None = None) -> str:
     return f"https://wa.me/{numero}?text={quote(msg)}"
 
 
+def formatar_telefone_exibicao(contato: dict, idioma: str = "") -> str:
+    bruto = str(contato.get("telefone_link") or contato.get("telefone") or "").strip()
+    if not bruto:
+        return ""
+    digitos = re.sub(r"\D", "", bruto)
+    if digitos.startswith("55") and len(digitos) >= 13:
+        digitos = digitos[2:]
+    if len(digitos) >= 10:
+        ddd = digitos[:2]
+        resto = digitos[2:]
+        if len(resto) >= 9:
+            local = f"{ddd}-{resto[:5]}-{resto[5:9]}"
+        elif len(resto) >= 8:
+            local = f"{ddd}-{resto[:4]}-{resto[4:8]}"
+        else:
+            local = f"{ddd}-{resto}"
+    else:
+        local = contato.get("telefone", bruto)
+    if str(idioma).lower().startswith("en"):
+        return f"+55 {local}" if local else contato.get("telefone", bruto)
+    return local
+
+
 def cabecalho(cfg: dict, url_atual: str) -> str:
     itens = []
     for item in cfg.get("navegacao", []):
@@ -457,7 +515,7 @@ def rodape(cfg: dict) -> str:
     linhas = []
     if preenchido(c.get("telefone")):
         tel = re.sub(r"\D", "", c.get("telefone_link") or c["telefone"])
-        linhas.append(f'<li><a href="tel:+{tel}">{e(c["telefone"])}</a></li>')
+        linhas.append(f'<li><a href="tel:+{tel}">{e(formatar_telefone_exibicao(c, cfg.get("site", {}).get("idioma", "")))}</a></li>')
     if preenchido(c.get("email")):
         linhas.append(f'<li><a href="mailto:{e(c["email"])}">{e(c["email"])}</a></li>')
     if preenchido(c.get("endereco")):
@@ -775,6 +833,8 @@ def card_imovel(im: dict) -> str:
     else:
         dados.append(f'<div class="dado"><span class="dado__rot">Valor</span>'
                      f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
+    dados.append('<div class="dado dado--nota"><span class="dado__rot">Atenção</span>'
+                 '<span class="dado__val dado__val--nota">Preço e disponibilidade sob confirmação.</span></div>')
 
     return f"""<article class="imovel" data-tipo="{e(im.get('tipo', ''))}">
   <div class="imovel__capa">
@@ -936,7 +996,6 @@ def gerar_sobre(cfg, pag) -> str:
     s = pag.get("sobre", {})
     corpo = [hero(cfg, olho="Sobre nÃ³s", titulo=s.get("titulo", "Sobre a Prime Fazendas"),
                   texto=s.get("chamada", ""), interno=True)]
-
     corpo.append(f"""<section class="secao">
   <div class="env">
     <div class="prosa">
@@ -1051,16 +1110,39 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
         corpo.append(f'<section class="secao secao--escura"><div class="env">'
                      f'<div class="grade grade--3">{blocos}</div></div></section>')
 
-    fatores = "".join(f"<li>{e(x)}</li>" for x in dados_agro.get("fatores_regiao", []))
-    if fatores:
+    fatores_brutos = dados_agro.get("fatores_regiao", [])
+    if fatores_brutos:
+        painel_fatores = []
+        for i, fator in enumerate(fatores_brutos):
+            titulo_fator, resumo_fator = resumo_fator_regiao(fator, i + 1)
+            painel_fatores.append(
+                f'<article class="territorio-card">'
+                f'<p class="territorio-card__num">{i + 1:02d}</p>'
+                f'<h3>{e(titulo_fator)}</h3>'
+                f'<p>{e(resumo_fator)}</p>'
+                f'</article>'
+            )
+
         corpo.append(f"""<section class="secao">
   <div class="env">
-    <div class="grade grade--2" style="align-items:start">
-      <div>
-        <p class="olho">A regiÃ£o</p>
-        <h2>{e(s.get('regiao_titulo', 'Tocantins e Matopiba'))}</h2>
+    <div class="cabeca-secao">
+      <p class="olho">A região</p>
+      <h2>{e(s.get('regiao_titulo', 'Tocantins e Matopiba: leitura de território'))}</h2>
+      <p class="chamada chamada--larga">{e(s.get('regiao_subtitulo', 'Em vez de um mapa genérico, mostramos um painel visual de leitura de mercado: logística, aptidão produtiva, custo de entrada e documentação.'))}</p>
+    </div>
+    <div class="territorio">
+      <div class="territorio__mapa" aria-hidden="true">
+        <span class="territorio__tag territorio__tag--secundaria">MATOPIBA</span>
+        <span class="territorio__tag">Tocantins</span>
+        <strong class="territorio__titulo">Posição estratégica</strong>
+        <p class="territorio__texto">Leitura combinada de logística, mercado e segurança documental.</p>
+        <div class="territorio__chip-list">
+          <span class="territorio__chip">Arco Norte</span>
+          <span class="territorio__chip">Due diligence</span>
+          <span class="territorio__chip">Preço sob confirmação</span>
+        </div>
       </div>
-      <ul class="marcada marcada--check">{fatores}</ul>
+      <div class="grade grade--2">{''.join(painel_fatores)}</div>
     </div>
   </div>
 </section>""")
@@ -1084,6 +1166,15 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     s = pag.get("imoveis", {})
     corpo = [hero(cfg, olho="PortfÃ³lio", titulo=s.get("titulo", "ImÃ³veis rurais Ã  venda"),
                   texto=s.get("chamada", ""), interno=True)]
+    corpo.append("""<section class="secao secao--compacta">
+  <div class="env">
+    <div class="painel__alerta" style="margin:0">
+      Pre?os, ?rea e disponibilidade s?o confirmados antes da publica??o. Se a propriedade
+      estiver reservada ou em negocia??o, ela n?o aparece como dispon?vel.
+    </div>
+  </div>
+</section>""")
+
 
     if imoveis:
         tipos_presentes = []
@@ -1182,6 +1273,7 @@ def gerar_ficha_imovel(cfg, im) -> str:
         nota = ""
         if im.get("preco_ha"):
             nota = (f'<p class="painel__preco-nota">â‰ˆ R$ {fmt_num(round(im["preco_ha"]))} por hectare</p>')
+    nota += '<p class="painel__alerta">Preço, área e disponibilidade são confirmados antes de qualquer proposta.</p>'
 
     linhas = []
     if im.get("area_total_ha"):
@@ -1430,10 +1522,10 @@ def gerar_contato(cfg, pag) -> str:
     itens = []
     if preenchido(c.get("telefone")):
         tel = re.sub(r"\D", "", c.get("telefone_link") or c["telefone"])
-        itens.append(("Telefone", f'<a href="tel:+{tel}">{e(c["telefone"])}</a>'))
+        itens.append(("Telefone", f'<a href="tel:+{tel}">{e(formatar_telefone_exibicao(c, cfg.get("site", {}).get("idioma", "")))}</a>'))
     if preenchido(c.get("whatsapp")):
         zap = montar_url_zap(cfg)
-        val = (f'<a href="{e(zap)}" target="_blank" rel="noopener">{e(c["whatsapp"])}</a>'
+        val = (f'<a href="{e(zap)}" target="_blank" rel="noopener">{e(formatar_telefone_exibicao(c, cfg.get("site", {}).get("idioma", "")))}</a>'
                if zap else e(c["whatsapp"]))
         itens.append(("WhatsApp", val))
     if preenchido(c.get("email")):
@@ -1628,6 +1720,22 @@ def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos
     if exemplos:
         bloqueio("imÃ³veis de EXEMPLO publicados: " + ", ".join(exemplos)
                  + ". Troque pelos dados reais ou marque publicado=false antes de subir.")
+
+    suspeita_preco = []
+    for i in imoveis:
+        if i.get("preco_sob_consulta") or not i.get("preco"):
+            continue
+        preco_ha = i.get("preco_ha") or 0
+        if preco_ha and preco_ha < 1000:
+            suspeita_preco.append(
+                f"{i.get('arquivo', i.get('slug', 'im?vel'))} ? {fmt_num(round(preco_ha))}/ha"
+            )
+    if suspeita_preco:
+        aviso(
+            "pre?o por hectare muito abaixo do esperado em: "
+            + "; ".join(suspeita_preco)
+            + ". Confirme ?rea, moeda e disponibilidade antes de publicar."
+        )
 
     nao_verif = [i.get("rotulo", "?") for i in dados_agro.get("indicadores", []) if i.get("verificar")]
     if nao_verif:

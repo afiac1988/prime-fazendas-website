@@ -3,7 +3,7 @@
 
   "home": {
     "hero_titulo": "Conectando pessoas à terra, à natureza e à prosperidade.",
-    "hero_texto": "Intermediação de fazendas e propriedades rurais no Tocantins e no Matopiba, com due diligence técnica, jurídica e ambiental em cada negócio.",
+    "hero_texto": "Intermediação de fazendas e propriedades rurais no Tocantins e no Matopiba, com due diligence técnica, jurídica e ambiental em cada negócio. Preço e disponibilidade são confirmados antes de qualquer proposta.",
     "hero_cta": "Conheça nossas oportunidades",
     "hero_cta_secundario": "Falar com um especialista",
 
@@ -113,14 +113,15 @@
     "titulo": "Por que investir no agronegócio",
     "chamada": "Ativo real, finito e produtivo — na fronteira agrícola que ainda está sendo consolidada.",
     "intro": "O Brasil é uma das maiores potências agrícolas do mundo e o agronegócio responde por uma fatia relevante do PIB nacional. Investir em terra agrícola é combinar valorização de ativo real com geração de renda — desde que a propriedade escolhida seja tecnicamente boa e juridicamente limpa.",
-    "regiao_titulo": "Tocantins e Matopiba: por que aqui",
+    "regiao_titulo": "Tocantins e Matopiba: leitura de território",
+    "regiao_subtitulo": "Em vez de um mapa genérico, mostramos um painel visual de leitura de mercado: logística, aptidão produtiva, custo de entrada e segurança documental.",
     "fechamento_titulo": "Regularidade é o que separa oportunidade de armadilha",
     "fechamento_texto": "Área com pendência registral ou ambiental parece barata e sai caro: não aceita financiamento, alonga o fechamento e carrega passivo que acompanha o imóvel, não o vendedor anterior. Toda propriedade do nosso portfólio passa por verificação antes de ser apresentada."
   },
 
   "imoveis": {
     "titulo": "Imóveis rurais à venda",
-    "chamada": "Portfólio enxuto e verificado. Cada propriedade passou por análise documental, ambiental e de mercado.",
+    "chamada": "Portfólio enxuto e verificado. Cada propriedade passou por análise documental, ambiental e de mercado. Preço e disponibilidade são confirmados antes de qualquer proposta.",
     "vazio_titulo": "Portfólio em atualização",
     "vazio_texto": "Estamos preparando as próximas oportunidades. Se você procura algo específico — região, tamanho, aptidão ou faixa de investimento — fale com a nossa equipe: boa parte das nossas negociações acontece antes do anúncio."
   },
@@ -174,6 +175,6 @@
 
   "rodape": {
     "sobre_curto": "Imobiliária especializada em fazendas e propriedades rurais no Tocantins e no Matopiba. Intermediação com due diligence técnica, jurídica e ambiental.",
-    "aviso_legal": "As informações sobre propriedades têm caráter informativo e não constituem oferta vinculante. Valores, áreas e características estão sujeitos a confirmação em due diligence. Este site não presta consultoria de investimento."
+    "aviso_legal": "As informações sobre propriedades têm caráter informativo e não constituem oferta vinculante. Valores, áreas, disponibilidade e características estão sujeitos a confirmação em due diligence. Este site não presta consultoria de investimento."
   }
 }

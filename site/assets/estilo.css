@@ -521,6 +521,17 @@ strong { font-weight: 600; color: var(--azul-900); }
 .dado__rot { font-size: 0.68rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tinta-suave); }
 .dado__val { font-family: var(--fonte-display); font-size: 1.05rem; color: var(--azul-900); }
 .dado__val--preco { color: var(--dourado-escuro); }
+.dado--nota {
+  flex-basis: 100%;
+  padding-top: 0.9rem;
+  margin-top: 0.1rem;
+  border-top: 1px dashed var(--borda);
+}
+.dado__val--nota {
+  color: var(--terra-700);
+  font-size: 0.92rem;
+  line-height: 1.45;
+}
 
 /* Ficha do imóvel */
 .ficha { display: grid; gap: clamp(2rem, 5vw, 3.5rem); grid-template-columns: 1fr; }
@@ -549,7 +560,7 @@ strong { font-weight: 600; color: var(--azul-900); }
   position: sticky;
   top: calc(var(--header-h) + 1.5rem);
 }
-.painel__preco {
+.painel__preco { 
   font-family: var(--fonte-display);
   font-size: clamp(1.7rem, 4vw, 2.15rem);
   line-height: 1.1;
@@ -557,6 +568,16 @@ strong { font-weight: 600; color: var(--azul-900); }
   margin: 0 0 0.3rem;
 }
 .painel__preco-nota { font-size: 0.85rem; color: var(--tinta-suave); margin-bottom: 1.5rem; }
+.painel__alerta {
+  margin-top: 0.9rem;
+  padding: 0.85rem 1rem;
+  border-radius: calc(var(--raio) - 6px);
+  background: rgba(201, 164, 76, 0.14);
+  border: 1px solid rgba(201, 164, 76, 0.26);
+  color: var(--azul-900);
+  font-size: 0.9rem;
+  line-height: 1.45;
+}
 .painel__linhas { list-style: none; margin: 0 0 1.6rem; padding: 0; }
 .painel__linhas li {
   display: flex; justify-content: space-between; gap: 1rem;
@@ -572,6 +593,118 @@ strong { font-weight: 600; color: var(--azul-900); }
 
 .mapa { border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; aspect-ratio: 16/9; }
 .mapa iframe { width: 100%; height: 100%; border: 0; }
+
+.territorio {
+  display: grid;
+  gap: 1.5rem;
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+  align-items: stretch;
+}
+@media (max-width: 940px) {
+  .territorio { grid-template-columns: 1fr; }
+}
+
+.territorio__mapa {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.5rem, 3vw, 2rem);
+  border-radius: var(--raio);
+  border: 1px solid rgba(250, 248, 243, 0.14);
+  background:
+    linear-gradient(180deg, rgba(12, 30, 51, 0.97), rgba(30, 58, 90, 0.96)),
+    radial-gradient(circle at top right, rgba(201, 164, 76, 0.22), transparent 35%),
+    radial-gradient(circle at bottom left, rgba(255, 255, 255, 0.1), transparent 40%);
+  color: var(--branco);
+  min-height: 100%;
+  box-shadow: var(--sombra);
+}
+.territorio__mapa::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(255, 255, 255, 0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.06) 1px, transparent 1px);
+  background-size: 26px 26px;
+  opacity: 0.28;
+  pointer-events: none;
+}
+.territorio__mapa::after {
+  content: "";
+  position: absolute;
+  inset: auto 12% 14% auto;
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201, 164, 76, 0.38), transparent 70%);
+  filter: blur(2px);
+  opacity: 0.5;
+  pointer-events: none;
+}
+.territorio__tag {
+  position: relative;
+  z-index: 1;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.42rem 0.75rem;
+  border-radius: 999px;
+  border: 1px solid rgba(250, 248, 243, 0.14);
+  background: rgba(250, 248, 243, 0.08);
+  color: rgba(250, 248, 243, 0.9);
+  font-size: 0.74rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.territorio__tag--secundaria {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(250, 248, 243, 0.94);
+}
+.territorio__titulo {
+  position: relative;
+  z-index: 1;
+  display: block;
+  margin-top: 1rem;
+  font-family: var(--fonte-display);
+  font-size: clamp(1.55rem, 3vw, 2.05rem);
+}
+.territorio__texto {
+  position: relative;
+  z-index: 1;
+  max-width: 32ch;
+  margin: 0.8rem 0 1.3rem;
+  color: rgba(250, 248, 243, 0.78);
+  line-height: 1.55;
+}
+.territorio__chip-list {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+}
+.territorio__chip {
+  padding: 0.44rem 0.75rem;
+  border-radius: 999px;
+  background: rgba(250, 248, 243, 0.08);
+  border: 1px solid rgba(250, 248, 243, 0.12);
+  color: rgba(250, 248, 243, 0.84);
+  font-size: 0.8rem;
+}
+.territorio-card {
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+  padding: 1.25rem;
+  box-shadow: var(--sombra-fina);
+}
+.territorio-card__num {
+  font-family: var(--fonte-display);
+  color: var(--dourado-escuro);
+  margin-bottom: 0.8rem;
+}
+.territorio-card h3 { margin-bottom: 0.45rem; }
+.territorio-card p { color: var(--tinta-media); margin: 0; }
 
 .vazio {
   text-align: center;
