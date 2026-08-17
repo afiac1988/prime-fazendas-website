@@ -4,7 +4,6 @@ deploy.local.json
 .env
 
 # Saída gerada pelo build (o site é reconstruído a partir de conteudo/)
-/site/
 
 # Sistema
 Thumbs.db
