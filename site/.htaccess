@@ -1,4 +1,4 @@
-# Prime Fazendas — configuração de servidor (Apache / Hostinger)
+# Prime Fazendas — configuração de servidor (Apache / site estatíco)
 
 # HTTPS obrigatório
 <IfModule mod_rewrite.c>

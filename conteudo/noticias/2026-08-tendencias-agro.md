@@ -5,7 +5,7 @@ autor: Prime Fazendas
 categoria: Mercado
 resumo: Conheça as principais tendências que estão moldando o setor agrícola e as oportunidades para investidores rurais.
 capa:
-publicado: false
+publicado: true
 ---
 
 O mercado agrícola atravessa um período de transformação. Tecnologia, sustentabilidade e eficiência operacional são os pilares que definem o cenário para investidores rurais em 2026.
