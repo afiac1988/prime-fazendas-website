@@ -1,5 +1,5 @@
 {
-  "_leia": "ARQUIVO DE EXEMPLO — serve para você ver como o site fica. Substitua pelos dados reais ou apague. O publicar.ps1 se recusa a subir enquanto existir 'EXEMPLO' num imóvel publicado.",
+  "_leia": "ARQUIVO DE EXEMPLO — serve para você ver como o site fica. Substitua pelos dados reais ou apague. O build bloqueia qualquer imóvel publicado que ainda tenha 'EXEMPLO' no título.",
 
   "publicado": false,
   "destaque": true,

@@ -46,7 +46,7 @@ if ($Demo) {
 $codigo = $LASTEXITCODE
 
 if ($codigo -ne 0) {
-    Write-Host "  (ha bloqueios acima — para ver localmente tudo bem, mas o publicar.ps1 vai recusar)" -ForegroundColor Yellow
+    Write-Host "  (ha bloqueios acima — para ver localmente tudo bem, mas o fluxo de publicacao vai recusar)" -ForegroundColor Yellow
 }
 
 # Derruba um servidor antigo na mesma porta, se houver

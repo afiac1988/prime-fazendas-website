@@ -6,7 +6,7 @@ do Apache produz por padrao.
 
 Por que APR1 e nao bcrypt: o modulo `crypt` saiu da biblioteca padrao no
 Python 3.13 e bcrypt exigiria dependencia externa. APR1 e implementavel com
-hashlib puro e e aceito por qualquer Apache — inclusive o da Hostinger.
+hashlib puro e e aceito por qualquer Apache.
 
 Uso como biblioteca:
     from htpasswd import gerar_hash

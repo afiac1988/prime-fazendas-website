@@ -1,5 +1,5 @@
 {
-  "_leia": "Painel de controle do site. Edite os valores, salve, rode publicar.ps1. Campos com 'PREENCHER' precisam dos dados reais antes de ir ao ar.",
+  "_leia": "Painel de controle do site. Edite os valores, salve e rode ver.ps1 para conferir localmente. Campos com 'PREENCHER' precisam dos dados reais antes de entrar no fluxo Vercel.",
 
   "marca": {
     "nome": "Prime Fazendas",

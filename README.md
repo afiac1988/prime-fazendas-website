@@ -1,183 +1,85 @@
 # Prime Fazendas — site
 
 Site institucional e portfólio de imóveis rurais da Prime Fazendas.
-HTML estático gerado por um script Python de arquivo único, sem dependências,
-hospedado na Hostinger.
+O fluxo canônico hoje é:
+
+`conteudo/` ou `tema/assets/` → `ver.ps1` → commit em `main` → push → Vercel publica.
 
 **No ar em:** https://primefazendas.com
 
----
-
-## Por que este formato
-
-| Decisão | Motivo |
-|---|---|
-| HTML estático | Carrega rápido, não cai, não precisa de banco, não tem plugin para atualizar nem superfície de ataque. |
-| Gerador em Python puro | Já existe Python na máquina. Zero `npm install`, zero `node_modules`, nada que quebre em 6 meses. |
-| Conteúdo em JSON e Markdown | Publicar um imóvel novo é copiar um arquivo e preencher. Não exige mexer em código. |
-| Guarda-corpo no build | O `publicar.ps1` se recusa a subir conteúdo de exemplo ou incompleto. Erro humano é barrado antes do ar. |
-| Envio incremental por FTPS | Só sobe o que mudou. Publicar um post novo leva segundos. |
-
-### Sobre migrar para Next.js
-
-**Decisão tomada em 2026-08-09: fica estático.** Não é falta de ferramenta —
-Node 24 está instalado na máquina.
-
-Na hospedagem compartilhada da Hostinger (Apache + PHP, sem runtime Node), um
-Next.js só publica via `output: 'export'` — que gera exatamente o mesmo HTML
-estático que já existe aqui, ao custo de ~300 MB de `node_modules`, um passo de
-build e upgrades periódicos. Para o visitante, nada muda.
-
-Next.js passaria a valer a pena se aparecer: rotas de API para o formulário,
-CMS com editor visual, ISR para um portfólio grande, ou um time React assumindo
-a manutenção. Nenhum desses é o caso hoje.
-
-Se algum dia for: a camada de conteúdo (`conteudo/*.json` e `*.md`) porta direto
-para qualquer framework — foi desenhada separada da apresentação justamente
-para isso. O que se joga fora é só o `build.py` e o `tema/`.
+> Mapa rápido e atualizado do fluxo: [MAPA_RAPIDO_VERCEL.md](MAPA_RAPIDO_VERCEL.md)
 
 ---
 
-## A marca
+## O que editar
 
-A identidade vem do logotipo original (`conteudo/midia/geral/marca-original/`):
-**sol dourado sobre os sulcos do plantio**, wordmark em capitulares romanas,
-azul-marinho e dourado.
+### Conteúdo
 
-| Elemento | Valor |
-|---|---|
-| Azul-marinho | `#0C1E33` (fundo) · `#1A3C5E` (ação) |
-| Dourado | `#C9A44C` |
-| Wordmark | Cinzel (equivalente livre do Trajan do logotipo) |
-| Títulos | Fraunces |
-| Texto | Inter |
-| Assinatura | *A terra é o único investimento onde o tempo trabalha por você.* |
+- `conteudo/config.json` — contatos, redes e configuração do site
+- `conteudo/paginas.json` — textos institucionais
+- `conteudo/dados-agro.json` — indicadores do setor
+- `conteudo/depoimentos.json` — prova social
+- `conteudo/imoveis/*.json` — propriedades
+- `conteudo/noticias/*.md` — artigos do blog
 
-> O documento de estrutura sugeria verde e marrom, mas o logotipo real da
-> empresa é azul e dourado. A marca existente venceu a sugestão do rascunho.
+### Aparência e comportamento
 
-O símbolo foi **redesenhado em vetor**. A geometria vive em
-`ferramentas/gerar_og.py` e é a fonte única de verdade: o script emite tanto
-`tema/assets/marca.svg` (usado no cabeçalho, rodapé e favicon) quanto
-`tema/assets/og-prime-fazendas.png` (a miniatura do WhatsApp/LinkedIn). Assim o
-logo do site e o do compartilhamento nunca divergem.
+- `tema/assets/estilo.css` — estilo visual
+- `tema/assets/site.js` — menu e interações
+- `tema/assets/marca.svg` — marca vetorial gerada
+- `tema/assets/og-prime-fazendas.png` — imagem de compartilhamento gerada
 
-```powershell
-python ferramentas/gerar_og.py     # só quando a marca mudar
-```
+### Geração e publicação
 
-Esse é o único script que usa Pillow. O build do site continua sem dependência
-nenhuma.
+- `build.py` — gera a pasta `site/`
+- `ver.ps1` — preview local, sem publicar
+- `vercel.json` — configuração da publicação na Vercel
 
 ---
 
-## Os três comandos
+## O que não mexer manualmente
 
-```powershell
-.\ver.ps1          # gera o site e abre no navegador (nada sai do PC)
-.\ver.ps1 -Demo    # mostra também o que está em rascunho (publicado=false)
-.\publicar.ps1     # gera, audita, sobe para a Hostinger e versiona no git
-.\publicar.ps1 -SomenteGerar   # só valida, não envia
-```
-
-Nenhum outro passo. Não há build de CSS, nem compilação, nem servidor de aplicação.
-
-O `-Demo` existe para você conferir o layout de um imóvel antes de publicá-lo.
-O `publicar.ps1` **nunca** usa esse modo — ele sempre regenera o `site/` sem a
-flag, então rascunho não tem como escapar para o ar.
-
-Os três imóveis de exemplo vêm com `publicado: false`: o site já está num estado
-publicável e honesto desde o primeiro dia. Use `.\ver.ps1 -Demo` para vê-los.
+- `site/` — saída gerada pelo build
+- arquivos legados de publicação antiga — foram removidos do fluxo canônico
 
 ---
 
-## Estrutura
+## Como atualizar
 
-```
+1. Edite o arquivo certo em `conteudo/` ou `tema/assets/`.
+2. Rode `ver.ps1` para conferir localmente.
+3. Se estiver certo, faça commit na branch `main`.
+4. Dê push.
+5. A Vercel publica automaticamente.
+
+---
+
+## Estrutura curta
+
+```text
 prime-fazendas-website/
-│
-├── conteudo/                    ← AQUI É ONDE SE MEXE
-│   ├── config.json                contato, redes, domínio, analytics
-│   ├── paginas.json               todo o texto institucional do site
-│   ├── dados-agro.json            números do setor, com fonte e ano
-│   ├── depoimentos.json           prova social
-│   ├── imoveis/                   um .json por propriedade
-│   │   └── _MODELO.json
-│   ├── noticias/                  um .md por artigo do blog
-│   │   └── _MODELO.md
-│   └── midia/                     fotos
-│       ├── imoveis/<slug>/
-│       └── geral/
-│
-├── tema/assets/                 ← aparência
-│   ├── estilo.css                 paleta e layout
-│   ├── site.js                    menu, filtros, formulário
-│   ├── marca.svg                  símbolo vetorial (GERADO)
-│   └── og-prime-fazendas.png      miniatura de compartilhamento (GERADO)
-│
-├── ferramentas/gerar_og.py      ← gera a marca e a miniatura
-├── build.py                     ← o gerador do site
-├── ver.ps1                      ← preview local
-├── publicar.ps1                 ← publicação
-├── deploy.exemplo.json          ← modelo de credenciais
-├── site/                        ← GERADO. Não editar, não versionar.
-└── docs/COMO-ATUALIZAR.md       ← manual em linguagem direta
+├── conteudo/
+├── tema/assets/
+├── build.py
+├── ver.ps1
+├── vercel.json
+├── site/
+└── MAPA_RAPIDO_VERCEL.md
 ```
-
-Arquivos que começam com `_` são ignorados pelo gerador — por isso os modelos
-podem ficar junto do conteúdo real sem irem para o ar.
-
----
-
-## Páginas geradas
-
-`/` · `/sobre/` · `/servicos/` · `/imoveis/` · `/investir-no-agro/` ·
-`/comunidade/` · `/blog/` · `/contato/` · `/404.html`
-
-Mais uma página por imóvel publicado (`/imoveis/<slug>/`) e uma por artigo
-(`/blog/<slug>/`).
-
-O build também emite `sitemap.xml`, `robots.txt` e `.htaccess`
-(HTTPS forçado, redirect de www, cache dos estáticos, cabeçalhos de segurança).
-
----
-
-## Guarda-corpos do build
-
-O `build.py` termina com código de saída **1** — e o `publicar.ps1` aborta — quando:
-
-- um imóvel publicado ainda tem `EXEMPLO` no título;
-- um JSON obrigatório está ausente ou com sintaxe inválida (aponta linha e coluna).
-
-E **avisa**, sem bloquear, quando:
-
-- algum campo de `config.json` continua em `PREENCHER`;
-- um indicador de `dados-agro.json` está com `verificar: true` (nesse caso ele
-  simplesmente não é exibido no site — número sem fonte confirmada não vai ao ar);
-- uma foto declarada num imóvel não existe na pasta de mídia;
-- não há imóveis, artigos ou depoimentos publicados.
-
----
-
-## Publicação
-
-Credenciais ficam em `deploy.local.json` (a partir de `deploy.exemplo.json`).
-O arquivo está no `.gitignore` — **a senha nunca entra no repositório.**
-
-O envio é FTPS, incremental, controlado por um manifesto de hashes
-(`.publicado.json`). Use `-Tudo` para forçar o reenvio completo.
 
 ---
 
 ## Requisitos
 
-- Python 3.10+ (`build.py` usa só a biblioteca padrão)
-- PowerShell 5.1+ (Windows) para os scripts de operação
-- Git (opcional — o versionamento é pulado se não estiver instalado)
+- Python 3.10+
+- Git
+- Navegador para validar o site local
 
 ---
 
-## Manual do dia a dia
+## Regra principal
 
-Para adicionar imóvel, escrever no blog ou trocar um telefone, veja
-[`docs/COMO-ATUALIZAR.md`](docs/COMO-ATUALIZAR.md).
+Se a mudança for de conteúdo, vá em `conteudo/`.
+Se a mudança for visual, vá em `tema/assets/`.
+Se a mudança for de publicação, o caminho é Vercel via `main`.
+

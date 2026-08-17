@@ -31,8 +31,8 @@ SAIDA = RAIZ / "site"
 PENDENTE = "PREENCHER"
 
 # --demo mostra tambem o que esta com publicado=false, para conferir o layout
-# antes de colocar no ar. O publicar.ps1 nunca usa esse modo: ele sempre
-# regenera o site/ sem a flag, entao rascunho nao tem como escapar.
+# antes de gerar a saida final. O fluxo de publicacao sempre usa a versao
+# normal, entao rascunho nao tem como escapar para o site.
 MOSTRAR_RASCUNHOS = "--demo" in sys.argv
 
 avisos: list[str] = []
@@ -1493,7 +1493,7 @@ def bloco_manutencao(man: dict) -> str:
 # MODO MANUTENCAO ATIVO
 # O site inteiro exige usuario e senha. Para liberar ao publico:
 #     .\\manutencao.ps1 -Desativar
-#     .\\publicar.ps1
+#     depois gere a saida e deixe a Vercel publicar pelo main
 # ---------------------------------------------------------------------------
 AuthType Basic
 AuthName "{mensagem}"
@@ -1503,7 +1503,7 @@ Require valid-user
 """
 
 
-HTACCESS = """# Prime Fazendas — configuração de servidor (Apache / Hostinger)
+HTACCESS = """# Prime Fazendas — configuração de servidor (Apache / site estatíco)
 
 # HTTPS obrigatório
 <IfModule mod_rewrite.c>
@@ -1564,7 +1564,7 @@ def escrever(caminho_rel: str, conteudo: str) -> None:
 
 
 def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos: dict) -> None:
-    """Checagens que o publicar.ps1 usa para decidir se pode subir."""
+    """Checagens que o fluxo de publicacao usa para decidir se pode seguir."""
     for grupo in ("contato", "redes", "comunidade"):
         for chave, valor in (cfg.get(grupo) or {}).items():
             if chave.startswith("_"):
@@ -1575,7 +1575,7 @@ def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos
     if MOSTRAR_RASCUNHOS:
         n_r = sum(1 for i in imoveis if i.get("_rascunho")) + sum(1 for p in posts if p.get("_rascunho"))
         aviso(f"MODO RASCUNHO (--demo): {n_r} item(ns) nao publicado(s) estao aparecendo. "
-              f"Isso e so para voce ver o layout — o publicar.ps1 ignora este modo.")
+              f"Isso e so para voce ver o layout — o fluxo de publicacao ignora este modo.")
 
     # Dado de teste que escapa para o ar e pior do que campo vazio: telefone que
     # ninguem atende perde lead, e CRECI falso e numero de registro regulado —
