@@ -41,7 +41,7 @@ Claude vai:
 
 O **watcher detecta em ~45s** e:
 1. 📤 Faz commit + push
-2. 🌐 Netlify publica (~1 min)
+2. 🌐 Vercel publica (~1 min)
 3. ✅ Verifica ao vivo
 4. 📝 Registra tudo no changelog
 
@@ -60,7 +60,7 @@ Abra `VERSOES/AUTONOMO_WATCH_LOG.md`:
 ## 📁 Estrutura de Pastas
 
 ```
-prime-fazendas-site/
+prime-fazendas-website/
 │
 ├── INICIAR_WATCH.ps1              ← Clique aqui para iniciar (Windows)
 ├── INICIAR_WATCH.sh               ← Execute isto para iniciar (Linux/Mac)
@@ -110,7 +110,7 @@ Watcher detecta em ~45s
    ↓
 ✅ Commit automático
 ✅ Push para GitHub
-✅ Netlify publica (~1 min)
+✅ Vercel publica (~1 min)
 ✅ Verifica ao vivo (Chrome)
 ✅ Confirma no log
 
@@ -137,10 +137,10 @@ Arquivo: `infra/config.json`
 ```json
 {
   "github": {
-    "repo": "afiac1988/prime-fazendas-site",
+    "repo": "afiac1988/prime-fazendas-website",
     "branch": "main"
   },
-  "netlify": {
+  "vercel": {
     "auto_deploy": true,
     "site_url": "https://primefazendas.com/"
   },
@@ -163,13 +163,13 @@ Arquivo: `infra/config.json`
 
 **PowerShell:**
 ```powershell
-cd C:\seu\caminho\prime-fazendas-site
+cd C:\seu\caminho\prime-fazendas-website
 New-Item -Name "_PUBLISH.flag" -ItemType File -Force
 ```
 
 **Bash:**
 ```bash
-cd /seu/caminho/prime-fazendas-site
+cd /seu/caminho/prime-fazendas-website
 touch _PUBLISH.flag
 ```
 
@@ -192,7 +192,7 @@ Execute `INICIAR_WATCH.ps1` ou `INICIAR_WATCH.sh` novamente.
 ## 🆘 Problemas Comuns
 
 ### ❌ "Arquivo não encontrado"
-- Verifique se está na pasta correta: `C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-site\`
+- Verifique se está na pasta correta: `C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-website\`
 - Verifique se tem `.git/` dentro (é um repositório)
 
 ### ❌ "PowerShell não executa scripts"
@@ -204,9 +204,9 @@ Execute `INICIAR_WATCH.ps1` ou `INICIAR_WATCH.sh` novamente.
 - Instale GitHub CLI: https://cli.github.com/
 - Autentique: `gh auth login`
 
-### ❌ "Netlify não publica em 1 minuto"
+### ❌ "Vercel não publica em 1 minuto"
 - Espere mais 30-60 segundos
-- Verifique em: https://app.netlify.com/
+- Verifique em: https://app.vercel.com/
 - Clear cache do navegador: Ctrl+Shift+Delete
 
 ### ❌ "Watcher não detecta mudanças"
@@ -270,7 +270,7 @@ Execute `INICIAR_WATCH.ps1` ou `INICIAR_WATCH.sh` novamente.
    ✅ Detectado (45s)
    ✅ Commit: "chore: atualização automática..."
    ✅ Push para GitHub
-   ✅ Netlify compilando...
+   ✅ Vercel compilando...
    ✅ No ar em 1m
    ✅ Verificado ao vivo
    ✅ Log atualizado

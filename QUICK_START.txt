@@ -34,7 +34,7 @@ Veja VERSOES/AUTONOMO_WATCH_LOG.md para histórico de publicações
 - 0s: Você pede conteúdo para Claude
 - 2-5 min: Claude gera + salva em staging
 - 45s: Watcher detecta e publica
-- 1 min: Netlify compila
+- 1 min: Vercel compila
 - 2 min: No ar! ✅
 
 ================================================================================

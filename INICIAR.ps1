@@ -127,8 +127,8 @@ function Publish-Changes {
             Log-Event "Erro no push para GitHub" "ERROR" "Red"
         }
 
-        # 5. Aguardar Netlify
-        Write-Host "   ✓ Aguardando Netlify (estimado: ~1 minuto)..." -ForegroundColor Cyan
+        # 5. Aguardar Vercel
+        Write-Host "   ✓ Aguardando Vercel (estimado: ~1 minuto)..." -ForegroundColor Cyan
 
         # 6. Verificar ao vivo (exemplo básico)
         Start-Sleep -Seconds 2

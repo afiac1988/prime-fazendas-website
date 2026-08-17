@@ -26,7 +26,7 @@ Você recebeu **6 arquivos** que implementam o sistema autônomo completo:
 Copie **TODOS OS 6 ARQUIVOS** para a raiz do seu repositório:
 
 ```
-C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-site\
+C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-website\
 ├── AUTONOMO_SISTEMA.md          ← Copiar aqui
 ├── README_AUTONOMO.md           ← Copiar aqui
 ├── INICIAR_WATCH.ps1            ← Copiar aqui
@@ -112,13 +112,13 @@ Em **outro terminal** (deixe o watcher rodando), execute:
 
 **Windows (PowerShell):**
 ```powershell
-cd C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-site
+cd C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-website
 New-Item -Name "_PUBLISH.flag" -ItemType File -Force
 ```
 
 **Linux/Mac:**
 ```bash
-cd /seu/caminho/prime-fazendas-site
+cd /seu/caminho/prime-fazendas-website
 touch _PUBLISH.flag
 ```
 
@@ -136,7 +136,7 @@ Volte para a janelinha do watcher e observe:
    ✓ Criando backup...
    ✓ Fazendo commit...
    ✓ Enviando para GitHub...
-   ✓ Aguardando Netlify...
+   ✓ Aguardando Vercel...
    ✅ SITE VERIFICADO AO VIVO!
 
 ✅ Aguardando próxima ordem...
@@ -220,7 +220,7 @@ Set-ExecutionPolicy -ExecutionPolicy Bypass -Scope CurrentUser
 ### ❌ "Arquivo não encontrado"
 
 Verifique:
-- Está na pasta correta? `C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-site\`
+- Está na pasta correta? `C:\PA—AI CORE\ANDAR_07 — Prime Fazendas\prime-fazendas-website\`
 - Tem `.git/` dentro? (É um repositório Git)
 
 ### ❌ "Git/GitHub CLI não encontrado"
@@ -245,7 +245,7 @@ gh auth login
 ## 📋 Estrutura Final Esperada
 
 ```
-prime-fazendas-site/
+prime-fazendas-website/
 │
 ├── 📄 AUTONOMO_SISTEMA.md        ✅ Copiado
 ├── 📄 README_AUTONOMO.md         ✅ Copiado

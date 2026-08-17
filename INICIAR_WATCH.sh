@@ -121,8 +121,8 @@ publish_changes() {
         return
     fi
 
-    # 5. Aguardar Netlify
-    echo "   ✓ Aguardando Netlify (estimado: ~1 minuto)..."
+    # 5. Aguardar Vercel
+    echo "   ✓ Aguardando Vercel (estimado: ~1 minuto)..."
     sleep 2
 
     # 6. Verificar ao vivo (exemplo básico)

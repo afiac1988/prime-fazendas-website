@@ -19,7 +19,7 @@ SISTEMA verifica ao vivo no Chrome e confirma: "no ar" ✅
 ## Estrutura de Pastas
 
 ```
-prime-fazendas-site/
+prime-fazendas-website/
 ├── INICIAR_WATCH.bat              (DUPLO CLIQUE = tudo começa)
 ├── INICIAR_WATCH.sh               (versão Linux/Mac)
 ├── infra/
@@ -71,7 +71,7 @@ Você simplesmente **diz para Claude**:
 4. **Flag**: cria `_PUBLISH.flag` quando pronto
 5. **Watcher**: detecta flag em ~45s
 6. **Publisher**: commit + push para GitHub
-7. **Netlify**: publica automaticamente em ~1 min
+7. **Vercel**: publica automaticamente em ~1 min
 8. **Verifier**: abre Chrome e confirma "no ar" ✅
 9. **Log**: registra tudo em `AUTONOMO_WATCH_LOG.md`
 
@@ -99,11 +99,11 @@ Arquivo: `infra/config.json`
 ```json
 {
   "github": {
-    "repo": "afiac1988/prime-fazendas-site",
+    "repo": "afiac1988/prime-fazendas-website",
     "branch": "main",
     "auth_method": "cli"
   },
-  "netlify": {
+  "vercel": {
     "auto_deploy": true,
     "build_time_estimate": "~1 min"
   },

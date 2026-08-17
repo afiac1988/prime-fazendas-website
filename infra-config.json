@@ -6,13 +6,13 @@
     "status": "active"
   },
   "github": {
-    "repo": "afiac1988/prime-fazendas-site",
+    "repo": "afiac1988/prime-fazendas-website",
     "owner": "afiac1988",
     "branch": "main",
     "auth_method": "cli",
     "auto_push": true
   },
-  "netlify": {
+  "vercel": {
     "auto_deploy": true,
     "build_time_estimate_seconds": 60,
     "site_url": "https://primefazendas.com/",
