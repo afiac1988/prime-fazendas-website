@@ -1,0 +1,136 @@
+{
+  "_leia": "Agenda de feiras e eventos do agronegocio brasileiro. Cada item tem nome, cidade/estado, datas (data_inicio/data_fim no formato AAAA-MM-DD) e o link oficial do organizador. So entra aqui evento com data confirmada pelo organizador. 'publicado': false tira o evento da lista sem apagar o registro.",
+
+  "eventos": [
+    {
+      "publicado": true,
+      "nome": "Fenasucro & Agrocana",
+      "cidade": "Sertãozinho",
+      "estado": "SP",
+      "data_inicio": "2026-08-18",
+      "data_fim": "2026-08-21",
+      "url_oficial": "https://www.fenasucro.com.br/",
+      "descricao": "Bioenergia, açúcar e etanol — referência do setor sucroenergético no país."
+    },
+    {
+      "publicado": true,
+      "nome": "Expointer",
+      "cidade": "Esteio",
+      "estado": "RS",
+      "data_inicio": "2026-08-29",
+      "data_fim": "2026-09-06",
+      "url_oficial": "https://www.expointer.rs.gov.br/",
+      "descricao": "Uma das maiores feiras agropecuárias do país, com julgamentos, leilões e negócios."
+    },
+    {
+      "publicado": true,
+      "nome": "Show Rural Coopavel",
+      "cidade": "Cascavel",
+      "estado": "PR",
+      "data_inicio": "2027-02-01",
+      "data_fim": "2027-02-05",
+      "url_oficial": "https://showrural.com.br/",
+      "descricao": "A maior feira do agronegócio da América Latina, com tecnologia e negócios em campo aberto."
+    },
+    {
+      "publicado": true,
+      "nome": "Expodireto Cotrijal",
+      "cidade": "Não-Me-Toque",
+      "estado": "RS",
+      "data_inicio": "2027-03-08",
+      "data_fim": "2027-03-12",
+      "url_oficial": "https://www.expodireto.cotrijal.com.br/",
+      "descricao": "Grãos, máquinas e inovação — um dos maiores encontros do agro no Sul do país."
+    },
+    {
+      "publicado": true,
+      "nome": "Show Safra Mato Grosso",
+      "cidade": "Lucas do Rio Verde",
+      "estado": "MT",
+      "data_inicio": "2027-03-22",
+      "data_fim": "2027-03-25",
+      "url_oficial": "https://www.showsafra.com.br/",
+      "descricao": "Vitrine de tecnologia e produção do agro mato-grossense."
+    },
+    {
+      "publicado": true,
+      "nome": "Farm Show Mato Grosso",
+      "cidade": "Primavera do Leste",
+      "estado": "MT",
+      "data_inicio": "2027-03-30",
+      "data_fim": "2027-04-02",
+      "url_oficial": "https://farmshow.com.br/",
+      "descricao": "A maior feira de agronegócio e tecnologia de Mato Grosso."
+    },
+    {
+      "publicado": true,
+      "nome": "Tecnoshow Comigo",
+      "cidade": "Rio Verde",
+      "estado": "GO",
+      "data_inicio": "2027-04-05",
+      "data_fim": "2027-04-09",
+      "url_oficial": "https://tecnoshowcomigo.com.br/",
+      "descricao": "Tecnologia e inovação para grãos, referência do agro em Goiás."
+    },
+    {
+      "publicado": true,
+      "nome": "ExpoLondrina",
+      "cidade": "Londrina",
+      "estado": "PR",
+      "data_inicio": "2027-04-09",
+      "data_fim": "2027-04-18",
+      "url_oficial": "https://expolondrina.com.br/",
+      "descricao": "Exposição agropecuária e industrial com forte presença do setor de máquinas e grãos."
+    },
+    {
+      "publicado": true,
+      "nome": "Agrishow",
+      "cidade": "Ribeirão Preto",
+      "estado": "SP",
+      "data_inicio": "2027-04-26",
+      "data_fim": "2027-04-30",
+      "url_oficial": "https://www.agrishow.com.br/",
+      "descricao": "A principal feira de tecnologia agrícola da América Latina."
+    },
+    {
+      "publicado": true,
+      "nome": "Expogrande",
+      "cidade": "Campo Grande",
+      "estado": "MS",
+      "data_inicio": "2027-05-06",
+      "data_fim": "2027-05-16",
+      "url_oficial": "https://www.coisasdaroca.com/feiras-agropecuarias/expogrande-2027.html",
+      "descricao": "Feira agropecuária, genética e agronegócio no coração do Mato Grosso do Sul."
+    },
+    {
+      "publicado": true,
+      "nome": "Fenagra",
+      "cidade": "São Paulo",
+      "estado": "SP",
+      "data_inicio": "2027-05-11",
+      "data_fim": "2027-05-13",
+      "url_oficial": "https://distritoanhembi.com.br/en/events/fenagra-2/",
+      "descricao": "Feira de Feed & Food — nutrição animal, ração e agroindústria."
+    },
+    {
+      "publicado": true,
+      "nome": "AgroBrasília",
+      "cidade": "Brasília",
+      "estado": "DF",
+      "data_inicio": "2027-05-18",
+      "data_fim": "2027-05-21",
+      "url_oficial": "https://agrobrasilia.com.br/",
+      "descricao": "Negócios e tecnologia para o Cerrado, uma das maiores feiras do Centro-Oeste."
+    },
+    {
+      "publicado": true,
+      "nome": "Bahia Farm Show",
+      "cidade": "Luís Eduardo Magalhães",
+      "estado": "BA",
+      "data_inicio": "2027-06-07",
+      "data_fim": "2027-06-12",
+      "url_oficial": "https://bahiafarmshow.com.br/",
+      "descricao": "A grande vitrine do agronegócio no Oeste da Bahia e no Matopiba."
+    }
+  ]
+}

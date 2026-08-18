@@ -72,6 +72,7 @@
     { "titulo": "Investir no Agro", "url": "/investir-no-agro/" },
     { "titulo": "Comunidade", "url": "/comunidade/" },
     { "titulo": "Blog", "url": "/blog/" },
+    { "titulo": "Agenda Agro", "url": "/agenda-agro/" },
     { "titulo": "Contato", "url": "/contato/" }
   ]
 }

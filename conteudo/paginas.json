@@ -165,6 +165,13 @@
     "vazio_texto": "Estamos preparando os primeiros conteúdos."
   },
 
+  "agenda_agro": {
+    "titulo": "Agenda Agro",
+    "chamada": "As principais feiras e eventos do agronegócio brasileiro, com data e link oficial confirmados.",
+    "vazio_titulo": "Nenhum evento confirmado no momento",
+    "vazio_texto": "Publicamos apenas eventos com data e link oficial confirmados pelo organizador. Volte em breve."
+  },
+
   "contato": {
     "titulo": "Contato e consultoria",
     "chamada": "Conte o que você procura. Um especialista responde.",

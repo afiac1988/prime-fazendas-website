@@ -179,6 +179,18 @@ def fmt_data(d: date) -> str:
     return f"{d.day} de {MESES[d.month - 1]} de {d.year}"
 
 
+def fmt_intervalo(data_inicio: date, data_fim: date | None) -> str:
+    """Formata um intervalo de datas de evento: '18 de agosto de 2026' ou
+    '29 de agosto a 6 de setembro de 2026' (mesmo mes/ano some da 1a parte)."""
+    if not data_fim or data_fim == data_inicio:
+        return fmt_data(data_inicio)
+    if data_inicio.year == data_fim.year and data_inicio.month == data_fim.month:
+        return f"{data_inicio.day} a {data_fim.day} de {MESES[data_fim.month - 1]} de {data_fim.year}"
+    if data_inicio.year == data_fim.year:
+        return f"{data_inicio.day} de {MESES[data_inicio.month - 1]} a {fmt_data(data_fim)}"
+    return f"{fmt_data(data_inicio)} a {fmt_data(data_fim)}"
+
+
 TIPOS = {
     "agricola": "AgrÃ­cola",
     "pecuaria": "PecuÃ¡ria",
@@ -805,6 +817,52 @@ def carregar_posts() -> list[dict]:
     return posts
 
 
+def carregar_agenda_agro() -> list[dict]:
+    """Le conteudo/agenda-agro.json e devolve so os eventos publicados, com
+    datas futuras ou em curso, ordenados por data de inicio."""
+    caminho = CONTEUDO / "agenda-agro.json"
+    if not caminho.exists():
+        return []
+    bruto = limpar_meta(ler_json(caminho))
+    eventos = []
+    hoje = date.today()
+    for ev in bruto.get("eventos", []):
+        if not ev.get("publicado"):
+            continue
+        nome = str(ev.get("nome", "")).strip()
+        if not nome:
+            aviso("agenda-agro.json: evento sem 'nome' foi ignorado.")
+            continue
+        try:
+            d_ini = datetime.strptime(str(ev.get("data_inicio", "")).strip(), "%Y-%m-%d").date()
+        except ValueError:
+            aviso(f"agenda-agro.json: '{nome}' com data_inicio ausente ou fora do formato AAAA-MM-DD — evento ignorado.")
+            continue
+        d_fim = None
+        if str(ev.get("data_fim", "")).strip():
+            try:
+                d_fim = datetime.strptime(str(ev["data_fim"]).strip(), "%Y-%m-%d").date()
+            except ValueError:
+                aviso(f"agenda-agro.json: '{nome}' com data_fim fora do formato AAAA-MM-DD — ignorada, mantendo so data_inicio.")
+
+        fim_para_filtro = d_fim or d_ini
+        if fim_para_filtro < hoje:
+            continue
+
+        eventos.append({
+            "nome": nome,
+            "cidade": ev.get("cidade", ""),
+            "estado": ev.get("estado", ""),
+            "data_inicio": d_ini,
+            "data_fim": d_fim,
+            "url_oficial": ev.get("url_oficial", ""),
+            "descricao": ev.get("descricao", ""),
+        })
+
+    eventos.sort(key=lambda ev: ev["data_inicio"])
+    return eventos
+
+
 # ================================================================ pÃ¡ginas ==
 
 def card_imovel(im: dict) -> str:
@@ -1423,6 +1481,46 @@ def gerar_blog(cfg, pag, posts) -> str:
                   url="/blog/", corpo="\n".join(corpo))
 
 
+def card_evento_agro(ev: dict) -> str:
+    local = ", ".join(x for x in [ev.get("cidade"), ev.get("estado")] if x)
+    link = ""
+    if preenchido(ev.get("url_oficial")):
+        link = (f'<a class="link-seta" href="{e(ev["url_oficial"])}" target="_blank" '
+                f'rel="noopener">Site oficial</a>')
+    return f"""<article class="card">
+  <p class="olho">{e(fmt_intervalo(ev['data_inicio'], ev['data_fim']))}</p>
+  <h3>{e(ev['nome'])}</h3>
+  {f'<p>{e(local)}</p>' if local else ''}
+  {f'<p>{e(ev["descricao"])}</p>' if ev.get('descricao') else ''}
+  {link}
+</article>"""
+
+
+def gerar_agenda_agro(cfg, pag, agenda) -> str:
+    s = pag.get("agenda_agro", {})
+    corpo = [hero(cfg, olho="Agenda Agro", titulo=s.get("titulo", "Agenda Agro"),
+                  texto=s.get("chamada", ""), interno=True)]
+
+    if agenda:
+        cards = "".join(card_evento_agro(ev) for ev in agenda)
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="cabeca-secao"><p class="olho">Próximos eventos</p><h2>Feiras e eventos do agronegócio brasileiro</h2></div>
+    <div class="grade grade--3">{cards}</div>
+  </div>
+</section>""")
+    else:
+        corpo.append(f'<section class="secao"><div class="env"><div class="vazio">'
+                     f'<h2>{e(s.get("vazio_titulo", "Nenhum evento confirmado no momento"))}</h2>'
+                     f'<p>{e(s.get("vazio_texto", ""))}</p></div></div></section>')
+
+    corpo.append(cta_faixa(cfg, "Vai estar em alguma dessas feiras?",
+                           "Aproveite para conhecer as oportunidades da Prime Fazendas antes do evento."))
+
+    return pagina(cfg, titulo=s.get("titulo", "Agenda Agro"), descricao=s.get("chamada", ""),
+                  url="/agenda-agro/", corpo="\n".join(corpo))
+
+
 def gerar_post(cfg, p, outros) -> str:
     corpo = [f"""<section class="secao secao--compacta">
   <div class="env">
@@ -1787,6 +1885,7 @@ def main() -> int:
     manutencao = carregar_manutencao()
     imoveis = carregar_imoveis()
     posts = carregar_posts()
+    agenda_agro = carregar_agenda_agro()
 
     auditar(cfg, imoveis, posts, dados_agro, depoimentos)
 
@@ -1821,6 +1920,7 @@ def main() -> int:
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
     escrever("comunidade/index.html", gerar_comunidade(cfg, pag))
     escrever("blog/index.html", gerar_blog(cfg, pag, posts))
+    escrever("agenda-agro/index.html", gerar_agenda_agro(cfg, pag, agenda_agro))
     escrever("contato/index.html", gerar_contato(cfg, pag))
     escrever("404.html", gerar_404(cfg))
 
@@ -1832,7 +1932,7 @@ def main() -> int:
     # sitemap + robots + htaccess
     dominio = cfg["site"]["dominio"].rstrip("/")
     urls = ["/", "/sobre/", "/servicos/", "/investir-no-agro/", "/imoveis/",
-            "/comunidade/", "/blog/", "/contato/"]
+            "/comunidade/", "/blog/", "/agenda-agro/", "/contato/"]
     urls += [im["url"] for im in imoveis]
     urls += [p["url"] for p in posts]
     hoje = date.today().isoformat()
