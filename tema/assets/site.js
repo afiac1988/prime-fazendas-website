@@ -98,6 +98,60 @@
     box.hidden = false;
   }
 
+  /* ------------------------------------------- visualizador de imagens --- */
+  var modal = document.querySelector('.foto-modal');
+  if (modal) {
+    var modalJanela = modal.querySelector('.foto-modal__janela');
+    var modalImg = modal.querySelector('.foto-modal__img');
+    var modalLegenda = modal.querySelector('.foto-modal__legenda');
+    var modalFechar = modal.querySelector('.foto-modal__fechar');
+
+    function abrirModal(src, alt) {
+      if (!src || !modalImg) return;
+      modalImg.src = src;
+      modalImg.alt = alt || '';
+      if (modalLegenda) {
+        modalLegenda.textContent = alt || '';
+      }
+      modal.hidden = false;
+      document.body.classList.add('modal-aberta');
+      if (modalFechar) modalFechar.focus();
+    }
+
+    function fecharModal() {
+      modal.hidden = true;
+      document.body.classList.remove('modal-aberta');
+      if (modalImg) {
+        modalImg.src = '';
+        modalImg.alt = '';
+      }
+      if (modalLegenda) {
+        modalLegenda.textContent = '';
+      }
+    }
+
+    document.addEventListener('click', function (e) {
+      var link = e.target.closest && e.target.closest('.js-foto-modal');
+      if (link) {
+        var src = link.getAttribute('data-foto-modal-src') || link.getAttribute('href');
+        var alt = link.getAttribute('data-foto-modal-alt') || (link.querySelector('img') && link.querySelector('img').alt) || '';
+        e.preventDefault();
+        abrirModal(src, alt);
+        return;
+      }
+
+      if (e.target === modal || e.target === modalJanela || (e.target.closest && e.target.closest('.foto-modal__fechar'))) {
+        if (!modal.hidden) fecharModal();
+      }
+    });
+
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && !modal.hidden) {
+        fecharModal();
+      }
+    });
+  }
+
   /* ------------------------------------------------- ano no rodapé ---- */
   var ano = document.querySelectorAll('[data-ano]');
   ano.forEach(function (el) { el.textContent = new Date().getFullYear(); });
