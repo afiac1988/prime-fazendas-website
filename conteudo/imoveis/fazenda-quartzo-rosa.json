@@ -1,0 +1,50 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Quartzo Rosa",
+  "subtitulo": "1.350 hectares plantando soja em Silvanópolis",
+  "tipo": "agricola",
+
+  "municipio": "Silvanópolis",
+  "estado": "TO",
+  "regiao": "Sudeste do Tocantins",
+
+  "area_total_ha": 1350,
+  "area_aberta_ha": 650,
+  "area_reserva_ha": 0,
+
+  "preco": 55600000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de 1.350 hectares (278 alqueires) em Silvanópolis-TO, no sexto ano de plantio de soja em 650 hectares, com possibilidade de ampliação até 730 hectares. Após a safra, permite safrinha de milho, sorgo e gergelim.\n\nInfraestrutura completa com pavilhão de 1.500 m², casa sede, refeitório, escritório, poço artesiano e energia solar.",
+
+  "caracteristicas": [
+    "Sexto ano de plantio de soja",
+    "Potencial de safrinha: milho, sorgo e gergelim",
+    "Energia solar instalada"
+  ],
+
+  "infraestrutura": [
+    "Casa sede e refeitório",
+    "Escritório e alojamento",
+    "Pavilhão de 1.500 m²",
+    "Poço artesiano"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo",
+    "CCIR e ITR em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["capa.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-quartzo-rosa",
+
+  "video_youtube": ""
+}

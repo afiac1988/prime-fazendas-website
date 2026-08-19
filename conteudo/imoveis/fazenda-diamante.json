@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Diamante",
+  "subtitulo": "2.000 hectares de lavoura consolidada a 3 km de Santa Rosa do Tocantins",
+  "tipo": "agricola",
+
+  "municipio": "Santa Rosa do Tocantins",
+  "estado": "TO",
+  "regiao": "Sudeste do Tocantins",
+
+  "area_total_ha": 2000,
+  "area_aberta_ha": 1260,
+  "area_reserva_ha": 0,
+
+  "preco": 80000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de lavoura com 2.000 hectares em Santa Rosa do Tocantins, a apenas 3 km da cidade. O plantio é feito em três áreas, com histórico de cultivo de 10 e 25 anos, e a estrutura conta com casa e apoio operacional.\n\nÁrea hoje conduzida em lavoura, com potencial de conversão para pastagem conforme o perfil do comprador.",
+
+  "caracteristicas": [
+    "1.260 hectares em plantio ativo",
+    "Três áreas de lavoura com histórico consolidado",
+    "Potencial de conversão para pecuária"
+  ],
+
+  "infraestrutura": [
+    "Casa e estrutura de apoio",
+    "Acesso a apenas 3 km da cidade"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo",
+    "CCIR e ITR em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["capa.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-diamante",
+
+  "video_youtube": ""
+}

@@ -1,0 +1,49 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Ametista do Vale",
+  "subtitulo": "1.887 hectares planos em Silvanópolis, região de safra e safrinha",
+  "tipo": "mista",
+
+  "municipio": "Silvanópolis",
+  "estado": "TO",
+  "regiao": "Sudeste do Tocantins",
+
+  "area_total_ha": 1887,
+  "area_aberta_ha": 1332,
+  "area_reserva_ha": 0,
+
+  "preco": 54600000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de 1.887 hectares (390 alqueires) em Silvanópolis-TO, terreno plano com solo argiloso em região de safra e safrinha. Atualmente com 1.332 hectares em pasto bem manejado, com potencial de aproveitamento de até 65% para lavoura.\n\nApenas 10 km da cidade e 110 km de Palmas, às margens da rodovia, com excelente estrutura de curral, barracão, casa e alojamento.",
+
+  "caracteristicas": [
+    "Terreno plano, solo argiloso",
+    "Região de safra e safrinha",
+    "1.332 hectares de pastagem formada"
+  ],
+
+  "infraestrutura": [
+    "Curral",
+    "Barracão",
+    "Casa e alojamento"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo",
+    "CCIR e ITR em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["capa.jpeg", "foto-02.jpeg", "foto-03.jpeg"],
+  "pasta_fotos": "fazenda-ametista-do-vale",
+
+  "video_youtube": ""
+}

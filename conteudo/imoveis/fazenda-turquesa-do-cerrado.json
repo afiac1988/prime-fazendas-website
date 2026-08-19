@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Turquesa do Cerrado",
+  "subtitulo": "980 alqueires de lavoura e pecuária no Novo Acordo",
+  "tipo": "mista",
+
+  "municipio": "Novo Acordo",
+  "estado": "TO",
+  "regiao": "Região Central do Tocantins",
+
+  "area_total_ha": 4743,
+  "area_aberta_ha": 1700,
+  "area_reserva_ha": 0,
+
+  "preco": 70000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de 980 alqueires no município de Novo Acordo-TO, a 150 km de Palmas e 1 km de asfalto. Produz 1.700 hectares de lavoura, com solo arenoso e rico recurso hídrico de rio de grande porte e nascentes.\n\nRestante da área é utilizado em pecuária, com produtividade média de 60 sacas por hectare e índice pluviométrico de 1.600 mm/ano.",
+
+  "caracteristicas": [
+    "1.700 hectares de lavoura, restante em pecuária",
+    "Solo arenoso, 10 a 20% de argila",
+    "Rio de grande porte e nascentes"
+  ],
+
+  "infraestrutura": [
+    "Acesso a 1 km de asfalto",
+    "150 km de Palmas"
+  ],
+
+  "documentacao": [
+    "Duas matrículas",
+    "CAR ativo",
+    "CCIR e ITR em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["capa.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-turquesa-do-cerrado",
+
+  "video_youtube": ""
+}
