@@ -41,7 +41,12 @@
 
   "mapa_embed": "",
 
-  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg", "foto-04.jpg"],
+  "fotos": [
+    "foto-03.jpg",
+    "foto-02.jpg",
+    "foto-04.jpg",
+    "foto-01.jpg"
+  ],
   "pasta_fotos": "fazenda-diamante-do-cerrado",
 
   "video_youtube": ""

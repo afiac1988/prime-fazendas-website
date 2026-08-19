@@ -964,7 +964,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
 
     corpo = [hero(cfg, olho=f"{cfg['contato'].get('cidade', '')} · {cfg['contato'].get('estado', '')} · Matopiba".strip(" ·"),
                   titulo=h.get("hero_titulo", cfg["marca"]["slogan"]),
-                  texto=h.get("hero_texto", ""), botoes=botoes)]
+                  texto=h.get("hero_texto", ""), botoes=botoes, foto="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-05.jpg")]
 
     # pilares
     cards = "".join(
@@ -1115,7 +1115,7 @@ def card_post(p: dict, destaque: bool = False) -> str:
 def gerar_sobre(cfg, pag) -> str:
     s = pag.get("sobre", {})
     corpo = [hero(cfg, olho="Sobre nós", titulo=s.get("titulo", "Sobre a Prime Fazendas"),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg")]
     corpo.append(f"""<section class="secao">
   <div class="env">
     <div class="prosa">
@@ -1132,6 +1132,15 @@ def gerar_sobre(cfg, pag) -> str:
       <h2>De corretor aos 18 ao coração do agro brasileiro</h2>
       {paragrafos(s.get('historia'))}
     </div>
+  </div>
+</section>""")
+
+    corpo.append("""<section class="secao secao--compacta">
+  <div class="env">
+    <figure class="sobre-foto">
+      <img src="/midia/imoveis/fazenda-citrino/aerea-03.jpg" alt="Pastagem formada em uma das propriedades do portfólio Prime Fazendas" width="1600" height="1000" loading="lazy">
+      <figcaption>Imagem ilustrativa do acervo Prime Fazendas — chão de fazenda, todos os dias.</figcaption>
+    </figure>
   </div>
 </section>""")
 
@@ -1178,7 +1187,7 @@ def gerar_sobre(cfg, pag) -> str:
 def gerar_servicos(cfg, pag) -> str:
     s = pag.get("servicos", {})
     corpo = [hero(cfg, olho="Serviços", titulo=s.get("titulo", "Nossos serviços"),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-citrino/aerea-03.jpg")]
 
     cards = "".join(
         f'<article class="card"><div class="card__num">{i + 1:02d}</div>'
@@ -1199,7 +1208,7 @@ def gerar_servicos(cfg, pag) -> str:
 def gerar_investir(cfg, pag, dados_agro) -> str:
     s = pag.get("investir", {})
     corpo = [hero(cfg, olho="Investir no agro", titulo=s.get("titulo", ""),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg")]
 
     corpo.append(f"""<section class="secao">
   <div class="env"><div class="prosa">{paragrafos(s.get('intro'))}</div></div>
@@ -1285,7 +1294,7 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     s = pag.get("imoveis", {})
     corpo = [hero(cfg, olho="Portfólio", titulo=s.get("titulo", "Imóveis rurais à venda"),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg")]
     corpo.append("""<section class="secao secao--compacta">
   <div class="env">
     <div class="painel__alerta" style="margin:0">
@@ -1507,7 +1516,7 @@ def gerar_comunidade(cfg, pag) -> str:
         aviso("comunidade: 'grupo_whatsapp' e 'canal_whatsapp' estão vazios — o botão aponta para /contato/ até você colar um link válido.")
 
     corpo = [hero(cfg, olho="Comunidade", titulo=s.get("titulo", com.get("nome", "Comunidade")),
-                  texto=s.get("chamada", ""), botoes=botoes, interno=True)]
+                  texto=s.get("chamada", ""), botoes=botoes, interno=True, foto="/midia/imoveis/fazenda-ametista-real/aerea-05.jpg")]
 
     corpo.append(f'<section class="secao"><div class="env"><div class="prosa">'
                  f'{paragrafos(s.get("intro"))}</div></div></section>')
@@ -1544,7 +1553,7 @@ def gerar_comunidade(cfg, pag) -> str:
 def gerar_blog(cfg, pag, posts) -> str:
     s = pag.get("blog", {})
     corpo = [hero(cfg, olho="Blog", titulo=s.get("titulo", "Blog e insights"),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-ametista-do-sul/foto-02.jpg")]
 
     if posts:
         destaque, resto = posts[0], posts[1:]
@@ -1600,7 +1609,7 @@ def agrupar_eventos_por_mes(agenda: list[dict]) -> list[tuple[str, list[dict]]]:
 def gerar_agenda_agro(cfg, pag, agenda) -> str:
     s = pag.get("agenda_agro", {})
     corpo = [hero(cfg, olho="Agenda Agro", titulo=s.get("titulo", "Agenda Agro"),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-topazio-do-sol/foto-05.jpg")]
 
     if agenda:
         destaque, resto = agenda[0], agenda[1:]
@@ -1699,7 +1708,7 @@ def gerar_contato(cfg, pag) -> str:
     c = cfg["contato"]
 
     corpo = [hero(cfg, olho="Contato", titulo=s.get("titulo", "Contato e consultoria"),
-                  texto=s.get("chamada", ""), interno=True)]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-painita/foto-05.jpg")]
 
     numero_zap = re.sub(r"\D", "", str(c.get("whatsapp_numero_internacional") or "")) \
         if preenchido(c.get("whatsapp_numero_internacional")) else ""

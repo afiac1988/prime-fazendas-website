@@ -43,7 +43,15 @@
 
   "mapa_embed": "",
 
-  "fotos": ["capa.jpg", "foto-02.jpg", "foto-03.jpg", "foto-04.jpg", "foto-05.jpg", "foto-06.jpg", "foto-07.jpg"],
+  "fotos": [
+    "foto-06.jpg",
+    "foto-07.jpg",
+    "capa.jpg",
+    "foto-02.jpg",
+    "foto-03.jpg",
+    "foto-04.jpg",
+    "foto-05.jpg"
+  ],
   "pasta_fotos": "fazenda-esmeralda-do-cerrado",
 
   "video_youtube": ""

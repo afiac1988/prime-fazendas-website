@@ -42,7 +42,14 @@
 
   "mapa_embed": "",
 
-  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg", "foto-04.jpg", "foto-05.jpg", "foto-06.jpg"],
+  "fotos": [
+    "foto-01.jpg",
+    "foto-03.jpg",
+    "foto-02.jpg",
+    "foto-05.jpg",
+    "foto-04.jpg",
+    "foto-06.jpg"
+  ],
   "pasta_fotos": "fazenda-galena",
 
   "video_youtube": ""

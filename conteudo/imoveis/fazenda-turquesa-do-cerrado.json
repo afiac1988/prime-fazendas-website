@@ -41,7 +41,15 @@
 
   "mapa_embed": "",
 
-  "fotos": ["capa.jpg", "foto-02.jpg", "foto-03.jpg", "foto-04.jpg", "foto-05.jpg", "foto-06.jpg", "foto-07.jpg"],
+  "fotos": [
+    "foto-04.jpg",
+    "foto-05.jpg",
+    "foto-06.jpg",
+    "capa.jpg",
+    "foto-02.jpg",
+    "foto-03.jpg",
+    "foto-07.jpg"
+  ],
   "pasta_fotos": "fazenda-turquesa-do-cerrado",
 
   "video_youtube": ""

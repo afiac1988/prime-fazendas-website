@@ -42,7 +42,15 @@
 
   "mapa_embed": "",
 
-  "fotos": ["capa.jpeg", "foto-02.jpeg", "foto-03.jpeg", "foto-04.jpg", "foto-05.jpg", "foto-06.jpg", "foto-07.jpg"],
+  "fotos": [
+    "capa.jpeg",
+    "foto-02.jpeg",
+    "foto-03.jpeg",
+    "foto-04.jpg",
+    "foto-07.jpg",
+    "foto-05.jpg",
+    "foto-06.jpg"
+  ],
   "pasta_fotos": "fazenda-ametista-do-vale",
 
   "video_youtube": ""

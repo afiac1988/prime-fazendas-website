@@ -39,7 +39,11 @@
 
   "mapa_embed": "",
 
-  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "fotos": [
+    "foto-02.jpg",
+    "foto-03.jpg",
+    "foto-01.jpg"
+  ],
   "pasta_fotos": "fazenda-perola-do-araguaia",
 
   "video_youtube": ""
