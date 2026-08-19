@@ -582,7 +582,8 @@ def rodape(cfg: dict) -> str:
 
 
 def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
-           og_tipo: str = "website", json_ld: str = "", rascunho: bool = False) -> str:
+           og_tipo: str = "website", json_ld: str = "", rascunho: bool = False,
+           og_imagem: str = "") -> str:
     site = cfg["site"]
     dominio = site["dominio"].rstrip("/")
     canonica = dominio + url
@@ -624,7 +625,7 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 <meta property="og:description" content="{e(descricao)}">
 <meta property="og:url" content="{e(canonica)}">
 <meta property="og:locale" content="pt_BR">
-<meta property="og:image" content="{e(dominio + site.get('og_imagem', ''))}">
+<meta property="og:image" content="{e(og_imagem or (dominio + site.get('og_imagem', '')))}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
@@ -913,7 +914,7 @@ def card_imovel(im: dict) -> str:
                 f'data-foto-modal-alt="{e(im["titulo"])}" '
                 f'title="Abrir foto no visualizador">'
                 f'<img src="{e(im["fotos_url"][0])}" alt="{e(im["titulo"])}" '
-                f'width="1200" height="750" loading="lazy">'
+                f'width="1200" height="750" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
                 f'</a>')
     else:
         capa = SVG_CAPA
@@ -1362,7 +1363,7 @@ def gerar_ficha_imovel(cfg, im) -> str:
             f'data-foto-modal-src="{e(u)}" '
             f'data-foto-modal-alt="{e(im["titulo"])} — foto {n + 1}" '
             f'title="Abrir foto {n + 1} no visualizador">'
-            f'<img src="{e(u)}" alt="{e(im["titulo"])} — foto {n + 1}" width="1200" height="900" loading="lazy">'
+            f'<img src="{e(u)}" alt="{e(im["titulo"])} — foto {n + 1}" width="1200" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
             f'</a>'
             for n, u in enumerate(im["fotos_url"])
         )
@@ -1474,9 +1475,12 @@ def gerar_ficha_imovel(cfg, im) -> str:
         }} if im.get("preco") and not im.get("preco_sob_consulta") else {}),
     }, ensure_ascii=False)
 
+    og_img_imovel = (cfg["site"]["dominio"].rstrip("/") + im["fotos_url"][0]) if im.get("fotos_url") else ""
+
     return pagina(cfg, titulo=im["titulo"], descricao=desc, url=im["url"],
                   corpo="\n".join(corpo), og_tipo="article", json_ld=ld,
-                  rascunho=bool(im.get("_exemplo") or im.get("_rascunho")))
+                  rascunho=bool(im.get("_exemplo") or im.get("_rascunho")),
+                  og_imagem=og_img_imovel)
 
 
 def gerar_comunidade(cfg, pag) -> str:
