@@ -1,6 +1,5 @@
 {
   "_leia": "Painel de controle do site. Edite os valores, salve e rode ver.ps1 para conferir localmente. Campos com 'PREENCHER' precisam dos dados reais antes de entrar no fluxo Vercel.",
-
   "marca": {
     "nome": "Prime Fazendas",
     "tagline": "A terra é o único investimento onde o tempo trabalha por você.",
@@ -10,7 +9,6 @@
     "fundador": "André Amorim",
     "ano_fundacao": "2025"
   },
-
   "site": {
     "dominio": "https://primefazendas.com",
     "idioma": "pt-BR",
@@ -18,7 +16,6 @@
     "descricao_padrao": "Intermediação de fazendas certificadas e documentadas no Tocantins e Matopiba, com consulta de disponibilidade e preço antes de qualquer proposta. Consultoria completa, segurança jurídica e oportunidades de investimento no agronegócio.",
     "og_imagem": "/assets/og-prime-fazendas.png"
   },
-
   "contato": {
     "_atencao": "Dados reais preenchidos em 2026-08-17.",
     "telefone": "63-98143-7860",
@@ -34,7 +31,6 @@
     "creci": "J-5807",
     "horario": "Segunda a sexta, 8h às 18h"
   },
-
   "redes": {
     "_leia": "Precisa ser a URL completa do perfil, não o @. O rodapé transforma isso em link.",
     "instagram": "https://www.instagram.com/prime_fazendas/",
@@ -44,18 +40,15 @@
     "youtube": "",
     "facebook": ""
   },
-
   "formulario": {
     "_leia": "Endpoint que recebe os envios do formulário. Deixe vazio para o formulário cair no WhatsApp (modo padrão, funciona sem servidor).",
     "endpoint": "",
     "modo": "whatsapp"
   },
-
   "analytics": {
     "_leia": "Cole aqui o ID do Google Analytics 4 (formato G-XXXXXXX). Vazio = nenhum script de rastreio é injetado.",
-    "ga4_id": ""
+    "ga4_id": "G-CS7CCQNPML"
   },
-
   "comunidade": {
     "nome": "Comunidade Prime Agro",
     "chamada": "O ponto de encontro de quem investe, produz e vive do agro no coração do Brasil.",
@@ -63,16 +56,42 @@
     "canal_whatsapp": "https://wa.me/5563981437860?text=Ol%C3%A1%21%20Quero%20entrar%20na%20Comunidade%20Prime%20Agro%20e%20receber%20os%20an%C3%BAncios.",
     "newsletter_ativa": true
   },
-
   "navegacao": [
-    { "titulo": "Início", "url": "/" },
-    { "titulo": "Sobre Nós", "url": "/sobre/" },
-    { "titulo": "Serviços", "url": "/servicos/" },
-    { "titulo": "Imóveis", "url": "/imoveis/" },
-    { "titulo": "Investir no Agro", "url": "/investir-no-agro/" },
-    { "titulo": "Comunidade", "url": "/comunidade/" },
-    { "titulo": "Blog", "url": "/blog/" },
-    { "titulo": "Agenda Agro", "url": "/agenda-agro/" },
-    { "titulo": "Contato", "url": "/contato/" }
+    {
+      "titulo": "Início",
+      "url": "/"
+    },
+    {
+      "titulo": "Sobre Nós",
+      "url": "/sobre/"
+    },
+    {
+      "titulo": "Serviços",
+      "url": "/servicos/"
+    },
+    {
+      "titulo": "Imóveis",
+      "url": "/imoveis/"
+    },
+    {
+      "titulo": "Investir no Agro",
+      "url": "/investir-no-agro/"
+    },
+    {
+      "titulo": "Comunidade",
+      "url": "/comunidade/"
+    },
+    {
+      "titulo": "Blog",
+      "url": "/blog/"
+    },
+    {
+      "titulo": "Agenda Agro",
+      "url": "/agenda-agro/"
+    },
+    {
+      "titulo": "Contato",
+      "url": "/contato/"
+    }
   ]
 }
