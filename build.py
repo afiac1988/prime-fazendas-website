@@ -23,6 +23,7 @@ import shutil
 import sys
 from datetime import date, datetime
 from pathlib import Path
+from urllib.parse import quote as url_quote
 
 RAIZ = Path(__file__).resolve().parent
 CONTEUDO = RAIZ / "conteudo"
@@ -208,9 +209,9 @@ STATUS = {
 
 def slugificar(texto: str) -> str:
     t = str(texto).lower().strip()
-    acentos = {"á": "a", "Á ": "a", "â": "a", "ã": "a", "ä": "a", "é": "e", "ê": "e",
+    acentos = {"á": "a", "à": "a", "â": "a", "ã": "a", "ä": "a", "é": "e", "ê": "e",
                "è": "e", "í": "i", "ì": "i", "ó": "o", "ô": "o", "õ": "o", "ò": "o",
-               "ú": "u", "ù": "u", "û": "u", "ü": "u", "ç": "c", "Á±": "n"}
+               "ú": "u", "ù": "u", "û": "u", "ü": "u", "ç": "c", "ñ": "n"}
     for a, b in acentos.items():
         t = t.replace(a, b)
     t = re.sub(r"[^a-z0-9]+", "-", t)
@@ -567,7 +568,7 @@ def rodape(cfg: dict) -> str:
         <ul class="rodape__lista">
           <li><a href="/comunidade/">Entrar na comunidade</a></li>
           <li><a href="/blog/">Blog e insights</a></li>
-          <li><a href="/imoveis/">Imóveis Á  venda</a></li>
+          <li><a href="/imoveis/">Imóveis à venda</a></li>
         </ul>
       </div>
     </div>
@@ -647,7 +648,9 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 <div class="foto-modal" hidden aria-hidden="true">
   <div class="foto-modal__janela" role="dialog" aria-modal="true" aria-label="Visualizador de imagem">
     <button type="button" class="foto-modal__fechar" aria-label="Fechar visualizador">×</button>
+    <button type="button" class="foto-modal__nav foto-modal__anterior" aria-label="Foto anterior">‹</button>
     <img class="foto-modal__img" alt="">
+    <button type="button" class="foto-modal__nav foto-modal__proximo" aria-label="Próxima foto">›</button>
     <p class="foto-modal__legenda"></p>
   </div>
 </div>
@@ -660,7 +663,9 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 def hero(cfg: dict, *, olho: str, titulo: str, texto: str = "", botoes: str = "",
          interno: bool = False, foto: str = "") -> str:
     classe = "hero hero--interno" if interno else "hero"
-    img = f'<img class="hero__foto" src="{e(foto)}" alt="" loading="eager">' if foto else ""
+    prioridade = ' fetchpriority="high"' if not interno else ''
+    img = (f'<img class="hero__foto" src="{e(foto)}" alt="" width="1920" height="1080" '
+           f'loading="eager"{prioridade}>') if foto else ""
     return f"""<section class="{classe}">
   {img}{SVG_HORIZONTE}
   <div class="env hero__int">
@@ -907,7 +912,8 @@ def card_imovel(im: dict) -> str:
                 f'data-foto-modal-src="{e(im["fotos_url"][0])}" '
                 f'data-foto-modal-alt="{e(im["titulo"])}" '
                 f'title="Abrir foto no visualizador">'
-                f'<img src="{e(im["fotos_url"][0])}" alt="{e(im["titulo"])}" loading="lazy">'
+                f'<img src="{e(im["fotos_url"][0])}" alt="{e(im["titulo"])}" '
+                f'width="1200" height="750" loading="lazy">'
                 f'</a>')
     else:
         capa = SVG_CAPA
@@ -926,10 +932,10 @@ def card_imovel(im: dict) -> str:
     else:
         dados.append(f'<div class="dado"><span class="dado__rot">Valor</span>'
                      f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
-    dados.append('<div class="dado dado--nota"><span class="dado__rot">Atenção</span>'
-                 '<span class="dado__val dado__val--nota">Preço e disponibilidade sob confirmação.</span></div>')
+    preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
+    area_ordenacao = im.get("area_total_ha") or 0
 
-    return f"""<article class="imovel" data-tipo="{e(im.get('tipo', ''))}">
+    return f"""<article class="imovel" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}">
   <div class="imovel__capa">
     {f'<div class="imovel__selos">{"".join(selos)}</div>' if selos else ''}
     {capa}
@@ -1271,13 +1277,13 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
 
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     s = pag.get("imoveis", {})
-    corpo = [hero(cfg, olho="Portfólio", titulo=s.get("titulo", "Imóveis rurais Á  venda"),
+    corpo = [hero(cfg, olho="Portfólio", titulo=s.get("titulo", "Imóveis rurais à venda"),
                   texto=s.get("chamada", ""), interno=True)]
     corpo.append("""<section class="secao secao--compacta">
   <div class="env">
     <div class="painel__alerta" style="margin:0">
-      Pre?os, ?rea e disponibilidade s?o confirmados antes da publica??o. Se a propriedade
-      estiver reservada ou em negocia??o, ela n?o aparece como dispon?vel.
+      Preços, área e disponibilidade são confirmados antes da publicação. Se a propriedade
+      estiver reservada ou em negociação, ela não aparece como disponível.
     </div>
   </div>
 </section>""")
@@ -1297,11 +1303,23 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
         n = len(imoveis)
         corpo.append(f"""<section class="secao">
   <div class="env">
-    <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
+    <div class="lista-imoveis__barra">
+      <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
+      <div class="campo campo--ordenar">
+        <label for="ordenar-imoveis">Ordenar por</label>
+        <select id="ordenar-imoveis">
+          <option value="recentes">Mais recentes</option>
+          <option value="preco-desc">Maior preço</option>
+          <option value="preco-asc">Menor preço</option>
+          <option value="area-desc">Maior área</option>
+          <option value="area-asc">Menor área</option>
+        </select>
+      </div>
+    </div>
     <p style="color:var(--tinta-suave);font-size:.9rem;margin-bottom:1.75rem">
       <span id="contador-imoveis">{n} {'propriedade' if n == 1 else 'propriedades'}</span>
     </p>
-    <div class="grade-imoveis">{''.join(card_imovel(i) for i in imoveis)}</div>
+    <div class="grade-imoveis" id="grade-imoveis">{''.join(card_imovel(i) for i in imoveis)}</div>
   </div>
 </section>""")
     else:
@@ -1320,7 +1338,7 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     corpo.append(cta_faixa(cfg, "Procura algo específico?",
                            "Diga região, tamanho, aptidão e faixa de investimento. Boa parte do que negociamos não chega a ser anunciado."))
 
-    return pagina(cfg, titulo=s.get("titulo", "Imóveis rurais Á  venda"),
+    return pagina(cfg, titulo=s.get("titulo", "Imóveis rurais à venda"),
                   descricao=s.get("chamada", ""), url="/imoveis/",
                   corpo="\n".join(corpo),
                   rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
@@ -1344,7 +1362,7 @@ def gerar_ficha_imovel(cfg, im) -> str:
             f'data-foto-modal-src="{e(u)}" '
             f'data-foto-modal-alt="{e(im["titulo"])} — foto {n + 1}" '
             f'title="Abrir foto {n + 1} no visualizador">'
-            f'<img src="{e(u)}" alt="{e(im["titulo"])} — foto {n + 1}" loading="lazy">'
+            f'<img src="{e(u)}" alt="{e(im["titulo"])} — foto {n + 1}" width="1200" height="900" loading="lazy">'
             f'</a>'
             for n, u in enumerate(im["fotos_url"])
         )
@@ -1369,10 +1387,21 @@ def gerar_ficha_imovel(cfg, im) -> str:
                       f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
                       f'title="Vídeo da propriedade" loading="lazy" allowfullscreen></iframe></div></div>')
 
-    if preenchido(im.get("mapa_embed")):
-        blocos.append(f'<div class="bloco-ficha"><h3>Localização</h3><div class="mapa">'
-                      f'<iframe src="{e(im["mapa_embed"])}" title="Mapa da propriedade" '
-                      f'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div></div>')
+    mapa_embed_url = im.get("mapa_embed") if preenchido(im.get("mapa_embed")) else ""
+    mapa_titulo = "Localização"
+    mapa_legenda = ""
+    if not mapa_embed_url:
+        municipio_estado = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if preenchido(x))
+        if municipio_estado:
+            mapa_embed_url = f"https://www.google.com/maps?q={url_quote(municipio_estado)}&output=embed"
+            mapa_legenda = (f'<p class="form__nota" style="margin-top:.6rem">Mapa aproximado do '
+                            f'município — {e(municipio_estado)}. Não representa os limites exatos '
+                            f'da propriedade.</p>')
+    if mapa_embed_url:
+        blocos.append(f'<div class="bloco-ficha"><h3>{e(mapa_titulo)}</h3><div class="mapa">'
+                      f'<iframe src="{e(mapa_embed_url)}" title="Mapa da propriedade" '
+                      f'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'
+                      f'{mapa_legenda}</div>')
 
     # painel lateral
     if im.get("preco_sob_consulta") or not im.get("preco"):
@@ -1750,6 +1779,21 @@ def gerar_contato(cfg, pag) -> str:
   </div>
 </section>""")
 
+    local_mapa = ", ".join(x for x in [c.get("cidade"), c.get("estado"), c.get("pais")] if preenchido(x))
+    if local_mapa:
+        corpo.append(f"""<section class="secao secao--compacta">
+  <div class="env">
+    <div class="bloco-ficha">
+      <h3>Onde estamos</h3>
+      <div class="mapa">
+        <iframe src="https://www.google.com/maps?q={url_quote(local_mapa)}&output=embed"
+                title="Mapa — {e(local_mapa)}" loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+    </div>
+  </div>
+</section>""")
+
     return pagina(cfg, titulo=s.get("titulo", "Contato"), descricao=s.get("chamada", ""),
                   url="/contato/", corpo="\n".join(corpo))
 
@@ -1907,13 +1951,13 @@ def auditar(cfg: dict, imoveis: list, posts: list, dados_agro: dict, depoimentos
         preco_ha = i.get("preco_ha") or 0
         if preco_ha and preco_ha < 1000:
             suspeita_preco.append(
-                f"{i.get('arquivo', i.get('slug', 'im?vel'))} ? {fmt_num(round(preco_ha))}/ha"
+                f"{i.get('arquivo', i.get('slug', 'imóvel'))} → {fmt_num(round(preco_ha))}/ha"
             )
     if suspeita_preco:
         aviso(
-            "pre?o por hectare muito abaixo do esperado em: "
+            "preço por hectare muito abaixo do esperado em: "
             + "; ".join(suspeita_preco)
-            + ". Confirme ?rea, moeda e disponibilidade antes de publicar."
+            + ". Confirme área, moeda e disponibilidade antes de publicar."
         )
 
     nao_verif = [i.get("rotulo", "?") for i in dados_agro.get("indicadores", []) if i.get("verificar")]

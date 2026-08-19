@@ -14,7 +14,7 @@
 
   --dourado: #C9A44C;
   --dourado-claro: #E5CB86;
-  --dourado-escuro: #9C7B2E;
+  --dourado-escuro: #7E5F1F;
 
   --terra-700: #5B4232;
   --terra-500: #8A6A4E;
@@ -26,7 +26,7 @@
 
   --tinta: #171A1F;
   --tinta-media: #454B54;
-  --tinta-suave: #757C86;
+  --tinta-suave: #5E6570;
   --borda: #E2DED4;
 
   /* Tipografia */
@@ -428,13 +428,41 @@ strong { font-weight: 600; color: var(--azul-900); }
 
 /* ------------------------------------------------------------ Imóveis ---- */
 
+.lista-imoveis__barra {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-start;
+  justify-content: space-between;
+  gap: 1rem 1.5rem;
+  padding-bottom: 2rem;
+  margin-bottom: 2.5rem;
+  border-bottom: 1px solid var(--borda);
+}
 .filtros {
   display: flex;
   flex-wrap: wrap;
   gap: 0.5rem;
-  padding-bottom: 2rem;
-  margin-bottom: 2.5rem;
-  border-bottom: 1px solid var(--borda);
+}
+.campo--ordenar {
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  flex-shrink: 0;
+}
+.campo--ordenar label {
+  font-size: 0.82rem;
+  color: var(--tinta-suave);
+  white-space: nowrap;
+}
+.campo--ordenar select {
+  padding: 0.5rem 0.9rem;
+  font-family: var(--fonte-corpo);
+  font-size: 0.875rem;
+  color: var(--tinta-media);
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: 100px;
+  cursor: pointer;
 }
 .filtro {
   padding: 0.6rem 1.15rem;
@@ -592,6 +620,25 @@ strong { font-weight: 600; color: var(--azul-900); }
   line-height: 1;
   cursor: pointer;
 }
+.foto-modal__nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 2.5rem;
+  height: 2.5rem;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(12, 30, 51, 0.92);
+  color: var(--branco);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+  display: grid;
+  place-items: center;
+}
+.foto-modal__nav[hidden] { display: none; }
+.foto-modal__anterior { left: 0.55rem; }
+.foto-modal__proximo { right: 0.55rem; }
 body.modal-aberta { overflow: hidden; }
 .galeria--vazia {
   grid-template-columns: 1fr;
