@@ -566,7 +566,7 @@ def rodape(cfg: dict) -> str:
       <div>
         <h4>{e(cfg.get('comunidade', {}).get('nome', 'Comunidade'))}</h4>
         <ul class="rodape__lista">
-          <li><a href="/comunidade/">Entrar na comunidade</a></li>
+          <li><a href="/blog/">Entrar na comunidade</a></li>
           <li><a href="/blog/">Blog e insights</a></li>
           <li><a href="/imoveis/">Imóveis à venda</a></li>
         </ul>
@@ -2187,7 +2187,7 @@ def main() -> int:
     # sitemap + robots + htaccess
     dominio = cfg["site"]["dominio"].rstrip("/")
     urls = ["/", "/sobre/", "/servicos/", "/investir-no-agro/", "/imoveis/",
-            "/comunidade/", "/blog/", "/agenda-agro/", "/contato/"]
+            "/blog/", "/agenda-agro/", "/contato/"]
     urls += [im["url"] for im in imoveis]
     urls += [p["url"] for p in posts]
     hoje = date.today().isoformat()
