@@ -1,0 +1,49 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Âmbar",
+  "subtitulo": "5.774 hectares com projeto de arrozal irrigado em Lagoa da Confusão",
+  "tipo": "mista",
+
+  "municipio": "Lagoa da Confusão",
+  "estado": "TO",
+  "regiao": "Sudoeste do Tocantins",
+
+  "area_total_ha": 5774,
+  "area_aberta_ha": 4598,
+  "area_reserva_ha": 1176,
+
+  "preco": 178950000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com dupla aptidão em Lagoa da Confusão, com projeto de irrigação por gravidade em cerca de 1.452 hectares, arroz sendo a cultura predominante da região. Pastagens bem manejadas, com 55 repartimentos e boa aptidão para cria, recria e engorda de nelore ou búfalos.\n\nRecursos hídricos abundantes: nascentes, poço artesiano, canais perenes, aguadas, lagos e córregos.",
+
+  "caracteristicas": [
+    "Projeto de irrigação por gravidade em ~1.452 hectares",
+    "55 repartimentos de pastos",
+    "Solo com boa retenção de umidade"
+  ],
+
+  "infraestrutura": [
+    "Casa sede ampla com várias suítes e garagem para 3 veículos",
+    "4 casas para funcionários e galpão de 1.460 m² para máquinas",
+    "3 currais, sendo o principal com balança digital para 1.000 animais"
+  ],
+
+  "documentacao": [
+    "Escritura",
+    "Georreferenciamento (GEO)",
+    "CAR ativo"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg"],
+  "pasta_fotos": "fazenda-ambar",
+
+  "video_youtube": ""
+}

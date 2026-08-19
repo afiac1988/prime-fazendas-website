@@ -1,0 +1,47 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Ágata do Fogo",
+  "subtitulo": "2.090 hectares plantando 1.000 hectares à beira do asfalto em Divinópolis do Tocantins",
+  "tipo": "mista",
+
+  "municipio": "Divinópolis do Tocantins",
+  "estado": "TO",
+  "regiao": "Central do Tocantins",
+
+  "area_total_ha": 2090,
+  "area_aberta_ha": 1000,
+  "area_reserva_ha": 0,
+
+  "preco": 55000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de grande produtividade em Divinópolis do Tocantins, plantando atualmente 1.000 hectares. Localização estratégica à beira do asfalto, a apenas 15 km da cidade, com topografia levemente ondulada e aproveitamento de 65% da área.\n\nSolo argiloso, com índice pluviométrico entre 1.800 e 2.200 mm, favorável para lavoura e pecuária.",
+
+  "caracteristicas": [
+    "1.000 hectares em plantio ativo",
+    "Topografia levemente ondulada, aproveitamento de 65%",
+    "Solo argiloso com cascalho chumbinho"
+  ],
+
+  "infraestrutura": [
+    "Sede e galpão para máquinas",
+    "Localização à beira do asfalto, 15 km de Divinópolis"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg"],
+  "pasta_fotos": "fazenda-agata-do-fogo",
+
+  "video_youtube": ""
+}

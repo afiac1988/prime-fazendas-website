@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Cristal Azul",
+  "subtitulo": "13.792 hectares de grande escala a 30 km de Colinas do Tocantins",
+  "tipo": "mista",
+
+  "municipio": "Colinas do Tocantins",
+  "estado": "TO",
+  "regiao": "Norte do Tocantins",
+
+  "area_total_ha": 13792,
+  "area_aberta_ha": 3600,
+  "area_reserva_ha": 0,
+
+  "preco": 260000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de grande escala a cerca de 30 km de Colinas do Tocantins, com pluviometria de aproximadamente 1.800 mm e potencial para dezenas de pivôs de irrigação. Área útil aproximada de 7.485 hectares, com parte já em lavoura de soja há vários anos.\n\nLicença ambiental em andamento para ampliação da área aberta, com potencial de expansão para até 7.000 hectares de cultivo.",
+
+  "caracteristicas": [
+    "Área útil de aproximadamente 7.485 hectares",
+    "Potencial para dezenas de pivôs de irrigação",
+    "Área em expansão de lavoura de soja"
+  ],
+
+  "infraestrutura": [
+    "Estrutura de armazenagem de grãos",
+    "Energia trifásica",
+    "Acesso próximo a rodovias regionais"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg"],
+  "pasta_fotos": "fazenda-cristal-azul",
+
+  "video_youtube": ""
+}

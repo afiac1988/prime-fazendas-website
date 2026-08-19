@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Ametista Real",
+  "subtitulo": "1.210 hectares de pecuária a 40 km de Porto Nacional",
+  "tipo": "pecuaria",
+
+  "municipio": "Porto Nacional",
+  "estado": "TO",
+  "regiao": "Central do Tocantins",
+
+  "area_total_ha": 1210,
+  "area_aberta_ha": 726,
+  "area_reserva_ha": 0,
+
+  "preco": 27000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda voltada à pecuária de cria e recria a 40 km do centro de Porto Nacional, com 150 alqueires já abertos e formados em pasto. Topografia ondulada, com uma área plana no alto da serra com potencial para agricultura.\n\nGrande abundância de água, com dois córregos perenes de médio porte e diversas nascentes espalhadas pela propriedade. Plantel permanente de aproximadamente 1.200 cabeças.",
+
+  "caracteristicas": [
+    "150 alqueires abertos e formados em pasto",
+    "Dois córregos perenes e diversas nascentes",
+    "Plantel permanente de ~1.200 cabeças"
+  ],
+
+  "infraestrutura": [
+    "Casa sede, 3 casas de vaqueiro e retiro",
+    "Galpão para máquinas e baias para cavalos",
+    "Curral, 2 represas e cochos distribuídos nos pastos"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg"],
+  "pasta_fotos": "fazenda-ametista-real",
+
+  "video_youtube": ""
+}

@@ -1,0 +1,49 @@
+{
+  "publicado": true,
+  "destaque": true,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Aventurina",
+  "subtitulo": "17.602 hectares com pista de pouso e infraestrutura completa em Formoso do Araguaia",
+  "tipo": "mista",
+
+  "municipio": "Formoso do Araguaia",
+  "estado": "TO",
+  "regiao": "Sul do Tocantins",
+
+  "area_total_ha": 17602.69,
+  "area_aberta_ha": 0,
+  "area_reserva_ha": 0,
+
+  "preco": 280000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de grande escala em Formoso do Araguaia, com boa parte da área em pasto formado, capacidade para cerca de 8.000 cabeças de gado ou conversão para plantio de grãos. Conta com 7 lagos e 2 rios adjacentes garantindo abundância hídrica.\n\nInfraestrutura completa: sede ampla com 12 suítes, pista de pouso de 2.000 metros com hangar, curral central com balança, diversos ranchos e casas de funcionários, além de três conjuntos de pivôs de irrigação.",
+
+  "caracteristicas": [
+    "Boa parte em pasto formado, capacidade para ~8.000 cabeças",
+    "7 lagos e 2 rios adjacentes",
+    "Pivôs de irrigação instalados"
+  ],
+
+  "infraestrutura": [
+    "Sede com 12 suítes e pista de pouso de 2.000m com hangar",
+    "Curral central com balança e embarcador",
+    "Diversos ranchos, casas de funcionários e galpões"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo",
+    "Georreferenciamento aprovado"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg"],
+  "pasta_fotos": "fazenda-aventurina",
+
+  "video_youtube": ""
+}

@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Citrino",
+  "subtitulo": "1.338 hectares de dupla aptidão próximos a Dueré e Gurupi",
+  "tipo": "mista",
+
+  "municipio": "Dueré",
+  "estado": "TO",
+  "regiao": "Sul do Tocantins",
+
+  "area_total_ha": 1338.8,
+  "area_aberta_ha": 0,
+  "area_reserva_ha": 0,
+
+  "preco": 25000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de dupla aptidão próxima a Dueré e Gurupi, com excelente logística de escoamento a apenas 6 km do asfalto. Terra preta de cultura, solo com potencial de irrigação e boa pluviometria média anual (2.200 mm).\n\nConta com casa sede à beira da lagoa, casa de peão, curral, dois córregos e represas dentro da propriedade.",
+
+  "caracteristicas": [
+    "Terra preta de cultura, potencial para irrigação",
+    "Dois córregos e represas na propriedade",
+    "6 km do asfalto"
+  ],
+
+  "infraestrutura": [
+    "Casa sede à beira da lagoa",
+    "Casa de peão com energia",
+    "Curral e cercas em bom estado"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "CAR ativo"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg"],
+  "pasta_fotos": "fazenda-citrino",
+
+  "video_youtube": ""
+}
