@@ -4,7 +4,7 @@ data: 2026-08-17
 autor: Prime Fazendas
 categoria: Regularização
 resumo: Por que adquirir terra com pendências registrais, ambientais ou tributárias é uma armadilha que custa muito mais do que economiza.
-capa:
+capa: /midia/imoveis/fazenda-painita/foto-01.jpg
 publicado: true
 ---
 

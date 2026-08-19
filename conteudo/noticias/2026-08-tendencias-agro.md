@@ -4,7 +4,7 @@ data: 2026-08-17
 autor: Prime Fazendas
 categoria: Mercado
 resumo: Conheça as principais tendências que estão moldando o setor agrícola e as oportunidades para investidores rurais.
-capa:
+capa: /midia/imoveis/fazenda-citrino/aerea-03.jpg
 publicado: true
 ---
 

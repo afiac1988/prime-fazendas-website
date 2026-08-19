@@ -831,6 +831,19 @@ body.modal-aberta { overflow: hidden; }
   font-family: var(--fonte-display); font-size: 2.6rem; line-height: 1;
   color: rgba(255, 255, 255, 0.28);
 }
+.post-card__capa--foto { background: var(--azul-900); }
+.post-card__capa--foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+.artigo__capa {
+  margin: 0 0 clamp(1.4rem, 3vw, 2rem); position: relative;
+}
+.artigo__capa img {
+  width: 100%; max-height: 420px; object-fit: cover; border-radius: var(--raio); display: block;
+}
+.artigo__capa figcaption {
+  margin-top: 0.5rem; font-size: 0.76rem; letter-spacing: 0.04em;
+  color: var(--tinta-suave); text-align: right;
+}
 .post-card__corpo { padding: clamp(1.4rem, 3vw, 1.85rem); display: flex; flex-direction: column; gap: 0.8rem; flex: 1; }
 .post-card__meta { display: flex; flex-wrap: wrap; align-items: center; gap: 0.6rem; font-size: 0.74rem; letter-spacing: 0.09em; text-transform: uppercase; color: var(--tinta-suave); }
 .post-card__cat { color: var(--dourado-escuro); font-weight: 700; }

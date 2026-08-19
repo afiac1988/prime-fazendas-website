@@ -925,7 +925,7 @@ def card_imovel(im: dict) -> str:
 
     dados = []
     if im.get("area_total_ha"):
-        dados.append(f'<div class="dado"><span class="dado__rot">Área total</span>'
+        dados.append(f'<div class="dado"><span class="dado__rot">Área total</span>'
                      f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
     if im.get("preco_sob_consulta") or not im.get("preco"):
         dados.append('<div class="dado"><span class="dado__rot">Valor</span>'
@@ -1091,8 +1091,14 @@ def card_post(p: dict, destaque: bool = False) -> str:
     tempo = p.get('tempo_leitura')
     meta_tempo = f'<span>·</span><span>{tempo} min de leitura</span>' if tempo else ''
     classe = "post-card post-card--destaque" if destaque else "post-card"
-    capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
-            f'<span class="post-card__capa-inicial">{e(inicial)}</span></a>')
+    if preenchido(p.get('capa')):
+        capa = (f'<a class="post-card__capa post-card__capa--foto" href="{e(p["url"])}" '
+                f'aria-hidden="true" tabindex="-1">'
+                f'<img src="{e(p["capa"])}" alt="" loading="lazy" '
+                f'width="640" height="400"></a>')
+    else:
+        capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
+                f'<span class="post-card__capa-inicial">{e(inicial)}</span></a>')
     return f"""<article class="{classe}">
   {capa}
   <div class="post-card__corpo">
@@ -1417,9 +1423,9 @@ def gerar_ficha_imovel(cfg, im) -> str:
 
     linhas = []
     if im.get("area_total_ha"):
-        linhas.append(("Área total", f'{fmt_num(im["area_total_ha"])} ha'))
+        linhas.append(("Área total", f'{fmt_num(im["area_total_ha"])} ha'))
     if im.get("area_aberta_ha"):
-        linhas.append(("Área aberta", f'{fmt_num(im["area_aberta_ha"])} ha'))
+        linhas.append(("Área aberta", f'{fmt_num(im["area_aberta_ha"])} ha'))
     if im.get("area_reserva_ha"):
         linhas.append(("Reserva / APP", f'{fmt_num(im["area_reserva_ha"])} ha'))
     if local:
@@ -1630,6 +1636,16 @@ def gerar_agenda_agro(cfg, pag, agenda) -> str:
 
 
 def gerar_post(cfg, p, outros) -> str:
+    capa_html = ""
+    if preenchido(p.get('capa')):
+        capa_html = (
+            '<section class="secao secao--compacta secao--sem-topo"><div class="env">'
+            '<div class="artigo"><figure class="artigo__capa">'
+            f'<img src="{e(p["capa"])}" alt="" loading="lazy" width="1200" height="675">'
+            '<figcaption>Imagem ilustrativa — acervo Prime Fazendas</figcaption>'
+            '</figure></div></div></section>'
+        )
+
     corpo = [f"""<section class="secao secao--compacta">
   <div class="env">
     <div class="artigo">
@@ -1643,6 +1659,7 @@ def gerar_post(cfg, p, outros) -> str:
     </div>
   </div>
 </section>
+{capa_html}
 <section class="secao secao--compacta">
   <div class="env">
     <article class="artigo prosa artigo__corpo">{p['html']}</article>
