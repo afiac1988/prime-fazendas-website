@@ -107,6 +107,8 @@
         telefone: 'Telefone',
         interesse: 'Interesse',
         regiao: 'Região',
+        empresa: 'Empresa / Grupo',
+        area_pretendida: 'Área pretendida/disponível (ha)',
         investimento: 'Faixa de investimento',
         mensagem: 'Mensagem'
       };

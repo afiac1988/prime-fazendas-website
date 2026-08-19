@@ -966,7 +966,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
 
     corpo = [hero(cfg, olho=f"{cfg['contato'].get('cidade', '')} · {cfg['contato'].get('estado', '')} · Matopiba".strip(" ·"),
                   titulo=h.get("hero_titulo", cfg["marca"]["slogan"]),
-                  texto=h.get("hero_texto", ""), botoes=botoes, foto="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-05.jpg")]
+                  texto=h.get("hero_texto", ""), botoes=botoes, foto="/midia/imoveis/fazenda-cristal-da-serra/foto-04.jpg")]
 
     # pilares
     cards = "".join(
@@ -1116,13 +1116,52 @@ def card_post(p: dict, destaque: bool = False) -> str:
 
 def gerar_sobre(cfg, pag) -> str:
     s = pag.get("sobre", {})
+    c = cfg["contato"]
     corpo = [hero(cfg, olho="Sobre nós", titulo=s.get("titulo", "Sobre a Prime Fazendas"),
-                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg")]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-turquesa-do-cerrado/capa.jpg")]
     corpo.append(f"""<section class="secao">
   <div class="env">
     <div class="prosa">
       <p class="olho">Quem somos</p>
       {paragrafos(s.get('quem_somos'))}
+    </div>
+  </div>
+</section>""")
+
+    # credenciais verificaveis — apenas dados reais ja cadastrados, sem numero inventado
+    credenciais = []
+    if preenchido(c.get("creci")):
+        credenciais.append(("CRECI", e(c["creci"])))
+    cidade_uf = ", ".join(x for x in [c.get("cidade"), c.get("estado")] if preenchido(x))
+    if cidade_uf:
+        credenciais.append(("Sede", e(cidade_uf)))
+    if preenchido(cfg["marca"].get("ano_fundacao")):
+        credenciais.append(("Fundada em", e(cfg["marca"]["ano_fundacao"])))
+    ig = cfg.get("redes", {}).get("instagram")
+    if preenchido(ig):
+        credenciais.append(("Instagram", f'<a href="{e(ig)}" target="_blank" rel="noopener">perfil verificado</a>'))
+    if credenciais:
+        creds_html = "".join(
+            f'<div class="dado"><span class="dado__rot">{r}</span><span class="dado__val">{v}</span></div>'
+            for r, v in credenciais
+        )
+        corpo.append(f"""<section class="secao secao--compacta">
+  <div class="env">
+    <div class="imovel__dados imovel__dados--ficha">{creds_html}</div>
+  </div>
+</section>""")
+
+    corpo.append(f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="prosa">
+      <p class="olho">Investidores fora do Brasil</p>
+      <h2>Atendemos parceiros internacionais</h2>
+      <p>Parte da nossa rede de compradores e investidores está no exterior, incluindo parceiros comerciais
+      na Europa. Orientamos o processo de aquisição para quem vive fora do Brasil — documentação necessária,
+      etapas de due diligence e o passo a passo até a assinatura — sempre em conjunto com advogados e
+      despachantes habilitados, já que a Prime Fazendas atua na intermediação imobiliária e não presta
+      assessoria jurídica. Fale com a gente em português ou, se preferir, coordenamos o atendimento em
+      inglês mediante combinação prévia.</p>
     </div>
   </div>
 </section>""")
@@ -1296,7 +1335,7 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     s = pag.get("imoveis", {})
     corpo = [hero(cfg, olho="Portfólio", titulo=s.get("titulo", "Imóveis rurais à venda"),
-                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg")]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg")]
     corpo.append("""<section class="secao secao--compacta">
   <div class="env">
     <div class="painel__alerta" style="margin:0">
@@ -1366,10 +1405,34 @@ def gerar_ficha_imovel(cfg, im) -> str:
     local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
     olho = " · ".join(x for x in [local, TIPOS.get(im.get("tipo", ""), ""), im.get("regiao", "")] if x)
 
+    # ficha tecnica rapida - resumo escaneavel dos mesmos dados do painel lateral,
+    # pensado para quem quer os numeros em 10 segundos sem ler a descricao toda
+    rapidos = []
+    if im.get("area_total_ha"):
+        rapidos.append(f'<div class="dado"><span class="dado__rot">Área total</span>'
+                       f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
+    if im.get("area_aberta_ha"):
+        rapidos.append(f'<div class="dado"><span class="dado__rot">Área aberta</span>'
+                       f'<span class="dado__val">{fmt_num(im["area_aberta_ha"])} ha</span></div>')
+    if im.get("area_reserva_ha"):
+        rapidos.append(f'<div class="dado"><span class="dado__rot">Reserva / APP</span>'
+                       f'<span class="dado__val">{fmt_num(im["area_reserva_ha"])} ha</span></div>')
+    if im.get("tipo"):
+        rapidos.append(f'<div class="dado"><span class="dado__rot">Aptidão</span>'
+                       f'<span class="dado__val">{e(TIPOS.get(im["tipo"], im["tipo"]))}</span></div>')
+    if local:
+        rapidos.append(f'<div class="dado"><span class="dado__rot">Localização</span>'
+                       f'<span class="dado__val">{e(local)}</span></div>')
+    rotulo_status_rapido, _ = STATUS.get(im.get("status", "disponivel"), STATUS["disponivel"])
+    rapidos.append(f'<div class="dado"><span class="dado__rot">Situação</span>'
+                   f'<span class="dado__val">{e(rotulo_status_rapido)}</span></div>')
+    ficha_rapida = f'<div class="imovel__dados imovel__dados--ficha">{"".join(rapidos)}</div>' if rapidos else ""
+
     corpo = [f'<section class="secao secao--compacta"><div class="env">'
              + migalhas([("Início", "/"), ("Imóveis", "/imoveis/"), (im["titulo"], "")])
              + f'<p class="olho">{e(olho)}</p><h1>{e(im["titulo"])}</h1>'
              + (f'<p class="chamada chamada--larga">{e(im["subtitulo"])}</p>' if im.get("subtitulo") else "")
+             + ficha_rapida
              + "</div></section>"]
 
     # galeria
@@ -1455,7 +1518,8 @@ def gerar_ficha_imovel(cfg, im) -> str:
         for r, v in linhas
     )
 
-    msg = f"Olá! Tenho interesse na {im['titulo']} ({local}). Vi no site da Prime Fazendas."
+    link_imovel = cfg["site"]["dominio"].rstrip("/") + im["url"]
+    msg = f"Olá! Tenho interesse na {im['titulo']} ({local}). Vi no site da Prime Fazendas: {link_imovel}"
     zap = montar_url_zap(cfg, msg)
     acoes = f'<a class="btn btn--principal btn--bloco" href="/contato/">Agendar visita</a>'
     if zap:
@@ -1468,6 +1532,7 @@ def gerar_ficha_imovel(cfg, im) -> str:
   <ul class="painel__linhas">{linhas_html}</ul>
   {acoes}
   <p class="form__nota" style="margin-top:1.1rem">Dados sujeitos a confirmação em due diligence.</p>
+  <p class="form__nota">Ficha atualizada em {e(fmt_data(date.today()))}.</p>
 </aside>"""
 
     corpo.append(f'<section class="secao secao--compacta"><div class="env">'
@@ -1500,6 +1565,26 @@ def gerar_ficha_imovel(cfg, im) -> str:
                   corpo="\n".join(corpo), og_tipo="article", json_ld=ld,
                   rascunho=bool(im.get("_exemplo") or im.get("_rascunho")),
                   og_imagem=og_img_imovel)
+
+
+def gerar_redirect(cfg, destino: str) -> str:
+    """Pagina simples de redirecionamento (usada para URLs antigas que saem do menu,
+    ex.: /comunidade/ apos a fusao do conteudo dentro do Blog)."""
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    destino_absoluto = dominio + destino
+    return f"""<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta http-equiv="refresh" content="0; url={e(destino_absoluto)}">
+<link rel="canonical" href="{e(destino_absoluto)}">
+<title>Redirecionando…</title>
+</head>
+<body>
+<p>Este conteúdo agora faz parte do <a href="{e(destino)}">Blog</a>. Redirecionando…</p>
+</body>
+</html>
+"""
 
 
 def gerar_comunidade(cfg, pag) -> str:
@@ -1557,7 +1642,21 @@ def gerar_comunidade(cfg, pag) -> str:
 def gerar_blog(cfg, pag, posts) -> str:
     s = pag.get("blog", {})
     corpo = [hero(cfg, olho="Blog", titulo=s.get("titulo", "Blog e insights"),
-                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-ametista-do-sul/foto-02.jpg")]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg")]
+
+    # comunidade absorvida pelo blog — deixou de ser item proprio do menu
+    com = cfg.get("comunidade", {})
+    canal = com.get("canal_whatsapp") or com.get("grupo_whatsapp")
+    if preenchido(canal):
+        corpo.append(f"""<section class="secao secao--compacta">
+  <div class="env">
+    <div class="cta-faixa">
+      <h2>{e(com.get('nome', 'Comunidade Prime Agro'))}</h2>
+      <p>{e(com.get('chamada', 'Receba os anúncios e novidades do agro direto no WhatsApp.'))}</p>
+      <div class="grupo-btn"><a class="btn btn--dourado" href="{e(canal)}" target="_blank" rel="noopener">Entrar no grupo do WhatsApp</a></div>
+    </div>
+  </div>
+</section>""")
 
     if posts:
         destaque, resto = posts[0], posts[1:]
@@ -1712,7 +1811,7 @@ def gerar_contato(cfg, pag) -> str:
     c = cfg["contato"]
 
     corpo = [hero(cfg, olho="Contato", titulo=s.get("titulo", "Contato e consultoria"),
-                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-painita/foto-05.jpg")]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-rubi-negro/foto-06.jpg")]
 
     numero_zap = re.sub(r"\D", "", str(c.get("whatsapp_numero_internacional") or "")) \
         if preenchido(c.get("whatsapp_numero_internacional")) else ""
@@ -1738,6 +1837,8 @@ def gerar_contato(cfg, pag) -> str:
       <select id="interesse" name="interesse">
         <option>Comprar uma propriedade</option>
         <option>Vender minha propriedade</option>
+        <option>Arrendar uma propriedade (buscar terra)</option>
+        <option>Tenho uma propriedade e quero oferecer para arrendamento</option>
         <option>Avaliar uma propriedade</option>
         <option>Regularização fundiária ou ambiental</option>
         <option>Investir no agro</option>
@@ -1747,6 +1848,16 @@ def gerar_contato(cfg, pag) -> str:
     <div class="campo">
       <label for="regiao">Região de interesse</label>
       <input type="text" id="regiao" name="regiao" placeholder="Ex: Palmas, Matopiba, Vale do Araguaia">
+    </div>
+  </div>
+  <div class="campo--duplo">
+    <div class="campo">
+      <label for="empresa">Empresa / Grupo (se aplicável)</label>
+      <input type="text" id="empresa" name="empresa" placeholder="Nome da empresa ou grupo, se houver">
+    </div>
+    <div class="campo">
+      <label for="area_pretendida">Área pretendida ou disponível (ha)</label>
+      <input type="text" id="area_pretendida" name="area_pretendida" placeholder="Ex: 500 a 2.000 ha">
     </div>
   </div>
   <div class="campo">
@@ -1766,7 +1877,7 @@ def gerar_contato(cfg, pag) -> str:
   <div class="grupo-btn">
     <button class="btn btn--principal" type="submit">Enviar pelo WhatsApp</button>
   </div>
-  <p class="form__nota">{e(s.get('form_nota', ''))}</p>
+  <p class="form__nota">{e(s.get('form_nota', '')) or 'Quer anunciar ou arrendar sua propriedade? Preencha os dados acima e envie as fotos direto pelo WhatsApp após o primeiro contato.'}</p>
   <p class="form__nota" data-retorno hidden role="status"></p>
 </form>"""
 
@@ -2062,7 +2173,7 @@ def main() -> int:
     escrever("servicos/index.html", gerar_servicos(cfg, pag))
     escrever("investir-no-agro/index.html", gerar_investir(cfg, pag, dados_agro))
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
-    escrever("comunidade/index.html", gerar_comunidade(cfg, pag))
+    escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
     escrever("blog/index.html", gerar_blog(cfg, pag, posts))
     escrever("agenda-agro/index.html", gerar_agenda_agro(cfg, pag, agenda_agro))
     escrever("contato/index.html", gerar_contato(cfg, pag))
