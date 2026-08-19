@@ -567,7 +567,7 @@ def rodape(cfg: dict) -> str:
         <h4>{e(cfg.get('comunidade', {}).get('nome', 'Comunidade'))}</h4>
         <ul class="rodape__lista">
           <li><a href="/blog/">Entrar na comunidade</a></li>
-          <li><a href="/blog/">Blog e insights</a></li>
+          <li><a href="/blog/">Notícias e insights</a></li>
           <li><a href="/imoveis/">Imóveis à venda</a></li>
         </ul>
       </div>
@@ -1584,7 +1584,7 @@ def gerar_redirect(cfg, destino: str) -> str:
 <title>Redirecionando…</title>
 </head>
 <body>
-<p>Este conteúdo agora faz parte do <a href="{e(destino)}">Blog</a>. Redirecionando…</p>
+<p>Este conteúdo agora faz parte de <a href="{e(destino)}">Notícias</a>. Redirecionando…</p>
 </body>
 </html>
 """
@@ -1644,7 +1644,7 @@ def gerar_comunidade(cfg, pag) -> str:
 
 def gerar_blog(cfg, pag, posts) -> str:
     s = pag.get("blog", {})
-    corpo = [hero(cfg, olho="Blog", titulo=s.get("titulo", "Blog e insights"),
+    corpo = [hero(cfg, olho="Notícias", titulo=s.get("titulo", "Notícias e insights"),
                   texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg")]
 
     # comunidade absorvida pelo blog — deixou de ser item proprio do menu
@@ -1676,7 +1676,7 @@ def gerar_blog(cfg, pag, posts) -> str:
                      f'<h2>{e(s.get("vazio_titulo", "Em breve"))}</h2>'
                      f'<p>{e(s.get("vazio_texto", ""))}</p></div></div></section>')
 
-    return pagina(cfg, titulo=s.get("titulo", "Blog"), descricao=s.get("chamada", ""),
+    return pagina(cfg, titulo=s.get("titulo", "Notícias"), descricao=s.get("chamada", ""),
                   url="/blog/", corpo="\n".join(corpo))
 
 
@@ -1764,7 +1764,7 @@ def gerar_post(cfg, p, outros) -> str:
     corpo = [f"""<section class="secao secao--compacta">
   <div class="env">
     <div class="artigo">
-      {migalhas([("Início", "/"), ("Blog", "/blog/"), (p['titulo'], "")])}
+      {migalhas([("Início", "/"), ("Notícias", "/blog/"), (p['titulo'], "")])}
       <p class="artigo__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
       <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time>
       <span>·</span><span>{e(p['autor'])}</span>
