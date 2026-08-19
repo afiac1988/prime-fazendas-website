@@ -2,47 +2,41 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Jade do Cerrado",
   "subtitulo": "828 hectares próximos a Porto Nacional, ideal para pecuária",
   "tipo": "pecuaria",
-
   "municipio": "Porto Nacional",
   "estado": "TO",
   "regiao": "Matopiba",
-
   "area_total_ha": 828.8,
   "area_aberta_ha": 90,
   "area_reserva_ha": 314.37,
-
   "preco": 10000000,
   "preco_sob_consulta": false,
-
   "descricao": "Fazenda de 828,80 hectares no município de Porto Nacional, próxima à TO-255, a 30 km da cidade e 100 km de Palmas. Propriedade com excelente logística e estrutura voltada à pecuária.\n\nÍndice pluviométrico de 1.800mm. Reserva legal averbada de 314,37 hectares conforme CAR ativo.",
-
   "caracteristicas": [
     "Excelente logística, próxima à TO-255",
     "Índice pluviométrico de 1.800mm",
     "Reserva legal averbada"
   ],
-
   "infraestrutura": [
     "Casa",
     "Galpão",
     "Curral"
   ],
-
   "documentacao": [
     "CAR ativo",
     "Matrícula individualizada"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
-  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg", "foto-04.jpg", "foto-05.jpg"],
+  "fotos": [
+    "foto-04.jpg",
+    "foto-01.jpg",
+    "foto-02.jpg",
+    "foto-03.jpg",
+    "foto-05.jpg"
+  ],
   "pasta_fotos": "fazenda-jade-do-cerrado",
-
   "video_youtube": ""
 }

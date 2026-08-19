@@ -2,56 +2,44 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Safira Azul",
   "subtitulo": "980 alqueires de dupla aptidão no município de Peixe",
   "tipo": "mista",
-
   "municipio": "Peixe",
   "estado": "TO",
   "regiao": "Região Sul do Tocantins",
-
   "area_total_ha": 4743,
   "area_aberta_ha": 4743,
   "area_reserva_ha": 0,
-
   "preco": 100000000,
   "preco_sob_consulta": false,
-
   "descricao": "Fazenda de 980 alqueires em Peixe-TO, toda formada em pastagem e com aptidão dupla, podendo ser convertida para lavoura. Possui disponibilidade hídrica para instalação de pivô central.\n\nInfraestrutura de apoio com casa, cantina e alojamento, propriedade toda cercada e com manejo sustentável das pastagens.",
-
   "caracteristicas": [
     "Área toda formada em pastagem, apta para lavoura",
     "Disponibilidade de água para pivô central",
     "Pastagens com manejo adequado"
   ],
-
   "infraestrutura": [
     "Casa e cantina",
     "Alojamento",
     "Propriedade toda cercada"
   ],
-
   "documentacao": [
     "Matrícula individualizada",
     "CAR ativo",
     "CCIR e ITR em dia"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
   "fotos": [
+    "foto-06.jpg",
     "foto-02.jpg",
     "foto-04.jpg",
     "foto-07.jpg",
     "capa.jpg",
     "foto-03.jpg",
-    "foto-05.jpg",
-    "foto-06.jpg"
+    "foto-05.jpg"
   ],
   "pasta_fotos": "fazenda-safira-azul",
-
   "video_youtube": ""
 }

@@ -2,57 +2,45 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Rubi Negro",
   "subtitulo": "2.328 hectares de pecuária de alta tecnologia perto de Cristalândia",
   "tipo": "mista",
-
   "municipio": "Cristalândia",
   "estado": "TO",
   "regiao": "Região Sul do Tocantins",
-
   "area_total_ha": 2328,
   "area_aberta_ha": 1360,
   "area_reserva_ha": 0,
-
   "preco": 75000000,
   "preco_sob_consulta": false,
-
   "descricao": "Fazenda de 2.328 hectares (481 alqueires) a 25 km de Cristalândia-TO, com 1.360 hectares de pastagem formada em 60 divisões, abastecidas por gravidade a partir de reservatório alimentado por poço artesiano e represas.\n\nCurral anti-stress com brete e balança, barracão com oficina e fábrica de ração, além de 3 casas de moradia e energia trifásica.",
-
   "caracteristicas": [
     "1.360 hectares de pastagem em 60 divisões",
     "Córrego, nascentes e 10 represas",
     "120 hectares em plantio de soja"
   ],
-
   "infraestrutura": [
     "Curral anti-stress com brete e balança",
     "Barracão com oficina e fábrica de ração",
     "3 casas de moradia",
     "Energia trifásica"
   ],
-
   "documentacao": [
     "Matrícula individualizada",
     "CAR ativo",
     "CCIR e ITR em dia"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
   "fotos": [
+    "foto-06.jpg",
     "foto-07.jpg",
     "capa.jpg",
     "foto-02.jpg",
     "foto-04.jpg",
-    "foto-06.jpg",
     "foto-05.jpg",
     "foto-03.jpg"
   ],
   "pasta_fotos": "fazenda-rubi-negro",
-
   "video_youtube": ""
 }

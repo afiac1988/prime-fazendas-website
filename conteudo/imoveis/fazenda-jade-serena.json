@@ -2,54 +2,42 @@
   "publicado": true,
   "destaque": true,
   "status": "disponivel",
-
   "titulo": "Fazenda Jade Serena",
   "subtitulo": "17.416 hectares na beira do asfalto, com dois currais estruturados",
   "tipo": "mista",
-
   "municipio": "Guaraí",
   "estado": "TO",
   "regiao": "Matopiba",
-
   "area_total_ha": 17416.02,
   "area_aberta_ha": 4400,
   "area_reserva_ha": 0,
-
   "preco": 170000000,
   "preco_sob_consulta": false,
-
   "descricao": "Grande propriedade de dupla aptidão em Guaraí, com 17.416,02 hectares (3.598,35 alqueires), sendo 2.100 hectares de brachiaria em uso e 2.300 hectares derrubados com licença para renovação, além de potencial para uso de até 10.000 hectares em lavoura.\n\nTopografia 95% plana com leves ondulações, argila de 18% a 24% e solo de barro vermelho. Logística privilegiada na beira do asfalto da TO-239, a 12 km da BR-153 (corredor norte-sul), com dois rios perenes e diversas nascentes.",
-
   "caracteristicas": [
     "95% de topografia plana",
     "2 rios perenes e várias nascentes",
     "Beira do asfalto da TO-239, 12km da BR-153"
   ],
-
   "infraestrutura": [
     "Casa sede e 3 casas de apoio",
     "2 currais estruturados (900 e 500 cabeças)",
     "Casa de vaqueiro e galpão para máquinas"
   ],
-
   "documentacao": [
     "Matrícula e CAR ativos",
     "Registro no CAR TO-1709302",
     "Documentação completa para escritura pública"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
   "fotos": [
+    "foto-03.jpg",
     "foto-01.jpg",
     "foto-02.jpg",
     "foto-04.jpg",
-    "foto-05.jpg",
-    "foto-03.jpg"
+    "foto-05.jpg"
   ],
   "pasta_fotos": "fazenda-jade-serena",
-
   "video_youtube": ""
 }

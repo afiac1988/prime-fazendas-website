@@ -2,51 +2,39 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Ametista do Cerrado",
   "subtitulo": "220 alqueires entre Santa Rosa e Chapada da Natividade",
   "tipo": "mista",
-
   "municipio": "Chapada da Natividade",
   "estado": "TO",
   "regiao": "Matopiba",
-
   "area_total_ha": 1064.8,
   "area_aberta_ha": 484,
   "area_reserva_ha": 0,
-
   "preco": 15400000,
   "preco_sob_consulta": false,
-
   "descricao": "Fazenda com 1.064,8 hectares (220 alqueires), localizada entre os municípios de Santa Rosa do Tocantins e Chapada da Natividade, a 10km do asfalto e 20km do calcário.\n\nCom 100 alqueires abertos e calcariados, atualmente em pastagem, e georreferenciamento já concluído em 180 alqueires. Índice pluviométrico de 1.800mm/ano e casa de apoio bem estruturada.",
-
   "caracteristicas": [
     "100 alqueires abertos e calcariados",
     "180 alqueires georreferenciados",
     "Excelente logística, 10km do asfalto"
   ],
-
   "infraestrutura": [
     "Casa de apoio bem estruturada"
   ],
-
   "documentacao": [
     "Georreferenciamento em andamento",
     "Documentação em dia"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
   "fotos": [
-    "foto-01.jpg",
     "foto-02.jpg",
+    "foto-01.jpg",
     "foto-03.jpg",
     "foto-05.jpg",
     "foto-04.jpg"
   ],
   "pasta_fotos": "fazenda-ametista-do-cerrado",
-
   "video_youtube": ""
 }

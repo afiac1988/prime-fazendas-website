@@ -665,7 +665,7 @@ def hero(cfg: dict, *, olho: str, titulo: str, texto: str = "", botoes: str = ""
          interno: bool = False, foto: str = "") -> str:
     classe = "hero hero--interno" if interno else "hero"
     prioridade = ' fetchpriority="high"' if not interno else ''
-    img = (f'<img class="hero__foto" src="{e(foto)}" alt="" width="1920" height="1080" '
+    img = (f'<img class="hero__foto" src="{e(foto)}" alt="Paisagem rural de fazenda no Tocantins" width="1920" height="1080" '
            f'loading="eager"{prioridade}>') if foto else ""
     return f"""<section class="{classe}">
   {img}{SVG_HORIZONTE}
@@ -908,18 +908,20 @@ def card_imovel(im: dict) -> str:
     if im.get("_exemplo"):
         selos.append('<span class="selo selo--aviso">Exemplo</span>')
 
+    local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
+    alt_capa = f'{im["titulo"]} — {local}' if local else im["titulo"]
+
     if im["fotos_url"]:
         capa = (f'<a class="imovel__capa-link js-foto-modal" href="{e(im["fotos_url"][0])}" '
                 f'data-foto-modal-src="{e(im["fotos_url"][0])}" '
-                f'data-foto-modal-alt="{e(im["titulo"])}" '
+                f'data-foto-modal-alt="{e(alt_capa)}" '
                 f'title="Abrir foto no visualizador">'
-                f'<img src="{e(im["fotos_url"][0])}" alt="{e(im["titulo"])}" '
+                f'<img src="{e(im["fotos_url"][0])}" alt="{e(alt_capa)}" '
                 f'width="1200" height="750" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
                 f'</a>')
     else:
         capa = SVG_CAPA
 
-    local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
     tipo = TIPOS.get(im.get("tipo", ""), "")
     cabeca = " · ".join(x for x in [local, tipo] if x)
 
@@ -1094,7 +1096,7 @@ def card_post(p: dict, destaque: bool = False) -> str:
     if preenchido(p.get('capa')):
         capa = (f'<a class="post-card__capa post-card__capa--foto" href="{e(p["url"])}" '
                 f'aria-hidden="true" tabindex="-1">'
-                f'<img src="{e(p["capa"])}" alt="" loading="lazy" '
+                f'<img src="{e(p["capa"])}" alt="{e(p["titulo"])}" loading="lazy" '
                 f'width="640" height="400"></a>')
     else:
         capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
@@ -1373,12 +1375,14 @@ def gerar_ficha_imovel(cfg, im) -> str:
     # galeria
     blocos = []
     if im["fotos_url"]:
+        local_galeria = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
+        alt_base = f'{im["titulo"]} — {local_galeria}' if local_galeria else im["titulo"]
         fotos = "".join(
             f'<a class="galeria__link js-foto-modal" href="{e(u)}" '
             f'data-foto-modal-src="{e(u)}" '
-            f'data-foto-modal-alt="{e(im["titulo"])} — foto {n + 1}" '
+            f'data-foto-modal-alt="{e(alt_base)} — foto {n + 1}" '
             f'title="Abrir foto {n + 1} no visualizador">'
-            f'<img src="{e(u)}" alt="{e(im["titulo"])} — foto {n + 1}" width="1200" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+            f'<img src="{e(u)}" alt="{e(alt_base)} — foto {n + 1}" width="1200" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
             f'</a>'
             for n, u in enumerate(im["fotos_url"])
         )
@@ -1650,7 +1654,7 @@ def gerar_post(cfg, p, outros) -> str:
         capa_html = (
             '<section class="secao secao--compacta secao--sem-topo"><div class="env">'
             '<div class="artigo"><figure class="artigo__capa">'
-            f'<img src="{e(p["capa"])}" alt="" loading="lazy" width="1200" height="675">'
+            f'<img src="{e(p["capa"])}" alt="{e(p["titulo"])}" loading="lazy" width="1200" height="675">'
             '<figcaption>Imagem ilustrativa — acervo Prime Fazendas</figcaption>'
             '</figure></div></div></section>'
         )

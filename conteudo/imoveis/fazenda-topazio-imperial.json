@@ -2,46 +2,40 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Topázio Imperial",
   "subtitulo": "1.948 hectares entre Silvanópolis e Monte do Carmo",
   "tipo": "mista",
-
   "municipio": "Silvanópolis",
   "estado": "TO",
   "regiao": "Sudeste do Tocantins",
-
   "area_total_ha": 1948.87,
   "area_aberta_ha": 0,
   "area_reserva_ha": 0,
-
   "preco": 52346000,
   "preco_sob_consulta": false,
-
   "descricao": "Fazenda de dupla aptidão localizada entre Silvanópolis e Monte do Carmo, às margens de rodovia estadual. Pastagem 65% formada em braquiária, quicuio e andropogon, contornada por áreas de lavoura de milho e soja.\n\nSolo com latossolos, argila acima de 20% e topografia plana, com represa de 3 hectares de lâmina de água.",
-
   "caracteristicas": [
     "Pastagem 65% formada, em regime de piquetes",
     "Topografia plana com latossolos",
     "Represa com 3 hectares de lâmina de água"
   ],
-
   "infraestrutura": [
     "Sede de colono e poço artesiano",
     "Curral e energia monofásica"
   ],
-
   "documentacao": [
     "Matrícula individualizada",
     "CAR ativo"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
-  "fotos": ["aerea-01.jpg", "aerea-02.jpg", "aerea-03.jpg", "aerea-04.jpg", "aerea-05.jpg"],
+  "fotos": [
+    "aerea-05.jpg",
+    "aerea-01.jpg",
+    "aerea-02.jpg",
+    "aerea-03.jpg",
+    "aerea-04.jpg"
+  ],
   "pasta_fotos": "fazenda-topazio-imperial",
-
   "video_youtube": ""
 }

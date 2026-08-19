@@ -2,48 +2,37 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Amazonita",
   "subtitulo": "1.200 hectares de dupla aptidão a 60 km de Palmas, em Monte do Carmo",
   "tipo": "mista",
-
   "municipio": "Monte do Carmo",
   "estado": "TO",
   "regiao": "Central do Tocantins",
-
   "area_total_ha": 1200,
   "area_aberta_ha": 0,
   "area_reserva_ha": 0,
-
   "preco": 0,
   "preco_sob_consulta": true,
-
   "descricao": "Fazenda de dupla aptidão a 60 km de Palmas, no município de Monte do Carmo, com 470 hectares plantados em soja e capacidade para até 650 hectares de lavoura. Pecuária com produção de 1.000 cabeças o ano todo.\n\nEstrutura completa de confinamento e fábrica de ração, além de energia solar e trifásica, córrego perene dentro da propriedade e represas naturais.",
-
   "caracteristicas": [
     "470 hectares plantados em soja, capacidade para 650 ha",
     "Confinamento com licença para 1.200 animais",
     "Córrego perene e 2 represas naturais"
   ],
-
   "infraestrutura": [
     "2 galpões (500 m² e 1.600 m²) com oficina e fábrica de ração",
     "2 casas sede e alojamento com 3 suítes para funcionários",
     "Energia solar e trifásica"
   ],
-
   "documentacao": [
     "Matrícula individualizada",
     "CAR ativo"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
   "fotos": [
-    "aerea-01.jpg",
     "aerea-02.jpg",
+    "aerea-01.jpg",
     "aerea-05.jpg",
     "aerea-07.jpg",
     "aerea-03.jpg",
@@ -51,6 +40,5 @@
     "aerea-06.jpg"
   ],
   "pasta_fotos": "fazenda-amazonita",
-
   "video_youtube": ""
 }

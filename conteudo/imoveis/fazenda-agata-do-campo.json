@@ -2,45 +2,39 @@
   "publicado": true,
   "destaque": false,
   "status": "disponivel",
-
   "titulo": "Fazenda Ágata do Campo",
   "subtitulo": "130 alqueires à beira de rio, ideal para pecuária",
   "tipo": "pecuaria",
-
   "municipio": "Dianópolis",
   "estado": "TO",
   "regiao": "Matopiba",
-
   "area_total_ha": 629.2,
   "area_aberta_ha": 145.2,
   "area_reserva_ha": 0,
-
   "preco": 5500000,
   "preco_sob_consulta": false,
-
   "descricao": "Fazenda com 629,2 hectares (130 alqueires) no município de Dianópolis, com aproximadamente 150km de Luiz Eduardo Magalhães e 20km da cidade, sendo 17km de asfalto e 4km de estrada de chão.\n\nÁrea de cerrado vermelho com bastante madeira nativa e localizada às margens de um rio, com 30 alqueires já formados. Conta com curral e galpão de estrutura de aroeira, estrutura simples porém funcional para pecuária.",
-
   "caracteristicas": [
     "Beira de rio",
     "Cerrado vermelho com muita madeira",
     "30 alqueires formados"
   ],
-
   "infraestrutura": [
     "Curral com estrutura de aroeira",
     "Galpão simples"
   ],
-
   "documentacao": [
     "Documentação em dia"
   ],
-
   "certificacao_ambiental": true,
-
   "mapa_embed": "",
-
-  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg", "foto-04.jpg", "foto-05.jpg"],
+  "fotos": [
+    "foto-04.jpg",
+    "foto-01.jpg",
+    "foto-02.jpg",
+    "foto-03.jpg",
+    "foto-05.jpg"
+  ],
   "pasta_fotos": "fazenda-agata-do-campo",
-
   "video_youtube": ""
 }
