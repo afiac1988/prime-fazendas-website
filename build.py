@@ -697,6 +697,26 @@ def cta_faixa(cfg: dict, titulo: str, texto: str, botao: str = "Falar com um esp
 </section>"""
 
 
+def bloco_instagram(cfg: dict) -> str:
+    url = cfg.get("redes", {}).get("instagram", "")
+    if not preenchido(url):
+        return ""
+    handle = url.rstrip("/").rsplit("/", 1)[-1]
+    return f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="instagram-faixa">
+      <span class="instagram-faixa__icone">{ICONES_REDE['instagram']}</span>
+      <div class="instagram-faixa__txt">
+        <p class="olho">Bastidores e oportunidades</p>
+        <h2>Acompanhe a Prime Fazendas no Instagram</h2>
+        <p>Fotos, vídeos e novidades das propriedades direto de campo — @{e(handle)}</p>
+      </div>
+      <a class="btn btn--dourado" href="{e(url)}" target="_blank" rel="noopener">Seguir no Instagram</a>
+    </div>
+  </div>
+</section>"""
+
+
 # =============================================================== conteúdo ==
 
 def carregar_manutencao() -> dict:
@@ -800,6 +820,9 @@ def carregar_posts() -> list[dict]:
             aviso(f"{arq.name}: data ausente ou fora do formato AAAA-MM-DD. Usando hoje.")
             d = date.today()
 
+        n_palavras = len(re.findall(r"\S+", corpo))
+        tempo_leitura = max(1, round(n_palavras / 200))
+
         posts.append({
             "titulo": meta["titulo"],
             "resumo": meta.get("resumo", ""),
@@ -810,6 +833,7 @@ def carregar_posts() -> list[dict]:
             "slug": arq.stem,
             "url": f"/blog/{arq.stem}/",
             "html": markdown(corpo),
+            "tempo_leitura": tempo_leitura,
             "arquivo": arq.name,
             "_rascunho": rascunho,
         })
@@ -1021,6 +1045,10 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
   </div>
 </section>""")
 
+    ig = bloco_instagram(cfg)
+    if ig:
+        corpo.append(ig)
+
     corpo.append(cta_faixa(
         cfg,
         "Vamos conversar sobre a sua próxima propriedade.",
@@ -1051,13 +1079,23 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
                   rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
 
 
-def card_post(p: dict) -> str:
-    return f"""<article class="post-card">
-  <p class="post-card__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
-  <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time></p>
-  <h3><a href="{e(p['url'])}">{e(p['titulo'])}</a></h3>
-  {f"<p>{e(p['resumo'])}</p>" if p.get('resumo') else ''}
-  <a class="link-seta" href="{e(p['url'])}">Ler o artigo</a>
+def card_post(p: dict, destaque: bool = False) -> str:
+    inicial = (p['categoria'][:1] or "P").upper()
+    tempo = p.get('tempo_leitura')
+    meta_tempo = f'<span>·</span><span>{tempo} min de leitura</span>' if tempo else ''
+    classe = "post-card post-card--destaque" if destaque else "post-card"
+    capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
+            f'<span class="post-card__capa-inicial">{e(inicial)}</span></a>')
+    return f"""<article class="{classe}">
+  {capa}
+  <div class="post-card__corpo">
+    <p class="post-card__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
+    <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time>
+    {meta_tempo}</p>
+    <h3><a href="{e(p['url'])}">{e(p['titulo'])}</a></h3>
+    {f"<p>{e(p['resumo'])}</p>" if p.get('resumo') else ''}
+    <a class="link-seta" href="{e(p['url'])}">Ler o artigo</a>
+  </div>
 </article>"""
 
 
@@ -1470,9 +1508,15 @@ def gerar_blog(cfg, pag, posts) -> str:
                   texto=s.get("chamada", ""), interno=True)]
 
     if posts:
-        corpo.append(f'<section class="secao"><div class="env">'
-                     f'<div class="grade-posts">{"".join(card_post(p) for p in posts)}</div>'
+        destaque, resto = posts[0], posts[1:]
+        corpo.append(f'<section class="secao secao--compacta"><div class="env">'
+                     f'{card_post(destaque, destaque=True)}'
                      f"</div></section>")
+        if resto:
+            corpo.append(f'<section class="secao secao--clara"><div class="env">'
+                         f'<div class="cabeca-secao"><p class="olho">Mais artigos</p></div>'
+                         f'<div class="grade-posts">{"".join(card_post(p) for p in resto)}</div>'
+                         f"</div></section>")
     else:
         corpo.append(f'<section class="secao"><div class="env"><div class="vazio">'
                      f'<h2>{e(s.get("vazio_titulo", "Em breve"))}</h2>'
@@ -1559,7 +1603,8 @@ def gerar_post(cfg, p, outros) -> str:
       {migalhas([("Início", "/"), ("Blog", "/blog/"), (p['titulo'], "")])}
       <p class="artigo__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
       <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time>
-      <span>·</span><span>{e(p['autor'])}</span></p>
+      <span>·</span><span>{e(p['autor'])}</span>
+      {f"<span>·</span><span>{p['tempo_leitura']} min de leitura</span>" if p.get('tempo_leitura') else ''}</p>
       <h1>{e(p['titulo'])}</h1>
       {f'<p class="chamada chamada--larga">{e(p["resumo"])}</p>' if p.get('resumo') else ''}
     </div>
