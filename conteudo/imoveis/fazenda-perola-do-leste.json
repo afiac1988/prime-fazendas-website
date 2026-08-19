@@ -1,0 +1,46 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Pérola do Leste",
+  "subtitulo": "2.320 hectares preservados, margeados pelo Rio Perdida",
+  "tipo": "mista",
+
+  "municipio": "Lizarda",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 2320.33,
+  "area_aberta_ha": 0,
+  "area_reserva_ha": 0,
+
+  "preco": 7191000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Área de 2.320,33 hectares (479,40 alqueires) na região de Lizarda, próxima à rodovia TO-245, a 18 km da estrada principal. Área ainda preservada, coberta por vegetação nativa e sem benfeitorias construídas.\n\nMargeada pelo Rio Perdida e por diversos rios de pequeno porte, garantindo abundância hídrica em toda a propriedade. Excelente aptidão tanto para lavoura quanto para pecuária, com solo tipo II de textura média.",
+
+  "caracteristicas": [
+    "Margeada pelo Rio Perdida",
+    "Índice pluviométrico de 1.800mm/ano",
+    "Vegetação nativa preservada"
+  ],
+
+  "infraestrutura": [
+    "Sem benfeitorias construídas",
+    "Próxima à rodovia TO-245"
+  ],
+
+  "documentacao": [
+    "Documentação em ordem"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-perola-do-leste",
+
+  "video_youtube": ""
+}

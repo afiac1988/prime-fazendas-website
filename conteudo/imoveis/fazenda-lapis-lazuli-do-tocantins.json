@@ -1,0 +1,49 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Lápis-Lazúli do Tocantins",
+  "subtitulo": "4.446 hectares com soja em produção e documentação toda registrada",
+  "tipo": "mista",
+
+  "municipio": "Novo Acordo",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 4446.86,
+  "area_aberta_ha": 2000,
+  "area_reserva_ha": 0,
+
+  "preco": 65000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda Novo Acordo, com 4.446,86 hectares totalmente registrados em cartório, localizada a 120 km de Palmas e a 34 km da cidade de Novo Acordo (24 km de asfalto e 10 km de estrada de terra até a sede).\n\nCerca de 1.000 hectares já estão plantados com soja e o restante em fase de enleiramento, com licença ambiental para 1.843 hectares de área aberta. Solo com 10% a 20% de argila, topografia plana a levemente ondulada, dividindo com áreas produtoras de soja na região.",
+
+  "caracteristicas": [
+    "Solo com topografia plana a levemente ondulada",
+    "2 nascentes na propriedade",
+    "Potencial de expansão de mais 300 a 500 hectares"
+  ],
+
+  "infraestrutura": [
+    "Casa de caseiro e dormitório de funcionários",
+    "Oficina com barracão concretado e tanque de combustível",
+    "Poço semiartesiano e barracão para maquinário"
+  ],
+
+  "documentacao": [
+    "Área totalmente registrada em cartório",
+    "CAR ativo e licença Naturatins para área aberta",
+    "Documentação em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-lapis-lazuli-do-tocantins",
+
+  "video_youtube": ""
+}

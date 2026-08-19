@@ -1,0 +1,47 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Painita",
+  "subtitulo": "159 alqueires com melhoramento genético e potencial para piscicultura",
+  "tipo": "mista",
+
+  "municipio": "Dois Irmãos do Tocantins",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 769.56,
+  "area_aberta_ha": 769.56,
+  "area_reserva_ha": 0,
+
+  "preco": 20670000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 769,56 hectares (159 alqueires) no município de Dois Irmãos do Tocantins, dividida em três matrículas, a 35 km da cidade e 15 km de estrada vicinal.\n\nÁrea 90% plana, com argila acima de 35% e boa disponibilidade de água. Totalmente formada, com potencial para pecuária, lavoura e piscicultura. Já funciona um modelo de melhoramento genético com 200 matrizes na propriedade.",
+
+  "caracteristicas": [
+    "90% de topografia plana",
+    "Argila acima de 35%",
+    "Modelo de melhoramento genético com 200 matrizes"
+  ],
+
+  "infraestrutura": [
+    "Casa e estrutura de apoio",
+    "Potencial para piscicultura"
+  ],
+
+  "documentacao": [
+    "Dividida em três matrículas",
+    "Documentação em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-painita",
+
+  "video_youtube": ""
+}

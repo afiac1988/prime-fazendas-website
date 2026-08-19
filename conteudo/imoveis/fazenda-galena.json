@@ -1,0 +1,49 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Galena",
+  "subtitulo": "2.100 hectares de dupla aptidão com acesso direto à BR-153",
+  "tipo": "mista",
+
+  "municipio": "Fortaleza do Tabocão",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 2100,
+  "area_aberta_ha": 1260,
+  "area_reserva_ha": 0,
+
+  "preco": 55000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de dupla aptidão em Fortaleza do Tabocão, com 2.100 hectares (433 alqueires), sendo 60% de área aberta, cercada e dividida com cerca elétrica. Parte da propriedade pratica lavoura e pecuária em rotação há mais de 10 anos.\n\nSolo misto (arenoso, cascalho e argiloso), relevo ondulado, boa disponibilidade hídrica com córregos, riachos, poços artesianos e duas represas. Ótima logística com acesso direto à BR-153.",
+
+  "caracteristicas": [
+    "60% de área aberta com rotação lavoura-pecuária",
+    "Coxos de ração, água e sal em todos os piquetes",
+    "Índice pluviométrico de 1.600 a 1.700mm/ano"
+  ],
+
+  "infraestrutura": [
+    "2 sedes e 4 casas de funcionários",
+    "Fábrica de ração e curral coberto com tronco e balança",
+    "Refeitório, galpões, oficina e depósitos"
+  ],
+
+  "documentacao": [
+    "Matrícula individualizada",
+    "Documentação em dia",
+    "Acesso pela BR-153"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-galena",
+
+  "video_youtube": ""
+}

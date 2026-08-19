@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": true,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Turmalina do Cerrado",
+  "subtitulo": "28.500 hectares com pista de pouso, silo e 40km de margem de rio",
+  "tipo": "mista",
+
+  "municipio": "Dianópolis",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 28500,
+  "area_aberta_ha": 13000,
+  "area_reserva_ha": 0,
+
+  "preco": 235000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Grande propriedade de 28.500 hectares nos municípios de Dianópolis e Conceição do Tocantins, próxima à divisa com a Bahia, a 120 km de Luís Eduardo Magalhães. Estudo agrícola aponta 14.000 hectares próprios para plantio de soja e milho.\n\nA fazenda possui 40 km de margem do Rio Manoel Alves e 20 lagoas e córregos perenes, ótima para irrigação. Infraestrutura completa com pista de pouso de 1.000 metros, silo com secador (1.500 toneladas), 5 retiros e 4 currais.",
+
+  "caracteristicas": [
+    "40km de margem do Rio Manoel Alves",
+    "14.000 hectares com aptidão para soja e milho",
+    "20 lagoas e córregos perenes"
+  ],
+
+  "infraestrutura": [
+    "Pista de pouso de 1.000m",
+    "Silo com secador para 1.500 toneladas",
+    "Sede, casa de gerente, vila em alvenaria, 5 retiros e 4 currais"
+  ],
+
+  "documentacao": [
+    "Documentos completos para escritura pública",
+    "Energia elétrica trifásica"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-turmalina-do-cerrado",
+
+  "video_youtube": ""
+}

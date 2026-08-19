@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Topázio do Sol",
+  "subtitulo": "987 hectares com 6,5km de margem no lago da Usina de Lajeado",
+  "tipo": "mista",
+
+  "municipio": "Miracema do Tocantins",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 987,
+  "area_aberta_ha": 600,
+  "area_reserva_ha": 0,
+
+  "preco": 30600000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Propriedade de 987 hectares (204 alqueires) no município de Miracema do Tocantins, a apenas 87 km de Palmas, com 300 hectares plantados de arroz na safra 2023/2024 e potencial para 500 a 600 hectares de plantio.\n\nA fazenda fica à beira do lago da Usina de Lajeado, com 6,5 km de margem, oferecendo grande potencial para irrigação. Topografia predominantemente plana, com solo de barro amarelo, vermelho e cascalho chumbinho, argila entre 20% e 35%.",
+
+  "caracteristicas": [
+    "6,5km de margem no lago da Usina de Lajeado",
+    "Potencial para irrigação",
+    "Índice pluviométrico de 1.800 a 2.000mm"
+  ],
+
+  "infraestrutura": [
+    "Sede",
+    "Casa de vaqueiro",
+    "Galpão"
+  ],
+
+  "documentacao": [
+    "Documentação em dia",
+    "A 87km de Palmas"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-topazio-do-sol",
+
+  "video_youtube": ""
+}

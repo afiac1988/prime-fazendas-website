@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Safira do Norte",
+  "subtitulo": "2.032 hectares plantando, com potencial de dobrar a área de lavoura",
+  "tipo": "mista",
+
+  "municipio": "Miracema do Tocantins",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 2032,
+  "area_aberta_ha": 540,
+  "area_reserva_ha": 0,
+
+  "preco": 63000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 2.032 hectares (420 alqueires) no município de Miracema do Tocantins, a 87 km da capital Palmas. Atualmente com 540 hectares em plantio, mas com potencial para atingir 1.200 hectares.\n\nTopografia predominantemente plana com poucas ondulações e morrotes, solo de barro amarelo, vermelho, cascalho chumbinho e partes arenosas, com argila entre 18% e 30%. Recursos hídricos por córregos e nascentes.",
+
+  "caracteristicas": [
+    "Potencial para dobrar a área plantada",
+    "Índice pluviométrico de 1.800 a 2.000mm",
+    "Próxima à capital, facilitando logística e insumos"
+  ],
+
+  "infraestrutura": [
+    "Sede",
+    "Casa",
+    "Galpão"
+  ],
+
+  "documentacao": [
+    "Documentação em dia",
+    "A 87km de Palmas"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-safira-do-norte",
+
+  "video_youtube": ""
+}

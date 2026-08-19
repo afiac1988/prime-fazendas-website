@@ -1,0 +1,47 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Jade do Campo",
+  "subtitulo": "678 hectares com 5km de margem no Lago do Rio Paranaíba",
+  "tipo": "agricola",
+
+  "municipio": "Quirinópolis",
+  "estado": "GO",
+  "regiao": "Sudoeste de Goiás",
+
+  "area_total_ha": 678,
+  "area_aberta_ha": 495,
+  "area_reserva_ha": 0,
+
+  "preco": 76000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda de 678 hectares no município de Quirinópolis-GO, a 36 km da cidade, 12 km do asfalto e 22 km da usina Boa Vista. Área plana, solo vermelho argiloso, com 495 hectares plantados de cana-de-açúcar sob arrendamento com usina para fins produtivos.\n\nPossui 5.030 metros de margem no Lago do Rio Paranaíba, na divisa com Minas Gerais, o que confere potencial para lazer, turismo rural e irrigação.",
+
+  "caracteristicas": [
+    "5.030 metros de margem no Lago do Rio Paranaíba",
+    "Solo vermelho argiloso, topografia plana",
+    "Arrendamento em vigor para cultivo de cana-de-açúcar"
+  ],
+
+  "infraestrutura": [
+    "Benfeitorias simples",
+    "12km do asfalto"
+  ],
+
+  "documentacao": [
+    "Documentação em conformidade ambiental",
+    "Georreferenciamento disponível"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-jade-do-campo",
+
+  "video_youtube": ""
+}
