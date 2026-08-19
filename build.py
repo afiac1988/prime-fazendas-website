@@ -480,10 +480,10 @@ def cabecalho(cfg: dict, url_atual: str) -> str:
     zap = montar_url_zap(cfg)
     cta_mobile = ""
     if zap:
-        cta_mobile = f'<a class="btn btn--principal btn--bloco" href="{e(zap)}" target="_blank" rel="noopener">Falar no WhatsApp</a>'
+        cta_mobile = f'<a class="btn btn--principal btn--bloco" href="{e(zap)}" target="_blank" rel="noopener">{SVG_ZAP}Falar no WhatsApp</a>'
 
     cta_topo = (
-        f'<a class="btn btn--principal" href="{e(zap)}" target="_blank" rel="noopener">Falar no WhatsApp</a>'
+        f'<a class="btn btn--principal" href="{e(zap)}" target="_blank" rel="noopener">{SVG_ZAP}Falar no WhatsApp</a>'
         if zap else
         '<a class="btn btn--principal" href="/contato/">Fale com um especialista</a>'
     )
@@ -1139,7 +1139,10 @@ def gerar_sobre(cfg, pag) -> str:
         credenciais.append(("Fundada em", e(cfg["marca"]["ano_fundacao"])))
     ig = cfg.get("redes", {}).get("instagram")
     if preenchido(ig):
-        credenciais.append(("Instagram", f'<a href="{e(ig)}" target="_blank" rel="noopener">perfil verificado</a>'))
+        icone_ig = ICONES_REDE.get("instagram", "")
+        credenciais.append(("Instagram", f'<a class="link-icone" href="{e(ig)}" target="_blank" rel="noopener">'
+                           f'<span class="link-icone__svg" aria-hidden="true">{icone_ig}</span>'
+                           f'perfil verificado</a>'))
     if credenciais:
         creds_html = "".join(
             f'<div class="dado"><span class="dado__rot">{r}</span><span class="dado__val">{v}</span></div>'

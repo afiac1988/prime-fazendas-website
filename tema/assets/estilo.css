@@ -264,6 +264,9 @@ strong { font-weight: 600; color: var(--azul-900); }
 
 .topo__acao { display: flex; align-items: center; gap: 0.75rem; flex: none; }
 .topo__acao .btn { padding: 0.7rem 1.25rem; font-size: 0.875rem; }
+.nav .btn { display: none; }
+.nav .btn svg { width: 15px; height: 15px; fill: currentColor; flex: none; }
+.topo__acao .btn svg { width: 15px; height: 15px; fill: currentColor; flex: none; }
 
 .hamburguer {
   display: none;
@@ -301,7 +304,7 @@ strong { font-weight: 600; color: var(--azul-900); }
   }
   .nav[data-aberto='true'] { display: flex; }
   .nav a { padding: 0.9rem 0.5rem; font-size: 1rem; border-bottom: 1px solid var(--borda); border-radius: 0; }
-  .nav .btn { margin-top: 1.1rem; }
+  .nav .btn { display: inline-flex; margin-top: 1.1rem; }
 }
 
 /* --------------------------------------------------------------- Hero ---- */
@@ -990,6 +993,10 @@ body.modal-aberta { overflow: hidden; }
 }
 .redes a:hover { border-color: var(--dourado); background: rgba(201, 164, 76, 0.12); }
 .redes svg { width: 17px; height: 17px; fill: currentColor; }
+
+.link-icone { display: inline-flex; align-items: center; gap: 0.4rem; }
+.link-icone__svg { width: 16px; height: 16px; display: inline-flex; flex: none; }
+.link-icone__svg svg { width: 100%; height: 100%; fill: currentColor; }
 
 /* ------------------------------------------------------- WhatsApp fixo --- */
 
