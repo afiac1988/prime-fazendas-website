@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Safira do Vale",
+  "subtitulo": "963 hectares em São Valério da Natividade, beira do asfalto",
+  "tipo": "agricola",
+
+  "municipio": "São Valério da Natividade",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 963,
+  "area_aberta_ha": 320,
+  "area_reserva_ha": 0,
+
+  "preco": 15000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 963 hectares (200 alqueires) no município de São Valério da Natividade, a 20km da cidade sentido Natividade, na beira do asfalto.\n\nCom 100 hectares plantando soja (indo para o segundo e terceiro ano) e 220 hectares aguardando licença para desmate. Solo com 70% de argila (22-25%) e 30% arenoso. Conta com casa sede de três quartos, alojamento, galpão pequeno, poço artesiano com caixa d'água de 10 mil litros e internet.",
+
+  "caracteristicas": [
+    "100 hectares já plantando soja",
+    "220 hectares aguardando licença para desmate",
+    "Beira do asfalto"
+  ],
+
+  "infraestrutura": [
+    "Casa sede com 3 quartos",
+    "Alojamento e galpão pequeno",
+    "Poço artesiano com caixa de 10 mil litros"
+  ],
+
+  "documentacao": [
+    "Escriturada e registrada",
+    "Georreferenciada"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-safira-do-vale",
+
+  "video_youtube": ""
+}

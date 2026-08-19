@@ -1,0 +1,48 @@
+{
+  "publicado": true,
+  "destaque": true,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Diamante do Cerrado",
+  "subtitulo": "7.589 hectares próximos a Centenário, com potencial para 4.000ha de lavoura",
+  "tipo": "mista",
+
+  "municipio": "Centenário",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 7589,
+  "area_aberta_ha": 1470,
+  "area_reserva_ha": 0,
+
+  "preco": 61230000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 7.589 hectares (1.570 alqueires) próxima à cidade de Centenário, com potencial para cultivo de até 4.000 hectares.\n\nAtualmente com 1.470 hectares formados em pastagem, dos quais 400 hectares já preparados para o plantio de soja, com licença solicitada para mais 350 hectares. Conta com 6 poços artesianos, curral coberto com brete, 20 divisões de pasto, dois tanques de peixes e infraestrutura nova para gerente e 12 funcionários.",
+
+  "caracteristicas": [
+    "Potencial para 4.000ha de lavoura",
+    "6 poços artesianos",
+    "20 divisões de pasto"
+  ],
+
+  "infraestrutura": [
+    "Casa gerente com refeitório e alojamento para 12 funcionários",
+    "Curral coberto com brete",
+    "Dois tanques de peixes"
+  ],
+
+  "documentacao": [
+    "CAR e georreferenciamento em dia",
+    "Licenças de desmate solicitadas"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-diamante-do-cerrado",
+
+  "video_youtube": ""
+}

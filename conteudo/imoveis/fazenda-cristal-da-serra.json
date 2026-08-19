@@ -1,0 +1,45 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Cristal da Serra",
+  "subtitulo": "2.000 hectares em Santa Rosa do Tocantins com longa tradição de lavoura",
+  "tipo": "agricola",
+
+  "municipio": "Santa Rosa do Tocantins",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 2000,
+  "area_aberta_ha": 1260,
+  "area_reserva_ha": 0,
+
+  "preco": 80000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 2.000 hectares no município de Santa Rosa do Tocantins, a apenas 3km da cidade, plantando atualmente 1.260 hectares em três áreas distintas.\n\nA área menor está em produção há 10 anos e a maior há 25 anos, hoje em lavoura mas com possibilidade de conversão para pastagem. Conta com casa de apoio na propriedade.",
+
+  "caracteristicas": [
+    "1.260 hectares em plantio",
+    "Longa tradição de produção",
+    "A 3km da cidade"
+  ],
+
+  "infraestrutura": [
+    "Casa de apoio"
+  ],
+
+  "documentacao": [
+    "Documentação em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-cristal-da-serra",
+
+  "video_youtube": ""
+}

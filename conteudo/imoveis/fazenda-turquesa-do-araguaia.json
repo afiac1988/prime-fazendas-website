@@ -1,0 +1,46 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Turquesa do Araguaia",
+  "subtitulo": "4.241,57 hectares no município de Pium, com 1.200ha em plantio",
+  "tipo": "mista",
+
+  "municipio": "Pium",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 4241.57,
+  "area_aberta_ha": 1710,
+  "area_reserva_ha": 0,
+
+  "preco": 160000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 4.241,57 hectares no município de Pium, a 230km de Palmas (todo o trajeto asfaltado) e 60km da Lagoa da Confusão.\n\nCom excelente aproveitamento de área: 1.200 hectares em plantio, 130 hectares semiprontos, 180 hectares de área quebrada e mais 400 hectares para licenciar e abrir. Conta com casa sede, galpão para máquinas, cantina e alojamentos.",
+
+  "caracteristicas": [
+    "1.200 hectares em plantio",
+    "400 hectares para licenciar e abrir",
+    "Excelente aproveitamento de área"
+  ],
+
+  "infraestrutura": [
+    "Casa sede e galpão para máquinas",
+    "Cantina e alojamentos"
+  ],
+
+  "documentacao": [
+    "Documentação em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-turquesa-do-araguaia",
+
+  "video_youtube": ""
+}

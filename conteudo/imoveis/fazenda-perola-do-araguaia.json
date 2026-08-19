@@ -1,0 +1,46 @@
+{
+  "publicado": true,
+  "destaque": true,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Pérola do Araguaia",
+  "subtitulo": "10.164 hectares às margens do Rio Araguaia, no Pará",
+  "tipo": "pecuaria",
+
+  "municipio": "São Geraldo do Araguaia",
+  "estado": "PA",
+  "regiao": "Sudeste do Pará",
+
+  "area_total_ha": 10164,
+  "area_aberta_ha": 5663,
+  "area_reserva_ha": 0,
+
+  "preco": 142296000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 10.164 hectares no município de São Geraldo do Araguaia (PA), com 12km de margem no Rio Araguaia, a 160km de Marabá e 145km de Araguaína.\n\nÁrea aberta de 5.663 hectares voltada à pecuária, com estrutura de sede, 3 retiros e 148 divisões de pasto. Rebanho de aproximadamente 6.000 cabeças e maquinário podem ser negociados à parte.",
+
+  "caracteristicas": [
+    "12km de margem no Rio Araguaia",
+    "148 divisões de pasto",
+    "5.663 hectares abertos"
+  ],
+
+  "infraestrutura": [
+    "Casa sede e 3 retiros",
+    "Estrutura completa para pecuária"
+  ],
+
+  "documentacao": [
+    "Documentação regularizada"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-perola-do-araguaia",
+
+  "video_youtube": ""
+}

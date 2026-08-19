@@ -1,0 +1,47 @@
+{
+  "publicado": true,
+  "destaque": false,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Diamante do Vale",
+  "subtitulo": "1.824,68 hectares com estrutura pecuária completa e excelente recurso hídrico",
+  "tipo": "mista",
+
+  "municipio": "Campos Lindos",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 1824.68,
+  "area_aberta_ha": 1824.68,
+  "area_reserva_ha": 0,
+
+  "preco": 25000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 1.824,68 hectares (377 alqueires) no município de Campos Lindos, toda formada e voltada atualmente para a pecuária, com vocação também para agricultura irrigada.\n\nPossui o Rio Bonito (Tabocas) ao lado, com excelente vazão para irrigação, além de 16 pastagens com cochos cobertos, dois currais (para 800 e 500 reses), poço artesiano, represa simples e torre de sinal. Estrutura completa com casa sede industrial, galpão de máquinas e residências para funcionários.",
+
+  "caracteristicas": [
+    "Excelente disponibilidade hídrica, com rio na divisa",
+    "16 pastagens com cochos cobertos",
+    "Vocação para agricultura irrigada"
+  ],
+
+  "infraestrutura": [
+    "Dois currais (800 e 500 reses)",
+    "Casa sede industrial e residências para funcionários",
+    "Torre de sinal para celular e internet"
+  ],
+
+  "documentacao": [
+    "Documentação em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-diamante-do-vale",
+
+  "video_youtube": ""
+}

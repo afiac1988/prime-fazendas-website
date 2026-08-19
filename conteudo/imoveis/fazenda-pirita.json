@@ -1,0 +1,49 @@
+{
+  "publicado": true,
+  "destaque": true,
+  "status": "disponivel",
+
+  "titulo": "Fazenda Pirita",
+  "subtitulo": "3.020 hectares em Almas com jazida de calcário e infraestrutura completa",
+  "tipo": "agricola",
+
+  "municipio": "Almas",
+  "estado": "TO",
+  "regiao": "Matopiba",
+
+  "area_total_ha": 3020,
+  "area_aberta_ha": 1400,
+  "area_reserva_ha": 0,
+
+  "preco": 50000000,
+  "preco_sob_consulta": false,
+
+  "descricao": "Fazenda com 3.020 hectares no município de Almas, dividida em três matrículas, localizada na margem do asfalto e com jazida de calcário dentro da própria área.\n\nCom 1.000 hectares plantando soja e mais 400 hectares licenciados para desmatamento, teor de argila superior a 40% e índice pluviométrico de 1.800mm/ano. Aproveitamento de 60% para agricultura, com energia trifásica, restaurante, dormitórios para funcionários, galpão para máquinas, poço artesiano e córrego perene no interior da propriedade.",
+
+  "caracteristicas": [
+    "Jazida de calcário dentro da área",
+    "Teor de argila superior a 40%",
+    "Aproveitamento de 60% para agricultura"
+  ],
+
+  "infraestrutura": [
+    "Restaurante e dormitórios para funcionários",
+    "Galpão para máquinas",
+    "Energia trifásica e poço artesiano"
+  ],
+
+  "documentacao": [
+    "Três matrículas",
+    "Margem do asfalto",
+    "Documentação em dia"
+  ],
+
+  "certificacao_ambiental": true,
+
+  "mapa_embed": "",
+
+  "fotos": ["foto-01.jpg", "foto-02.jpg", "foto-03.jpg"],
+  "pasta_fotos": "fazenda-pirita",
+
+  "video_youtube": ""
+}
