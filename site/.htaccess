@@ -1,6 +1,6 @@
-# Prime Fazendas â€” configuraÃ§Ã£o de servidor (Apache / site estatÃ­co)
+# Prime Fazendas — configuração de servidor (Apache / site estatíco)
 
-# HTTPS obrigatÃ³rio
+# HTTPS obrigatório
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteCond %{HTTPS} !=on
@@ -14,12 +14,12 @@
 
 ErrorDocument 404 /404.html
 
-# CompressÃ£o
+# Compressão
 <IfModule mod_deflate.c>
   AddOutputFilterByType DEFLATE text/html text/css text/plain text/xml application/javascript application/json image/svg+xml
 </IfModule>
 
-# Cache dos estÃ¡ticos
+# Cache dos estáticos
 <IfModule mod_expires.c>
   ExpiresActive On
   ExpiresByType text/css "access plus 1 year"
@@ -31,7 +31,7 @@ ErrorDocument 404 /404.html
   ExpiresByType text/html "access plus 0 seconds"
 </IfModule>
 
-# SeguranÃ§a
+# Segurança
 <IfModule mod_headers.c>
   Header set X-Content-Type-Options "nosniff"
   Header set Referrer-Policy "strict-origin-when-cross-origin"
