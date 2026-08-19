@@ -26,3 +26,7 @@ __pycache__/
 *.bak
 
 manutencao.local.json
+
+# Backups automaticos de rebuild (nao versionar)
+_site_pre_*/
+_to_delete/
