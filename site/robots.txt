@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://primefazendas.com/sitemap.xml
+Sitemap: https://www.primefazendas.com/sitemap.xml
