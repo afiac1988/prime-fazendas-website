@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Tendências
 resumo: Rastreamento, manejo rotacionado por sensor e genética de ponta estão elevando a produtividade por hectare na pecuária brasileira.
-capa: /midia/imoveis/fazenda-rubi-negro/foto-06.jpg
+capa: 
 publicado: true
 ---
 

@@ -4,7 +4,7 @@ data: 2026-08-09
 autor: Prime Fazendas
 categoria: Jurídico
 resumo: Quatro siglas que decidem se uma fazenda é negociável. Explicadas em linguagem direta, com o que acontece quando faltam.
-capa: /midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg
+capa: 
 publicado: true
 ---
 

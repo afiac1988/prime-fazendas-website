@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Mercado
 resumo: Solo, clima, logística e preço da terra explicam por que o Matopiba continua no radar de quem investe em agro no Brasil.
-capa: /midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg
+capa: 
 publicado: true
 ---
 

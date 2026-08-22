@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Gestão
 resumo: Seca, chuva fora de época e geada afetam a safra — e quem opera sem gestão de risco climático corre o dobro do risco na hora de vender ou financiar a propriedade.
-capa: /midia/imoveis/fazenda-esmeralda-do-cerrado/foto-03.jpg
+capa: 
 publicado: true
 ---
 

@@ -4,7 +4,7 @@ data: 2026-08-04
 autor: Prime Fazendas
 categoria: Jurídico
 resumo: A lista objetiva de documentos que separa uma fazenda negociável de uma fazenda parada no mercado.
-capa: /midia/imoveis/fazenda-ametista-do-cerrado/foto-01.jpg
+capa: 
 publicado: true
 ---
 

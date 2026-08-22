@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Mercado
 resumo: Energia, água, acesso e benfeitorias — o que realmente move o preço por hectare de uma propriedade rural.
-capa: /midia/imoveis/fazenda-cristal-da-serra/foto-04.jpg
+capa: 
 publicado: true
 ---
 

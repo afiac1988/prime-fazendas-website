@@ -4,7 +4,7 @@ data: 2026-08-08
 autor: Prime Fazendas
 categoria: Guia
 resumo: Os sete pontos que separam uma boa aquisição de um problema de anos — do solo à matrícula.
-capa: /midia/imoveis/fazenda-amazonita/aerea-01.jpg
+capa: 
 publicado: true
 ---
 
