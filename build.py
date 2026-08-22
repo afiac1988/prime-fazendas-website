@@ -1642,7 +1642,7 @@ def gerar_comunidade(cfg, pag) -> str:
                   descricao=s.get("chamada", ""), url="/comunidade/", corpo="\n".join(corpo))
 
 
-def gerar_blog(cfg, pag, posts) -> str:
+def gerar_blog(cfg, pag, posts, imoveis) -> str:
     s = pag.get("blog", {})
     corpo = [hero(cfg, olho="Notícias", titulo=s.get("titulo", "Notícias e insights"),
                   texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg")]
@@ -1675,6 +1675,20 @@ def gerar_blog(cfg, pag, posts) -> str:
         corpo.append(f'<section class="secao"><div class="env"><div class="vazio">'
                      f'<h2>{e(s.get("vazio_titulo", "Em breve"))}</h2>'
                      f'<p>{e(s.get("vazio_texto", ""))}</p></div></div></section>')
+
+    # conecta com o portfólio de imóveis — só ao final, para não misturar notícia com anúncio
+    destaques_imoveis = [i for i in imoveis if i.get("destaque")] or imoveis[:3]
+    if destaques_imoveis:
+        corpo.append(f'''<section class="secao secao--clara">
+  <div class="env">
+    <div class="cabeca-secao">
+      <p class="olho">Portfólio Prime Fazendas</p>
+      <h2>Já leu as notícias? Conheça algumas fazendas disponíveis</h2>
+    </div>
+    <div class="grade-imoveis">{"".join(card_imovel(i) for i in destaques_imoveis[:3])}</div>
+    <p style="margin-top:2.5rem"><a class="link-seta" href="/imoveis/">Ver todas as propriedades</a></p>
+  </div>
+</section>''')
 
     return pagina(cfg, titulo=s.get("titulo", "Notícias"), descricao=s.get("chamada", ""),
                   url="/blog/", corpo="\n".join(corpo))
@@ -2177,7 +2191,7 @@ def main() -> int:
     escrever("investir-no-agro/index.html", gerar_investir(cfg, pag, dados_agro))
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
     escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
-    escrever("blog/index.html", gerar_blog(cfg, pag, posts))
+    escrever("blog/index.html", gerar_blog(cfg, pag, posts, imoveis))
     escrever("agenda-agro/index.html", gerar_agenda_agro(cfg, pag, agenda_agro))
     escrever("contato/index.html", gerar_contato(cfg, pag))
     escrever("404.html", gerar_404(cfg))
