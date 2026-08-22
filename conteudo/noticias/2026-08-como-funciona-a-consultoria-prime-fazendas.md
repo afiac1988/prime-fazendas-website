@@ -1,5 +1,5 @@
 ---
-titulo: Do primeiro contato à escritura — como funciona a consultoria da Prime Fazendas
+titulo: Do primeiro contato à escritura na Prime Fazendas
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Institucional
@@ -16,7 +16,7 @@ Antes de mostrar qualquer propriedade, ouvimos o que você precisa: aptidão (pe
 
 ## 2. Curadoria do portfólio
 
-Cada fazenda que apresentamos já passou por uma triagem documental inicial — não colocamos no portfólio propriedades com pendência conhecida sem deixar isso claro.
+Cada fazenda que apresentamos já passou por uma triagem documental inicial — não colocamos no [portfólio](/imoveis/) propriedades com pendência conhecida sem deixar isso claro.
 
 ## 3. Visita e negociação
 
@@ -30,4 +30,4 @@ Antes de qualquer proposta se tornar vinculante, recomendamos e acompanhamos a d
 
 Do contrato particular ao registro em cartório, seguimos acompanhando o processo até a conclusão — nosso trabalho não termina na assinatura da proposta.
 
-Se você está do outro lado — quer vender ou arrendar sua propriedade —, o processo começa da mesma forma: entendimento da propriedade, curadoria da documentação disponível e apresentação para o público certo, sem promessas de preço ou prazo que não possamos sustentar.
+Se você está do outro lado — quer vender ou arrendar sua propriedade —, o processo começa da mesma forma: entendimento da propriedade, curadoria da documentação disponível e apresentação para o público certo, sem promessas de preço ou prazo que não possamos sustentar. Veja a lista completa em [Nossos serviços](/servicos/) ou [fale com a gente](/contato/).

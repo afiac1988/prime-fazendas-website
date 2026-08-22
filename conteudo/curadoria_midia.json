@@ -1,0 +1,395 @@
+{
+  "fazenda-agata-do-campo": {
+    "fotos_curadas": [
+      "foto-02.jpg",
+      "foto-04.jpg",
+      "foto-05.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (composição com caixa elétrica pendurada e terra revolvida em primeiro plano, pouco atrativa)"
+    ]
+  },
+  "fazenda-agata-do-fogo": {
+    "fotos_curadas": [
+      "aerea-01.jpg",
+      "aerea-02.jpg"
+    ],
+    "excluidas": [
+      "aerea-03.jpg (foto tirada de dentro do carro, retrovisor ocupa quase todo o quadro)",
+      "aerea-04.jpg (foto de dentro do carro mostrando painel/para-brisa)"
+    ]
+  },
+  "fazenda-amazonita": {
+    "fotos_curadas": [
+      "aerea-02.jpg",
+      "aerea-05.jpg",
+      "aerea-06.jpg"
+    ],
+    "excluidas": [
+      "aerea-03.jpg (vertical, solo arado em close, baixo apelo visual)",
+      "aerea-04.jpg (vertical, redundante)",
+      "aerea-07.jpg (vertical, reflexo de vidro/janela, quase duplicata de aerea-01)",
+      "aerea-01.jpg (foto tirada de dentro do carro, para-brisa e pilar visíveis — QA final)"
+    ]
+  },
+  "fazenda-ambar": {
+    "fotos_curadas": [
+      "aerea-01.jpg",
+      "aerea-03.jpg",
+      "aerea-02.jpg",
+      "aerea-06.jpg",
+      "aerea-05.jpg"
+    ],
+    "excluidas": [
+      "aerea-04.jpg (foto tirada de dentro do carro, painel/capô visível em primeiro plano)"
+    ]
+  },
+  "fazenda-ametista-do-cerrado": {
+    "fotos_curadas": [
+      "foto-05.jpg",
+      "foto-01.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": [
+      "foto-04.jpg (close extremo de grama/terra no chão, sem valor visual, vertical)"
+    ]
+  },
+  "fazenda-ametista-do-sul": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-04.jpg (vertical, traseira do gado em close, ângulo pouco atrativo)"
+    ]
+  },
+  "fazenda-ametista-do-vale": {
+    "fotos_curadas": [
+      "capa.jpeg",
+      "foto-03.jpeg",
+      "foto-06.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpeg (quase duplicata aérea de capa.jpeg/foto-03.jpeg, mesmo ângulo sobre pasto seco)",
+      "foto-04.jpg (quase duplicata aérea, mesmo trecho de estrada)",
+      "foto-07.jpg (leve saturação/tonalidade azulada não natural, redundante com foto-05)"
+    ]
+  },
+  "fazenda-ametista-real": {
+    "fotos_curadas": [
+      "aerea-01.jpg",
+      "aerea-02.jpg",
+      "aerea-03.jpg",
+      "aerea-04.jpg"
+    ],
+    "excluidas": [
+      "aerea-05.jpg (quase duplicata de aerea-04.jpg, mesmo trecho de rio)"
+    ]
+  },
+  "fazenda-aventurina": {
+    "fotos_curadas": [
+      "aerea-02.jpg"
+    ],
+    "excluidas": [
+      "aerea-01.jpg (print de slide de apresentação com textos sobrepostos: 'Entrada para sede', 'Casa Sede', 'Quiosques', 'Caixa de Água Principal')",
+      "aerea-03.jpg (print de mapa/imagem de satélite com contorno do perímetro, não é foto real)"
+    ]
+  },
+  "fazenda-citrino": {
+    "fotos_curadas": [
+      "aerea-05.jpg",
+      "aerea-04.jpg",
+      "aerea-06.jpg",
+      "aerea-03.jpg"
+    ],
+    "excluidas": [
+      "aerea-01.jpg (close extremo de cascalho/terra, vertical, sem valor visual)",
+      "aerea-02.jpg (vertical, mistura de orientação; conteúdo de represa poderia ser reaproveitado no futuro se reenquadrado)",
+      "aerea-07.jpg (redundante com aerea-04.jpg, mesma cerca em pasto)"
+    ]
+  },
+  "fazenda-cristal-azul": {
+    "fotos_curadas": [
+      "aerea-02.jpg",
+      "aerea-03.jpg",
+      "aerea-05.jpg"
+    ],
+    "excluidas": [
+      "aerea-01.jpg (foto de documento impresso — mapa de precipitação do governo do TO — não é foto do imóvel)",
+      "aerea-04.jpg (foto de documento impresso — mesmo mapa de precipitação — não é foto do imóvel)"
+    ]
+  },
+  "fazenda-cristal-da-serra": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-03.jpg",
+      "foto-04.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (quase duplicata de foto-01.jpg, mesmo complexo de silos)"
+    ]
+  },
+  "fazenda-diamante": {
+    "fotos_curadas": [
+      "capa.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (quase duplicata de capa.jpg, mesmo campo de soja/mesmo ângulo)"
+    ]
+  },
+  "fazenda-diamante-do-cerrado": {
+    "fotos_curadas": [
+      "foto-03.jpg",
+      "foto-04.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (print de tela do Google Maps com ícones de UI e marcador de localização)",
+      "foto-02.jpg (print de mapa/imagem de satélite com limites do município sobrepostos)"
+    ]
+  },
+  "fazenda-diamante-do-vale": {
+    "fotos_curadas": [
+      "foto-02.jpg",
+      "foto-03.jpg",
+      "foto-04.jpg",
+      "foto-01.jpg"
+    ],
+    "excluidas": [
+      "foto-05.jpg (vinheta escura em um dos cantos, provável obstrução na lente)"
+    ]
+  },
+  "fazenda-esmeralda-do-cerrado": {
+    "fotos_curadas": [
+      "capa.jpg",
+      "foto-06.jpg",
+      "foto-07.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (quase duplicata de capa.jpg, mesma pastagem, faixas pretas nas laterais)",
+      "foto-03.jpg (quase duplicata de capa.jpg, mesma pastagem, faixas pretas nas laterais)",
+      "foto-04.jpg (quase duplicata de capa.jpg, mesma pastagem, faixas pretas nas laterais)",
+      "foto-05.jpg (vertical, redundante com foto-06.jpg que mostra o mesmo curral e ipê em enquadramento melhor)"
+    ]
+  },
+  "fazenda-galena": {
+    "fotos_curadas": [
+      "foto-04.jpg",
+      "foto-02.jpg",
+      "foto-06.jpg",
+      "foto-01.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": [
+      "foto-05.jpg (redundante com foto-03.jpg, mesma borda de pasto/mata)"
+    ]
+  },
+  "fazenda-jade-do-campo": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-04.jpg (print de mapa de satélite do Google com marcador e controles de zoom)"
+    ]
+  },
+  "fazenda-jade-do-cerrado": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-04.jpg",
+      "foto-02.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-03.jpg (quase duplicata de foto-02.jpg, mesma sede em ângulo semelhante)"
+    ]
+  },
+  "fazenda-jade-serena": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-03.jpg",
+      "foto-04.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (capô/painel do carro visível na parte inferior da foto, indicando foto tirada de dentro/perto do veículo)"
+    ]
+  },
+  "fazenda-lapis-lazuli-do-tocantins": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-05.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": [
+      "foto-04.jpg (duplicata da sede já presente em foto-01.jpg, com pessoa aparecendo na foto)"
+    ]
+  },
+  "fazenda-painita": {
+    "fotos_curadas": [
+      "foto-03.jpg",
+      "foto-04.jpg",
+      "foto-01.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (poste de cerca em close sem contexto, composição fraca)",
+      "foto-05.jpg (pequena borda de capô/painel do carro visível na parte inferior)"
+    ]
+  },
+  "fazenda-perola-do-araguaia": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": []
+  },
+  "fazenda-perola-do-leste": {
+    "fotos_curadas": [
+      "foto-03.jpg",
+      "foto-02.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (print de aplicativo de mapa/GPS: barra de status do celular, ícones de UI, botão 'Adicionar foto')",
+      "foto-04.jpg (close de galhos/árvore, composição fraca, vertical)"
+    ]
+  },
+  "fazenda-pirita": {
+    "fotos_curadas": [],
+    "excluidas": [
+      "foto-01.jpg (ícone/widget de bússola de aplicativo agrícola sobreposto no canto superior esquerdo)",
+      "foto-02.jpg (mesmo ícone de aplicativo sobreposto)",
+      "foto-03.jpg (mesmo ícone de aplicativo sobreposto)",
+      "foto-04.jpg (mesmo ícone de aplicativo sobreposto)",
+      "foto-05.jpg (mesmo ícone de aplicativo sobreposto, além de mão segurando planta em primeiro plano)"
+    ]
+  },
+  "fazenda-quartzo-rosa": {
+    "fotos_curadas": [
+      "capa.jpg",
+      "foto-03.jpg",
+      "foto-07.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (pessoa aparece caminhando na plantação, baixo valor editorial)",
+      "foto-04.jpg (marca d'água do aplicativo SnapEdit visível no canto)",
+      "foto-05.jpg (marca d'água do aplicativo SnapEdit visível no canto)",
+      "foto-06.jpg (quase duplicata de foto-07.jpg, mesmo galpão/sede)"
+    ]
+  },
+  "fazenda-rubi-negro": {
+    "fotos_curadas": [
+      "foto-07.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg",
+      "capa.jpg"
+    ],
+    "excluidas": [
+      "foto-04.jpg (redundante com foto-02.jpg, mesmo curral)",
+      "foto-05.jpg (redundante com capa.jpg/foto-06.jpg, mesma pastagem)",
+      "foto-06.jpg (redundante, pastagem repetida; também usada indevidamente como hero vertical forçado em contêiner largo)"
+    ]
+  },
+  "fazenda-safira-azul": {
+    "fotos_curadas": [
+      "capa.jpg",
+      "foto-02.jpg",
+      "foto-03.jpg",
+      "foto-07.jpg"
+    ],
+    "excluidas": [
+      "foto-04.jpg (quase duplicata aérea de foto-02.jpg/foto-07.jpg)",
+      "foto-05.jpg (estrada de terra redundante, menos distintiva)",
+      "foto-06.jpg (redundante com capa.jpg, mesma sede)"
+    ]
+  },
+  "fazenda-safira-do-norte": {
+    "fotos_curadas": [
+      "foto-04.jpg",
+      "foto-05.jpg",
+      "foto-03.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (retrovisor do carro com reflexo de pessoa visível em primeiro plano)",
+      "foto-02.jpg (redundante com foto-03.jpg, vegetação de cerrado em close sem grande apelo)"
+    ]
+  },
+  "fazenda-safira-do-vale": {
+    "fotos_curadas": [
+      "foto-04.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (foto de banheiro interno — não é conteúdo apropriado para galeria pública institucional)",
+      "foto-02.jpg (foto de banheiro interno — mesmo motivo)",
+      "foto-03.jpg (córrego com água barrenta e lixo/detritos visíveis, baixa qualidade visual)"
+    ]
+  },
+  "fazenda-topazio-do-sol": {
+    "fotos_curadas": [
+      "foto-04.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (print de aplicativo galeria de fotos: indicadores de carrossel e timestamp sobrepostos na imagem)",
+      "foto-02.jpg (mesmo overlay de aplicativo de galeria)",
+      "foto-03.jpg (mesmo overlay de aplicativo de galeria)"
+    ]
+  },
+  "fazenda-topazio-imperial": {
+    "fotos_curadas": [
+      "aerea-02.jpg",
+      "aerea-01.jpg",
+      "aerea-03.jpg"
+    ],
+    "excluidas": [
+      "aerea-04.jpg (capacete de motociclista visível no quadro, câmera segurada durante deslocamento)",
+      "aerea-05.jpg (quase duplicata de aerea-01.jpg, mesma estrada de terra)"
+    ]
+  },
+  "fazenda-turmalina-do-cerrado": {
+    "fotos_curadas": [
+      "foto-04.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-01.jpg (arquivo é uma colagem de duas fotos aéreas distintas com faixa branca no meio — formato inadequado para galeria editorial)",
+      "foto-02.jpg (mesmo problema de colagem com faixa branca)",
+      "foto-03.jpg (mesmo problema de colagem com faixa branca)"
+    ]
+  },
+  "fazenda-turquesa-do-araguaia": {
+    "fotos_curadas": [
+      "foto-01.jpg",
+      "foto-05.jpg"
+    ],
+    "excluidas": [
+      "foto-02.jpg (quase duplicata de foto-01.jpg, mesma lavoura de soja no mesmo ângulo)",
+      "foto-03.jpg (quase duplicata, além de pessoa visível ao fundo)",
+      "foto-04.jpg (dedo tampando parcialmente a lente, mancha desfocada no canto)"
+    ]
+  },
+  "fazenda-turquesa-do-cerrado": {
+    "fotos_curadas": [
+      "foto-06.jpg",
+      "foto-02.jpg",
+      "foto-04.jpg",
+      "capa.jpg"
+    ],
+    "excluidas": [
+      "foto-03.jpg (quase duplicata de foto-02.jpg, mesma cachoeira)",
+      "foto-05.jpg (pátio interno bagunçado, menos atrativo esteticamente)",
+      "foto-07.jpg (caixa d'água simples, redundante com infraestrutura já mostrada em foto-04.jpg/foto-06.jpg)"
+    ]
+  }
+}

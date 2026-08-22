@@ -1,5 +1,5 @@
 ---
-titulo: Pecuária de precisão — tecnologia que está saindo do papel no Brasil
+titulo: Pecuária de precisão: tecnologia saindo do papel
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Tendências

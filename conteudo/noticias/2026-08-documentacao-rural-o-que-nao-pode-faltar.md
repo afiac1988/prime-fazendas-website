@@ -1,5 +1,5 @@
 ---
-titulo: Documentação rural: o que não pode faltar antes de negociar
+titulo: Documentação rural: o que não pode faltar
 data: 2026-08-04
 autor: Prime Fazendas
 categoria: Jurídico

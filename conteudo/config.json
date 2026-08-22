@@ -14,6 +14,8 @@
     "idioma": "pt-BR",
     "titulo_padrao": "Prime Fazendas — Fazendas e propriedades rurais no Tocantins",
     "descricao_padrao": "Intermediação de fazendas certificadas e documentadas no Tocantins e Matopiba, com consulta de disponibilidade e preço antes de qualquer proposta. Consultoria completa, segurança jurídica e oportunidades de investimento no agronegócio.",
+    "descricao_meta": "Fazendas e propriedades rurais no Tocantins e no Matopiba, com due diligence documental, ambiental e de mercado antes de qualquer proposta de compra ou venda.",
+    "_descricao_meta": "Meta description dedicada da home (150-160 caracteres) — descricao_padrao continua servindo para o JSON-LD e outros usos mais longos.",
     "og_imagem": "/assets/og-prime-fazendas.png"
   },
   "contato": {

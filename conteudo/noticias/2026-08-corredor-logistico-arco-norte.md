@@ -1,5 +1,5 @@
 ---
-titulo: O Arco Norte está mudando o mapa do preço da terra no Tocantins
+titulo: Arco Norte está mudando o preço da terra no TO
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Logística
@@ -16,10 +16,10 @@ Frete é um dos maiores custos variáveis da produção de grãos, e a distânci
 
 ## O papel do Tocantins nesse mapa
 
-Localizado na rota natural entre o Centro-Oeste produtor e os portos do Norte, o Tocantins se beneficia diretamente da consolidação dessa infraestrutura — o que ajuda a explicar por que o estado segue atraindo investidores que compram terra pensando não só na safra de hoje, mas na logística das próximas décadas.
+Localizado na rota natural entre o Centro-Oeste produtor e os portos do Norte, o Tocantins se beneficia diretamente da consolidação dessa infraestrutura — o que ajuda a explicar por que o estado segue atraindo investidores que compram terra pensando não só na safra de hoje, mas na logística das próximas décadas. É o mesmo racional por trás da tese que detalhamos em [Por que investir no agronegócio](/investir-no-agro/).
 
 ## O que avaliar antes de comprar
 
 Distância até rodovia pavimentada, acesso à malha viária que conecta ao Arco Norte e histórico de escoamento da região são perguntas que valem mais do que parecem no momento de decidir entre duas propriedades com preço por hectare parecido.
 
-A Prime Fazendas inclui esse tipo de análise logística na avaliação de cada propriedade do nosso portfólio, porque frete não é detalhe — é parte da conta.
+A Prime Fazendas inclui esse tipo de análise logística na avaliação de cada propriedade do [nosso portfólio](/imoveis/), porque frete não é detalhe — é parte da conta.

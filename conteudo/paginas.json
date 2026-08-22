@@ -8,19 +8,19 @@
     "pilares": [
       {
         "titulo": "Documentação verificada",
-        "texto": "Nenhuma propriedade entra no nosso portfólio sem matrícula limpa, CAR validado e georreferenciamento aprovado. Regularidade não é diferencial: é pré-requisito."
+        "texto": "Só entra no portfólio o que tem matrícula limpa e CAR validado."
       },
       {
         "titulo": "Consultoria do início ao fim",
-        "texto": "Da prospecção à escritura, com assessoria jurídica e suporte técnico. Você não compra sozinho e não descobre problema depois de assinar."
+        "texto": "Acompanhamento jurídico e técnico da prospecção à escritura."
       },
       {
         "titulo": "Rede nacional e internacional",
-        "texto": "Compradores, produtores e investidores no Brasil e no exterior. Quem vende encontra liquidez; quem compra encontra oportunidade real."
+        "texto": "Conectamos vendedores e investidores no Brasil e no exterior."
       },
       {
         "titulo": "Conhecimento de região",
-        "texto": "Atuação concentrada no Tocantins e no Matopiba. Conhecemos solo, logística e preço praticado microrregião por microrregião."
+        "texto": "Especialistas em Tocantins e Matopiba: solo, logística e preço."
       }
     ],
     "faixa_titulo": "Terra é decisão de longo prazo. Merece análise de longo prazo.",
@@ -29,6 +29,7 @@
   "sobre": {
     "titulo": "Sobre a Prime Fazendas",
     "chamada": "Especialistas em fazendas e propriedades rurais no coração do Brasil.",
+    "descricao_meta": "A Prime Fazendas negocia fazendas em Palmas e no Tocantins com due diligence documental e ambiental, do primeiro contato até a escritura, com CRECI J-5807.",
     "quem_somos": [
       "A Prime Fazendas é uma imobiliária especializada na venda de fazendas e propriedades rurais, localizada no Tocantins — uma região estratégica, com logística privilegiada e um dos maiores potenciais de crescimento do agronegócio no país.",
       "Com uma equipe qualificada e uma rede de contatos estratégica, oferecemos um portfólio exclusivo de fazendas, sítios e propriedades rurais voltadas para investimento, produção agrícola, pecuária, reflorestamento e lazer. Nossa experiência no setor nos permite identificar os melhores ativos, garantindo segurança, transparência e potencial de valorização para nossos clientes.",
@@ -73,6 +74,7 @@
   "servicos": {
     "titulo": "Nossos serviços",
     "chamada": "Do primeiro contato à escritura, com quem entende de terra e de documento.",
+    "descricao_meta": "Compra, venda, arrendamento, avaliação e regularização de fazendas no Tocantins, com due diligence documental e ambiental conduzida por especialistas.",
     "lista": [
       {
         "titulo": "Intermediação na compra e venda de fazendas",
@@ -102,6 +104,7 @@
   "investir": {
     "titulo": "Por que investir no agronegócio",
     "chamada": "Ativo real, finito e produtivo — na fronteira agrícola que ainda está sendo consolidada.",
+    "descricao_meta": "Terra agrícola no Matopiba como ativo real: aptidão produtiva, logística do Arco Norte e janela de preço ainda abaixo do Centro-Sul consolidado hoje.",
     "intro": "O Brasil é uma das maiores potências agrícolas do mundo e o agronegócio responde por uma fatia relevante do PIB nacional. Investir em terra agrícola é combinar valorização de ativo real com geração de renda — desde que a propriedade escolhida seja tecnicamente boa e juridicamente limpa.",
     "regiao_titulo": "Tocantins e Matopiba: leitura de território",
     "regiao_subtitulo": "Em vez de um mapa genérico, mostramos um painel visual de leitura de mercado: logística, aptidão produtiva, custo de entrada e segurança documental.",
@@ -111,6 +114,7 @@
   "imoveis": {
     "titulo": "Imóveis rurais à venda",
     "chamada": "Portfólio enxuto e verificado. Cada propriedade passou por análise documental, ambiental e de mercado. Preço e disponibilidade são confirmados antes de qualquer proposta.",
+    "descricao_meta": "Fazendas à venda no Tocantins e Matopiba, com documentação e disponibilidade verificadas antes da publicação. Filtre por tipo, área e faixa de preço.",
     "vazio_titulo": "Portfólio em atualização",
     "vazio_texto": "Estamos preparando as próximas oportunidades. Se você procura algo específico — região, tamanho, aptidão ou faixa de investimento — fale com a nossa equipe: boa parte das nossas negociações acontece antes do anúncio."
   },
@@ -154,12 +158,14 @@
   "agenda_agro": {
     "titulo": "Agenda Agro",
     "chamada": "As principais feiras e eventos do agronegócio brasileiro, com data e link oficial confirmados.",
+    "descricao_meta": "Calendário das principais feiras e eventos do agronegócio brasileiro, com datas e links oficiais confirmados pela equipe da Prime Fazendas todo mês.",
     "vazio_titulo": "Nenhum evento confirmado no momento",
     "vazio_texto": "Publicamos apenas eventos com data e link oficial confirmados pelo organizador. Volte em breve."
   },
   "contato": {
     "titulo": "Contato e consultoria",
     "chamada": "Conte o que você procura. Um especialista responde.",
+    "descricao_meta": "Fale com a Prime Fazendas sobre comprar, vender, arrendar ou avaliar uma fazenda no Tocantins. Resposta de um especialista por telefone ou WhatsApp.",
     "intro": "Seja para comprar, vender, avaliar ou regularizar uma propriedade rural, o primeiro passo é uma conversa. Sem compromisso e sem discurso de vendas.",
     "form_titulo": "Fale com um especialista",
     "form_nota": "Seus dados são usados exclusivamente para o retorno do contato."

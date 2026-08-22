@@ -261,4 +261,32 @@
   /* ------------------------------------------------- ano no rodapé ---- */
   var ano = document.querySelectorAll('[data-ano]');
   ano.forEach(function (el) { el.textContent = new Date().getFullYear(); });
+
+  /* ------------------------------------- entrada suave ao rolar (.reveal) --
+     Progressivo: só "arma" (esconde) um card se o navegador tiver
+     IntersectionObserver e o usuário não pedir "reduzir movimento". Sem
+     isso, os elementos .reveal simplesmente não são tocados e continuam
+     visíveis como sempre — nunca há risco de conteúdo sumir por falha de JS. */
+  try {
+    var alvosRevelar = document.querySelectorAll('.reveal');
+    var reduzirMovimento = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (alvosRevelar.length && 'IntersectionObserver' in window && !reduzirMovimento) {
+      var observadorRevelar = new IntersectionObserver(function (entradas) {
+        entradas.forEach(function (entrada) {
+          if (entrada.isIntersecting) {
+            entrada.target.classList.remove('reveal--armado');
+            observadorRevelar.unobserve(entrada.target);
+          }
+        });
+      }, { threshold: 0.15, rootMargin: '0px 0px -10% 0px' });
+
+      alvosRevelar.forEach(function (el) {
+        el.classList.add('reveal--armado');
+        observadorRevelar.observe(el);
+      });
+    }
+  } catch (erro) {
+    /* qualquer falha aqui não pode afetar o resto do site */
+  }
 })();

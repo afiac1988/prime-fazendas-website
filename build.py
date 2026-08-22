@@ -29,6 +29,48 @@ RAIZ = Path(__file__).resolve().parent
 CONTEUDO = RAIZ / "conteudo"
 TEMA = RAIZ / "tema"
 
+try:
+    from PIL import Image as _PILImage
+except ImportError:  # Pillow é opcional: sem ela caímos de volta nas dimensões-padrão.
+    _PILImage = None
+
+# cache de dimensões reais de imagem, por caminho absoluto -> (largura, altura).
+# Evita reabrir o mesmo arquivo várias vezes (capa de card + galeria + og:image
+# costumam repetir a mesma foto).
+_DIMENSOES_CACHE: dict[Path, tuple[int, int]] = {}
+
+
+def dimensoes_imagem(caminho_absoluto: Path, largura_padrao: int, altura_padrao: int) -> tuple[int, int]:
+    """Le a dimensao real de um arquivo de imagem com Pillow.
+
+    Usado para gravar width/height corretos em cada <img> (evita layout shift
+    e é considerado pelo Google em Core Web Vitals). Se o Pillow não estiver
+    instalado, ou o arquivo não existir/não puder ser lido, devolve o
+    width/height padrão passado pelo chamador — o build nunca quebra por causa
+    disso, só perde a precisão da dimensão.
+    """
+    if _PILImage is None:
+        return largura_padrao, altura_padrao
+    if caminho_absoluto in _DIMENSOES_CACHE:
+        return _DIMENSOES_CACHE[caminho_absoluto]
+    try:
+        with _PILImage.open(caminho_absoluto) as img:
+            dim = (img.width, img.height)
+    except Exception:
+        dim = (largura_padrao, altura_padrao)
+    _DIMENSOES_CACHE[caminho_absoluto] = dim
+    return dim
+
+
+def dimensoes_midia_url(url_publica: str, largura_padrao: int, altura_padrao: int) -> tuple[int, int]:
+    """Mesma coisa que dimensoes_imagem, mas a partir de uma URL pública
+    (ex.: "/midia/imoveis/fazenda-x/foto-01.jpg") — resolve para o arquivo
+    correspondente dentro de conteudo/midia/."""
+    if not url_publica.startswith("/midia/"):
+        return largura_padrao, altura_padrao
+    caminho = CONTEUDO / "midia" / url_publica[len("/midia/"):].lstrip("/")
+    return dimensoes_imagem(caminho, largura_padrao, altura_padrao)
+
 
 def _saida_padrao() -> Path:
     if "--saida" in sys.argv:
@@ -400,6 +442,46 @@ SVG_CAPA = (
     "</svg>"
 )
 
+# Ícones de linha (estilo Lucide/Feather), inline e minimalistas — usados nos
+# cards "Por que a Prime" (pilares) na home. currentColor herda a cor definida
+# em .card__icone, sem depender de imagem externa ou emoji.
+ICONES_PILARES = [
+    # 01 · Documentação verificada — escudo com check: símbolo universal de
+    # segurança/verificação, mais forte e imediato que uma medalha.
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+    '<path d="M12 3.2l6.8 2.5v5.4c0 4.55-2.9 8.2-6.8 9.7-3.9-1.5-6.8-5.15-6.8-9.7V5.7z"/>'
+    '<path d="M8.6 12.15l2.35 2.35 4.45-4.8"/></svg>',
+    # 02 · Consultoria do início ao fim — maleta: acompanhamento
+    # profissional e assessoria direta, símbolo limpo e inconfundível
+    # em tamanho pequeno (o aperto de mãos não se sustentava a 24px).
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+    '<rect x="3.2" y="8.4" width="17.6" height="11.2" rx="1.8"/>'
+    '<path d="M8.6 8.4V6.6a1.8 1.8 0 0 1 1.8-1.8h3.2a1.8 1.8 0 0 1 1.8 1.8v1.8"/>'
+    '<path d="M3.2 13.4h17.6"/>'
+    '<path d="M10.6 13.4v1.5h2.8v-1.5" stroke-linejoin="round"/></svg>',
+    # 03 · Rede nacional e internacional — globo com meridianos/paralelos e
+    # pontos conectados por linhas finas, reforçando "rede" além de "mundo".
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+    '<circle cx="12" cy="12" r="9"/>'
+    '<ellipse cx="12" cy="12" rx="4" ry="9"/>'
+    '<path d="M3 12h18"/>'
+    '<path stroke-width="1.3" d="M7.9 7.8l4.5 3.4 4.1-2.9M12.4 11.2l1.5 5.3"/>'
+    '<circle cx="7.9" cy="7.8" r="1.15" fill="currentColor" stroke="none"/>'
+    '<circle cx="16.5" cy="8.3" r="1.15" fill="currentColor" stroke="none"/>'
+    '<circle cx="13.9" cy="17.1" r="1.15" fill="currentColor" stroke="none"/></svg>',
+    # 04 · Conhecimento de região — bússola/rosa dos ventos com os 4 pontos
+    # cardeais marcados: territorial e específico, mais elegante que um mapa.
+    '<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" '
+    'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">'
+    '<circle cx="12" cy="12" r="9"/>'
+    '<path stroke-linecap="butt" d="M12 1.5v2.3M12 20.2v2.3M1.5 12h2.3M20.2 12h2.3"/>'
+    '<path d="M12 5.9l2.35 5.55c.13.3.13.6 0 .9L12 18.1l-2.35-5.75c-.13-.3-.13-.6 0-.9z" '
+    'fill="currentColor" stroke-linejoin="round"/></svg>',
+]
+
 # Marca da Prime Fazendas: sol sobre os sulcos do plantio.
 # O desenho vem de tema/assets/marca.svg, gerado por ferramentas/gerar_og.py a
 # partir da mesma geometria da imagem de compartilhamento — logo do site e
@@ -582,7 +664,7 @@ def rodape(cfg: dict) -> str:
 
 
 def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
-           og_tipo: str = "website", json_ld: str = "", rascunho: bool = False,
+           og_tipo: str = "website", json_ld: str | list[str] = "", rascunho: bool = False,
            og_imagem: str = "") -> str:
     site = cfg["site"]
     dominio = site["dominio"].rstrip("/")
@@ -607,7 +689,8 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
         faixa = ('<div class="aviso-rascunho">Pré-visualização local — este conteúdo contém '
                  'dados de exemplo e não deve ir ao ar.</div>')
 
-    ld = f'<script type="application/ld+json">{json_ld}</script>' if json_ld else ""
+    blocos_ld = json_ld if isinstance(json_ld, list) else ([json_ld] if json_ld else [])
+    ld = "\n".join(f'<script type="application/ld+json">{b}</script>' for b in blocos_ld if b)
 
     return f"""<!DOCTYPE html>
 <html lang="{e(site.get('idioma', 'pt-BR'))}">
@@ -665,7 +748,9 @@ def hero(cfg: dict, *, olho: str, titulo: str, texto: str = "", botoes: str = ""
          interno: bool = False, foto: str = "") -> str:
     classe = "hero hero--interno" if interno else "hero"
     prioridade = ' fetchpriority="high"' if not interno else ''
-    img = (f'<img class="hero__foto" src="{e(foto)}" alt="Paisagem rural de fazenda no Tocantins" width="1920" height="1080" '
+    largura, altura = dimensoes_midia_url(foto, 1920, 1080) if foto else (1920, 1080)
+    img = (f'<img class="hero__foto" src="{e(foto)}" alt="Paisagem rural de fazenda no Tocantins" '
+           f'width="{largura}" height="{altura}" '
            f'loading="eager"{prioridade}>') if foto else ""
     return f"""<section class="{classe}">
   {img}{SVG_HORIZONTE}
@@ -685,6 +770,123 @@ def migalhas(trilha: list[tuple[str, str]]) -> str:
             partes.append("<span>/</span>")
         partes.append(f'<a href="{e(url)}">{e(rotulo)}</a>' if url else f"<span>{e(rotulo)}</span>")
     return f'<nav class="migalhas" aria-label="Trilha de navegação">{"".join(partes)}</nav>'
+
+
+def ld_breadcrumbs(cfg: dict, trilha: list[tuple[str, str]]) -> str:
+    """Gera o JSON-LD de BreadcrumbList (invisível, vai só no <head>) a partir
+    da mesma trilha home > seção > página usada — ou equivalente — na
+    migalha visual. Diferente da migalha visual, aqui toda posição precisa
+    de uma URL (inclusive a página atual), porque é isso que o item.@id
+    exige; o chamador deve passar a URL própria da página no último item."""
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    itens = [
+        {"@type": "ListItem", "position": i + 1, "name": nome, "item": dominio + url}
+        for i, (nome, url) in enumerate(trilha)
+    ]
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": itens,
+    }, ensure_ascii=False)
+
+
+def descricao_foto(url_publica: str, titulo: str, local: str) -> str:
+    """Alt text da foto de um imóvel. Quando o nome do arquivo dá uma pista
+    razoável do conteúdo (ex.: 'aerea-02.jpg' — convenção usada pelo banco de
+    mídia para vista aérea/drone), descreve isso; senão cai no padrão
+    genérico título + local, que sempre está correto mesmo sem essa pista."""
+    nome = url_publica.rsplit("/", 1)[-1].lower()
+    base = f"{titulo} — {local}" if local else titulo
+    if nome.startswith("aerea"):
+        return f"Vista aérea — {base}"
+    return base
+
+
+def descricao_meta_imovel(im: dict) -> str:
+    """Meta description dedicada por imóvel: combina região + área + um
+    diferencial real (primeira característica/infraestrutura cadastrada),
+    sem reaproveitar o texto do 'subtitulo' de tela. Ajustada para ficar
+    entre 150 e 160 caracteres sempre que possível."""
+    local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if preenchido(x))
+    area = im.get("area_total_ha")
+    tipo_label = TIPOS.get(im.get("tipo", ""), "")
+
+    partes = []
+    if area and local:
+        partes.append(f"{fmt_num(area)} hectares em {local}")
+    elif local:
+        partes.append(local)
+    elif area:
+        partes.append(f"{fmt_num(area)} hectares")
+    if tipo_label:
+        partes.append(f"aptidão {tipo_label.lower()}")
+    frase = ", ".join(partes)
+
+    diferencial = ""
+    for chave in ("caracteristicas", "infraestrutura"):
+        itens = im.get(chave) or []
+        if itens:
+            diferencial = str(itens[0]).rstrip(".")
+            break
+
+    base = f"{im['titulo']}: {frase}." if frase else f"{im['titulo']}."
+
+    def cortar(txt: str, limite: int) -> str:
+        if len(txt) <= limite:
+            return txt
+        return txt[:limite].rsplit(" ", 1)[0].rstrip(".,;: ")
+
+    # Monta com o diferencial e, se ainda houver espaço, um fechamento de
+    # chamada — sempre cortando pelo componente MENOS essencial primeiro
+    # (a chamada final, depois o diferencial), nunca no meio da frase.
+    candidato = f"{base} {diferencial}." if diferencial else base
+    fechamento = "Fale com a Prime Fazendas e confirme condições e disponibilidade."
+
+    if len(candidato) < 150:
+        com_fechamento = f"{candidato} {fechamento}"
+        if len(com_fechamento) <= 160:
+            return com_fechamento
+        espaco = 160 - len(candidato) - 1
+        if espaco > 20:
+            return f"{candidato} {cortar(fechamento, espaco)}."
+        return candidato
+
+    if len(candidato) > 160:
+        if diferencial:
+            espaco_diferencial = 160 - len(base) - 2
+            if espaco_diferencial > 20:
+                return f"{base} {cortar(diferencial, espaco_diferencial)}."
+            return cortar(base, 160)
+        return cortar(candidato, 160)
+
+    return candidato
+
+
+def imoveis_relacionados(im: dict, todos: list[dict], maximo: int = 3) -> list[dict]:
+    """Escolhe 2-3 fazendas 'relacionadas' para linkagem interna ao final da
+    ficha: prioridade para o mesmo estado (UF); completa com a faixa de área
+    mais próxima entre as demais, para nunca devolver menos que o possível."""
+    candidatos = [
+        o for o in todos
+        if o["slug"] != im["slug"] and not o.get("_rascunho") and not o.get("_exemplo")
+    ]
+    area_alvo = im.get("area_total_ha") or 0
+
+    def dist_area(o: dict) -> float:
+        return abs((o.get("area_total_ha") or 0) - area_alvo)
+
+    mesma_uf = sorted(
+        (o for o in candidatos if o.get("estado") and o.get("estado") == im.get("estado")),
+        key=dist_area,
+    )
+    escolhidos = mesma_uf[:maximo]
+    if len(escolhidos) < maximo:
+        restantes = sorted((o for o in candidatos if o not in escolhidos), key=dist_area)
+        for o in restantes:
+            if len(escolhidos) >= maximo:
+                break
+            escolhidos.append(o)
+    return escolhidos
 
 
 def cta_faixa(cfg: dict, titulo: str, texto: str, botao: str = "Falar com um especialista") -> str:
@@ -757,11 +959,35 @@ def carregar_manutencao() -> dict:
     return dados
 
 
+def carregar_curadoria_midia() -> dict:
+    """Le conteudo/curadoria_midia.json — a seleção manual (feita por um humano,
+    olhando cada foto) de quais imagens de cada fazenda são boas o suficiente
+    para aparecer publicamente e em que ordem.
+
+    Formato esperado por fazenda (chave = slug = nome do arquivo .json sem
+    extensão): {"fotos_curadas": ["foto-02.jpg", ...], "excluidas": [...]}.
+    "excluidas" é só documentação (motivo do descarte) e não é usada no build.
+
+    Fazendas ausentes deste arquivo (ex.: os imóveis de exemplo/modelo) usam o
+    comportamento antigo — todas as fotos da pasta, na ordem do campo "fotos"
+    do JSON do imóvel.
+    """
+    caminho = CONTEUDO / "curadoria_midia.json"
+    if not caminho.exists():
+        return {}
+    bruto = ler_json(caminho)
+    if not isinstance(bruto, dict):
+        return {}
+    return bruto
+
+
 def carregar_imoveis() -> list[dict]:
     itens = []
     pasta = CONTEUDO / "imoveis"
     if not pasta.exists():
         return itens
+
+    curadoria = carregar_curadoria_midia()
 
     for arq in sorted(pasta.glob("*.json")):
         if arq.name.startswith("_"):
@@ -791,11 +1017,38 @@ def carregar_imoveis() -> list[dict]:
         d["preco_ha"] = (preco / area) if (area and preco and not d.get("preco_sob_consulta")) else 0
 
         pasta_fotos = d.get("pasta_fotos") or arq.stem
-        d["fotos_url"] = [f"/midia/imoveis/{pasta_fotos}/{f}" for f in (d.get("fotos") or [])]
-        for f in (d.get("fotos") or []):
+
+        # A galeria pública e a capa vêm EXCLUSIVAMENTE da curadoria manual
+        # (conteudo/curadoria_midia.json) quando ela existir para esta fazenda.
+        # Isso é proposital: o banco de mídia bruto mistura fotos boas com
+        # prints de slide, print de mapa/app, foto de dentro do carro etc., e
+        # não queremos que isso volte a vazar para o site s
+        # ó porque alguém adicionou um arquivo novo na pasta sem repassar a
+        # curadoria. Fazendas sem entrada na curadoria (ex.: imóveis de
+        # exemplo) caem no comportamento antigo: todas as fotos do campo
+        # "fotos" do JSON, na ordem em que foram listadas.
+        entrada_curadoria = curadoria.get(arq.stem)
+        if entrada_curadoria is not None:
+            # Existe entrada na curadoria para esta fazenda — vale mesmo que
+            # a lista esteja vazia (fazenda sem nenhuma foto aproveitável
+            # após a exclusão de prints/mapas/etc.). Não caímos de volta para
+            # "fotos" nesse caso: mostrar a pasta bruta sem curadoria é
+            # exatamente o que essa curadoria existe para evitar.
+            fotos = entrada_curadoria.get("fotos_curadas") or []
+            d["_fotos_curadas"] = True
+            if not fotos:
+                aviso(f"{arq.name}: curadoria de mídia não deixou nenhuma foto utilizável "
+                      f"para esta fazenda — precisa de nova sessão fotográfica.")
+        else:
+            fotos = d.get("fotos") or []
+            d["_fotos_curadas"] = False
+
+        d["fotos_url"] = [f"/midia/imoveis/{pasta_fotos}/{f}" for f in fotos]
+        for f in fotos:
             origem = CONTEUDO / "midia" / "imoveis" / pasta_fotos / f
             if not origem.exists():
-                aviso(f"{arq.name}: a foto '{f}' não existe em conteudo/midia/imoveis/{pasta_fotos}/")
+                aviso(f"{arq.name}: a foto '{f}' não existe em conteudo/midia/imoveis/{pasta_fotos}/ "
+                      f"(vinda de {'curadoria_midia.json' if entrada_curadoria else 'fotos'}).")
 
         itens.append(d)
 
@@ -909,15 +1162,20 @@ def card_imovel(im: dict) -> str:
         selos.append('<span class="selo selo--aviso">Exemplo</span>')
 
     local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
-    alt_capa = f'{im["titulo"]} — {local}' if local else im["titulo"]
+    alt_capa = descricao_foto(im["fotos_url"][0], im["titulo"], local) if im["fotos_url"] else (
+        f'{im["titulo"]} — {local}' if local else im["titulo"])
 
     if im["fotos_url"]:
+        # A capa do card é sempre a primeira foto do conjunto CURADO (ver
+        # carregar_imoveis / curadoria_midia.json) — a melhor foto escolhida
+        # manualmente para representar a fazenda em uma única imagem.
+        largura_capa, altura_capa = dimensoes_midia_url(im["fotos_url"][0], 1200, 750)
         capa = (f'<a class="imovel__capa-link js-foto-modal" href="{e(im["fotos_url"][0])}" '
                 f'data-foto-modal-src="{e(im["fotos_url"][0])}" '
                 f'data-foto-modal-alt="{e(alt_capa)}" '
                 f'title="Abrir foto no visualizador">'
                 f'<img src="{e(im["fotos_url"][0])}" alt="{e(alt_capa)}" '
-                f'width="1200" height="750" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+                f'width="{largura_capa}" height="{altura_capa}" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
                 f'</a>')
     else:
         capa = SVG_CAPA
@@ -938,7 +1196,7 @@ def card_imovel(im: dict) -> str:
     preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
     area_ordenacao = im.get("area_total_ha") or 0
 
-    return f"""<article class="imovel" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}">
+    return f"""<article class="imovel reveal" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}">
   <div class="imovel__capa">
     {f'<div class="imovel__selos">{"".join(selos)}</div>' if selos else ''}
     {capa}
@@ -946,7 +1204,6 @@ def card_imovel(im: dict) -> str:
   <div class="imovel__corpo">
     <p class="imovel__local">{e(cabeca)}</p>
     <h3 class="imovel__titulo"><a href="{e(im['url'])}">{e(im['titulo'])}</a></h3>
-    {f'<p class="imovel__sub">{e(im["subtitulo"])}</p>' if im.get('subtitulo') else ''}
     <div class="imovel__dados">{''.join(dados)}</div>
   </div>
 </article>"""
@@ -966,11 +1223,13 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
 
     corpo = [hero(cfg, olho=f"{cfg['contato'].get('cidade', '')} · {cfg['contato'].get('estado', '')} · Matopiba".strip(" ·"),
                   titulo=h.get("hero_titulo", cfg["marca"]["slogan"]),
-                  texto=h.get("hero_texto", ""), botoes=botoes, foto="/midia/imoveis/fazenda-cristal-da-serra/foto-04.jpg")]
+                  texto=h.get("hero_texto", ""), botoes=botoes, foto="/midia/imoveis/fazenda-amazonita/aerea-02.jpg")]
 
     # pilares
     cards = "".join(
-        f'<article class="card"><div class="card__num">{i + 1:02d}</div>'
+        f'<article class="card reveal">'
+        f'<div class="card__icone">{ICONES_PILARES[i % len(ICONES_PILARES)]}</div>'
+        f'<div class="card__num">{i + 1:02d}</div>'
         f'<h3>{e(p["titulo"])}</h3><p>{e(p["texto"])}</p></article>'
         for i, p in enumerate(h.get("pilares", []))
     )
@@ -1082,25 +1341,52 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
         },
     }, ensure_ascii=False)
 
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/")])
+
     return pagina(cfg, titulo=cfg["site"]["titulo_padrao"],
-                  descricao=cfg["site"]["descricao_padrao"], url="/",
-                  corpo="\n".join(corpo), json_ld=ld,
+                  descricao=cfg["site"].get("descricao_meta", cfg["site"]["descricao_padrao"]), url="/",
+                  corpo="\n".join(corpo), json_ld=[ld, ld_migalha],
                   rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
 
 
+ICONE_NOTICIA_FOLHA = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
+                       '<path d="M5 19c7-1 12-6 13-13-7 1-12 6-13 13Z"/>'
+                       '<path d="M6.5 17.5c2-4 5-7 9-9"/></svg>')
+ICONE_NOTICIA_GOTA = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
+                      '<path d="M12 3.5s6 7 6 11a6 6 0 0 1-12 0c0-4 6-11 6-11Z"/></svg>')
+ICONE_NOTICIA_EXPORT = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
+                        '<path d="M7 17 17 7M9.5 7H17v7.5"/></svg>')
+ICONE_NOTICIA_MOEDA = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
+                       '<circle cx="12" cy="12" r="8"/>'
+                       '<path d="M12 7.2v9.6M9.3 9.6c0-1.4 1.2-2.4 2.7-2.4s2.6.9 2.6 2.1c0 2.7-5.3 1.6-5.3 4.2 0 1.3 1.2 2.3 2.7 2.3s2.7-1 2.7-2.3"/></svg>')
+
+
+def icone_noticia(categoria: str) -> str:
+    c = (categoria or "").lower()
+    if "clima" in c or "chuva" in c:
+        return ICONE_NOTICIA_GOTA
+    if "exporta" in c or "logíst" in c or "logist" in c:
+        return ICONE_NOTICIA_EXPORT
+    if "financ" in c or "crédit" in c or "credit" in c or "investi" in c:
+        return ICONE_NOTICIA_MOEDA
+    return ICONE_NOTICIA_FOLHA
+
+
 def card_post(p: dict, destaque: bool = False) -> str:
-    inicial = (p['categoria'][:1] or "P").upper()
     tempo = p.get('tempo_leitura')
     meta_tempo = f'<span>·</span><span>{tempo} min de leitura</span>' if tempo else ''
-    classe = "post-card post-card--destaque" if destaque else "post-card"
+    classe = "post-card post-card--destaque reveal" if destaque else "post-card reveal"
     if preenchido(p.get('capa')):
+        largura_post, altura_post = dimensoes_midia_url(p["capa"], 640, 400)
         capa = (f'<a class="post-card__capa post-card__capa--foto" href="{e(p["url"])}" '
                 f'aria-hidden="true" tabindex="-1">'
                 f'<img src="{e(p["capa"])}" alt="{e(p["titulo"])}" loading="lazy" '
-                f'width="640" height="400"></a>')
+                f'width="{largura_post}" height="{altura_post}"></a>')
     else:
         capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
-                f'<span class="post-card__capa-inicial">{e(inicial)}</span></a>')
+                f'<span class="post-card__selo">Prime News</span>'
+                f'<span class="post-card__icone">{icone_noticia(p["categoria"])}</span>'
+                f'</a>')
     return f"""<article class="{classe}">
   {capa}
   <div class="post-card__corpo">
@@ -1118,7 +1404,7 @@ def gerar_sobre(cfg, pag) -> str:
     s = pag.get("sobre", {})
     c = cfg["contato"]
     corpo = [hero(cfg, olho="Sobre nós", titulo=s.get("titulo", "Sobre a Prime Fazendas"),
-                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-turquesa-do-cerrado/capa.jpg")]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-diamante/foto-02.jpg")]
     corpo.append(f"""<section class="secao">
   <div class="env">
     <div class="prosa">
@@ -1179,10 +1465,12 @@ def gerar_sobre(cfg, pag) -> str:
   </div>
 </section>""")
 
-    corpo.append("""<section class="secao secao--compacta">
+    _sobre_foto = "/midia/imoveis/fazenda-citrino/aerea-03.jpg"
+    _sobre_foto_w, _sobre_foto_h = dimensoes_midia_url(_sobre_foto, 1600, 1000)
+    corpo.append(f"""<section class="secao secao--compacta">
   <div class="env">
     <figure class="sobre-foto">
-      <img src="/midia/imoveis/fazenda-citrino/aerea-03.jpg" alt="Pastagem formada em uma das propriedades do portfólio Prime Fazendas" width="1600" height="1000" loading="lazy">
+      <img src="{_sobre_foto}" alt="Pastagem formada em uma das propriedades do portfólio Prime Fazendas" width="{_sobre_foto_w}" height="{_sobre_foto_h}" loading="lazy">
       <figcaption>Imagem ilustrativa do acervo Prime Fazendas — chão de fazenda, todos os dias.</figcaption>
     </figure>
   </div>
@@ -1223,9 +1511,31 @@ def gerar_sobre(cfg, pag) -> str:
     corpo.append(cta_faixa(cfg, "Quer conhecer o nosso portfólio?",
                            "Boa parte das nossas negociações acontece antes do anúncio público."))
 
+    redes_sameas = [u for u in cfg.get("redes", {}).values() if preenchido(u)]
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "AboutPage",
+        "name": s.get("titulo", "Sobre nós"),
+        "mainEntity": {
+            "@type": "Organization",
+            "name": cfg["marca"]["nome"],
+            "url": cfg["site"]["dominio"],
+            "description": cfg["marca"].get("descricao_curta", cfg["site"]["descricao_padrao"]),
+            **({"foundingDate": str(cfg["marca"]["ano_fundacao"])} if preenchido(cfg["marca"].get("ano_fundacao")) else {}),
+            "address": {
+                "@type": "PostalAddress",
+                "addressLocality": c.get("cidade", ""),
+                "addressRegion": c.get("estado", ""),
+                "addressCountry": c.get("pais", "BR"),
+            },
+            **({"sameAs": redes_sameas} if redes_sameas else {}),
+        },
+    }, ensure_ascii=False)
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Sobre Nós", "/sobre/")])
+
     return pagina(cfg, titulo=s.get("titulo", "Sobre nós"),
-                  descricao=s.get("chamada", cfg["site"]["descricao_padrao"]),
-                  url="/sobre/", corpo="\n".join(corpo))
+                  descricao=s.get("descricao_meta", s.get("chamada", cfg["site"]["descricao_padrao"])),
+                  url="/sobre/", corpo="\n".join(corpo), json_ld=[ld, ld_migalha])
 
 
 def gerar_servicos(cfg, pag) -> str:
@@ -1245,8 +1555,27 @@ def gerar_servicos(cfg, pag) -> str:
     corpo.append(cta_faixa(cfg, s.get("cta_titulo", "Cada propriedade é um caso."),
                            s.get("cta_texto", ""), s.get("cta_botao", "Solicitar consultoria")))
 
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": s.get("titulo", "Serviços"),
+        "description": s.get("chamada", ""),
+        "provider": {"@type": "RealEstateAgent", "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"]},
+        "areaServed": {"@type": "State", "name": "Tocantins"},
+        **({"hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Serviços Prime Fazendas",
+            "itemListElement": [
+                {"@type": "Offer", "itemOffered": {"@type": "Service", "name": x["titulo"], "description": x.get("texto", "")}}
+                for x in s.get("lista", [])
+            ],
+        }} if s.get("lista") else {}),
+    }, ensure_ascii=False)
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Serviços", "/servicos/")])
+
     return pagina(cfg, titulo=s.get("titulo", "Serviços"),
-                  descricao=s.get("chamada", ""), url="/servicos/", corpo="\n".join(corpo))
+                  descricao=s.get("descricao_meta", s.get("chamada", "")), url="/servicos/",
+                  corpo="\n".join(corpo), json_ld=[ld, ld_migalha])
 
 
 def gerar_investir(cfg, pag, dados_agro) -> str:
@@ -1331,8 +1660,11 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
     corpo.append(cta_faixa(cfg, "Quer avaliar uma oportunidade?",
                            "Analisamos a propriedade — solo, documentação, passivo e preço — antes de você comprometer capital."))
 
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Investir no Agro", "/investir-no-agro/")])
+
     return pagina(cfg, titulo=s.get("titulo", "Por que investir no agronegócio"),
-                  descricao=s.get("chamada", ""), url="/investir-no-agro/", corpo="\n".join(corpo))
+                  descricao=s.get("descricao_meta", s.get("chamada", "")), url="/investir-no-agro/",
+                  corpo="\n".join(corpo), json_ld=[ld_migalha])
 
 
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
@@ -1398,64 +1730,100 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     corpo.append(cta_faixa(cfg, "Procura algo específico?",
                            "Diga região, tamanho, aptidão e faixa de investimento. Boa parte do que negociamos não chega a ser anunciado."))
 
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    ld = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "CollectionPage",
+        "name": s.get("titulo", "Imóveis rurais à venda"),
+        "description": s.get("chamada", ""),
+        "url": dominio + "/imoveis/",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "url": dominio + im["url"], "name": im["titulo"]}
+                for i, im in enumerate(imoveis)
+            ],
+        },
+    }, ensure_ascii=False)
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Imóveis", "/imoveis/")])
+
     return pagina(cfg, titulo=s.get("titulo", "Imóveis rurais à venda"),
-                  descricao=s.get("chamada", ""), url="/imoveis/",
-                  corpo="\n".join(corpo),
+                  descricao=s.get("descricao_meta", s.get("chamada", "")), url="/imoveis/",
+                  corpo="\n".join(corpo), json_ld=[ld, ld_migalha],
                   rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
 
 
-def gerar_ficha_imovel(cfg, im) -> str:
+def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
     local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
     olho = " · ".join(x for x in [local, TIPOS.get(im.get("tipo", ""), ""), im.get("regiao", "")] if x)
 
-    # ficha tecnica rapida - resumo escaneavel dos mesmos dados do painel lateral,
-    # pensado para quem quer os numeros em 10 segundos sem ler a descricao toda
-    rapidos = []
-    if im.get("area_total_ha"):
-        rapidos.append(f'<div class="dado"><span class="dado__rot">Área total</span>'
-                       f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
-    if im.get("area_aberta_ha"):
-        rapidos.append(f'<div class="dado"><span class="dado__rot">Área aberta</span>'
-                       f'<span class="dado__val">{fmt_num(im["area_aberta_ha"])} ha</span></div>')
-    if im.get("area_reserva_ha"):
-        rapidos.append(f'<div class="dado"><span class="dado__rot">Reserva / APP</span>'
-                       f'<span class="dado__val">{fmt_num(im["area_reserva_ha"])} ha</span></div>')
-    if im.get("tipo"):
-        rapidos.append(f'<div class="dado"><span class="dado__rot">Aptidão</span>'
-                       f'<span class="dado__val">{e(TIPOS.get(im["tipo"], im["tipo"]))}</span></div>')
+    # resumo-imovel: a faixa "poucas fotos, poucas informações, fale
+    # conosco" — nome, região, área total, valor (ou "sob consulta") e uma
+    # chamada forte de contato, tudo visível logo abaixo do título, sem
+    # precisar rolar até o painel lateral. Ficha técnica item a item (o que
+    # antes vivia aqui como "ficha rápida") virou uma seção discreta lá
+    # embaixo — ver bloco "ficha-tecnica".
+    resumo_dados = []
     if local:
-        rapidos.append(f'<div class="dado"><span class="dado__rot">Localização</span>'
-                       f'<span class="dado__val">{e(local)}</span></div>')
-    rotulo_status_rapido, _ = STATUS.get(im.get("status", "disponivel"), STATUS["disponivel"])
-    rapidos.append(f'<div class="dado"><span class="dado__rot">Situação</span>'
-                   f'<span class="dado__val">{e(rotulo_status_rapido)}</span></div>')
-    ficha_rapida = f'<div class="imovel__dados imovel__dados--ficha">{"".join(rapidos)}</div>' if rapidos else ""
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">Região</span>'
+                            f'<span class="dado__val">{e(local)}</span></div>')
+    if im.get("area_total_ha"):
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">Área total</span>'
+                            f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
+    if im.get("preco_sob_consulta") or not im.get("preco"):
+        resumo_dados.append('<div class="dado"><span class="dado__rot">Valor</span>'
+                            '<span class="dado__val dado__val--preco">Sob consulta</span></div>')
+    else:
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">Valor</span>'
+                            f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
+
+    link_imovel = cfg["site"]["dominio"].rstrip("/") + im["url"]
+    msg = f"Olá! Tenho interesse na {im['titulo']} ({local}). Vi no site da Prime Fazendas: {link_imovel}"
+    zap = montar_url_zap(cfg, msg)
+    if zap:
+        acao_resumo = (f'<a class="btn btn--principal" href="{e(zap)}" target="_blank" rel="noopener">'
+                       f'Falar com um especialista</a>')
+    else:
+        acao_resumo = '<a class="btn btn--principal" href="/contato/">Falar com um especialista</a>'
+
+    resumo_imovel = (f'<div class="resumo-imovel">'
+                     f'<div class="resumo-imovel__dados">{"".join(resumo_dados)}</div>'
+                     f'<div class="resumo-imovel__acao">{acao_resumo}</div>'
+                     f'</div>') if resumo_dados else ""
 
     corpo = [f'<section class="secao secao--compacta"><div class="env">'
              + migalhas([("Início", "/"), ("Imóveis", "/imoveis/"), (im["titulo"], "")])
              + f'<p class="olho">{e(olho)}</p><h1>{e(im["titulo"])}</h1>'
              + (f'<p class="chamada chamada--larga">{e(im["subtitulo"])}</p>' if im.get("subtitulo") else "")
-             + ficha_rapida
+             + resumo_imovel
              + "</div></section>"]
 
-    # galeria
+    # galeria — vem exclusivamente do conjunto curado manualmente (ver
+    # carregar_imoveis). Poucas fotos, grandes, sem grade apertada.
     blocos = []
     if im["fotos_url"]:
         local_galeria = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
-        alt_base = f'{im["titulo"]} — {local_galeria}' if local_galeria else im["titulo"]
         fotos = "".join(
             f'<a class="galeria__link js-foto-modal" href="{e(u)}" '
             f'data-foto-modal-src="{e(u)}" '
-            f'data-foto-modal-alt="{e(alt_base)} — foto {n + 1}" '
+            f'data-foto-modal-alt="{e(descricao_foto(u, im["titulo"], local_galeria))} — foto {n + 1}" '
             f'title="Abrir foto {n + 1} no visualizador">'
-            f'<img src="{e(u)}" alt="{e(alt_base)} — foto {n + 1}" width="1200" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+            f'<img src="{e(u)}" alt="{e(descricao_foto(u, im["titulo"], local_galeria))} — foto {n + 1}" '
+            f'width="{(dim := dimensoes_midia_url(u, 1200, 900))[0]}" height="{dim[1]}" '
+            f'loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
             f'</a>'
             for n, u in enumerate(im["fotos_url"])
         )
-        blocos.append(f'<div class="galeria">{fotos}</div>')
+        blocos.append(f'<div class="galeria galeria--curada">{fotos}</div>')
     if im.get("descricao"):
         blocos.append(f'<div class="bloco-ficha"><h3>A propriedade</h3>'
                       f'<div class="prosa">{paragrafos(im["descricao"])}</div></div>')
+
+    # Ficha técnica completa: dados mais densos (características, infra item
+    # a item, documentação, vídeo, mapa) ficam visualmente em segundo plano,
+    # dentro de um <details> fechado por padrão — não competem com a galeria
+    # e o CTA no topo da página, mas continuam a um clique de distância.
+    detalhes = []
 
     for titulo, chave in [("Características", "caracteristicas"),
                           ("Infraestrutura", "infraestrutura"),
@@ -1463,15 +1831,15 @@ def gerar_ficha_imovel(cfg, im) -> str:
         itens = im.get(chave) or []
         if itens:
             marcador = "marcada marcada--check" if chave == "documentacao" else "marcada"
-            blocos.append(f'<div class="bloco-ficha"><h3>{e(titulo)}</h3>'
-                          f'<ul class="{marcador}">'
-                          + "".join(f"<li>{e(i)}</li>" for i in itens) + "</ul></div>")
+            detalhes.append(f'<div class="bloco-ficha"><h3>{e(titulo)}</h3>'
+                            f'<ul class="{marcador}">'
+                            + "".join(f"<li>{e(i)}</li>" for i in itens) + "</ul></div>")
 
     if preenchido(im.get("video_youtube")):
         vid = e(im["video_youtube"])
-        blocos.append(f'<div class="bloco-ficha"><h3>Vídeo</h3><div class="mapa">'
-                      f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
-                      f'title="Vídeo da propriedade" loading="lazy" allowfullscreen></iframe></div></div>')
+        detalhes.append(f'<div class="bloco-ficha"><h3>Vídeo</h3><div class="mapa">'
+                        f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
+                        f'title="Vídeo da propriedade" loading="lazy" allowfullscreen></iframe></div></div>')
 
     mapa_embed_url = im.get("mapa_embed") if preenchido(im.get("mapa_embed")) else ""
     mapa_titulo = "Localização"
@@ -1484,10 +1852,31 @@ def gerar_ficha_imovel(cfg, im) -> str:
                             f'município — {e(municipio_estado)}. Não representa os limites exatos '
                             f'da propriedade.</p>')
     if mapa_embed_url:
-        blocos.append(f'<div class="bloco-ficha"><h3>{e(mapa_titulo)}</h3><div class="mapa">'
-                      f'<iframe src="{e(mapa_embed_url)}" title="Mapa da propriedade" '
-                      f'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'
-                      f'{mapa_legenda}</div>')
+        detalhes.append(f'<div class="bloco-ficha"><h3>{e(mapa_titulo)}</h3><div class="mapa">'
+                        f'<iframe src="{e(mapa_embed_url)}" title="Mapa da propriedade" '
+                        f'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'
+                        f'{mapa_legenda}</div>')
+
+    # dado de área aberta/reserva entra na ficha técnica completa (não no
+    # resumo do topo, que fica só com o essencial: região, área total, valor).
+    areas_extra = []
+    if im.get("area_aberta_ha"):
+        areas_extra.append(f'<div class="dado"><span class="dado__rot">Área aberta</span>'
+                           f'<span class="dado__val">{fmt_num(im["area_aberta_ha"])} ha</span></div>')
+    if im.get("area_reserva_ha"):
+        areas_extra.append(f'<div class="dado"><span class="dado__rot">Reserva / APP</span>'
+                           f'<span class="dado__val">{fmt_num(im["area_reserva_ha"])} ha</span></div>')
+    rotulo_status_rapido, _ = STATUS.get(im.get("status", "disponivel"), STATUS["disponivel"])
+    areas_extra.append(f'<div class="dado"><span class="dado__rot">Situação</span>'
+                       f'<span class="dado__val">{e(rotulo_status_rapido)}</span></div>')
+    if areas_extra:
+        detalhes.insert(0, f'<div class="bloco-ficha"><h3>Números da propriedade</h3>'
+                        f'<div class="imovel__dados imovel__dados--ficha">{"".join(areas_extra)}</div></div>')
+
+    if detalhes:
+        blocos.append('<details class="ficha-tecnica"><summary class="ficha-tecnica__abrir">'
+                      'Ficha técnica completa</summary>'
+                      f'<div class="ficha-tecnica__corpo">{"".join(detalhes)}</div></details>')
 
     # painel lateral
     if im.get("preco_sob_consulta") or not im.get("preco"):
@@ -1541,17 +1930,43 @@ def gerar_ficha_imovel(cfg, im) -> str:
     corpo.append(f'<section class="secao secao--compacta"><div class="env">'
                  f'<div class="ficha"><div>{"".join(blocos)}</div>{painel}</div></div></section>')
 
+    # imóveis relacionados — linkagem interna para outras fazendas da mesma
+    # UF ou de área parecida, reaproveitando o mesmo card da listagem (sem
+    # criar um componente visual novo, para não fugir do padrão minimalista).
+    relacionados = imoveis_relacionados(im, todos_imoveis)
+    if relacionados:
+        corpo.append(f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="cabeca-secao">
+      <p class="olho">Também pode interessar</p>
+      <h2>Imóveis relacionados</h2>
+    </div>
+    <div class="grade-imoveis">{''.join(card_imovel(o) for o in relacionados)}</div>
+  </div>
+</section>""")
+
     corpo.append(cta_faixa(cfg, "Quer ver outras opções?",
                            "Temos propriedades que não estão publicadas no site.",
                            "Falar com um especialista"))
 
-    desc = im.get("subtitulo") or f"{im['titulo']} — {local}."
+    desc = descricao_meta_imovel(im)
     ld = json.dumps({
         "@context": "https://schema.org",
-        "@type": "Product",
+        "@type": "RealEstateListing",
         "name": im["titulo"],
         "description": desc,
-        "category": "Imóvel rural",
+        "url": cfg["site"]["dominio"].rstrip("/") + im["url"],
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": im.get("municipio", ""),
+            "addressRegion": im.get("estado", ""),
+            "addressCountry": "BR",
+        },
+        **({"floorSize": {
+            "@type": "QuantitativeValue",
+            "value": im["area_total_ha"],
+            "unitText": "ha",
+        }} if im.get("area_total_ha") else {}),
         **({"offers": {
             "@type": "Offer",
             "price": im["preco"],
@@ -1561,11 +1976,12 @@ def gerar_ficha_imovel(cfg, im) -> str:
                              else "https://schema.org/OutOfStock"),
         }} if im.get("preco") and not im.get("preco_sob_consulta") else {}),
     }, ensure_ascii=False)
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Imóveis", "/imoveis/"), (im["titulo"], im["url"])])
 
     og_img_imovel = (cfg["site"]["dominio"].rstrip("/") + im["fotos_url"][0]) if im.get("fotos_url") else ""
 
     return pagina(cfg, titulo=im["titulo"], descricao=desc, url=im["url"],
-                  corpo="\n".join(corpo), og_tipo="article", json_ld=ld,
+                  corpo="\n".join(corpo), og_tipo="article", json_ld=[ld, ld_migalha],
                   rascunho=bool(im.get("_exemplo") or im.get("_rascunho")),
                   og_imagem=og_img_imovel)
 
@@ -1584,6 +2000,7 @@ def gerar_redirect(cfg, destino: str) -> str:
 <title>Redirecionando…</title>
 </head>
 <body>
+<h1>Comunidade agora faz parte de Notícias</h1>
 <p>Este conteúdo agora faz parte de <a href="{e(destino)}">Notícias</a>. Redirecionando…</p>
 </body>
 </html>
@@ -1608,7 +2025,7 @@ def gerar_comunidade(cfg, pag) -> str:
         aviso("comunidade: 'grupo_whatsapp' e 'canal_whatsapp' estão vazios — o botão aponta para /contato/ até você colar um link válido.")
 
     corpo = [hero(cfg, olho="Comunidade", titulo=s.get("titulo", com.get("nome", "Comunidade")),
-                  texto=s.get("chamada", ""), botoes=botoes, interno=True, foto="/midia/imoveis/fazenda-ametista-real/aerea-05.jpg")]
+                  texto=s.get("chamada", ""), botoes=botoes, interno=True, foto="/midia/imoveis/fazenda-ametista-real/aerea-02.jpg")]
 
     corpo.append(f'<section class="secao"><div class="env"><div class="prosa">'
                  f'{paragrafos(s.get("intro"))}</div></div></section>')
@@ -1690,8 +2107,10 @@ def gerar_blog(cfg, pag, posts, imoveis) -> str:
   </div>
 </section>''')
 
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Notícias", "/blog/")])
+
     return pagina(cfg, titulo=s.get("titulo", "Notícias"), descricao=s.get("chamada", ""),
-                  url="/blog/", corpo="\n".join(corpo))
+                  url="/blog/", corpo="\n".join(corpo), json_ld=[ld_migalha])
 
 
 def card_evento_agro(ev: dict, destaque: bool = False) -> str:
@@ -1760,8 +2179,11 @@ def gerar_agenda_agro(cfg, pag, agenda) -> str:
     corpo.append(cta_faixa(cfg, "Vai estar em alguma dessas feiras?",
                            "Aproveite para conhecer as oportunidades da Prime Fazendas antes do evento."))
 
-    return pagina(cfg, titulo=s.get("titulo", "Agenda Agro"), descricao=s.get("chamada", ""),
-                  url="/agenda-agro/", corpo="\n".join(corpo))
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Agenda Agro", "/agenda-agro/")])
+
+    return pagina(cfg, titulo=s.get("titulo", "Agenda Agro"),
+                  descricao=s.get("descricao_meta", s.get("chamada", "")),
+                  url="/agenda-agro/", corpo="\n".join(corpo), json_ld=[ld_migalha])
 
 
 def gerar_post(cfg, p, outros) -> str:
@@ -1807,19 +2229,23 @@ def gerar_post(cfg, p, outros) -> str:
     corpo.append(cta_faixa(cfg, "Tem uma propriedade ou uma dúvida?",
                            "Fale com quem negocia terra no Tocantins todos os dias."))
 
+    dominio = cfg["site"]["dominio"].rstrip("/")
     ld = json.dumps({
         "@context": "https://schema.org",
         "@type": "Article",
         "headline": p["titulo"],
         "description": p.get("resumo", ""),
         "datePublished": p["data"].isoformat(),
+        "dateModified": p["data"].isoformat(),
+        **({"image": dominio + p["capa"]} if preenchido(p.get("capa")) else {}),
         "author": {"@type": "Organization", "name": p["autor"]},
         "publisher": {"@type": "Organization", "name": cfg["marca"]["nome"]},
-        "mainEntityOfPage": cfg["site"]["dominio"].rstrip("/") + p["url"],
+        "mainEntityOfPage": dominio + p["url"],
     }, ensure_ascii=False)
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Notícias", "/blog/"), (p["titulo"], p["url"])])
 
     return pagina(cfg, titulo=p["titulo"], descricao=p.get("resumo", ""), url=p["url"],
-                  corpo="\n".join(corpo), og_tipo="article", json_ld=ld,
+                  corpo="\n".join(corpo), og_tipo="article", json_ld=[ld, ld_migalha],
                   rascunho=bool(p.get("_rascunho")))
 
 
@@ -1828,7 +2254,7 @@ def gerar_contato(cfg, pag) -> str:
     c = cfg["contato"]
 
     corpo = [hero(cfg, olho="Contato", titulo=s.get("titulo", "Contato e consultoria"),
-                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-rubi-negro/foto-06.jpg")]
+                  texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg")]
 
     numero_zap = re.sub(r"\D", "", str(c.get("whatsapp_numero_internacional") or "")) \
         if preenchido(c.get("whatsapp_numero_internacional")) else ""
@@ -1956,8 +2382,11 @@ def gerar_contato(cfg, pag) -> str:
   </div>
 </section>""")
 
-    return pagina(cfg, titulo=s.get("titulo", "Contato"), descricao=s.get("chamada", ""),
-                  url="/contato/", corpo="\n".join(corpo))
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Contato", "/contato/")])
+
+    return pagina(cfg, titulo=s.get("titulo", "Contato"),
+                  descricao=s.get("descricao_meta", s.get("chamada", "")),
+                  url="/contato/", corpo="\n".join(corpo), json_ld=[ld_migalha])
 
 
 def gerar_404(cfg) -> str:
@@ -2197,7 +2626,7 @@ def main() -> int:
     escrever("404.html", gerar_404(cfg))
 
     for im in imoveis:
-        escrever(f"imoveis/{im['slug']}/index.html", gerar_ficha_imovel(cfg, im))
+        escrever(f"imoveis/{im['slug']}/index.html", gerar_ficha_imovel(cfg, im, imoveis))
     for p in posts:
         escrever(f"blog/{p['slug']}/index.html", gerar_post(cfg, p, posts))
 

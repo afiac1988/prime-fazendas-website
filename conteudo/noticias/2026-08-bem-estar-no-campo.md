@@ -1,5 +1,5 @@
 ---
-titulo: Bem-estar no campo: como equilíbrio e rotina saudável fortalecem a performance no agro
+titulo: Bem-estar no campo: rotina saudável e performance no agro
 data: 2026-08-18
 autor: Prime Fazendas
 categoria: Bem-estar

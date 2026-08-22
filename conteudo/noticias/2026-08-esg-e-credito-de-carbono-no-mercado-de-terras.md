@@ -1,5 +1,5 @@
 ---
-titulo: ESG e crédito de carbono: o que muda de verdade no valor da terra
+titulo: ESG e crédito de carbono no valor da terra
 data: 2026-08-09
 autor: Prime Fazendas
 categoria: Mercado
@@ -12,7 +12,7 @@ Poucos assuntos geraram tanto ruído no mercado de terras quanto ESG e crédito 
 
 ## O que já afeta preço hoje
 
-**Regularidade ambiental.** Essa é a parte concreta e imediata. Propriedade com CAR validado, reserva legal definida e passivo zero acessa crédito, atrai comprador institucional e fecha mais rápido. Área com embargo ou déficit de reserva sai do radar de boa parte dos compradores qualificados — e isso aparece no preço.
+**Regularidade ambiental.** Essa é a parte concreta e imediata. Propriedade com CAR validado, reserva legal definida e passivo zero acessa crédito, atrai comprador institucional e fecha mais rápido — como a [Fazenda Amazonita](/imoveis/fazenda-amazonita/), com certificação ambiental documentada. Área com embargo ou déficit de reserva sai do radar de boa parte dos compradores qualificados — e isso aparece no preço.
 
 **Rastreabilidade da cadeia.** Compradores de commodities passaram a exigir comprovação de origem. Fazenda que não consegue provar conformidade tem menos canais de escoamento, e menos canais significa menos poder de negociação.
 
@@ -58,4 +58,4 @@ Para entrar em qualquer conversa séria sobre ativos ambientais:
 
 É a mesma lista que faz a fazenda ser negociável. Não por acaso: as duas coisas medem a mesma qualidade.
 
-Quer avaliar uma propriedade sob essa ótica? [Fale com a nossa equipe](/contato/).
+Quer avaliar uma propriedade sob essa ótica? Veja a tese completa em [Por que investir no agronegócio](/investir-no-agro/) ou [fale com a nossa equipe](/contato/).

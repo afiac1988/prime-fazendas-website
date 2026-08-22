@@ -387,6 +387,21 @@ strong { font-weight: 600; color: var(--azul-900); }
   margin-bottom: 0.9rem;
   letter-spacing: 0.04em;
 }
+.card__icone {
+  width: 3rem;
+  height: 3rem;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(201, 164, 76, 0.12);
+  color: var(--dourado-escuro);
+  margin-bottom: 1rem;
+  box-shadow: inset 0 0 0 1px rgba(126, 95, 31, 0.28);
+  transition: background var(--transicao), color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+}
+.card__icone svg { width: 1.55rem; height: 1.55rem; }
+.card:hover .card__icone { background: rgba(201, 164, 76, 0.22); transform: scale(1.05); box-shadow: inset 0 0 0 1px rgba(126, 95, 31, 0.4); }
 
 .secao--escura .card {
   background: rgba(250, 248, 243, 0.045);
@@ -394,6 +409,21 @@ strong { font-weight: 600; color: var(--azul-900); }
 }
 .secao--escura .card:hover { background: rgba(250, 248, 243, 0.075); border-color: rgba(201, 164, 76, 0.4); }
 .secao--escura .card p { color: rgba(250, 248, 243, 0.74); }
+.secao--escura .card__icone { background: rgba(201, 164, 76, 0.16); color: var(--dourado-claro); box-shadow: inset 0 0 0 1px rgba(229, 203, 134, 0.3); }
+.secao--escura .card:hover .card__icone { background: rgba(201, 164, 76, 0.28); box-shadow: inset 0 0 0 1px rgba(229, 203, 134, 0.45); }
+
+/* -------------------------------------------- Entrada suave (scroll) ---- */
+/* .reveal--armado é adicionado via JS (site.js) só quando o navegador roda
+   o IntersectionObserver — sem JS, ou com "reduzir movimento" ativo, o
+   conteúdo permanece visível normalmente, sem nunca ficar oculto. */
+.card.reveal,
+.imovel.reveal,
+.post-card.reveal {
+  transition: opacity 420ms cubic-bezier(0.4, 0, 0.2, 1),
+              transform 420ms cubic-bezier(0.4, 0, 0.2, 1),
+              box-shadow var(--transicao), border-color var(--transicao), background var(--transicao);
+}
+.reveal.reveal--armado { opacity: 0; transform: translateY(14px); }
 
 /* ------------------------------------------------------- Lista marcada -- */
 
@@ -582,6 +612,19 @@ strong { font-weight: 600; color: var(--azul-900); }
 .galeria { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin-bottom: 2.5rem; }
 .galeria__link { display: block; cursor: zoom-in; }
 .galeria img { border-radius: var(--raio); aspect-ratio: 4/3; object-fit: cover; width: 100%; filter: saturate(1.05) contrast(1.03); }
+
+/* Galeria curada da ficha de imóvel: poucas fotos (3 a 6), grandes e bem
+   espaçadas — no máximo duas colunas, nunca a grade apertada de muitas fotos
+   pequenas. A primeira foto ocupa a largura toda para dar peso editorial;
+   as demais dividem em pares. */
+.galeria--curada {
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
+  gap: 1rem;
+  margin-bottom: 3rem;
+}
+.galeria--curada img { aspect-ratio: 3/2; }
+.galeria--curada .galeria__link:first-child { grid-column: 1 / -1; }
+.galeria--curada .galeria__link:first-child img { aspect-ratio: 16/9; }
 .foto-modal[hidden] { display: none; }
 .foto-modal {
   position: fixed;
@@ -717,6 +760,52 @@ body.modal-aberta { overflow: hidden; }
 .mapa { border: 1px solid var(--borda); border-radius: var(--raio); overflow: hidden; aspect-ratio: 16/9; }
 .mapa iframe { width: 100%; height: 100%; border: 0; }
 
+/* Resumo do imóvel — a faixa "poucas fotos, poucas informações, fale
+   conosco" que fica logo abaixo do título: região, área, valor e uma
+   chamada forte de contato, tudo visível sem precisar rolar até o painel
+   lateral. Pensado para ler em 3 segundos, no padrão de sites de venda de
+   propriedades de altíssimo padrão. */
+.resumo-imovel {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.75rem 2.5rem;
+  margin-top: 1.5rem;
+  padding: 1.4rem clamp(1.2rem, 3vw, 2rem);
+  background: var(--branco);
+  border: 1px solid var(--borda);
+  border-radius: var(--raio);
+}
+.resumo-imovel__dados { display: flex; flex-wrap: wrap; gap: 1.6rem 2.4rem; flex: 1; }
+.resumo-imovel__acao { margin-left: auto; }
+.resumo-imovel .dado__val { font-size: 1.2rem; }
+
+/* Ficha técnica completa — mantém todos os dados (documentação,
+   infraestrutura item a item etc.) mas visualmente em segundo plano:
+   tipografia mais discreta, dentro de um <details> fechado por padrão, para
+   não competir com a galeria e o CTA no topo da página. */
+.ficha-tecnica {
+  margin-top: 1rem;
+  padding-top: 2rem;
+  border-top: 1px solid var(--borda);
+}
+.ficha-tecnica__abrir {
+  cursor: pointer;
+  list-style: none;
+  font-size: 0.82rem;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--tinta-suave);
+  padding: 0.4rem 0;
+}
+.ficha-tecnica__abrir::-webkit-details-marker { display: none; }
+.ficha-tecnica__abrir::after { content: "+"; float: right; font-size: 1.1rem; }
+.ficha-tecnica[open] .ficha-tecnica__abrir::after { content: "−"; }
+.ficha-tecnica__corpo { margin-top: 1.5rem; font-size: 0.93rem; color: var(--tinta-media); }
+.ficha-tecnica__corpo h3 { font-size: 1rem; }
+.ficha-tecnica__corpo .bloco-ficha { margin-bottom: 2rem; }
+
 .territorio {
   display: grid;
   gap: 1.5rem;
@@ -848,13 +937,51 @@ body.modal-aberta { overflow: hidden; }
   display: block; height: 108px; flex: none;
   background: linear-gradient(150deg, var(--azul-800), var(--azul-600) 55%, var(--terra-500));
   position: relative;
+  overflow: hidden;
 }
-.post-card__capa-inicial {
-  position: absolute; right: 1.1rem; bottom: 0.6rem;
-  font-family: var(--fonte-display); font-size: 2.6rem; line-height: 1;
-  color: rgba(255, 255, 255, 0.28);
+.post-card__capa::before {
+  content: '';
+  position: absolute; inset: 0;
+  background-image: repeating-linear-gradient(
+    115deg,
+    rgba(255, 255, 255, 0.07) 0px, rgba(255, 255, 255, 0.07) 1px,
+    transparent 1px, transparent 13px
+  );
+  pointer-events: none;
+}
+.post-card__capa::after {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(circle at 88% 8%, rgba(255, 255, 255, 0.14), transparent 55%);
+  pointer-events: none;
+}
+.post-card__selo {
+  position: absolute; top: 0.8rem; left: 0.8rem; z-index: 1;
+  padding: 0.3rem 0.65rem;
+  border: 1px solid rgba(229, 203, 134, 0.55);
+  border-radius: 2px;
+  font-family: var(--fonte-corpo);
+  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: var(--dourado-claro);
+  background: rgba(12, 30, 51, 0.4);
+  backdrop-filter: blur(2px);
+}
+.post-card__icone {
+  position: absolute; right: 0.85rem; bottom: 0.75rem; z-index: 1;
+  width: 2.5rem; height: 2.5rem;
+  display: flex; align-items: center; justify-content: center;
+  border-radius: 50%;
+  border: 1px solid rgba(229, 203, 134, 0.4);
+  color: rgba(229, 203, 134, 0.85);
+}
+.post-card__icone svg {
+  width: 1.25rem; height: 1.25rem;
+  fill: none; stroke: currentColor; stroke-width: 1.6;
+  stroke-linecap: round; stroke-linejoin: round;
 }
 .post-card__capa--foto { background: var(--azul-900); }
+.post-card__capa--foto::before, .post-card__capa--foto::after { display: none; }
 .post-card__capa--foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
 
 .artigo__capa {
@@ -877,7 +1004,9 @@ body.modal-aberta { overflow: hidden; }
 
 .post-card--destaque { flex-direction: row; align-items: stretch; }
 .post-card--destaque .post-card__capa { height: auto; flex: 0 0 42%; }
-.post-card--destaque .post-card__capa-inicial { font-size: 5rem; }
+.post-card--destaque .post-card__selo { font-size: 0.66rem; padding: 0.36rem 0.8rem; }
+.post-card--destaque .post-card__icone { width: 3.4rem; height: 3.4rem; }
+.post-card--destaque .post-card__icone svg { width: 1.7rem; height: 1.7rem; }
 .post-card--destaque .post-card__corpo { justify-content: center; gap: 1rem; }
 .post-card--destaque h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
 .post-card--destaque p { font-size: 1.03rem; }

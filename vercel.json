@@ -5,6 +5,11 @@
     "enabled": true,
     "silent": false
   },
+  "redirects": [
+    { "source": "/comunidade", "destination": "/blog/", "permanent": true },
+    { "source": "/comunidade/", "destination": "/blog/", "permanent": true },
+    { "source": "/comunidade/:path*", "destination": "/blog/", "permanent": true }
+  ],
   "headers": [
     {
       "source": "/(.*)",

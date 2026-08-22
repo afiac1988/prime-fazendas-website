@@ -1,5 +1,5 @@
 ---
-titulo: Matopiba — por que essa fronteira agrícola segue atraindo capital
+titulo: Matopiba: por que a fronteira agrícola atrai capital
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Mercado
@@ -12,7 +12,7 @@ Maranhão, Tocantins, Piauí e Bahia formam o Matopiba — a última grande fron
 
 ## O que atrai capital para a região
 
-O Cerrado do Matopiba tem topografia favorável à mecanização em larga escala, solo corrigível com tecnologia já dominada pelo agro brasileiro, e regime de chuvas que permite, em boa parte da região, duas safras por ano. Some-se a isso um preço de terra ainda bem abaixo de fronteiras agrícolas consolidadas como o oeste da Bahia ou o Mato Grosso, e o resultado é uma equação de entrada mais acessível com potencial de valorização.
+O Cerrado do Matopiba tem topografia favorável à mecanização em larga escala, solo corrigível com tecnologia já dominada pelo agro brasileiro, e regime de chuvas que permite, em boa parte da região, duas safras por ano. Some-se a isso um preço de terra ainda bem abaixo de fronteiras agrícolas consolidadas como o oeste da Bahia ou o Mato Grosso, e o resultado é uma equação de entrada mais acessível com potencial de valorização — a tese que detalhamos em [Por que investir no agronegócio](/investir-no-agro/).
 
 ## Logística — o fator que mais evoluiu
 
@@ -22,4 +22,4 @@ Historicamente, a distância até os portos era o maior obstáculo econômico da
 
 O Matopiba também é uma região historicamente sensível do ponto de vista fundiário e ambiental. Comprar terra na fronteira agrícola exige due diligence redobrada — CAR regularizado, matrícula limpa, ausência de sobreposição com terra indígena ou unidade de conservação. Não é opcional, é o que garante que a oportunidade não vire passivo.
 
-Especificamente no Tocantins, onde a Prime Fazendas está sediada, esse cuidado documental é o primeiro filtro de qualquer propriedade que entra no nosso portfólio.
+Especificamente no Tocantins, onde a Prime Fazendas está sediada, esse cuidado documental é o primeiro filtro de qualquer propriedade que entra no [nosso portfólio](/imoveis/) — como a [Fazenda Jade Serena](/imoveis/fazenda-jade-serena/), em Guaraí, com mais de 17 mil hectares de área mista.

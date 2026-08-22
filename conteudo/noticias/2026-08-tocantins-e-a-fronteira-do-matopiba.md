@@ -1,5 +1,5 @@
 ---
-titulo: Por que o Tocantins virou o centro da conversa sobre terra no Brasil
+titulo: Por que o Tocantins virou centro da conversa sobre terra
 data: 2026-08-06
 autor: Prime Fazendas
 categoria: Mercado
@@ -28,13 +28,13 @@ Cinco anos atrás, o comprador típico era o produtor do Sul buscando expansão.
 
 1. **Produtor em expansão**, que compra área para escalar operação existente.
 2. **Investidor patrimonial**, que compra terra como ativo real e arrenda a produção.
-3. **Fundo e capital estrangeiro**, com tese de longo prazo e exigência alta de compliance ambiental e documental.
+3. **Fundo e capital estrangeiro**, com tese de longo prazo e exigência alta de compliance ambiental e documental — veja os argumentos dessa tese em [Por que investir no agronegócio](/investir-no-agro/).
 
 Os três exigem a mesma coisa antes de fechar: propriedade regular. E é aí que muita área boa fica parada.
 
 ## A trava real do mercado
 
-Não falta comprador para terra boa no Tocantins. Falta terra boa **com documentação em ordem**. Área com matrícula problemática, CAR não validado ou georreferenciamento pendente sai do radar dos compradores mais qualificados — justamente os que pagam melhor.
+Não falta comprador para terra boa no Tocantins. Consulte o [portfólio de fazendas disponíveis](/imoveis/) para ver o padrão documental que exigimos. Falta terra boa **com documentação em ordem**. Área com matrícula problemática, CAR não validado ou georreferenciamento pendente sai do radar dos compradores mais qualificados — justamente os que pagam melhor.
 
 Para quem vende, isso é uma oportunidade direta: regularizar antes de anunciar costuma pagar a si mesma no preço final e no prazo de fechamento.
 

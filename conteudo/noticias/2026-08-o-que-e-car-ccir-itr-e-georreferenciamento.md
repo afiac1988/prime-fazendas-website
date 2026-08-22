@@ -1,5 +1,5 @@
 ---
-titulo: CAR, CCIR, ITR e georreferenciamento — o que é cada um, sem juridiquês
+titulo: CAR, CCIR, ITR e georreferenciamento sem juridiquês
 data: 2026-08-09
 autor: Prime Fazendas
 categoria: Jurídico

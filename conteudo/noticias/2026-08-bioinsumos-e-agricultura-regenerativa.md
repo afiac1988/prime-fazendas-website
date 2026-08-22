@@ -1,5 +1,5 @@
 ---
-titulo: Bioinsumos e agricultura regenerativa — a nova fronteira de produtividade
+titulo: Bioinsumos e agricultura regenerativa: nova fronteira
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Tendências

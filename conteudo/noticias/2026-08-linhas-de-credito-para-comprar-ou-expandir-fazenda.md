@@ -1,5 +1,5 @@
 ---
-titulo: Linhas de crédito rural para quem vai comprar ou expandir a fazenda
+titulo: Linhas de crédito para comprar ou expandir a fazenda
 data: 2026-08-20
 autor: Prime Fazendas
 categoria: Financiamento
@@ -22,4 +22,4 @@ Depois da aquisição, outra frente de crédito entra em cena: recursos para pre
 
 Regularidade documental da propriedade é, na prática, o fator que mais acelera — ou trava — uma análise de crédito rural. Uma fazenda com georreferenciamento aprovado no INCRA e sem passivo ambiental tende a percorrer o processo de financiamento com muito mais previsibilidade do que uma propriedade em situação irregular, mesmo que o preço por hectare pareça mais atrativo à primeira vista.
 
-Por isso, cada imóvel do portfólio da Prime Fazendas passa por checagem documental antes de entrar no site — para que quem for buscar financiamento não descubra um obstáculo depois de já ter escolhido a fazenda.
+Por isso, cada imóvel do [portfólio da Prime Fazendas](/imoveis/) passa por checagem documental antes de entrar no site — para que quem for buscar financiamento não descubra um obstáculo depois de já ter escolhido a fazenda. Conheça também os [serviços de due diligence](/servicos/) que fazem essa checagem antes da compra.

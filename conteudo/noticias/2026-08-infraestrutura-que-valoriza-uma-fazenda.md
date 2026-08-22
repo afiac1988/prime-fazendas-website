@@ -1,5 +1,5 @@
 ---
-titulo: Infraestrutura que mais valoriza uma fazenda na hora da venda
+titulo: Infraestrutura que mais valoriza uma fazenda
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Mercado

@@ -1,5 +1,5 @@
 ---
-titulo: Arrendamento rural para empresas — cláusulas que fazem diferença
+titulo: Arrendamento rural para empresas: cláusulas-chave
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Arrendamento

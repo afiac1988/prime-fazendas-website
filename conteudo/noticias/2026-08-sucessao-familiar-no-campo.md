@@ -1,5 +1,5 @@
 ---
-titulo: Sucessão no campo — por que tantas fazendas de família acabam à venda
+titulo: Sucessão no campo: por que fazendas de família são vendidas
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Mercado

@@ -1,5 +1,5 @@
 ---
-titulo: Regime de chuvas do Cerrado: por que o clima pesa tanto no valor da fazenda
+titulo: Regime de chuvas do Cerrado e o valor da fazenda
 data: 2026-08-22
 autor: Prime Fazendas
 categoria: Clima

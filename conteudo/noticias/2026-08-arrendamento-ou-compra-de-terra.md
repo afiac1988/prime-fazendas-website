@@ -1,5 +1,5 @@
 ---
-titulo: Arrendar ou comprar terra: a conta que quase ninguém faz direito
+titulo: Arrendar ou comprar terra: a conta certa
 data: 2026-08-09
 autor: Prime Fazendas
 categoria: Investimento

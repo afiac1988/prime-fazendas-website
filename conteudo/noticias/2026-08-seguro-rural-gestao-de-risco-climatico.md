@@ -1,5 +1,5 @@
 ---
-titulo: Seguro rural e gestão de risco climático — proteção que também protege o valor da terra
+titulo: Seguro rural e gestão de risco climático
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Gestão

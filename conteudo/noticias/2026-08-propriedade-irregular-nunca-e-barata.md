@@ -1,5 +1,5 @@
 ---
-titulo: Propriedade irregular nunca é barata — mesmo com desconto aparente
+titulo: Propriedade irregular nunca é barata
 data: 2026-08-17
 autor: Prime Fazendas
 categoria: Regularização

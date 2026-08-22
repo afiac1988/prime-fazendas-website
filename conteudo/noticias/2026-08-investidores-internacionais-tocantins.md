@@ -1,5 +1,5 @@
 ---
-titulo: Comprar fazenda no Brasil morando no exterior — como funciona
+titulo: Comprar fazenda no Brasil morando no exterior
 data: 2026-08-19
 autor: Prime Fazendas
 categoria: Investidores internacionais
@@ -16,11 +16,11 @@ Pessoa física ou jurídica estrangeira pode adquirir imóvel rural no Brasil, m
 
 ## O papel da imobiliária nesse processo
 
-A Prime Fazendas atua na intermediação: apresentamos o portfólio, organizamos visitas (presenciais ou por vídeo), reunimos a documentação disponível do imóvel e conectamos o interessado a advogados e despachantes que conduzem a parte jurídica e cartorial. Não prestamos assessoria jurídica nem substituímos due diligence profissional — recomendamos e acompanhamos, mas quem assina os pareceres técnicos são os profissionais habilitados.
+A Prime Fazendas atua na intermediação: apresentamos o [portfólio de fazendas à venda](/imoveis/), organizamos visitas (presenciais ou por vídeo), reunimos a documentação disponível do imóvel e conectamos o interessado a advogados e despachantes que conduzem a parte jurídica e cartorial. Não prestamos assessoria jurídica nem substituímos due diligence profissional — recomendamos e acompanhamos, mas quem assina os pareceres técnicos são os profissionais habilitados.
 
 ## Um roteiro prático
 
-- Definição de perfil: região, aptidão (pecuária, agricultura, lazer) e faixa de investimento.
+- Definição de perfil: região, aptidão (pecuária, agricultura, lazer) e faixa de investimento — desde propriedades de algumas centenas de hectares até escalas maiores, como a [Fazenda Turmalina do Cerrado](/imoveis/fazenda-turmalina-do-cerrado/), com mais de 28 mil hectares.
 - Curadoria de propriedades compatíveis, com documentação já triada.
 - Visita — presencial sempre que possível, ou por vídeo detalhado quando a distância for um fator.
 - Due diligence documental e ambiental conduzida por profissionais independentes.
@@ -28,4 +28,4 @@ A Prime Fazendas atua na intermediação: apresentamos o portfólio, organizamos
 
 > Quem vive fora do Brasil tende a valorizar mais um interlocutor único, que fale a mesma língua do processo do início ao fim. É esse o papel que a Prime Fazendas cumpre.
 
-Se você é um investidor ou representa um grupo fora do Brasil, fale com a gente pelo formulário de contato — coordenamos o atendimento em inglês mediante combinação prévia.
+Se você é um investidor ou representa um grupo fora do Brasil, [fale com a gente pelo formulário de contato](/contato/) — coordenamos o atendimento em inglês mediante combinação prévia.

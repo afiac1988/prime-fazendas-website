@@ -51,6 +51,6 @@ Compare sempre por hectare **aproveitável**, ajustando por infraestrutura exist
 
 ## O papel da assessoria
 
-Nenhum desses sete pontos exige que o comprador seja especialista — exige que alguém competente e independente olhe por ele. É exatamente isso que fazemos: due diligence técnica, jurídica e ambiental antes de você comprometer capital.
+Nenhum desses sete pontos exige que o comprador seja especialista — exige que alguém competente e independente olhe por ele. É exatamente isso que fazemos: [due diligence técnica, jurídica e ambiental](/servicos/) antes de você comprometer capital.
 
-Quer avaliar uma oportunidade específica? [Fale com um especialista](/contato/).
+Quer ver esses critérios aplicados na prática? Confira o [portfólio de fazendas já verificadas](/imoveis/) ou [fale com um especialista](/contato/).
