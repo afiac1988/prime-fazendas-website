@@ -4,7 +4,7 @@ data: 2026-08-21
 autor: Prime Fazendas
 categoria: Exportação
 resumo: Soja, milho e carne bovina brasileiros seguem ganhando espaço no mercado internacional — e essa demanda externa é um dos motores por trás da valorização da terra nas fronteiras agrícolas como o Tocantins.
-capa: 
+capa: /midia/imoveis/fazenda-perola-do-araguaia/foto-03.jpg
 publicado: true
 ---
 

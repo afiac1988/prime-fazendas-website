@@ -4,7 +4,7 @@ data: 2026-08-06
 autor: Prime Fazendas
 categoria: Mercado
 resumo: Logística, custo por hectare e aptidão produtiva colocaram o estado no centro do Matopiba — e mudaram o perfil de quem compra.
-capa: 
+capa: /midia/imoveis/fazenda-jade-do-cerrado/foto-05.jpg
 publicado: true
 ---
 

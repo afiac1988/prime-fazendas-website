@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Tendências
 resumo: Como bioinsumos e práticas regenerativas estão mudando o custo de produção e o valor da terra no Cerrado.
-capa: 
+capa: /midia/imoveis/fazenda-painita/foto-01.jpg
 publicado: true
 ---
 

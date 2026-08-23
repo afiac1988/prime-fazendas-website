@@ -4,7 +4,7 @@ data: 2026-08-09
 autor: Prime Fazendas
 categoria: Jurídico
 resumo: Quatro siglas que decidem se uma fazenda é negociável. Explicadas em linguagem direta, com o que acontece quando faltam.
-capa: 
+capa: /midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-05.jpg
 publicado: true
 ---
 

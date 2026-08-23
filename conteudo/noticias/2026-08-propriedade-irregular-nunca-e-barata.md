@@ -4,7 +4,7 @@ data: 2026-08-17
 autor: Prime Fazendas
 categoria: Regularização
 resumo: Por que adquirir terra com pendências registrais, ambientais ou tributárias é uma armadilha que custa muito mais do que economiza.
-capa: 
+capa: /midia/imoveis/fazenda-ametista-do-vale/foto-03.jpeg
 publicado: true
 ---
 

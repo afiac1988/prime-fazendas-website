@@ -4,7 +4,7 @@ data: 2026-08-18
 autor: Prime Fazendas
 categoria: Bem-estar
 resumo: Sono, rotina e equilíbrio emocional deixaram de ser luxo no agronegócio — hoje são parte da gestão de quem decide bem.
-capa: 
+capa: /midia/imoveis/fazenda-esmeralda-do-cerrado/foto-06.jpg
 publicado: false
 ---
 

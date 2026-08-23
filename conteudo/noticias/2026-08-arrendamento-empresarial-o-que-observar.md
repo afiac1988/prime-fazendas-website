@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Arrendamento
 resumo: Quando o arrendatário é uma empresa ou grupo, o contrato de arrendamento rural precisa de cuidados específicos.
-capa: 
+capa: /midia/imoveis/fazenda-ambar/aerea-03.jpg
 publicado: true
 ---
 

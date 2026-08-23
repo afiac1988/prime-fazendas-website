@@ -4,7 +4,7 @@ data: 2026-08-09
 autor: Prime Fazendas
 categoria: Guia
 resumo: Os cinco erros que fazem o vendedor receber menos do que a propriedade vale — e o que fazer antes de anunciar.
-capa: 
+capa: /midia/imoveis/fazenda-cristal-da-serra/foto-04.jpg
 publicado: true
 ---
 

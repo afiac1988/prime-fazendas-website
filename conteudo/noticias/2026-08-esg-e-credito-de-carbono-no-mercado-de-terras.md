@@ -4,7 +4,7 @@ data: 2026-08-09
 autor: Prime Fazendas
 categoria: Mercado
 resumo: Separando o que já afeta preço hoje do que ainda é promessa — e o que a propriedade precisa ter para entrar nessa conversa.
-capa: 
+capa: /midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg
 publicado: true
 ---
 

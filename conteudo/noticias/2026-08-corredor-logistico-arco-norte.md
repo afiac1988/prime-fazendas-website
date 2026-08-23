@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Logística
 resumo: Portos do Arco Norte encurtam a rota da soja e do milho até o mercado externo — e isso já aparece no valor por hectare das fazendas mais próximas dos corredores.
-capa: 
+capa: /midia/imoveis/fazenda-galena/foto-01.jpg
 publicado: true
 ---
 

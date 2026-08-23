@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Investidores internacionais
 resumo: Um roteiro objetivo do que muda no processo de compra de uma fazenda quando o investidor vive fora do Brasil.
-capa: 
+capa: /midia/imoveis/fazenda-jade-do-campo/foto-01.jpg
 publicado: true
 ---
 

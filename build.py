@@ -1381,7 +1381,10 @@ def card_post(p: dict, destaque: bool = False) -> str:
         capa = (f'<a class="post-card__capa post-card__capa--foto" href="{e(p["url"])}" '
                 f'aria-hidden="true" tabindex="-1">'
                 f'<img src="{e(p["capa"])}" alt="{e(p["titulo"])}" loading="lazy" '
-                f'width="{largura_post}" height="{altura_post}"></a>')
+                f'width="{largura_post}" height="{altura_post}">'
+                f'<span class="post-card__selo">Prime News</span>'
+                f'<span class="post-card__icone">{icone_noticia(p["categoria"])}</span>'
+                f'</a>')
     else:
         capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
                 f'<span class="post-card__selo">Prime News</span>'

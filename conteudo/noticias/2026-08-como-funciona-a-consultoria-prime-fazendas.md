@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Institucional
 resumo: Um passo a passo transparente de como acompanhamos compradores e vendedores durante todo o processo.
-capa: 
+capa: /midia/imoveis/fazenda-ametista-do-vale/capa.jpeg
 publicado: true
 ---
 

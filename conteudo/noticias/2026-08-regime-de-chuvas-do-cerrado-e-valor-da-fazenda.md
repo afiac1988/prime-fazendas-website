@@ -4,7 +4,7 @@ data: 2026-08-22
 autor: Prime Fazendas
 categoria: Clima
 resumo: Duas fazendas com o mesmo tamanho e a mesma cultura podem valer preços muito diferentes dependendo da regularidade das chuvas na região. Entenda por que o clima entra na avaliação antes do preço.
-capa: 
+capa: /midia/imoveis/fazenda-ametista-real/aerea-02.jpg
 publicado: true
 ---
 

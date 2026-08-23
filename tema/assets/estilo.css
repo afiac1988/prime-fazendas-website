@@ -956,33 +956,42 @@ body.modal-aberta { overflow: hidden; }
   pointer-events: none;
 }
 .post-card__selo {
-  position: absolute; top: 0.8rem; left: 0.8rem; z-index: 1;
-  padding: 0.3rem 0.65rem;
+  position: absolute; top: 0.8rem; left: 0.8rem; z-index: 2;
+  padding: 0.36rem 0.78rem;
   border: 1px solid rgba(229, 203, 134, 0.55);
   border-radius: 2px;
   font-family: var(--fonte-corpo);
-  font-size: 0.6rem; font-weight: 700; letter-spacing: 0.16em;
+  font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em;
   text-transform: uppercase;
   color: var(--dourado-claro);
-  background: rgba(12, 30, 51, 0.4);
+  background: rgba(12, 30, 51, 0.55);
   backdrop-filter: blur(2px);
 }
 .post-card__icone {
-  position: absolute; right: 0.85rem; bottom: 0.75rem; z-index: 1;
+  position: absolute; right: 0.85rem; bottom: 0.75rem; z-index: 2;
   width: 2.5rem; height: 2.5rem;
   display: flex; align-items: center; justify-content: center;
   border-radius: 50%;
   border: 1px solid rgba(229, 203, 134, 0.4);
   color: rgba(229, 203, 134, 0.85);
+  background: rgba(12, 30, 51, 0.32);
+  backdrop-filter: blur(2px);
 }
 .post-card__icone svg {
   width: 1.25rem; height: 1.25rem;
   fill: none; stroke: currentColor; stroke-width: 1.6;
   stroke-linecap: round; stroke-linejoin: round;
 }
-.post-card__capa--foto { background: var(--azul-900); }
+.post-card__capa--foto { background: var(--azul-900); height: 108px; }
 .post-card__capa--foto::before, .post-card__capa--foto::after { display: none; }
 .post-card__capa--foto img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.post-card__capa--foto::after {
+  content: '';
+  position: absolute; inset: 0; z-index: 1;
+  background: linear-gradient(180deg, rgba(12, 30, 51, 0.42) 0%, rgba(12, 30, 51, 0) 38%, rgba(12, 30, 51, 0) 62%, rgba(12, 30, 51, 0.38) 100%);
+  display: block;
+  pointer-events: none;
+}
 
 .artigo__capa {
   margin: 0 0 clamp(1.4rem, 3vw, 2rem); position: relative;
@@ -1004,9 +1013,9 @@ body.modal-aberta { overflow: hidden; }
 
 .post-card--destaque { flex-direction: row; align-items: stretch; }
 .post-card--destaque .post-card__capa { height: auto; flex: 0 0 42%; }
-.post-card--destaque .post-card__selo { font-size: 0.66rem; padding: 0.36rem 0.8rem; }
-.post-card--destaque .post-card__icone { width: 3.4rem; height: 3.4rem; }
-.post-card--destaque .post-card__icone svg { width: 1.7rem; height: 1.7rem; }
+.post-card--destaque .post-card__selo { font-size: 0.79rem; padding: 0.43rem 0.96rem; }
+.post-card--destaque .post-card__icone { width: 4.1rem; height: 4.1rem; }
+.post-card--destaque .post-card__icone svg { width: 2rem; height: 2rem; }
 .post-card--destaque .post-card__corpo { justify-content: center; gap: 1rem; }
 .post-card--destaque h3 { font-size: clamp(1.5rem, 2.6vw, 2rem); }
 .post-card--destaque p { font-size: 1.03rem; }

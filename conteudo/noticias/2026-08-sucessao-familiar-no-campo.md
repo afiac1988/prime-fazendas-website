@@ -4,7 +4,7 @@ data: 2026-08-19
 autor: Prime Fazendas
 categoria: Mercado
 resumo: A falta de planejamento sucessório é uma das principais razões que colocam boas propriedades rurais no mercado — entender isso ajuda tanto quem vende quanto quem compra.
-capa: 
+capa: /midia/imoveis/fazenda-safira-azul/capa.jpg
 publicado: true
 ---
 

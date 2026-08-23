@@ -4,7 +4,7 @@ data: 2026-08-09
 autor: Prime Fazendas
 categoria: Investimento
 resumo: As duas decisões respondem a perguntas diferentes. Confundi-las custa caro dos dois lados.
-capa: 
+capa: /midia/imoveis/fazenda-citrino/aerea-03.jpg
 publicado: true
 ---
 

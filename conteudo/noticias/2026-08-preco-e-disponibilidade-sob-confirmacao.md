@@ -4,7 +4,7 @@ data: 2026-08-17
 autor: Prime Fazendas
 categoria: Operação
 resumo: Uma regra simples para evitar erro caro: só publicar preço e disponibilidade depois de checagem real.
-capa: 
+capa: /midia/imoveis/fazenda-citrino/aerea-05.jpg
 publicado: true
 ---
 

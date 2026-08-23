@@ -4,7 +4,7 @@ data: 2026-08-20
 autor: Prime Fazendas
 categoria: Financiamento
 resumo: Nem todo comprador de fazenda paga à vista. Entenda as principais linhas de crédito rural disponíveis hoje e o que os bancos exigem antes de liberar o financiamento.
-capa: 
+capa: /midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg
 publicado: true
 ---
 
