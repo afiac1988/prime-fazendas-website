@@ -1363,7 +1363,7 @@ ICONE_NOTICIA_MOEDA = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
 
 def icone_noticia(categoria: str) -> str:
     c = (categoria or "").lower()
-    if "clima" in c or "chuva" in c:
+    if "clima" in c or "chuva" in c or "hídric" in c or "hidric" in c or "água" in c or "agua" in c:
         return ICONE_NOTICIA_GOTA
     if "exporta" in c or "logíst" in c or "logist" in c:
         return ICONE_NOTICIA_EXPORT
