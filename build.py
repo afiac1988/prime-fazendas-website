@@ -2247,9 +2247,11 @@ def gerar_post(cfg, p, outros) -> str:
     }, ensure_ascii=False)
     ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Notícias", "/blog/"), (p["titulo"], p["url"])])
 
+    og_img_post = (dominio + p["capa"]) if preenchido(p.get("capa")) else ""
+
     return pagina(cfg, titulo=p["titulo"], descricao=p.get("resumo", ""), url=p["url"],
                   corpo="\n".join(corpo), og_tipo="article", json_ld=[ld, ld_migalha],
-                  rascunho=bool(p.get("_rascunho")))
+                  rascunho=bool(p.get("_rascunho")), og_imagem=og_img_post)
 
 
 def gerar_contato(cfg, pag) -> str:
@@ -2655,6 +2657,49 @@ def main() -> int:
         escrever("robots.txt", "User-agent: *\nDisallow: /\n")
     else:
         escrever("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {dominio}/sitemap.xml\n")
+
+    # llms.txt — resumo estruturado do site para crawlers e agentes de IA
+    # (ChatGPT, Perplexity, Claude etc.), no padrao emergente https://llmstxt.org/.
+    # So gerado fora de manutencao, junto com o robots.txt liberado.
+    if not manutencao.get("ativa"):
+        marca = cfg["marca"]
+        contato = cfg["contato"]
+        imoveis_disp = [im for im in imoveis if im.get("status") == "disponivel" and not im.get("_rascunho") and not im.get("_exemplo")]
+        categorias_posts = sorted({p["categoria"] for p in posts if p.get("categoria")})
+        linhas = [
+            f"# {marca['nome']}",
+            "",
+            f"> {marca.get('descricao_curta', cfg['site'].get('descricao_padrao', ''))}",
+            "",
+            f"Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil). "
+            f"Fundada em {marca.get('ano_fundacao', '')} por {marca.get('fundador', '')}. "
+            f"CRECI {contato.get('creci', '')}. Sede em {contato.get('cidade', '')}, {contato.get('estado', '')}.",
+            "",
+            "## Portfólio",
+            "",
+            f"- [Imóveis à venda]({dominio}/imoveis/): {len(imoveis_disp)} fazendas disponíveis, com área total, "
+            "preço, documentação e disponibilidade hídrica detalhados por ficha.",
+            "",
+            "## Notícias e insights",
+            "",
+            f"- [Blog]({dominio}/blog/): artigos objetivos sobre mercado de terras, jurídico, financiamento, "
+            "recursos hídricos, exportação e regularização fundiária no Matopiba. "
+            f"Categorias cobertas hoje: {', '.join(categorias_posts)}.",
+            "",
+            "## Institucional",
+            "",
+            f"- [Sobre nós]({dominio}/sobre/)",
+            f"- [Serviços]({dominio}/servicos/)",
+            f"- [Investir no agronegócio]({dominio}/investir-no-agro/)",
+            f"- [Agenda Agro]({dominio}/agenda-agro/)",
+            f"- [Contato]({dominio}/contato/)",
+            "",
+            "## Contato",
+            "",
+            f"- E-mail: {contato.get('email', '')}",
+            f"- WhatsApp: {contato.get('whatsapp', '')}",
+        ]
+        escrever("llms.txt", "\n".join(linhas) + "\n")
 
     htaccess = HTACCESS
     if manutencao.get("ativa"):
