@@ -51,6 +51,10 @@
     "_leia": "Cole aqui o ID do Google Analytics 4 (formato G-XXXXXXX). Vazio = nenhum script de rastreio é injetado.",
     "ga4_id": "G-CS7CCQNPML"
   },
+  "seo": {
+    "_leia": "Chave do protocolo IndexNow (indexnow.org), usada pelo Bing, Yandex e outros para receber aviso instantaneo de paginas novas/atualizadas. Nao e segredo — o build publica o arquivo {chave}.txt na raiz do site, que e o que prova a posse do dominio pro protocolo. Gerada em 2026-09-03.",
+    "indexnow_key": "f5fbb638524b8123d50865d232ad3895"
+  },
   "comunidade": {
     "nome": "Comunidade Prime Agro",
     "chamada": "O ponto de encontro de quem investe, produz e vive do agro no coração do Brasil.",

@@ -2658,6 +2658,13 @@ def main() -> int:
     else:
         escrever("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {dominio}/sitemap.xml\n")
 
+    # IndexNow — arquivo de posse da chave na raiz do site (indexnow.org).
+    # Bing, Yandex e outros usam esse arquivo pra validar os pings de URL nova/atualizada.
+    # So publicado fora de manutencao, junto com o robots.txt liberado.
+    indexnow_key = cfg.get("seo", {}).get("indexnow_key")
+    if indexnow_key and not manutencao.get("ativa"):
+        escrever(f"{indexnow_key}.txt", indexnow_key)
+
     # llms.txt — resumo estruturado do site para crawlers e agentes de IA
     # (ChatGPT, Perplexity, Claude etc.), no padrao emergente https://llmstxt.org/.
     # So gerado fora de manutencao, junto com o robots.txt liberado.
