@@ -719,6 +719,7 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 <link rel="stylesheet" href="/assets/estilo.css">
 {ld}
 {ga}
+<script defer src="/_vercel/insights/script.js"></script>
 </head>
 <body>
 {faixa}
