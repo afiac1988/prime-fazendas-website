@@ -301,5 +301,261 @@
     "cta_titulo": "Pronto para tirar o seu Data Center do papel?",
     "cta_texto": "Fale agora com a Prime Fazendas e receba uma primeira leitura sobre terreno, energia e modelo mais adequado ao seu projeto.",
     "cta_botao": "Falar sobre meu projeto de Data Center"
+  },
+  "datacenter_en": {
+    "titulo": "Data Center Structures",
+    "olho": "New Prime Fazendas division",
+    "chamada": "We sell, structure and build Data Centers in Brazil and worldwide",
+    "hero_texto": "If you need to buy land, structure the deal or manage the construction of a Data Center, work with a team that has done exactly this for demanding investors for years — now applied to digital infrastructure.",
+    "descricao_meta": "We sell, structure and manage the construction of Data Centers in Brazil — MicroCenter, Standard and HyperScale models, or a custom-built project. Renewable energy and compliance for investors in Brazil and worldwide.",
+    "foto_hero": "/midia/datacenter/hero-predio-aereo.jpg",
+    "pilares": [
+      {
+        "num": "Sell",
+        "titulo": "Sale of land and assets for Data Centers",
+        "texto": "Land with power, water and connectivity already mapped, clean legal documentation and ready for immediate development — anywhere in Brazil."
+      },
+      {
+        "num": "Structure",
+        "titulo": "Full deal structuring",
+        "texto": "Legal, financial, energy and environmental modeling before construction starts, including renewable energy contracts."
+      },
+      {
+        "num": "Build",
+        "titulo": "Construction management",
+        "texto": "End-to-end construction management with engineering partners specialized in critical infrastructure, through to delivery of the operational building."
+      }
+    ],
+    "galeria": [
+      {
+        "foto": "/midia/datacenter/01-corredores-hyperscale-real.jpg",
+        "legenda": "Containment corridors inside a real hyperscale data center"
+      },
+      {
+        "foto": "/midia/datacenter/02-servidores-cabeamento-denso.jpg",
+        "legenda": "Interior of a real data center, with rows of servers and dense cabling"
+      },
+      {
+        "foto": "/midia/datacenter/03-corredor-racks-industrial.jpg",
+        "legenda": "Internal server rack corridor in a real data center"
+      },
+      {
+        "foto": "/midia/datacenter/04-corredor-servidor-cabos.jpg",
+        "legenda": "Server corridor with cabling and technical lighting"
+      },
+      {
+        "foto": "/midia/datacenter/05-refrigeracao-liquida-ia.jpg",
+        "legenda": "Liquid cooling for high-performance AI servers"
+      },
+      {
+        "foto": "/midia/datacenter/06-discos-armazenamento-detalhe.jpg",
+        "legenda": "Close-up detail of server storage drives"
+      },
+      {
+        "foto": "/midia/datacenter/07-painel-eletrico-racks.jpg",
+        "legenda": "Electrical panel between server racks"
+      },
+      {
+        "foto": "/midia/datacenter/08-subestacao-eletrica.jpg",
+        "legenda": "Industrial power substation supporting the data center"
+      },
+      {
+        "foto": "/midia/datacenter/09-fazenda-solar-aerea.jpg",
+        "legenda": "Aerial view of a solar farm, a renewable power option for the data center"
+      }
+    ],
+    "modelos": [
+      {
+        "id": "micro",
+        "nome": "MicroCenter",
+        "potencia": "Up to 1 MW",
+        "area": "0.5 to 1 hectare",
+        "racks": "≈ 80 to 150 racks",
+        "redundancia": "Tier II–III",
+        "prazo": "8 to 12 months",
+        "publico": "Mid-sized cities, edge computing, regional operations",
+        "desc": "Ideal for entering digital infrastructure with a smaller project, faster to get off the ground and with a lower initial investment."
+      },
+      {
+        "id": "standard",
+        "nome": "DataCenter Standard",
+        "potencia": "Up to 5 MW",
+        "area": "2 to 4 hectares",
+        "racks": "≈ 400 to 800 racks",
+        "redundancia": "Tier III",
+        "prazo": "14 to 20 months",
+        "publico": "Corporate hubs, regional colocation, banks and regional cloud providers",
+        "desc": "The most requested model for operators who already have a customer base and need scale with robust redundancy."
+      },
+      {
+        "id": "hyperscale",
+        "nome": "HyperScale",
+        "potencia": "20 MW or more",
+        "area": "8 hectares or more",
+        "racks": "1,500+ racks",
+        "redundancia": "Tier III–IV",
+        "prazo": "24 to 36 months",
+        "publico": "Global hyperscalers, cloud providers, AI training operations",
+        "desc": "Large-scale projects for global technology players seeking land, power and water at scale — the type of operation Brazil is ready to host."
+      }
+    ],
+    "nota_modelos": "The figures above are reference ranges for an initial commercial conversation — every project is custom-modeled based on the site, available power and client demand. We also handle custom projects outside these ranges.",
+    "faq": [
+      {
+        "pergunta": "Does Prime Fazendas sell Data Centers?",
+        "resposta": "Yes. We sell land and assets already structured for Data Centers, and we also structure deals from scratch — from site selection to the power contract — for Brazilian and foreign investors."
+      },
+      {
+        "pergunta": "What does \"structuring\" a Data Center mean?",
+        "resposta": "It means organizing everything that makes the project viable before construction begins: land with clean documentation, a power contract (including renewable energy), water rights where applicable, environmental licensing, and the corporate/financial structure of the deal."
+      },
+      {
+        "pergunta": "Do you manage the Data Center construction?",
+        "resposta": "Yes. We coordinate construction with engineering partners specialized in critical infrastructure, from earthworks through delivery of the building ready to receive racks."
+      },
+      {
+        "pergunta": "What Data Center sizes does Prime Fazendas offer?",
+        "resposta": "We work with three reference models — MicroCenter (up to 1 MW), DataCenter Standard (up to 5 MW) and HyperScale (20 MW or more) — plus custom projects sized to the client's specific demand."
+      },
+      {
+        "pergunta": "Do you work with investors outside Brazil?",
+        "resposta": "Yes. Much of the demand for Data Centers in Brazil comes from international players. We support compliance, documentation and communication in both Portuguese and English."
+      },
+      {
+        "pergunta": "Why build a Data Center in Brazil?",
+        "resposta": "Brazil has a predominantly renewable power grid, competitively priced available land, climate stability and a strategic geographic position between the Americas — factors that reduce cost and operational risk."
+      }
+    ],
+    "cta_titulo": "Ready to get your Data Center off the ground?",
+    "cta_texto": "Talk to Prime Fazendas now and get an initial assessment of land, power and the model best suited to your project.",
+    "cta_botao": "Talk about my Data Center project"
+  },
+  "datacenter_zh": {
+    "titulo": "数据中心建设",
+    "olho": "Prime Fazendas 全新业务板块",
+    "chamada": "我们在巴西及全球范围内销售、规划并建设数据中心",
+    "hero_texto": "无论您需要购买土地、规划项目,还是管理数据中心的建设工程,我们多年来一直为高标准投资者提供这项服务——现在将其应用于数字基础设施领域。",
+    "descricao_meta": "我们在巴西销售、规划并管理数据中心的建设——提供 MicroCenter、Standard 和 HyperScale 三种模式,或定制项目。为巴西及全球投资者提供可再生能源和合规支持。",
+    "foto_hero": "/midia/datacenter/hero-predio-aereo.jpg",
+    "pilares": [
+      {
+        "num": "销售",
+        "titulo": "数据中心用地及资产销售",
+        "texto": "土地已完成电力、水源和网络连接规划,文件合法齐全,可在巴西全境立即启动开发。"
+      },
+      {
+        "num": "规划",
+        "titulo": "全流程项目规划",
+        "texto": "在施工开始前完成法律、财务、能源和环境方面的建模,包括可再生能源合同的签订。"
+      },
+      {
+        "num": "建设",
+        "titulo": "施工管理",
+        "texto": "与专注于关键基础设施的工程合作伙伴携手,提供从选址到建筑交付使用的全流程施工管理。"
+      }
+    ],
+    "galeria": [
+      {
+        "foto": "/midia/datacenter/01-corredores-hyperscale-real.jpg",
+        "legenda": "真实超大规模数据中心内部的冷通道封闭通道"
+      },
+      {
+        "foto": "/midia/datacenter/02-servidores-cabeamento-denso.jpg",
+        "legenda": "真实数据中心内部,大量服务器与密集布线"
+      },
+      {
+        "foto": "/midia/datacenter/03-corredor-racks-industrial.jpg",
+        "legenda": "真实数据中心内部的服务器机架通道"
+      },
+      {
+        "foto": "/midia/datacenter/04-corredor-servidor-cabos.jpg",
+        "legenda": "配有线缆和专业照明的服务器通道"
+      },
+      {
+        "foto": "/midia/datacenter/05-refrigeracao-liquida-ia.jpg",
+        "legenda": "面向高性能人工智能服务器的液冷系统"
+      },
+      {
+        "foto": "/midia/datacenter/06-discos-armazenamento-detalhe.jpg",
+        "legenda": "服务器存储硬盘特写细节"
+      },
+      {
+        "foto": "/midia/datacenter/07-painel-eletrico-racks.jpg",
+        "legenda": "服务器机架之间的配电柜"
+      },
+      {
+        "foto": "/midia/datacenter/08-subestacao-eletrica.jpg",
+        "legenda": "支持数据中心运行的工业变电站"
+      },
+      {
+        "foto": "/midia/datacenter/09-fazenda-solar-aerea.jpg",
+        "legenda": "太阳能电站鸟瞰图,数据中心的可再生能源选择之一"
+      }
+    ],
+    "modelos": [
+      {
+        "id": "micro",
+        "nome": "MicroCenter 微型中心",
+        "potencia": "最高 1 兆瓦",
+        "area": "0.5 至 1 公顷",
+        "racks": "约 80 至 150 个机架",
+        "redundancia": "Tier II–III 级",
+        "prazo": "8 至 12 个月",
+        "publico": "中型城市、边缘计算、区域性运营",
+        "desc": "适合以较小规模项目切入数字基础设施领域,建设周期更短,初始投资更低。"
+      },
+      {
+        "id": "standard",
+        "nome": "DataCenter Standard 标准型",
+        "potencia": "最高 5 兆瓦",
+        "area": "2 至 4 公顷",
+        "racks": "约 400 至 800 个机架",
+        "redundancia": "Tier III 级",
+        "prazo": "14 至 20 个月",
+        "publico": "企业枢纽、区域性主机托管、银行及区域云服务商",
+        "desc": "最受欢迎的模式,适合已拥有客户基础、需要具备强大冗余能力的规模化运营商。"
+      },
+      {
+        "id": "hyperscale",
+        "nome": "HyperScale 超大规模型",
+        "potencia": "20 兆瓦及以上",
+        "area": "8 公顷及以上",
+        "racks": "1,500+ 个机架",
+        "redundancia": "Tier III–IV 级",
+        "prazo": "24 至 36 个月",
+        "publico": "全球超大规模运营商、云服务商、人工智能训练机构",
+        "desc": "面向寻求大规模土地、电力和水资源的全球科技企业的大型项目——这正是巴西已准备好承接的运营类型。"
+      }
+    ],
+    "nota_modelos": "以上数字为初步商务沟通的参考区间——每个项目都会根据地块、可用电力和客户需求进行定制建模。我们同样承接超出上述区间的定制项目。",
+    "faq": [
+      {
+        "pergunta": "Prime Fazendas 是否销售数据中心?",
+        "resposta": "是的。我们销售已规划完成的数据中心用地及资产,也从零开始为巴西及外国投资者规划项目——从选址到电力合同的签订。"
+      },
+      {
+        "pergunta": "\"规划\"数据中心具体是指什么?",
+        "resposta": "是指在施工开始前,组织好使项目可行的所有要素:文件合法的土地、电力合同(包括可再生能源)、适用情况下的用水权、环境许可,以及项目的公司架构与财务模式。"
+      },
+      {
+        "pergunta": "贵公司是否管理数据中心的建设工程?",
+        "resposta": "是的。我们与专注于关键基础设施的工程合作伙伴协调施工,从土方工程到建筑交付,使其可直接安装机架。"
+      },
+      {
+        "pergunta": "Prime Fazendas 提供哪些数据中心规模?",
+        "resposta": "我们提供三种参考模式——MicroCenter(最高1兆瓦)、DataCenter Standard(最高5兆瓦)和 HyperScale(20兆瓦及以上)——此外还可根据客户具体需求提供定制项目。"
+      },
+      {
+        "pergunta": "是否服务巴西以外的投资者?",
+        "resposta": "是的。巴西数据中心的大部分需求来自国际投资者。我们在合规、文件及沟通方面提供葡萄牙语和英语支持。"
+      },
+      {
+        "pergunta": "为什么选择在巴西建设数据中心?",
+        "resposta": "巴西电网以可再生能源为主,土地价格具有竞争力,气候稳定,并且地处美洲战略地理位置——这些因素有助于降低成本和运营风险。"
+      }
+    ],
+    "cta_titulo": "准备好启动您的数据中心项目了吗?",
+    "cta_texto": "立即联系 Prime Fazendas,获取关于用地、电力以及最适合您项目的模式的初步评估。",
+    "cta_botao": "咨询我的数据中心项目"
   }
 }
