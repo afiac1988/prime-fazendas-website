@@ -173,5 +173,133 @@
   "rodape": {
     "sobre_curto": "Imobiliária especializada em fazendas e propriedades rurais no Tocantins e no Matopiba. Intermediação com due diligence técnica, jurídica e ambiental.",
     "aviso_legal": "As informações sobre propriedades têm caráter informativo e não constituem oferta vinculante. Valores, áreas, disponibilidade e características estão sujeitos a confirmação em due diligence. Este site não presta consultoria de investimento."
+  },
+  "datacenter": {
+    "titulo": "Estruturas de Data Center",
+    "olho": "Nova frente Prime Fazendas",
+    "chamada": "Vendemos, estruturamos e construímos Data Centers no Brasil e no mundo",
+    "hero_texto": "Se você precisa comprar terreno, estruturar o negócio ou administrar a obra de um Data Center, fale com quem já resolve isso para investidores exigentes há anos — agora aplicado à infraestrutura digital.",
+    "descricao_meta": "Vendemos, estruturamos e administramos a construção de Data Centers no Brasil — modelos MicroCenter, Standard e HyperScale, ou projeto sob medida. Energia renovável e compliance para investidores do Brasil e do mundo.",
+    "foto_hero": "/midia/datacenter/hero-predio-aereo.jpg",
+    "pilares": [
+      {
+        "num": "Vender",
+        "titulo": "Venda de terrenos e ativos para Data Center",
+        "texto": "Terrenos com energia, água e conectividade já mapeadas, documentação regular e prontos para viabilização imediata — no Brasil inteiro."
+      },
+      {
+        "num": "Estruturar",
+        "titulo": "Estruturação completa do negócio",
+        "texto": "Modelagem jurídica, financeira, energética e ambiental antes da obra começar, incluindo contratos de energia renovável."
+      },
+      {
+        "num": "Construir",
+        "titulo": "Administração da construção",
+        "texto": "Gestão de obra de ponta a ponta com parceiros de engenharia especializados em infraestrutura crítica, até a entrega do prédio operacional."
+      }
+    ],
+    "galeria": [
+      {
+        "foto": "/midia/datacenter/01-corredores-hyperscale-real.jpg",
+        "legenda": "Corredores de contenção de um data center hyperscale real, visto de dentro"
+      },
+      {
+        "foto": "/midia/datacenter/02-servidores-cabeamento-denso.jpg",
+        "legenda": "Interior de data center real, com dezenas de servidores e cabeamento denso"
+      },
+      {
+        "foto": "/midia/datacenter/03-corredor-racks-industrial.jpg",
+        "legenda": "Corredor interno de racks de servidor em data center real"
+      },
+      {
+        "foto": "/midia/datacenter/04-corredor-servidor-cabos.jpg",
+        "legenda": "Corredor de servidores com cabos e iluminação técnica"
+      },
+      {
+        "foto": "/midia/datacenter/05-refrigeracao-liquida-ia.jpg",
+        "legenda": "Refrigeração líquida e coolers de servidores de alta performance para IA"
+      },
+      {
+        "foto": "/midia/datacenter/06-discos-armazenamento-detalhe.jpg",
+        "legenda": "Detalhe de discos de armazenamento em servidor, close-up"
+      },
+      {
+        "foto": "/midia/datacenter/07-painel-eletrico-racks.jpg",
+        "legenda": "Painel elétrico entre racks de servidor"
+      },
+      {
+        "foto": "/midia/datacenter/08-subestacao-eletrica.jpg",
+        "legenda": "Subestação elétrica industrial de apoio ao data center"
+      },
+      {
+        "foto": "/midia/datacenter/09-fazenda-solar-aerea.jpg",
+        "legenda": "Fazenda solar aérea, opção de energia renovável para o data center"
+      }
+    ],
+    "modelos": [
+      {
+        "id": "micro",
+        "nome": "MicroCenter",
+        "potencia": "Até 1 MW",
+        "area": "0,5 a 1 hectare",
+        "racks": "≈ 80 a 150 racks",
+        "redundancia": "Tier II–III",
+        "prazo": "8 a 12 meses",
+        "publico": "Cidades médias, edge computing, operações regionais",
+        "desc": "Ideal para quem quer entrar na infraestrutura digital com um projeto menor, mais rápido de viabilizar e com investimento inicial reduzido."
+      },
+      {
+        "id": "standard",
+        "nome": "DataCenter Standard",
+        "potencia": "Até 5 MW",
+        "area": "2 a 4 hectares",
+        "racks": "≈ 400 a 800 racks",
+        "redundancia": "Tier III",
+        "prazo": "14 a 20 meses",
+        "publico": "Hubs corporativos, colocation regional, bancos e cloud provider regional",
+        "desc": "O modelo mais procurado por operadores que já têm uma base de clientes e precisam de escala com redundância robusta."
+      },
+      {
+        "id": "hyperscale",
+        "nome": "HyperScale",
+        "potencia": "20 MW ou mais",
+        "area": "8 hectares ou mais",
+        "racks": "1.500+ racks",
+        "redundancia": "Tier III–IV",
+        "prazo": "24 a 36 meses",
+        "publico": "Hiperescaladores globais, provedores de nuvem, treinamento de IA",
+        "desc": "Projetos de grande porte para players globais de tecnologia que buscam terra, energia e água em escala — o tipo de operação que o Brasil está pronto para receber."
+      }
+    ],
+    "nota_modelos": "Os números acima são faixas de referência para dimensionamento inicial de conversa comercial — cada projeto é modelado sob medida conforme terreno, energia disponível e demanda do cliente. Também atendemos projetos sob demanda, fora dessas faixas.",
+    "faq": [
+      {
+        "pergunta": "A Prime Fazendas vende Data Centers?",
+        "resposta": "Sim. Vendemos terrenos e ativos já estruturados para Data Center, e também estruturamos negócios do zero — da escolha do terreno ao contrato de energia — para investidores brasileiros e estrangeiros."
+      },
+      {
+        "pergunta": "O que significa \"estruturar\" um Data Center?",
+        "resposta": "É organizar, antes da obra começar, tudo o que viabiliza o projeto: terreno com documentação regular, contrato de energia (inclusive renovável), outorga de água quando aplicável, licenciamento ambiental e o modelo societário/financeiro do negócio."
+      },
+      {
+        "pergunta": "Vocês administram a construção do Data Center?",
+        "resposta": "Sim. Coordenamos a obra com parceiros de engenharia especializados em infraestrutura crítica, do movimento de terra à entrega da edificação pronta para receber os racks."
+      },
+      {
+        "pergunta": "Quais os tamanhos de Data Center a Prime Fazendas oferece?",
+        "resposta": "Trabalhamos com três modelos de referência — MicroCenter (até 1 MW), DataCenter Standard (até 5 MW) e HyperScale (20 MW ou mais) — além de projetos sob medida, dimensionados conforme a demanda específica do cliente."
+      },
+      {
+        "pergunta": "Atendem investidores de fora do Brasil?",
+        "resposta": "Sim. Boa parte da demanda por Data Center no Brasil vem de players internacionais. Damos suporte em compliance, documentação e comunicação em português e inglês."
+      },
+      {
+        "pergunta": "Por que construir Data Center no Brasil?",
+        "resposta": "O Brasil tem matriz elétrica majoritariamente renovável, terra disponível a custo competitivo, estabilidade climática e posição geográfica estratégica entre as Américas — fatores que reduzem custo e risco operacional."
+      }
+    ],
+    "cta_titulo": "Pronto para tirar o seu Data Center do papel?",
+    "cta_texto": "Fale agora com a Prime Fazendas e receba uma primeira leitura sobre terreno, energia e modelo mais adequado ao seu projeto.",
+    "cta_botao": "Falar sobre meu projeto de Data Center"
   }
 }

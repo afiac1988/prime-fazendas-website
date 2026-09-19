@@ -76,6 +76,10 @@
       "url": "/servicos/"
     },
     {
+      "titulo": "Data Center",
+      "url": "/data-center/"
+    },
+    {
       "titulo": "Imóveis",
       "url": "/imoveis/"
     },

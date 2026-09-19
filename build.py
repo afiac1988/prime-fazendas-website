@@ -1582,6 +1582,158 @@ def gerar_servicos(cfg, pag) -> str:
                   corpo="\n".join(corpo), json_ld=[ld, ld_migalha])
 
 
+def gerar_datacenter(cfg, pag) -> str:
+    s = pag.get("datacenter", {})
+    zap = montar_url_zap(cfg)
+
+    botoes_hero = f'<a class="btn btn--dourado" href="#modelos">Ver modelos e medidas</a>'
+    if zap:
+        botoes_hero += f'<a class="btn btn--claro" href="{e(zap)}" target="_blank" rel="noopener">Falar no WhatsApp agora</a>'
+
+    corpo = [hero(cfg, olho=s.get("olho", "Nova frente Prime Fazendas"),
+                  titulo=s.get("chamada", "Estruturas de Data Center"),
+                  texto=s.get("hero_texto", ""), botoes=botoes_hero, interno=True,
+                  foto=s.get("foto_hero", ""))]
+
+    pilares = "".join(
+        f'<article class="card"><div class="card__num">{e(p.get("num",""))}</div>'
+        f'<h3>{e(p.get("titulo",""))}</h3><p>{e(p.get("texto",""))}</p></article>'
+        for p in s.get("pilares", [])
+    )
+    if pilares:
+        corpo.append(f"""<section class="secao secao--branca">
+  <div class="env">
+    <div class="cabeca-secao cabeca-secao--centro">
+      <p class="olho olho--centro">Nosso negócio, em uma frase</p>
+      <h2>Compra, venda e estruturação de Data Center — do terreno à obra entregue</h2>
+      <p class="chamada chamada--larga" style="margin-inline:auto">A Prime Fazendas atua nas três pontas do projeto: vende o ativo certo, estrutura o negócio para ele sair do papel e administra a construção até a entrega.</p>
+    </div>
+    <div class="grade grade--3">{pilares}</div>
+  </div>
+</section>""")
+
+    galeria = s.get("galeria", [])
+    if galeria:
+        itens_galeria = "".join(
+            f'<a href="{e(g["foto"])}" data-legenda="{e(g.get("legenda",""))}"><img src="{e(g["foto"])}" alt="{e(g.get("legenda",""))}" loading="lazy"></a>'
+            for g in galeria
+        )
+        corpo.append(f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="cabeca-secao cabeca-secao--centro">
+      <p class="olho olho--centro">Referências reais</p>
+      <h2>O tipo de estrutura que vendemos e viabilizamos</h2>
+      <p class="chamada chamada--larga" style="margin-inline:auto">Prédios de grande porte, salas cheias de máquinas em operação e a infraestrutura elétrica que sustenta tudo isso.</p>
+    </div>
+    <div class="galeria--curada galeria--datacenter">{itens_galeria}</div>
+  </div>
+</section>""")
+
+    modelos = s.get("modelos", [])
+    if modelos:
+        cards = "".join(
+            f'<article class="card"><div class="card__num">{e(m.get("potencia",""))}</div>'
+            f'<h3>{e(m.get("nome",""))}</h3><p>{e(m.get("desc",""))}</p>'
+            f'<p class="link-seta" style="margin-top:1rem"><a class="link-seta" href="#modelo-{e(m.get("id",""))}">Ver especificações</a></p></article>'
+            for m in modelos
+        )
+        detalhes = ""
+        for m in modelos:
+            btn_modelo = ""
+            if zap:
+                btn_modelo = f'<a class="btn btn--dourado btn--bloco" href="{e(zap)}" target="_blank" rel="noopener">Falar sobre o modelo {e(m.get("nome",""))}</a>'
+            detalhes += f"""<div class="painel" id="modelo-{e(m.get('id',''))}" style="position:static; margin-bottom:1.5rem; scroll-margin-top:100px;">
+      <h3 style="margin-bottom:.3rem">{e(m.get('nome',''))}</h3>
+      <p class="painel__preco-nota">{e(m.get('potencia',''))}</p>
+      <ul class="painel__linhas">
+        <li><span class="rot">Área estimada do terreno</span><span class="val">{e(m.get('area',''))}</span></li>
+        <li><span class="rot">Capacidade estimada de racks</span><span class="val">{e(m.get('racks',''))}</span></li>
+        <li><span class="rot">Redundância</span><span class="val">{e(m.get('redundancia',''))}</span></li>
+        <li><span class="rot">Prazo estimado de entrega</span><span class="val">{e(m.get('prazo',''))}</span></li>
+        <li><span class="rot">Público ideal</span><span class="val" style="text-align:right; max-width:60%">{e(m.get('publico',''))}</span></li>
+      </ul>
+      {btn_modelo}
+    </div>"""
+
+        corpo.append(f"""<section class="secao secao--branca" id="modelos">
+  <div class="env">
+    <div class="cabeca-secao cabeca-secao--centro">
+      <p class="olho olho--centro">Modelos e medidas</p>
+      <h2>Três cenários de referência — ou projeto sob medida</h2>
+    </div>
+    <div class="grade grade--3">{cards}</div>
+    <div style="margin-top:2.5rem">{detalhes}</div>
+    <p class="nota-modelos" style="font-size:.85rem;color:var(--tinta-suave);margin-top:1.5rem;max-width:70ch">{e(s.get("nota_modelos",""))}</p>
+  </div>
+</section>""")
+
+    faq = s.get("faq", [])
+    if faq:
+        faq_html = "".join(
+            f'<details class="ficha-tecnica" style="margin-top:0"><summary class="ficha-tecnica__abrir">{e(qa.get("pergunta",""))}</summary>'
+            f'<div class="ficha-tecnica__corpo"><p>{e(qa.get("resposta",""))}</p></div></details>'
+            for qa in faq
+        )
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="cabeca-secao cabeca-secao--centro">
+      <p class="olho olho--centro">Perguntas frequentes</p>
+      <h2>Dúvidas comuns sobre venda e estruturação de Data Center</h2>
+    </div>
+    {faq_html}
+  </div>
+</section>""")
+
+    corpo.append(cta_faixa(cfg, s.get("cta_titulo", "Pronto para tirar o seu Data Center do papel?"),
+                           s.get("cta_texto", ""), s.get("cta_botao", "Falar sobre meu projeto de Data Center")))
+
+    modelos_schema = [
+        {
+            "@type": "Product",
+            "name": m.get("nome", ""),
+            "description": m.get("desc", ""),
+            "additionalProperty": [
+                {"@type": "PropertyValue", "name": "Potência", "value": m.get("potencia", "")},
+                {"@type": "PropertyValue", "name": "Área estimada", "value": m.get("area", "")},
+                {"@type": "PropertyValue", "name": "Redundância", "value": m.get("redundancia", "")},
+            ],
+        }
+        for m in modelos
+    ]
+
+    ld_service = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Service",
+        "name": s.get("titulo", "Estruturas de Data Center"),
+        "description": s.get("descricao_meta", s.get("chamada", "")),
+        "provider": {"@type": "RealEstateAgent", "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"]},
+        "areaServed": [{"@type": "Country", "name": "Brasil"}, {"@type": "Place", "name": "Mundo"}],
+        **({"hasOfferCatalog": {
+            "@type": "OfferCatalog",
+            "name": "Modelos de Data Center Prime Fazendas",
+            "itemListElement": modelos_schema,
+        }} if modelos_schema else {}),
+    }, ensure_ascii=False)
+
+    ld_faq = ""
+    if faq:
+        ld_faq = json.dumps({
+            "@context": "https://schema.org",
+            "@type": "FAQPage",
+            "mainEntity": [
+                {"@type": "Question", "name": qa.get("pergunta", ""),
+                 "acceptedAnswer": {"@type": "Answer", "text": qa.get("resposta", "")}}
+                for qa in faq
+            ],
+        }, ensure_ascii=False)
+
+    ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Data Center", "/data-center/")])
+
+    return pagina(cfg, titulo=s.get("titulo", "Estruturas de Data Center"),
+                  descricao=s.get("descricao_meta", s.get("chamada", "")), url="/data-center/",
+                  corpo="\n".join(corpo), json_ld=[b for b in [ld_service, ld_faq, ld_migalha] if b])
+
+
 def gerar_investir(cfg, pag, dados_agro) -> str:
     s = pag.get("investir", {})
     corpo = [hero(cfg, olho="Investir no agro", titulo=s.get("titulo", ""),
@@ -2623,6 +2775,7 @@ def main() -> int:
     escrever("index.html", gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos))
     escrever("sobre/index.html", gerar_sobre(cfg, pag))
     escrever("servicos/index.html", gerar_servicos(cfg, pag))
+    escrever("data-center/index.html", gerar_datacenter(cfg, pag))
     escrever("investir-no-agro/index.html", gerar_investir(cfg, pag, dados_agro))
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
     escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
@@ -2638,7 +2791,7 @@ def main() -> int:
 
     # sitemap + robots + htaccess
     dominio = cfg["site"]["dominio"].rstrip("/")
-    urls = ["/", "/sobre/", "/servicos/", "/investir-no-agro/", "/imoveis/",
+    urls = ["/", "/sobre/", "/servicos/", "/data-center/", "/investir-no-agro/", "/imoveis/",
             "/blog/", "/agenda-agro/", "/contato/"]
     urls += [im["url"] for im in imoveis]
     urls += [p["url"] for p in posts]
