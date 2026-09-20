@@ -62,6 +62,20 @@ def dimensoes_imagem(caminho_absoluto: Path, largura_padrao: int, altura_padrao:
     return dim
 
 
+_NUMERAIS_ROMANOS = ["I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X",
+                     "XI", "XII"]
+
+
+def numeral_romano(n: int) -> str:
+    """Numeral romano para os cartoes de pilares/servicos (I, II, III...) -
+    troca o "01/02/03/04" de template generico por algo com mais cara de
+    marca. Cai de volta para o numero arabico se passar de 12 (nao deveria
+    acontecer com o conteudo atual, mas evita indice fora da lista)."""
+    if 1 <= n <= len(_NUMERAIS_ROMANOS):
+        return _NUMERAIS_ROMANOS[n - 1]
+    return str(n)
+
+
 def dimensoes_midia_url(url_publica: str, largura_padrao: int, altura_padrao: int) -> tuple[int, int]:
     """Mesma coisa que dimensoes_imagem, mas a partir de uma URL pública
     (ex.: "/midia/imoveis/fazenda-x/foto-01.jpg") — resolve para o arquivo
@@ -1298,7 +1312,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     cards = "".join(
         f'<article class="card reveal">'
         f'<div class="card__icone">{ICONES_PILARES[i % len(ICONES_PILARES)]}</div>'
-        f'<div class="card__num">{i + 1:02d}</div>'
+        f'<div class="card__num">{numeral_romano(i + 1)}</div>'
         f'<h3>{e(p["titulo"])}</h3><p>{e(p["texto"])}</p></article>'
         for i, p in enumerate(h.get("pilares", []))
     )
@@ -1618,7 +1632,7 @@ def gerar_servicos(cfg, pag) -> str:
                   texto=s.get("chamada", ""), interno=True, foto="/midia/imoveis/fazenda-citrino/aerea-03.jpg")]
 
     cards = "".join(
-        f'<article class="card"><div class="card__num">{i + 1:02d}</div>'
+        f'<article class="card"><div class="card__num">{numeral_romano(i + 1)}</div>'
         f'<h3>{e(x["titulo"])}</h3><p>{e(x["texto"])}</p></article>'
         for i, x in enumerate(s.get("lista", []))
     )
@@ -1703,7 +1717,7 @@ def gerar_datacenter(cfg, pag) -> str:
       <h2>O tipo de estrutura que vendemos e viabilizamos</h2>
       <p class="chamada chamada--larga" style="margin-inline:auto">Prédios de grande porte, salas cheias de máquinas em operação e a infraestrutura elétrica que sustenta tudo isso.</p>
     </div>
-    <div class="galeria galeria--curada">{itens_galeria}</div>
+    <div class="galeria galeria--curada galeria--datacenter">{itens_galeria}</div>
   </div>
 </section>""")
 
@@ -2020,7 +2034,7 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
             f'</a>'
             for g in galeria
         )
-        corpo.append(f'<section class="secao secao--clara"><div class="env"><div class="galeria galeria--curada">{itens_galeria}</div></div></section>')
+        corpo.append(f'<section class="secao secao--clara"><div class="env"><div class="galeria galeria--curada galeria--datacenter">{itens_galeria}</div></div></section>')
 
     modelos = s.get("modelos", [])
     if modelos:
@@ -2356,7 +2370,7 @@ def gerar_sobre_i18n(cfg: dict, s: dict, lang: str) -> str:
 
 def gerar_servicos_i18n(cfg: dict, s: dict, lang: str) -> str:
     cards = "".join(
-        f'<article class="card"><div class="card__num">{i+1:02d}</div><h3>{e(x["titulo"])}</h3><p>{e(x["texto"])}</p></article>'
+        f'<article class="card"><div class="card__num">{numeral_romano(i+1)}</div><h3>{e(x["titulo"])}</h3><p>{e(x["texto"])}</p></article>'
         for i, x in enumerate(s.get("lista", []))
     )
     corpo = [f"""<section class="hero hero--interno">

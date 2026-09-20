@@ -408,6 +408,8 @@ strong { font-weight: 600; color: var(--azul-900); }
 /* -------------------------------------------------------------- Cards ---- */
 
 .card {
+  position: relative;
+  overflow: hidden;
   background: var(--branco);
   border: 1px solid var(--borda);
   border-radius: var(--raio);
@@ -417,30 +419,39 @@ strong { font-weight: 600; color: var(--azul-900); }
   flex-direction: column;
 }
 .card:hover { border-color: var(--terra-200); box-shadow: var(--sombra); transform: translateY(-2px); }
-.card h3 { margin-bottom: 0.55rem; }
-.card p { color: var(--tinta-media); font-size: 0.98rem; margin: 0; }
+.card h3 { margin-bottom: 0.55rem; position: relative; z-index: 1; }
+.card p { color: var(--tinta-media); font-size: 0.98rem; margin: 0; position: relative; z-index: 1; }
+/* Numeral como marca-d'agua editorial (nao mais "01/02/03/04" em selo de
+   template) - grande, discreto, atras do icone, tipografia de marca. */
 .card__num {
+  position: absolute;
+  top: -0.35rem;
+  right: 0.9rem;
   font-family: var(--fonte-display);
-  font-size: 0.95rem;
-  color: var(--dourado-escuro);
-  margin-bottom: 0.9rem;
-  letter-spacing: 0.04em;
+  font-size: clamp(3rem, 6vw, 3.75rem);
+  line-height: 1;
+  color: var(--dourado);
+  opacity: 0.14;
+  pointer-events: none;
+  z-index: 0;
 }
 .card__icone {
-  width: 3rem;
-  height: 3rem;
-  border-radius: 50%;
+  position: relative;
+  z-index: 1;
+  width: 2.75rem;
+  height: 2.75rem;
   display: flex;
   align-items: center;
   justify-content: center;
-  background: rgba(201, 164, 76, 0.12);
+  background: none;
   color: var(--dourado-escuro);
   margin-bottom: 1rem;
-  box-shadow: inset 0 0 0 1px rgba(126, 95, 31, 0.28);
-  transition: background var(--transicao), color var(--transicao), transform var(--transicao), box-shadow var(--transicao);
+  border-bottom: 2px solid var(--dourado);
+  border-radius: 0;
+  transition: color var(--transicao), transform var(--transicao), border-color var(--transicao);
 }
-.card__icone svg { width: 1.55rem; height: 1.55rem; }
-.card:hover .card__icone { background: rgba(201, 164, 76, 0.22); transform: scale(1.05); box-shadow: inset 0 0 0 1px rgba(126, 95, 31, 0.4); }
+.card__icone svg { width: 1.7rem; height: 1.7rem; }
+.card:hover .card__icone { color: var(--dourado-escuro); transform: translateY(-2px); border-color: var(--dourado-escuro); }
 
 .secao--escura .card {
   background: rgba(250, 248, 243, 0.045);
@@ -448,8 +459,9 @@ strong { font-weight: 600; color: var(--azul-900); }
 }
 .secao--escura .card:hover { background: rgba(250, 248, 243, 0.075); border-color: rgba(201, 164, 76, 0.4); }
 .secao--escura .card p { color: rgba(250, 248, 243, 0.74); }
-.secao--escura .card__icone { background: rgba(201, 164, 76, 0.16); color: var(--dourado-claro); box-shadow: inset 0 0 0 1px rgba(229, 203, 134, 0.3); }
-.secao--escura .card:hover .card__icone { background: rgba(201, 164, 76, 0.28); box-shadow: inset 0 0 0 1px rgba(229, 203, 134, 0.45); }
+.secao--escura .card__num { color: var(--dourado-claro); opacity: 0.16; }
+.secao--escura .card__icone { color: var(--dourado-claro); border-color: rgba(229, 203, 134, 0.6); }
+.secao--escura .card:hover .card__icone { color: var(--dourado-claro); border-color: var(--dourado-claro); }
 
 /* -------------------------------------------- Entrada suave (scroll) ---- */
 /* .reveal--armado é adicionado via JS (site.js) só quando o navegador roda
@@ -587,7 +599,11 @@ strong { font-weight: 600; color: var(--azul-900); }
   overflow: hidden;
 }
 .imovel__capa-link { display: block; width: 100%; height: 100%; cursor: zoom-in; }
-.imovel__capa img { width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.03); }
+.imovel__capa img {
+  width: 100%; height: 100%; object-fit: cover; filter: saturate(1.05) contrast(1.03);
+  transition: transform var(--transicao);
+}
+.imovel:hover .imovel__capa img { transform: scale(1.045); }
 .imovel__capa svg { position: absolute; bottom: 0; left: 0; width: 100%; opacity: 0.35; }
 .imovel__selos { position: absolute; top: 0.9rem; left: 0.9rem; display: flex; flex-wrap: wrap; gap: 0.4rem; z-index: 2; }
 
@@ -649,8 +665,12 @@ strong { font-weight: 600; color: var(--azul-900); }
 @media (min-width: 940px) { .ficha { grid-template-columns: minmax(0, 1.65fr) minmax(300px, 1fr); align-items: start; } }
 
 .galeria { display: grid; gap: 0.75rem; grid-template-columns: repeat(auto-fit, minmax(min(100%, 220px), 1fr)); margin-bottom: 2.5rem; }
-.galeria__link { display: block; cursor: zoom-in; }
-.galeria img { border-radius: var(--raio); aspect-ratio: 4/3; object-fit: cover; width: 100%; filter: saturate(1.05) contrast(1.03); }
+.galeria__link { display: block; cursor: zoom-in; overflow: hidden; border-radius: var(--raio); }
+.galeria img {
+  border-radius: var(--raio); aspect-ratio: 4/3; object-fit: cover; width: 100%;
+  filter: saturate(1.05) contrast(1.03); transition: transform var(--transicao);
+}
+.galeria__link:hover img { transform: scale(1.035); }
 
 /* Galeria curada (ficha de imovel e Data Center): grade em quadrantes,
    todas as fotos do mesmo tamanho - nada de foto "hero" ocupando a largura
@@ -662,6 +682,28 @@ strong { font-weight: 600; color: var(--azul-900); }
   margin-bottom: 3rem;
 }
 .galeria--curada img { aspect-ratio: 4/3; }
+
+/* Galeria do Data Center: numero de fotos fixo (curadoria manual, nao
+   cresce por listagem de terceiros), entao trava em 3 colunas no desktop
+   em vez de auto-fit fluido - evita 1 foto sozinha "orfa" na ultima linha
+   quando o total nao e multiplo do numero de colunas que o auto-fit
+   escolheria. Comeca a 1 coluna no mobile, como o restante do site. */
+@media (min-width: 900px) {
+  .galeria--datacenter { grid-template-columns: repeat(3, 1fr); }
+}
+
+/* Foto editorial em destaque: a 1a foto de cada galeria ganha mais peso
+   visual (2 colunas x 2 linhas), o resto segue em quadrantes uniformes -
+   da hierarquia sem voltar ao problema antigo de "1 foto gigante isolada". */
+.galeria--curada .galeria__link:first-child {
+  grid-column: span 2;
+  grid-row: span 2;
+}
+.galeria--curada .galeria__link:first-child img { aspect-ratio: 1/1; }
+@media (max-width: 640px) {
+  .galeria--curada .galeria__link:first-child { grid-column: span 1; grid-row: span 1; }
+  .galeria--curada .galeria__link:first-child img { aspect-ratio: 4/3; }
+}
 .foto-modal[hidden] { display: none; }
 .foto-modal {
   position: fixed;
