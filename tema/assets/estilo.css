@@ -138,6 +138,14 @@ strong { font-weight: 600; color: var(--azul-900); }
 
 .secao { padding-block: clamp(3.5rem, 9vw, 7rem); }
 .secao--compacta { padding-block: clamp(2.5rem, 6vw, 4.5rem); }
+/* Quando duas secoes do mesmo fundo ficam uma logo apos a outra (ex: uma
+   secao do meio, como indicadores ou depoimentos, fica vazia e some), o
+   padding-block das duas se soma e cria um vao enorme sem nada dentro,
+   sem nenhuma linha demarcando a transicao. Aqui colapsamos esse padding
+   duplicado e desenhamos uma divisoria fina no lugar. */
+.secao--clara + .secao--clara { padding-top: 0; border-top: 1px solid var(--borda); }
+.secao--escura + .secao--escura { padding-top: 0; border-top: 1px solid rgba(250, 248, 243, 0.12); }
+
 .secao--escura { background: var(--azul-900); color: var(--osso-2); }
 .secao--escura h1, .secao--escura h2, .secao--escura h3 { color: var(--branco); }
 .secao--escura .chamada { color: rgba(250, 248, 243, 0.78); }
