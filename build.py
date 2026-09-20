@@ -1688,7 +1688,14 @@ def gerar_datacenter(cfg, pag) -> str:
     galeria = s.get("galeria", [])
     if galeria:
         itens_galeria = "".join(
-            f'<a href="{e(g["foto"])}" data-legenda="{e(g.get("legenda",""))}"><img src="{e(g["foto"])}" alt="{e(g.get("legenda",""))}" loading="lazy"></a>'
+            f'<a class="galeria__link js-foto-modal" href="{e(g["foto"])}" '
+            f'data-foto-modal-src="{e(g["foto"])}" '
+            f'data-foto-modal-alt="{e(g.get("legenda",""))}" '
+            f'title="Abrir foto no visualizador">'
+            f'<img src="{e(g["foto"])}" alt="{e(g.get("legenda",""))}" '
+            f'width="{(dim := dimensoes_midia_url(g["foto"], 1200, 800))[0]}" height="{dim[1]}" '
+            f'loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+            f'</a>'
             for g in galeria
         )
         corpo.append(f"""<section class="secao secao--clara">
@@ -1698,7 +1705,7 @@ def gerar_datacenter(cfg, pag) -> str:
       <h2>O tipo de estrutura que vendemos e viabilizamos</h2>
       <p class="chamada chamada--larga" style="margin-inline:auto">Prédios de grande porte, salas cheias de máquinas em operação e a infraestrutura elétrica que sustenta tudo isso.</p>
     </div>
-    <div class="galeria--curada galeria--datacenter">{itens_galeria}</div>
+    <div class="galeria galeria--curada">{itens_galeria}</div>
   </div>
 </section>""")
 
@@ -2000,10 +2007,17 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
     galeria = s.get("galeria", [])
     if galeria:
         itens_galeria = "".join(
-            f'<a href="{e(g["foto"])}" data-legenda="{e(g.get("legenda",""))}"><img src="{e(g["foto"])}" alt="{e(g.get("legenda",""))}" loading="lazy"></a>'
+            f'<a class="galeria__link js-foto-modal" href="{e(g["foto"])}" '
+            f'data-foto-modal-src="{e(g["foto"])}" '
+            f'data-foto-modal-alt="{e(g.get("legenda",""))}" '
+            f'title="Abrir foto no visualizador">'
+            f'<img src="{e(g["foto"])}" alt="{e(g.get("legenda",""))}" '
+            f'width="{(dim := dimensoes_midia_url(g["foto"], 1200, 800))[0]}" height="{dim[1]}" '
+            f'loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+            f'</a>'
             for g in galeria
         )
-        corpo.append(f'<section class="secao secao--clara"><div class="env"><div class="galeria--curada galeria--datacenter">{itens_galeria}</div></div></section>')
+        corpo.append(f'<section class="secao secao--clara"><div class="env"><div class="galeria galeria--curada">{itens_galeria}</div></div></section>')
 
     modelos = s.get("modelos", [])
     if modelos:
