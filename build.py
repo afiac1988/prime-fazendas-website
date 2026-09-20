@@ -783,9 +783,7 @@ def pagina(cfg: dict, *, titulo: str, descricao: str, url: str, corpo: str,
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
 <link rel="apple-touch-icon" href="/assets/favicon-192.png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
+
 <link rel="stylesheet" href="/assets/estilo.css">
 {ld}
 {ga}
@@ -1788,6 +1786,11 @@ def gerar_datacenter(cfg, pag) -> str:
         "description": s.get("descricao_meta", s.get("chamada", "")),
         "provider": {"@type": "RealEstateAgent", "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"]},
         "areaServed": [{"@type": "Country", "name": "Brasil"}, {"@type": "Place", "name": "Mundo"}],
+        **({"image": [{"@type": "ImageObject", "contentUrl": cfg["site"]["dominio"].rstrip("/") + g["foto"],
+                       "caption": g.get("legenda", ""),
+                       "width": dimensoes_midia_url(g["foto"], 1200, 800)[0],
+                       "height": dimensoes_midia_url(g["foto"], 1200, 800)[1]}
+                      for g in galeria]} if galeria else {}),
         **({"hasOfferCatalog": {
             "@type": "OfferCatalog",
             "name": "Modelos de Data Center Prime Fazendas",
@@ -2105,6 +2108,11 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
         "inLanguage": idioma_html,
         "provider": {"@type": "RealEstateAgent", "name": cfg["marca"]["nome"], "url": dominio},
         "areaServed": [{"@type": "Country", "name": "Brazil"}, {"@type": "Place", "name": "Worldwide" if lang == "en" else "全球"}],
+        **({"image": [{"@type": "ImageObject", "contentUrl": dominio + g["foto"],
+                       "caption": g.get("legenda", ""),
+                       "width": dimensoes_midia_url(g["foto"], 1200, 800)[0],
+                       "height": dimensoes_midia_url(g["foto"], 1200, 800)[1]}
+                      for g in galeria]} if galeria else {}),
         **({"hasOfferCatalog": {"@type": "OfferCatalog",
             "name": "Prime Fazendas Data Center models", "itemListElement": modelos_schema}} if modelos_schema else {}),
     }, ensure_ascii=False)
@@ -2174,9 +2182,7 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
+
 <link rel="stylesheet" href="/assets/estilo.css">
 {ld_html}
 {ga}
@@ -2247,9 +2253,7 @@ def _skeleton_i18n(cfg: dict, lang: str, url_path: str, titulo: str, descricao_m
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
+
 <link rel="stylesheet" href="/assets/estilo.css">
 {ld_html}
 {ga}
@@ -2817,6 +2821,13 @@ def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
             "addressRegion": im.get("estado", ""),
             "addressCountry": "BR",
         },
+        **({"image": [
+            {"@type": "ImageObject",
+             "contentUrl": cfg["site"]["dominio"].rstrip("/") + u,
+             "width": dimensoes_midia_url(u, 1200, 900)[0],
+             "height": dimensoes_midia_url(u, 1200, 900)[1]}
+            for u in im["fotos_url"]
+        ]} if im["fotos_url"] else {}),
         **({"floorSize": {
             "@type": "QuantitativeValue",
             "value": im["area_total_ha"],
@@ -3228,6 +3239,9 @@ def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: 
         "name": im["titulo"], "description": desc, "url": cfg["site"]["dominio"].rstrip("/") + im["url"],
         "address": {"@type": "PostalAddress", "addressLocality": im.get("municipio", ""),
                     "addressRegion": im.get("estado", ""), "addressCountry": "BR"},
+        **({"image": [{"@type": "ImageObject", "contentUrl": cfg["site"]["dominio"].rstrip("/") + u,
+                       "width": dimensoes_midia_url(u, 1200, 900)[0], "height": dimensoes_midia_url(u, 1200, 900)[1]}
+                      for u in im["fotos_url"]]} if im.get("fotos_url") else {}),
         **({"floorSize": {"@type": "QuantitativeValue", "value": im["area_total_ha"], "unitText": "ha"}}
            if im.get("area_total_ha") else {}),
         **({"offers": {"@type": "Offer", "price": im["preco"], "priceCurrency": "BRL",
@@ -4222,6 +4236,8 @@ def main() -> int:
             "",
             f"- [Imóveis à venda]({dominio}/imoveis/): {len(imoveis_disp)} fazendas disponíveis, com área total, "
             "preço, documentação e disponibilidade hídrica detalhados por ficha.",
+            f"- [Data Center]({dominio}/data-center/): estruturação de terrenos e ativos para data centers "
+            "hyperscale no Tocantins/Matopiba — energia, água, conectividade e modelos de projeto.",
             "",
             "## Notícias e insights",
             "",

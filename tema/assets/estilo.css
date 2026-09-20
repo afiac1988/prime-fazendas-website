@@ -3,6 +3,37 @@
    Editar aqui muda o site inteiro. Sem framework, sem build de CSS.
    ========================================================================== */
 
+/* Fontes hospedadas localmente (antes: Google Fonts externo) — elimina
+   uma dependencia de terceiros render-blocking nas 216 paginas. Mesmos
+   arquivos que o Google Fonts servia (subconjunto "latin", cobre PT/EN
+   com acentos; ZH usa fonte do sistema para os caracteres Han, essas 3
+   fontes so estilizam elementos em latim mesmo nas paginas em chines).
+   font-display: swap evita texto invisivel enquanto carrega. */
+@font-face {
+  font-family: 'Cinzel';
+  font-style: normal;
+  font-weight: 500 600;
+  font-display: swap;
+  src: url('/assets/fontes/cinzel-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Fraunces';
+  font-style: normal;
+  font-weight: 400 600;
+  font-display: swap;
+  src: url('/assets/fontes/fraunces-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Inter';
+  font-style: normal;
+  font-weight: 400 700;
+  font-display: swap;
+  src: url('/assets/fontes/inter-latin.woff2') format('woff2');
+  unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
 :root {
   /* Paleta — azul, marrom, dourado */
   --azul-900: #0C1E33;

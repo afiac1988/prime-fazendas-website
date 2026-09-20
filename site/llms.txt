@@ -7,6 +7,7 @@ Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil)
 ## Portfólio
 
 - [Imóveis à venda](https://www.primefazendas.com/imoveis/): 35 fazendas disponíveis, com área total, preço, documentação e disponibilidade hídrica detalhados por ficha.
+- [Data Center](https://www.primefazendas.com/data-center/): estruturação de terrenos e ativos para data centers hyperscale no Tocantins/Matopiba — energia, água, conectividade e modelos de projeto.
 
 ## Notícias e insights
 
