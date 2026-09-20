@@ -561,7 +561,25 @@ PAGINAS_TRADUZIDAS = {
     "/contato/": {"en": "/en/contato/", "zh": "/zh/contato/"},
     "/agenda-agro/": {"en": "/en/agenda-agro/", "zh": "/zh/agenda-agro/"},
     "/imoveis/": {"en": "/en/imoveis/", "zh": "/zh/imoveis/"},
+    "/blog/": {"en": "/en/blog/", "zh": "/zh/blog/"},
 }
+
+
+def hreflang_para(cfg: dict, url_pt: str) -> list[tuple[str, str]] | None:
+    """Monta a lista de tags hreflang (pt-BR/en/zh-Hans/x-default) para uma
+    URL em portugues que tenha traducao registrada em PAGINAS_TRADUZIDAS.
+    Retorna None se a pagina nao tiver versao traduzida (nesse caso nenhuma
+    tag hreflang deve ser emitida, pois nao ha reciprocidade possivel)."""
+    trad = PAGINAS_TRADUZIDAS.get(url_pt)
+    if not trad:
+        return None
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    return [
+        ("pt-BR", f"{dominio}{url_pt}"),
+        ("en", f"{dominio}{trad['en']}"),
+        ("zh-Hans", f"{dominio}{trad['zh']}"),
+        ("x-default", f"{dominio}{url_pt}"),
+    ]
 
 
 def registrar_imoveis_traduzidos(imoveis: list[dict], trad_map: dict) -> None:
@@ -1399,7 +1417,8 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     return pagina(cfg, titulo=cfg["site"]["titulo_padrao"],
                   descricao=cfg["site"].get("descricao_meta", cfg["site"]["descricao_padrao"]), url="/",
                   corpo="\n".join(corpo), json_ld=[ld, ld_migalha],
-                  rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
+                  rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis),
+                  hreflang=hreflang_para(cfg, "/"))
 
 
 ICONE_NOTICIA_FOLHA = ('<svg viewBox="0 0 24 24" aria-hidden="true">'
@@ -1591,7 +1610,8 @@ def gerar_sobre(cfg, pag) -> str:
 
     return pagina(cfg, titulo=s.get("titulo", "Sobre nós"),
                   descricao=s.get("descricao_meta", s.get("chamada", cfg["site"]["descricao_padrao"])),
-                  url="/sobre/", corpo="\n".join(corpo), json_ld=[ld, ld_migalha])
+                  url="/sobre/", corpo="\n".join(corpo), json_ld=[ld, ld_migalha],
+                  hreflang=hreflang_para(cfg, "/sobre/"))
 
 
 def gerar_servicos(cfg, pag) -> str:
@@ -1631,7 +1651,8 @@ def gerar_servicos(cfg, pag) -> str:
 
     return pagina(cfg, titulo=s.get("titulo", "Serviços"),
                   descricao=s.get("descricao_meta", s.get("chamada", "")), url="/servicos/",
-                  corpo="\n".join(corpo), json_ld=[ld, ld_migalha])
+                  corpo="\n".join(corpo), json_ld=[ld, ld_migalha],
+                  hreflang=hreflang_para(cfg, "/servicos/"))
 
 
 def gerar_datacenter(cfg, pag) -> str:
@@ -1899,7 +1920,7 @@ def rodape_i18n(cfg: dict, lang: str) -> str:
   <div class="env">
     <div class="rodape__grade">
       <div>
-        <a class="marca" href="/" aria-label="{e(cfg['marca']['nome'])}">
+        <a class="marca" href="/{lang}/" aria-label="{e(cfg['marca']['nome'])}">
           {SVG_SELO_RODAPE}
           <span class="marca__txt"><span class="marca__nome">{e(cfg['marca']['nome'])}</span></span>
         </a>
@@ -2559,7 +2580,8 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     return pagina(cfg, titulo=s.get("titulo", "Imóveis rurais à venda"),
                   descricao=s.get("descricao_meta", s.get("chamada", "")), url="/imoveis/",
                   corpo="\n".join(corpo), json_ld=[ld, ld_migalha],
-                  rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis))
+                  rascunho=any(i.get("_exemplo") or i.get("_rascunho") for i in imoveis),
+                  hreflang=hreflang_para(cfg, "/imoveis/"))
 
 
 def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
@@ -2792,7 +2814,7 @@ def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
     return pagina(cfg, titulo=im["titulo"], descricao=desc, url=im["url"],
                   corpo="\n".join(corpo), og_tipo="article", json_ld=[ld, ld_migalha],
                   rascunho=bool(im.get("_exemplo") or im.get("_rascunho")),
-                  og_imagem=og_img_imovel)
+                  og_imagem=og_img_imovel, hreflang=hreflang_para(cfg, im["url"]))
 
 
 TIPOS_I18N = {
@@ -3199,7 +3221,7 @@ CATEGORIA_I18N = {
         "Financiamento": "Financing", "Investidores internacionais": "International Investors",
         "Clima": "Climate", "Gestão": "Management", "Operação": "Operations",
         "Regularização": "Land Regularization", "Recursos Hídricos": "Water Resources",
-        "Insights": "Insights",
+        "Insights": "Insights", "Bem-estar": "Well-being",
     },
     "zh": {
         "Arrendamento": "土地租赁", "Investimento": "投资", "Tendências": "趋势",
@@ -3208,7 +3230,7 @@ CATEGORIA_I18N = {
         "Financiamento": "融资", "Investidores internacionais": "国际投资者",
         "Clima": "气候", "Gestão": "管理", "Operação": "运营",
         "Regularização": "土地合规", "Recursos Hídricos": "水资源",
-        "Insights": "洞察",
+        "Insights": "洞察", "Bem-estar": "身心健康",
     },
 }
 
@@ -3285,7 +3307,8 @@ def card_post_i18n(p: dict, lang: str, destaque: bool = False) -> str:
 </article>"""
 
 
-def gerar_blog_i18n(cfg: dict, posts: list[dict], imoveis: list[dict], lang: str, trad_map: dict) -> str:
+def gerar_blog_i18n(cfg: dict, posts: list[dict], imoveis: list[dict], lang: str, trad_map: dict,
+                     imoveis_i18n_map: dict) -> str:
     tx = TEXTOS_BLOG_I18N[lang]
     posts_i18n = [traduzir_post(p, lang, trad_map) for p in posts]
 
@@ -3308,8 +3331,8 @@ def gerar_blog_i18n(cfg: dict, posts: list[dict], imoveis: list[dict], lang: str
     if destaques_imoveis_pt:
         from_lang_imoveis = []
         for i in destaques_imoveis_pt[:3]:
-            if i["slug"] in IMOVEIS_I18N_MAP_ATUAL:
-                from_lang_imoveis.append(traduzir_imovel(i, lang, IMOVEIS_I18N_MAP_ATUAL))
+            if i["slug"] in imoveis_i18n_map:
+                from_lang_imoveis.append(traduzir_imovel(i, lang, imoveis_i18n_map))
             else:
                 from_lang_imoveis.append(i)
         bloco_portfolio = ('<section class="secao secao--clara">'
@@ -3401,7 +3424,6 @@ def gerar_post_i18n(cfg: dict, p_pt: dict, outros_pt: list[dict], lang: str, tra
     return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo), [ld])
 
 
-IMOVEIS_I18N_MAP_ATUAL: dict = {}
 
 
 def gerar_redirect(cfg, destino: str) -> str:
@@ -3528,7 +3550,8 @@ def gerar_blog(cfg, pag, posts, imoveis) -> str:
     ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Notícias", "/blog/")])
 
     return pagina(cfg, titulo=s.get("titulo", "Notícias"), descricao=s.get("chamada", ""),
-                  url="/blog/", corpo="\n".join(corpo), json_ld=[ld_migalha])
+                  url="/blog/", corpo="\n".join(corpo), json_ld=[ld_migalha],
+                  hreflang=hreflang_para(cfg, "/blog/"))
 
 
 def card_evento_agro(ev: dict, destaque: bool = False) -> str:
@@ -3601,7 +3624,8 @@ def gerar_agenda_agro(cfg, pag, agenda) -> str:
 
     return pagina(cfg, titulo=s.get("titulo", "Agenda Agro"),
                   descricao=s.get("descricao_meta", s.get("chamada", "")),
-                  url="/agenda-agro/", corpo="\n".join(corpo), json_ld=[ld_migalha])
+                  url="/agenda-agro/", corpo="\n".join(corpo), json_ld=[ld_migalha],
+                  hreflang=hreflang_para(cfg, "/agenda-agro/"))
 
 
 def gerar_post(cfg, p, outros) -> str:
@@ -3666,7 +3690,8 @@ def gerar_post(cfg, p, outros) -> str:
 
     return pagina(cfg, titulo=p["titulo"], descricao=p.get("resumo", ""), url=p["url"],
                   corpo="\n".join(corpo), og_tipo="article", json_ld=[ld, ld_migalha],
-                  rascunho=bool(p.get("_rascunho")), og_imagem=og_img_post)
+                  rascunho=bool(p.get("_rascunho")), og_imagem=og_img_post,
+                  hreflang=hreflang_para(cfg, p["url"]))
 
 
 def gerar_contato(cfg, pag) -> str:
@@ -3806,7 +3831,8 @@ def gerar_contato(cfg, pag) -> str:
 
     return pagina(cfg, titulo=s.get("titulo", "Contato"),
                   descricao=s.get("descricao_meta", s.get("chamada", "")),
-                  url="/contato/", corpo="\n".join(corpo), json_ld=[ld_migalha])
+                  url="/contato/", corpo="\n".join(corpo), json_ld=[ld_migalha],
+                  hreflang=hreflang_para(cfg, "/contato/"))
 
 
 def gerar_404(cfg) -> str:
@@ -4008,8 +4034,6 @@ def main() -> int:
     imoveis = carregar_imoveis()
     imoveis_i18n_map = ler_json(CONTEUDO / "imoveis_i18n.json") or {}
     registrar_imoveis_traduzidos(imoveis, imoveis_i18n_map)
-    global IMOVEIS_I18N_MAP_ATUAL
-    IMOVEIS_I18N_MAP_ATUAL = imoveis_i18n_map
     posts = carregar_posts()
     noticias_i18n_map = ler_json(CONTEUDO / "noticias_i18n.json") or {}
     for p in posts:
@@ -4064,7 +4088,7 @@ def main() -> int:
     escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
     escrever("blog/index.html", gerar_blog(cfg, pag, posts, imoveis))
     for lang in ("en", "zh"):
-        escrever(f"{lang}/blog/index.html", gerar_blog_i18n(cfg, posts, imoveis, lang, noticias_i18n_map))
+        escrever(f"{lang}/blog/index.html", gerar_blog_i18n(cfg, posts, imoveis, lang, noticias_i18n_map, imoveis_i18n_map))
     escrever("agenda-agro/index.html", gerar_agenda_agro(cfg, pag, agenda_agro))
     escrever("contato/index.html", gerar_contato(cfg, pag))
     escrever("404.html", gerar_404(cfg))
