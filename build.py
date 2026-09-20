@@ -560,7 +560,20 @@ PAGINAS_TRADUZIDAS = {
     "/data-center/": {"en": "/en/data-center/", "zh": "/zh/data-center/"},
     "/contato/": {"en": "/en/contato/", "zh": "/zh/contato/"},
     "/agenda-agro/": {"en": "/en/agenda-agro/", "zh": "/zh/agenda-agro/"},
+    "/imoveis/": {"en": "/en/imoveis/", "zh": "/zh/imoveis/"},
 }
+
+
+def registrar_imoveis_traduzidos(imoveis: list[dict], trad_map: dict) -> None:
+    """Preenche PAGINAS_TRADUZIDAS com a URL de cada ficha de imovel que tenha
+    traducao disponivel em conteudo/imoveis_i18n.json, para que o seletor de
+    idioma no topo funcione tambem dentro da ficha de cada fazenda."""
+    for im in imoveis:
+        if im["slug"] in trad_map:
+            PAGINAS_TRADUZIDAS[im["url"]] = {
+                "en": f"/en/imoveis/{im['slug']}/",
+                "zh": f"/zh/imoveis/{im['slug']}/",
+            }
 
 BANDEIRA_SVG = {
     "pt": '<svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009739"/><path d="M12 2 22 8 12 14 2 8Z" fill="#FEDD00"/><circle cx="12" cy="8" r="3.2" fill="#012169"/></svg>',
@@ -1788,7 +1801,7 @@ NAV_I18N = {
         {"titulo": "About Us", "url": "/en/sobre/"},
         {"titulo": "Services", "url": "/en/servicos/"},
         {"titulo": "Data Center", "url": "/en/data-center/"},
-        {"titulo": "Properties", "url": "/imoveis/"},
+        {"titulo": "Properties", "url": "/en/imoveis/"},
         {"titulo": "Invest in Agribusiness", "url": "/investir-no-agro/"},
         {"titulo": "News", "url": "/blog/"},
         {"titulo": "Contact", "url": "/en/contato/"},
@@ -1798,7 +1811,7 @@ NAV_I18N = {
         {"titulo": "关于我们", "url": "/zh/sobre/"},
         {"titulo": "服务项目", "url": "/zh/servicos/"},
         {"titulo": "数据中心", "url": "/zh/data-center/"},
-        {"titulo": "房产项目", "url": "/imoveis/"},
+        {"titulo": "房产项目", "url": "/zh/imoveis/"},
         {"titulo": "投资农业", "url": "/investir-no-agro/"},
         {"titulo": "新闻资讯", "url": "/blog/"},
         {"titulo": "联系我们", "url": "/zh/contato/"},
@@ -2782,6 +2795,402 @@ def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
                   og_imagem=og_img_imovel)
 
 
+TIPOS_I18N = {
+    "en": {"agricola": "Cropland", "pecuaria": "Cattle ranching", "mista": "Mixed use",
+           "reflorestamento": "Reforestation", "lazer": "Leisure"},
+    "zh": {"agricola": "农业用地", "pecuaria": "畜牧业", "mista": "农牧混合",
+           "reflorestamento": "植树造林", "lazer": "休闲用地"},
+}
+
+STATUS_I18N = {
+    "en": {"disponivel": ("Available", "selo--azul"), "reservado": ("Reserved", "selo--dourado"),
+           "vendido": ("Sold", "selo--vendido")},
+    "zh": {"disponivel": ("可售", "selo--azul"), "reservado": ("已预订", "selo--dourado"),
+           "vendido": ("已售出", "selo--vendido")},
+}
+
+TEXTOS_IMOVEL_I18N = {
+    "en": {
+        "area_total": "Total area", "valor": "Price", "sob_consulta": "Available on request",
+        "regiao": "Region", "localizacao": "Location", "aptidao": "Suitability", "situacao": "Status",
+        "area_aberta": "Cleared area", "reserva": "Reserve / APP", "documentos_verificados": "Documents verified",
+        "rascunho": "Draft — not published", "exemplo": "Example",
+        "falar_especialista": "Talk to a specialist", "agendar_visita": "Schedule a visit",
+        "falar_sobre": "Ask about this property", "propriedade": "property", "propriedades": "properties",
+        "inicio": "Home", "imoveis_nav": "Properties", "a_propriedade": "The property",
+        "caracteristicas": "Features", "infraestrutura": "Infrastructure", "documentacao": "Documentation",
+        "video": "Video", "localizacao_titulo": "Location", "numeros": "Property numbers",
+        "ficha_completa": "Full property sheet", "tambem_interessar": "You may also be interested",
+        "imoveis_relacionados": "Related properties", "quer_ver_outras": "Want to see other options?",
+        "temos_nao_publicadas": "We have properties that are not published on the site.",
+        "preco_confirmado": "Price, area and availability are confirmed before any proposal.",
+        "por_hectare": "per hectare", "portfolio": "Portfolio", "imoveis_titulo": "Rural properties for sale",
+        "todas": "All", "ordenar_por": "Sort by", "mais_recentes": "Most recent",
+        "maior_preco": "Highest price", "menor_preco": "Lowest price", "maior_area": "Largest area",
+        "menor_area": "Smallest area", "atualizado_em": "Sheet updated on",
+        "sujeito_confirmacao": "Data subject to confirmation during due diligence.",
+        "mapa_aviso": "Approximate map of the municipality — {local}. Does not represent the exact boundaries of the property.",
+        "aviso_confirmado": ("Prices, area and availability are confirmed before publication. If a property "
+                              "is reserved or under negotiation, it does not appear as available."),
+        "portfolio_vazio_titulo": "Portfolio being updated", "diga_regiao": "Procura algo específico?",
+    },
+    "zh": {
+        "area_total": "总面积", "valor": "价格", "sob_consulta": "价格面议",
+        "regiao": "地区", "localizacao": "位置", "aptidao": "用途", "situacao": "状态",
+        "area_aberta": "已开垦面积", "reserva": "保留地/APP", "documentos_verificados": "文件已核实",
+        "rascunho": "草稿 — 未发布", "exemplo": "示例",
+        "falar_especialista": "联系专业顾问", "agendar_visita": "预约看地",
+        "falar_sobre": "咨询此房产", "propriedade": "处房产", "propriedades": "处房产",
+        "inicio": "首页", "imoveis_nav": "房产项目", "a_propriedade": "房产介绍",
+        "caracteristicas": "特点", "infraestrutura": "基础设施", "documentacao": "文件资料",
+        "video": "视频", "localizacao_titulo": "位置", "numeros": "房产数据",
+        "ficha_completa": "完整资料表", "tambem_interessar": "您可能还感兴趣",
+        "imoveis_relacionados": "相关房产", "quer_ver_outras": "想看看其他选择吗？",
+        "temos_nao_publicadas": "我们还有一些未在网站上公开的房产。",
+        "preco_confirmado": "价格、面积及可售状态均在任何报价前予以确认。",
+        "por_hectare": "每公顷", "portfolio": "项目组合", "imoveis_titulo": "在售乡村地产",
+        "todas": "全部", "ordenar_por": "排序方式", "mais_recentes": "最新",
+        "maior_preco": "价格从高到低", "menor_preco": "价格从低到高", "maior_area": "面积从大到小",
+        "menor_area": "面积从小到大", "atualizado_em": "资料更新于",
+        "sujeito_confirmacao": "数据须在尽职调查中予以确认。",
+        "mapa_aviso": "该市镇的大致地图 — {local}。并不代表房产的确切边界。",
+        "aviso_confirmado": "价格、面积及可售状态均在发布前予以确认。若某处房产处于预订或洽谈中，将不会显示为可售。",
+        "portfolio_vazio_titulo": "项目组合更新中", "diga_regiao": "有具体需求？",
+    },
+}
+
+
+def traduzir_imovel(im: dict, lang: str, trad_map: dict) -> dict:
+    """Retorna uma copia do imovel com titulo/subtitulo/descricao/listas traduzidas
+    (quando existir entrada em conteudo/imoveis_i18n.json) e url apontando para a
+    versao no idioma. Fotos, preco, area e demais dados numericos sao os mesmos."""
+    novo = dict(im)
+    t = trad_map.get(im["slug"], {}).get(lang)
+    if t:
+        for campo in ("titulo", "subtitulo", "descricao", "caracteristicas", "infraestrutura", "documentacao"):
+            if campo in t:
+                novo[campo] = t[campo]
+    novo["url"] = f"/{lang}/imoveis/{im['slug']}/"
+    return novo
+
+
+def card_imovel_i18n(im: dict, lang: str) -> str:
+    tx = TEXTOS_IMOVEL_I18N[lang]
+    selos = []
+    rotulo, classe = STATUS_I18N[lang].get(im.get("status", "disponivel"), STATUS_I18N[lang]["disponivel"])
+    if im.get("status") != "disponivel":
+        selos.append(f'<span class="selo {classe}">{e(rotulo)}</span>')
+    if im.get("certificacao_ambiental"):
+        selos.append(f'<span class="selo">{e(tx["documentos_verificados"])}</span>')
+    if im.get("_rascunho"):
+        selos.append(f'<span class="selo selo--aviso">{e(tx["rascunho"])}</span>')
+    if im.get("_exemplo"):
+        selos.append(f'<span class="selo selo--aviso">{e(tx["exemplo"])}</span>')
+
+    local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
+    alt_capa = descricao_foto(im["fotos_url"][0], im["titulo"], local) if im["fotos_url"] else (
+        f'{im["titulo"]} — {local}' if local else im["titulo"])
+
+    if im["fotos_url"]:
+        largura_capa, altura_capa = dimensoes_midia_url(im["fotos_url"][0], 1200, 750)
+        capa = (f'<a class="imovel__capa-link js-foto-modal" href="{e(im["fotos_url"][0])}" '
+                f'data-foto-modal-src="{e(im["fotos_url"][0])}" '
+                f'data-foto-modal-alt="{e(alt_capa)}">'
+                f'<img src="{e(im["fotos_url"][0])}" alt="{e(alt_capa)}" '
+                f'width="{largura_capa}" height="{altura_capa}" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+                f'</a>')
+    else:
+        capa = SVG_CAPA
+
+    tipo = TIPOS_I18N[lang].get(im.get("tipo", ""), "")
+    cabeca = " · ".join(x for x in [local, tipo] if x)
+
+    dados = []
+    if im.get("area_total_ha"):
+        dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["area_total"])}</span>'
+                     f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
+    if im.get("preco_sob_consulta") or not im.get("preco"):
+        dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["valor"])}</span>'
+                     f'<span class="dado__val dado__val--preco">{e(tx["sob_consulta"])}</span></div>')
+    else:
+        dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["valor"])}</span>'
+                     f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
+    preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
+    area_ordenacao = im.get("area_total_ha") or 0
+
+    return f"""<article class="imovel reveal" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}">
+  <div class="imovel__capa">
+    {f'<div class="imovel__selos">{"".join(selos)}</div>' if selos else ''}
+    {capa}
+  </div>
+  <div class="imovel__corpo">
+    <p class="imovel__local">{e(cabeca)}</p>
+    <h3 class="imovel__titulo"><a href="{e(im['url'])}">{e(im['titulo'])}</a></h3>
+    <div class="imovel__dados">{''.join(dados)}</div>
+  </div>
+</article>"""
+
+
+def gerar_lista_imoveis_i18n(cfg: dict, imoveis: list[dict], lang: str, trad_map: dict) -> str:
+    tx = TEXTOS_IMOVEL_I18N[lang]
+    imoveis_i18n = [traduzir_imovel(im, lang, trad_map) for im in imoveis]
+
+    corpo = []
+    corpo.append(f"""<section class="secao secao--compacta">
+  <div class="env">
+    <div class="painel__alerta" style="margin:0">{e(tx['aviso_confirmado'])}</div>
+  </div>
+</section>""")
+
+    if imoveis_i18n:
+        tipos_presentes = []
+        for i in imoveis_i18n:
+            if i.get("tipo") and i["tipo"] not in tipos_presentes:
+                tipos_presentes.append(i["tipo"])
+
+        filtros = f'<button class="filtro" data-filtro="todos" aria-pressed="true">{e(tx["todas"])}</button>'
+        for t in tipos_presentes:
+            filtros += (f'<button class="filtro" data-filtro="{e(t)}" aria-pressed="false">'
+                        f'{e(TIPOS_I18N[lang].get(t, t.capitalize()))}</button>')
+
+        n = len(imoveis_i18n)
+        rotulo_n = tx["propriedade"] if n == 1 else tx["propriedades"]
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="lista-imoveis__barra">
+      <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
+      <div class="campo campo--ordenar">
+        <label for="ordenar-imoveis">{e(tx['ordenar_por'])}</label>
+        <select id="ordenar-imoveis">
+          <option value="recentes">{e(tx['mais_recentes'])}</option>
+          <option value="preco-desc">{e(tx['maior_preco'])}</option>
+          <option value="preco-asc">{e(tx['menor_preco'])}</option>
+          <option value="area-desc">{e(tx['maior_area'])}</option>
+          <option value="area-asc">{e(tx['menor_area'])}</option>
+        </select>
+      </div>
+    </div>
+    <p style="color:var(--tinta-suave);font-size:.9rem;margin-bottom:1.75rem">
+      <span id="contador-imoveis">{n} {e(rotulo_n)}</span>
+    </p>
+    <div class="grade-imoveis" id="grade-imoveis">{''.join(card_imovel_i18n(i, lang) for i in imoveis_i18n)}</div>
+  </div>
+</section>""")
+    else:
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="vazio">
+      <h2>{e(tx['portfolio_vazio_titulo'])}</h2>
+      <div class="grupo-btn" style="justify-content:center;margin-top:2rem">
+        <a class="btn btn--principal" href="/{lang}/contato/">{e(tx['falar_especialista'])}</a>
+      </div>
+    </div>
+  </div>
+</section>""")
+
+    corpo.append(cta_faixa_i18n(cfg, tx["diga_regiao"],
+                                 "Tell us the region, size, suitability and investment range."
+                                 if lang == "en" else "告诉我们地区、面积、用途及投资范围。",
+                                 tx["falar_especialista"], lang))
+
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "CollectionPage",
+        "name": tx["imoveis_titulo"], "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "url": dominio + f"/{lang}/imoveis/",
+        "mainEntity": {
+            "@type": "ItemList",
+            "itemListElement": [
+                {"@type": "ListItem", "position": i + 1, "url": dominio + im["url"], "name": im["titulo"]}
+                for i, im in enumerate(imoveis_i18n)
+            ],
+        },
+    }, ensure_ascii=False)
+
+    titulo = tx["imoveis_titulo"] + " | Prime Fazendas"
+    return _skeleton_i18n(cfg, lang, "/imoveis/", tx["imoveis_titulo"], tx["imoveis_titulo"],
+                           "\n".join(corpo), [ld])
+
+
+def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: str, trad_map: dict) -> str:
+    tx = TEXTOS_IMOVEL_I18N[lang]
+    im = traduzir_imovel(im_pt, lang, trad_map)
+    local = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
+    olho = " · ".join(x for x in [local, TIPOS_I18N[lang].get(im.get("tipo", ""), ""), im.get("regiao", "")] if x)
+
+    resumo_dados = []
+    if local:
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["regiao"])}</span>'
+                            f'<span class="dado__val">{e(local)}</span></div>')
+    if im.get("area_total_ha"):
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["area_total"])}</span>'
+                            f'<span class="dado__val">{fmt_num(im["area_total_ha"])} ha</span></div>')
+    if im.get("preco_sob_consulta") or not im.get("preco"):
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["valor"])}</span>'
+                            f'<span class="dado__val dado__val--preco">{e(tx["sob_consulta"])}</span></div>')
+    else:
+        resumo_dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["valor"])}</span>'
+                            f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
+
+    acao_resumo = f'<a class="btn btn--principal" href="/{lang}/contato/">{e(tx["falar_especialista"])}</a>'
+
+    resumo_imovel = (f'<div class="resumo-imovel">'
+                     f'<div class="resumo-imovel__dados">{"".join(resumo_dados)}</div>'
+                     f'<div class="resumo-imovel__acao">{acao_resumo}</div>'
+                     f'</div>') if resumo_dados else ""
+
+    migalha_html = ('<nav class="migalhas" aria-label="Breadcrumb"><ol>'
+                    f'<li><a href="/{lang}/">{e(tx["inicio"])}</a></li>'
+                    f'<li><a href="/{lang}/imoveis/">{e(tx["imoveis_nav"])}</a></li>'
+                    f'<li aria-current="page">{e(im["titulo"])}</li></ol></nav>')
+
+    corpo = [f'<section class="secao secao--compacta"><div class="env">'
+             + migalha_html
+             + f'<p class="olho">{e(olho)}</p><h1>{e(im["titulo"])}</h1>'
+             + (f'<p class="chamada chamada--larga">{e(im["subtitulo"])}</p>' if im.get("subtitulo") else "")
+             + resumo_imovel
+             + "</div></section>"]
+
+    blocos = []
+    if im["fotos_url"]:
+        local_galeria = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if x)
+        fotos = "".join(
+            f'<a class="galeria__link js-foto-modal" href="{e(u)}" '
+            f'data-foto-modal-src="{e(u)}" '
+            f'data-foto-modal-alt="{e(descricao_foto(u, im["titulo"], local_galeria))} — {n + 1}" '
+            f'>'
+            f'<img src="{e(u)}" alt="{e(descricao_foto(u, im["titulo"], local_galeria))} — {n + 1}" '
+            f'width="{(dim := dimensoes_midia_url(u, 1200, 900))[0]}" height="{dim[1]}" '
+            f'loading="lazy" sizes="(max-width: 640px) 100vw, 50vw">'
+            f'</a>'
+            for n, u in enumerate(im["fotos_url"])
+        )
+        blocos.append(f'<div class="galeria galeria--curada">{fotos}</div>')
+    if im.get("descricao"):
+        blocos.append(f'<div class="bloco-ficha"><h3>{e(tx["a_propriedade"])}</h3>'
+                      f'<div class="prosa">{paragrafos(im["descricao"])}</div></div>')
+
+    detalhes = []
+    for titulo_bloco, chave in [(tx["caracteristicas"], "caracteristicas"),
+                                (tx["infraestrutura"], "infraestrutura"),
+                                (tx["documentacao"], "documentacao")]:
+        itens = im.get(chave) or []
+        if itens:
+            marcador = "marcada marcada--check" if chave == "documentacao" else "marcada"
+            detalhes.append(f'<div class="bloco-ficha"><h3>{e(titulo_bloco)}</h3>'
+                            f'<ul class="{marcador}">' + "".join(f"<li>{e(i)}</li>" for i in itens) + "</ul></div>")
+
+    if preenchido(im.get("video_youtube")):
+        vid = e(im["video_youtube"])
+        detalhes.append(f'<div class="bloco-ficha"><h3>{e(tx["video"])}</h3><div class="mapa">'
+                        f'<iframe src="https://www.youtube-nocookie.com/embed/{vid}" '
+                        f'title="{e(tx["video"])}" loading="lazy" allowfullscreen></iframe></div></div>')
+
+    mapa_embed_url = im.get("mapa_embed") if preenchido(im.get("mapa_embed")) else ""
+    mapa_legenda = ""
+    if not mapa_embed_url:
+        municipio_estado = ", ".join(x for x in [im.get("municipio"), im.get("estado")] if preenchido(x))
+        if municipio_estado:
+            mapa_embed_url = f"https://www.google.com/maps?q={url_quote(municipio_estado)}&output=embed"
+            mapa_legenda = (f'<p class="form__nota" style="margin-top:.6rem">'
+                            f'{e(tx["mapa_aviso"].format(local=municipio_estado))}</p>')
+    if mapa_embed_url:
+        detalhes.append(f'<div class="bloco-ficha"><h3>{e(tx["localizacao_titulo"])}</h3><div class="mapa">'
+                        f'<iframe src="{e(mapa_embed_url)}" title="{e(tx["localizacao_titulo"])}" '
+                        f'loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe></div>'
+                        f'{mapa_legenda}</div>')
+
+    areas_extra = []
+    if im.get("area_aberta_ha"):
+        areas_extra.append(f'<div class="dado"><span class="dado__rot">{e(tx["area_aberta"])}</span>'
+                           f'<span class="dado__val">{fmt_num(im["area_aberta_ha"])} ha</span></div>')
+    if im.get("area_reserva_ha"):
+        areas_extra.append(f'<div class="dado"><span class="dado__rot">{e(tx["reserva"])}</span>'
+                           f'<span class="dado__val">{fmt_num(im["area_reserva_ha"])} ha</span></div>')
+    rotulo_status_rapido, _ = STATUS_I18N[lang].get(im.get("status", "disponivel"), STATUS_I18N[lang]["disponivel"])
+    areas_extra.append(f'<div class="dado"><span class="dado__rot">{e(tx["situacao"])}</span>'
+                       f'<span class="dado__val">{e(rotulo_status_rapido)}</span></div>')
+    if areas_extra:
+        detalhes.insert(0, f'<div class="bloco-ficha"><h3>{e(tx["numeros"])}</h3>'
+                        f'<div class="imovel__dados imovel__dados--ficha">{"".join(areas_extra)}</div></div>')
+
+    if detalhes:
+        blocos.append(f'<details class="ficha-tecnica"><summary class="ficha-tecnica__abrir">'
+                      f'{e(tx["ficha_completa"])}</summary>'
+                      f'<div class="ficha-tecnica__corpo">{"".join(detalhes)}</div></details>')
+
+    if im.get("preco_sob_consulta") or not im.get("preco"):
+        preco_html = f'<p class="painel__preco">{e(tx["sob_consulta"])}</p>'
+        nota = ""
+    else:
+        preco_html = f'<p class="painel__preco">{e(fmt_reais(im["preco"]))}</p>'
+        nota = ""
+        if im.get("preco_ha"):
+            nota = f'<p class="painel__preco-nota">≈ R$ {fmt_num(round(im["preco_ha"]))} {e(tx["por_hectare"])}</p>'
+    nota += f'<p class="painel__alerta">{e(tx["preco_confirmado"])}</p>'
+
+    linhas = []
+    if im.get("area_total_ha"):
+        linhas.append((tx["area_total"], f'{fmt_num(im["area_total_ha"])} ha'))
+    if im.get("area_aberta_ha"):
+        linhas.append((tx["area_aberta"], f'{fmt_num(im["area_aberta_ha"])} ha'))
+    if im.get("area_reserva_ha"):
+        linhas.append((tx["reserva"], f'{fmt_num(im["area_reserva_ha"])} ha'))
+    if local:
+        linhas.append((tx["localizacao"], local))
+    if im.get("regiao"):
+        linhas.append((tx["regiao"], im["regiao"]))
+    if im.get("tipo"):
+        linhas.append((tx["aptidao"], TIPOS_I18N[lang].get(im["tipo"], im["tipo"])))
+    rotulo_status, _ = STATUS_I18N[lang].get(im.get("status", "disponivel"), STATUS_I18N[lang]["disponivel"])
+    linhas.append((tx["situacao"], rotulo_status))
+
+    linhas_html = "".join(
+        f'<li><span class="rot">{e(r)}</span><span class="val">{e(v)}</span></li>' for r, v in linhas
+    )
+
+    acoes = (f'<a class="btn btn--principal btn--bloco" href="/{lang}/contato/">{e(tx["falar_sobre"])}</a>')
+
+    painel = f"""<aside class="painel">
+  {preco_html}{nota}
+  <ul class="painel__linhas">{linhas_html}</ul>
+  {acoes}
+  <p class="form__nota" style="margin-top:1.1rem">{e(tx["sujeito_confirmacao"])}</p>
+  <p class="form__nota">{e(tx["atualizado_em"])} {e(fmt_data(date.today()))}.</p>
+</aside>"""
+
+    corpo.append(f'<section class="secao secao--compacta"><div class="env">'
+                 f'<div class="ficha"><div>{"".join(blocos)}</div>{painel}</div></div></section>')
+
+    relacionados_pt = imoveis_relacionados(im_pt, todos_pt)
+    if relacionados_pt:
+        relacionados_i18n = [traduzir_imovel(o, lang, trad_map) for o in relacionados_pt]
+        corpo.append(f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="cabeca-secao"><p class="olho">{e(tx['tambem_interessar'])}</p><h2>{e(tx['imoveis_relacionados'])}</h2></div>
+    <div class="grade-imoveis">{''.join(card_imovel_i18n(o, lang) for o in relacionados_i18n)}</div>
+  </div>
+</section>""")
+
+    corpo.append(cta_faixa_i18n(cfg, tx["quer_ver_outras"], tx["temos_nao_publicadas"], tx["falar_especialista"], lang))
+
+    desc = im.get("subtitulo") or im.get("descricao", "")[:160] or im["titulo"]
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "RealEstateListing", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "name": im["titulo"], "description": desc, "url": cfg["site"]["dominio"].rstrip("/") + im["url"],
+        "address": {"@type": "PostalAddress", "addressLocality": im.get("municipio", ""),
+                    "addressRegion": im.get("estado", ""), "addressCountry": "BR"},
+        **({"floorSize": {"@type": "QuantitativeValue", "value": im["area_total_ha"], "unitText": "ha"}}
+           if im.get("area_total_ha") else {}),
+        **({"offers": {"@type": "Offer", "price": im["preco"], "priceCurrency": "BRL",
+                       "availability": ("https://schema.org/InStock" if im.get("status") == "disponivel"
+                                       else "https://schema.org/OutOfStock")}}
+           if im.get("preco") and not im.get("preco_sob_consulta") else {}),
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, im_pt["url"], im["titulo"], desc, "\n".join(corpo), [ld])
+
+
 def gerar_redirect(cfg, destino: str) -> str:
     """Pagina simples de redirecionamento (usada para URLs antigas que saem do menu,
     ex.: /comunidade/ apos a fusao do conteudo dentro do Blog)."""
@@ -3384,6 +3793,8 @@ def main() -> int:
 
     manutencao = carregar_manutencao()
     imoveis = carregar_imoveis()
+    imoveis_i18n_map = ler_json(CONTEUDO / "imoveis_i18n.json") or {}
+    registrar_imoveis_traduzidos(imoveis, imoveis_i18n_map)
     posts = carregar_posts()
     agenda_agro = carregar_agenda_agro()
 
@@ -3426,6 +3837,8 @@ def main() -> int:
         escrever(f"{lang}/agenda-agro/index.html", gerar_agenda_agro_i18n(cfg, pag.get(f"agenda_agro_{lang}", {}), lang))
     escrever("investir-no-agro/index.html", gerar_investir(cfg, pag, dados_agro))
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
+    for lang in ("en", "zh"):
+        escrever(f"{lang}/imoveis/index.html", gerar_lista_imoveis_i18n(cfg, imoveis, lang, imoveis_i18n_map))
     escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
     escrever("blog/index.html", gerar_blog(cfg, pag, posts, imoveis))
     escrever("agenda-agro/index.html", gerar_agenda_agro(cfg, pag, agenda_agro))
@@ -3434,6 +3847,10 @@ def main() -> int:
 
     for im in imoveis:
         escrever(f"imoveis/{im['slug']}/index.html", gerar_ficha_imovel(cfg, im, imoveis))
+        if im["slug"] in imoveis_i18n_map:
+            for lang in ("en", "zh"):
+                escrever(f"{lang}/imoveis/{im['slug']}/index.html",
+                         gerar_ficha_imovel_i18n(cfg, im, imoveis, lang, imoveis_i18n_map))
     for p in posts:
         escrever(f"blog/{p['slug']}/index.html", gerar_post(cfg, p, posts))
 
@@ -3443,7 +3860,8 @@ def main() -> int:
             "/blog/", "/agenda-agro/", "/contato/"]
     for lang in ("en", "zh"):
         urls += [f"/{lang}/", f"/{lang}/sobre/", f"/{lang}/servicos/", f"/{lang}/data-center/",
-                 f"/{lang}/contato/", f"/{lang}/agenda-agro/"]
+                 f"/{lang}/contato/", f"/{lang}/agenda-agro/", f"/{lang}/imoveis/"]
+        urls += [f"/{lang}/imoveis/{slug}/" for slug in imoveis_i18n_map]
     urls += [im["url"] for im in imoveis]
     urls += [p["url"] for p in posts]
     hoje = date.today().isoformat()

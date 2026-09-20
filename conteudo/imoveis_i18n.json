@@ -1,0 +1,1394 @@
+{
+  "fazenda-agata-do-campo": {
+    "en": {
+      "titulo": "Fazenda Ágata do Campo (Agate Farm)",
+      "subtitulo": "130 alqueires on a riverbank, ideal for cattle ranching",
+      "descricao": "A 629.2-hectare farm (130 alqueires) in the municipality of Dianópolis, about 150km from Luís Eduardo Magalhães and 20km from town (17km paved, 4km dirt road).\n\nRed cerrado land with plenty of native timber, located on the banks of a river, with 30 alqueires already cleared and formed into pasture. Includes a cattle pen and a shed built with aroeira wood — a simple but functional structure for cattle ranching.",
+      "caracteristicas": [
+        "Riverbank location",
+        "Red cerrado with abundant native timber",
+        "30 alqueires of formed pasture"
+      ],
+      "infraestrutura": [
+        "Cattle pen with aroeira-wood structure",
+        "Simple equipment shed"
+      ],
+      "documentacao": [
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Ágata do Campo 农场（玛瑙农场）",
+      "subtitulo": "临河130阿尔盖尔（约629公顷）,适合发展畜牧业",
+      "descricao": "该农场位于迪亚诺波利斯（Dianópolis）市,面积629.2公顷（130阿尔盖尔）,距离路易斯·爱德华多·马加良斯约150公里,距市区20公里（17公里为柏油路,4公里为土路）。\n\n红色塞拉多（cerrado）地貌,天然林木资源丰富,毗邻河流,已开垦并形成牧场30阿尔盖尔。配有牛栏及巴西紫檀木结构的棚屋——结构简单但实用,适合畜牧作业。",
+      "caracteristicas": [
+        "临河而建",
+        "红色塞拉多地貌,天然林木丰富",
+        "已形成30阿尔盖尔牧场"
+      ],
+      "infraestrutura": [
+        "紫檀木结构牛栏",
+        "简易设备棚屋"
+      ],
+      "documentacao": [
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-agata-do-fogo": {
+    "en": {
+      "titulo": "Fazenda Ágata do Fogo (Fire Agate Farm)",
+      "subtitulo": "2,090 hectares planting 1,000 hectares right off the paved road in Divinópolis do Tocantins",
+      "descricao": "A highly productive farm in Divinópolis do Tocantins, currently planting 1,000 hectares. Strategic location right off the paved road, only 15km from town, with gently rolling terrain and 65% land utilization.\n\nClay soil, with annual rainfall between 1,800 and 2,200mm, favorable for both crops and cattle.",
+      "caracteristicas": [
+        "1,000 hectares under active cultivation",
+        "Gently rolling terrain, 65% utilization",
+        "Clay soil with fine gravel"
+      ],
+      "infraestrutura": [
+        "Main house and machinery shed",
+        "Located right off the paved road, 15km from Divinópolis"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Ágata do Fogo 农场（火玛瑙农场）",
+      "subtitulo": "占地2,090公顷,现耕种1,000公顷,毗邻托坎廷斯州迪维诺波利斯（Divinópolis do Tocantins）柏油路",
+      "descricao": "该农场位于托坎廷斯州迪维诺波利斯,生产力高,现耕种面积达1,000公顷。地理位置优越,紧邻柏油路,距市区仅15公里,地势轻微起伏,土地利用率达65%。\n\n土壤类型为粘土,年降雨量在1,800至2,200毫米之间,适宜种植作物及发展畜牧业。",
+      "caracteristicas": [
+        "1,000公顷正在积极耕种",
+        "地势轻微起伏,利用率65%",
+        "粘土土壤,含细砾石"
+      ],
+      "infraestrutura": [
+        "主宅及机械棚",
+        "紧邻柏油路,距迪维诺波利斯15公里"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-amazonita": {
+    "en": {
+      "titulo": "Fazenda Amazonita (Amazonite Farm)",
+      "subtitulo": "1,200 hectares of dual-purpose land 60km from Palmas, in Monte do Carmo",
+      "descricao": "A dual-purpose farm 60km from Palmas, in the municipality of Monte do Carmo, with 470 hectares planted in soybeans and capacity for up to 650 hectares of cropland. Cattle operation producing 1,000 head year-round.\n\nComplete feedlot structure and feed mill, plus solar and three-phase power, a year-round stream within the property, and natural ponds.",
+      "caracteristicas": [
+        "470 hectares planted in soybeans, capacity for 650 ha",
+        "Feedlot licensed for 1,200 animals",
+        "Year-round stream and 2 natural ponds"
+      ],
+      "infraestrutura": [
+        "2 sheds (500 m² and 1,600 m²) with workshop and feed mill",
+        "2 main houses and staff quarters with 3 suites",
+        "Solar and three-phase power"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Amazonita 农场（天河石农场）",
+      "subtitulo": "占地1,200公顷,兼具农牧双重用途,位于蒙特多卡尔莫（Monte do Carmo）,距帕尔马斯60公里",
+      "descricao": "该农场位于蒙特多卡尔莫市,距帕尔马斯60公里,兼具农牧双重用途,已种植大豆470公顷,耕地容量可达650公顷。畜牧方面全年存栏量达1,000头。\n\n配备完整的育肥场及饲料加工厂,同时拥有太阳能与三相电力供应、场内常年溪流以及天然水塘。",
+      "caracteristicas": [
+        "已种植大豆470公顷,耕地容量达650公顷",
+        "育肥场获批可容纳1,200头牲畜",
+        "常年溪流及2个天然水塘"
+      ],
+      "infraestrutura": [
+        "2座棚屋（500平方米及1,600平方米）,配有工坊及饲料加工厂",
+        "2栋主宅及员工宿舍（含3间套房）",
+        "太阳能与三相电力供应"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-ambar": {
+    "en": {
+      "titulo": "Fazenda Âmbar (Amber Farm)",
+      "subtitulo": "5,774 hectares with an irrigated rice project in Lagoa da Confusão",
+      "descricao": "A dual-purpose farm in Lagoa da Confusão, with a gravity-irrigation project covering about 1,452 hectares — rice being the region's dominant crop. Well-managed pastures, with 55 paddocks and strong suitability for breeding, rearing and fattening Nelore cattle or buffalo.\n\nAbundant water resources: springs, an artesian well, year-round canals, watering ponds, lakes and streams.",
+      "caracteristicas": [
+        "Gravity-irrigation project across ~1,452 hectares",
+        "55 pasture paddocks",
+        "Soil with good moisture retention"
+      ],
+      "infraestrutura": [
+        "Spacious main house with several suites and a 3-car garage",
+        "4 staff houses and a 1,460 m² machinery shed",
+        "3 cattle pens, the main one with a digital scale for 1,000 animals"
+      ],
+      "documentacao": [
+        "Deed",
+        "Georeferencing (GEO)",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Âmbar 农场（琥珀农场）",
+      "subtitulo": "占地5,774公顷,位于拉戈阿达孔富桑（Lagoa da Confusão）,配备水稻灌溉项目",
+      "descricao": "该农场位于拉戈阿达孔富桑,兼具农牧双重用途,重力灌溉项目覆盖约1,452公顷——水稻是该地区的主要作物。牧场管理良好,划分为55个围栏区,非常适合尼罗尔（Nelore）牛或水牛的繁育、育成及育肥。\n\n水资源丰富:泉水、人工井、常年灌溉渠道、蓄水塘、湖泊及溪流一应俱全。",
+      "caracteristicas": [
+        "重力灌溉项目覆盖约1,452公顷",
+        "55个牧场围栏区",
+        "土壤保水性良好"
+      ],
+      "infraestrutura": [
+        "宽敞主宅,配多间套房及可容纳3辆车的车库",
+        "4栋员工住房及1,460平方米机械棚",
+        "3座牛栏,主牛栏配备可容纳1,000头牲畜的数字秤"
+      ],
+      "documentacao": [
+        "产权证书",
+        "地籍测绘（GEO）",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-ametista-do-cerrado": {
+    "en": {
+      "titulo": "Fazenda Ametista do Cerrado (Cerrado Amethyst Farm)",
+      "subtitulo": "220 alqueires between Santa Rosa and Chapada da Natividade",
+      "descricao": "A 1,064.8-hectare farm (220 alqueires), located between the municipalities of Santa Rosa do Tocantins and Chapada da Natividade, 10km from the paved road and 20km from the limestone source.\n\nWith 100 alqueires cleared and limed, currently under pasture, and georeferencing already completed on 180 alqueires. Annual rainfall of 1,800mm and a well-structured support house.",
+      "caracteristicas": [
+        "100 alqueires cleared and limed",
+        "180 alqueires georeferenced",
+        "Excellent logistics, 10km from the paved road"
+      ],
+      "infraestrutura": [
+        "Well-structured support house"
+      ],
+      "documentacao": [
+        "Georeferencing in progress",
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Ametista do Cerrado 农场（塞拉多紫水晶农场）",
+      "subtitulo": "占地220阿尔盖尔,位于圣罗莎（Santa Rosa）与查帕达纳蒂维达迪（Chapada da Natividade）之间",
+      "descricao": "该农场面积达1,064.8公顷（220阿尔盖尔）,位于托坎廷斯州圣罗莎市与查帕达纳蒂维达迪市之间,距柏油路10公里,距石灰石产地20公里。\n\n已开垦并施用石灰的土地达100阿尔盖尔,目前用作牧场,其中180阿尔盖尔已完成地籍测绘。年降雨量1,800毫米,配有结构完善的辅助住房。",
+      "caracteristicas": [
+        "已开垦并施用石灰100阿尔盖尔",
+        "已完成地籍测绘180阿尔盖尔",
+        "物流条件优越,距柏油路10公里"
+      ],
+      "infraestrutura": [
+        "结构完善的辅助住房"
+      ],
+      "documentacao": [
+        "地籍测绘正在进行中",
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-ametista-do-sul": {
+    "en": {
+      "titulo": "Fazenda Ametista do Sul (Southern Amethyst Farm)",
+      "subtitulo": "1,761.76 formed hectares in the municipality of Peixe, with 28 ponds",
+      "descricao": "A 1,761.76-hectare farm (364 alqueires) in the municipality of Peixe, closest to the town of Alvorada (36km, of which 22km paved and 14km dirt), with 11km of frontage on the Cana Brava River.\n\nFully cleared and formed land, with 26 pasture divisions, a cattle pen, main house and cowhand's house, plus 28 ponds and a high-yield artesian well. Borders a farm that produces soybeans, corn and sorghum.",
+      "caracteristicas": [
+        "26 pasture divisions",
+        "28 ponds and an artesian well",
+        "11km of frontage on the Cana Brava River"
+      ],
+      "infraestrutura": [
+        "Main house and cowhand's house",
+        "Shed with two residences",
+        "Cattle pen"
+      ],
+      "documentacao": [
+        "Active CAR (Rural Environmental Registry)",
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Ametista do Sul 农场（南方紫水晶农场）",
+      "subtitulo": "占地1,761.76公顷,已开垦完成,位于培克斯（Peixe）市,配有28个水塘",
+      "descricao": "该农场面积达1,761.76公顷（364阿尔盖尔）,位于培克斯市,距离最近的阿尔沃拉达（Alvorada）镇36公里（其中柏油路22公里,土路14公里）,沿卡纳布拉瓦河（Cana Brava River）拥有11公里河岸线。\n\n土地已全面开垦并整理完成,划分为26个牧场区,配有牛栏、主宅及牧工住房,另有28个水塘及高产量人工井。与一处种植大豆、玉米及高粱的农场相邻。",
+      "caracteristicas": [
+        "26个牧场分区",
+        "28个水塘及一口人工井",
+        "沿卡纳布拉瓦河拥有11公里河岸线"
+      ],
+      "infraestrutura": [
+        "主宅及牧工住房",
+        "配两套住宅的棚屋",
+        "牛栏"
+      ],
+      "documentacao": [
+        "CAR（农村环境登记）有效",
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-ametista-do-vale": {
+    "en": {
+      "titulo": "Fazenda Ametista do Vale (Valley Amethyst Farm)",
+      "subtitulo": "1,887 flat hectares in Silvanópolis, a summer/second-crop region",
+      "descricao": "A 1,887-hectare farm (390 alqueires) in Silvanópolis-TO, flat land with clay soil in a summer-crop/second-crop region. Currently 1,332 hectares are well-managed pasture, with potential for up to 65% conversion to cropland.\n\nOnly 10km from town and 110km from Palmas, right off the highway, with excellent cattle pen, shed, house and staff quarters infrastructure.",
+      "caracteristicas": [
+        "Flat land, clay soil",
+        "Summer-crop and second-crop region",
+        "1,332 hectares of formed pasture"
+      ],
+      "infraestrutura": [
+        "Cattle pen",
+        "Shed",
+        "House and staff quarters"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Ametista do Vale 农场（山谷紫水晶农场）",
+      "subtitulo": "占地1,887公顷,地势平坦,位于西尔瓦诺波利斯（Silvanópolis）,属主作/次作农业区",
+      "descricao": "该农场面积达1,887公顷（390阿尔盖尔）,位于托坎廷斯州西尔瓦诺波利斯,地势平坦,粘土土壤,地处主作/次作农业区。目前1,332公顷为管理良好的牧场,最高可转换65%用于耕种。\n\n距市区仅10公里,距帕尔马斯110公里,紧邻公路,配备优质牛栏、棚屋、住宅及员工宿舍等基础设施。",
+      "caracteristicas": [
+        "地势平坦,粘土土壤",
+        "主作与次作农业区",
+        "已形成牧场1,332公顷"
+      ],
+      "infraestrutura": [
+        "牛栏",
+        "棚屋",
+        "住宅及员工宿舍"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  },
+  "fazenda-ametista-real": {
+    "en": {
+      "titulo": "Fazenda Ametista Real (Royal Amethyst Farm)",
+      "subtitulo": "1,210 hectares of cattle ranching 40km from Porto Nacional",
+      "descricao": "A farm focused on cow-calf and stocker cattle operations, 40km from downtown Porto Nacional, with 150 alqueires already cleared and formed into pasture. Rolling terrain, with a flat area at the top of the hills suitable for agriculture.\n\nAbundant water: two medium-sized year-round streams and several springs scattered across the property. Permanent herd of approximately 1,200 head.",
+      "caracteristicas": [
+        "150 alqueires cleared and formed into pasture",
+        "Two year-round streams and several springs",
+        "Permanent herd of ~1,200 head"
+      ],
+      "infraestrutura": [
+        "Main house, 3 cowhand houses and a retreat",
+        "Machinery shed and horse stalls",
+        "Cattle pen, 2 ponds and troughs distributed across the pastures"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Ametista Real 农场（皇家紫水晶农场）",
+      "subtitulo": "占地1,210公顷,专注畜牧业,距波尔图纳西奥纳尔（Porto Nacional）40公里",
+      "descricao": "该农场专注于繁育与育成型畜牧业务,距波尔图纳西奥纳尔市中心40公里,已开垦并形成牧场150阿尔盖尔。地势起伏,山顶处有一片平地,适合发展农业。\n\n水资源丰富,拥有两条中型常年溪流及散布全场的多处泉水。常年存栏约1,200头。",
+      "caracteristicas": [
+        "已开垦并形成牧场150阿尔盖尔",
+        "两条常年溪流及多处泉水",
+        "常年存栏约1,200头"
+      ],
+      "infraestrutura": [
+        "主宅、3栋牧工住房及一处休憩屋",
+        "机械棚及马厩",
+        "牛栏、2个水塘及分布于牧场各处的饮水槽"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-aventurina": {
+    "en": {
+      "titulo": "Fazenda Aventurina (Aventurine Farm)",
+      "subtitulo": "17,602 hectares with an airstrip and complete infrastructure in Formoso do Araguaia",
+      "descricao": "A large-scale farm in Formoso do Araguaia, with most of the land in formed pasture, capacity for around 8,000 head of cattle or conversion to grain cropping. Features 7 lakes and 2 adjacent rivers ensuring abundant water.\n\nComplete infrastructure: spacious main house with 12 suites, a 2,000-meter airstrip with hangar, central cattle pen with scale, several outposts and staff housing, plus three center-pivot irrigation systems.",
+      "caracteristicas": [
+        "Mostly formed pasture, capacity for ~8,000 head",
+        "7 lakes and 2 adjacent rivers",
+        "Center-pivot irrigation systems installed"
+      ],
+      "infraestrutura": [
+        "Main house with 12 suites and a 2,000m airstrip with hangar",
+        "Central cattle pen with scale and loading chute",
+        "Several outposts, staff housing and sheds"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "Georeferencing approved"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Aventurina 农场（东陵石农场）",
+      "subtitulo": "占地17,602公顷,配备私人机场跑道及完善基础设施,位于福尔莫索杜阿拉瓜亚（Formoso do Araguaia）",
+      "descricao": "该农场规模宏大,位于福尔莫索杜阿拉瓜亚,大部分土地为已形成牧场,可容纳约8,000头牲畜,亦可转换为谷物种植用地。拥有7个湖泊及2条相邻河流,水资源极为丰富。\n\n基础设施完善:宽敞主宅配12间套房、2,000米跑道及配套机库、中央牛栏配备电子秤,另有多处哨所及员工住房,并配备三套中心枢轴灌溉系统。",
+      "caracteristicas": [
+        "大部分为已形成牧场,可容纳约8,000头牲畜",
+        "7个湖泊及2条相邻河流",
+        "已安装中心枢轴灌溉系统"
+      ],
+      "infraestrutura": [
+        "主宅配12间套房,2,000米跑道及机库",
+        "中央牛栏,配备电子秤及装卸通道",
+        "多处哨所、员工住房及棚屋"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "地籍测绘已批准"
+      ]
+    }
+  },
+  "fazenda-citrino": {
+    "en": {
+      "titulo": "Fazenda Citrino (Citrine Farm)",
+      "subtitulo": "1,338 hectares of dual-purpose land near Dueré and Gurupi",
+      "descricao": "A dual-purpose farm near Dueré and Gurupi, with excellent shipping logistics just 6km from the paved road. Rich cropland soil, with irrigation potential and good average annual rainfall (2,200mm).\n\nFeatures a main house on the edge of a lagoon, a farmhand's house, a cattle pen, two streams and ponds within the property.",
+      "caracteristicas": [
+        "Rich cropland soil with irrigation potential",
+        "Two streams and ponds on the property",
+        "6km from the paved road"
+      ],
+      "infraestrutura": [
+        "Main house on the edge of the lagoon",
+        "Farmhand's house with power",
+        "Cattle pen and fencing in good condition"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Citrino 农场（黄水晶农场）",
+      "subtitulo": "占地1,338公顷,兼具农牧双重用途,毗邻杜埃雷（Dueré）与古鲁皮（Gurupi）",
+      "descricao": "该农场毗邻杜埃雷与古鲁皮,兼具农牧双重用途,距柏油路仅6公里,物流运输条件优越。土壤肥沃,适宜耕种,具备灌溉潜力,年均降雨量达2,200毫米,条件良好。\n\n配有一栋位于湖畔的主宅、一栋雇工住房、一座牛栏,以及场内两条溪流与多个水塘。",
+      "caracteristicas": [
+        "肥沃耕地土壤,具备灌溉潜力",
+        "场内拥有两条溪流及水塘",
+        "距柏油路6公里"
+      ],
+      "infraestrutura": [
+        "湖畔主宅",
+        "配备电力的雇工住房",
+        "牛栏及状况良好的围栏"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-cristal-azul": {
+    "en": {
+      "titulo": "Fazenda Cristal Azul (Blue Crystal Farm)",
+      "subtitulo": "13,792 hectares of large-scale land 30km from Colinas do Tocantins",
+      "descricao": "A large-scale farm about 30km from Colinas do Tocantins, with rainfall of approximately 1,800mm and potential for dozens of center-pivot irrigation systems. Approximate usable area of 7,485 hectares, with part already under soybean cultivation for several years.\n\nEnvironmental permitting underway to expand the cleared area, with potential to grow to as much as 7,000 hectares of cropland.",
+      "caracteristicas": [
+        "Usable area of approximately 7,485 hectares",
+        "Potential for dozens of center-pivot irrigation systems",
+        "Soybean cropland area under expansion"
+      ],
+      "infraestrutura": [
+        "Grain storage structure",
+        "Three-phase power",
+        "Access near regional highways"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Cristal Azul 农场（蓝水晶农场）",
+      "subtitulo": "占地13,792公顷,大规模农业用地,距科利纳斯杜托坎廷斯（Colinas do Tocantins）30公里",
+      "descricao": "该大型农场距科利纳斯杜托坎廷斯约30公里,年降雨量约1,800毫米,具备安装数十套中心枢轴灌溉系统的潜力。可用面积约为7,485公顷,部分区域已种植大豆多年。\n\n环保许可申请正在办理中,以扩大开垦面积,未来耕地规模有望扩展至7,000公顷。",
+      "caracteristicas": [
+        "可用面积约7,485公顷",
+        "具备安装数十套中心枢轴灌溉系统的潜力",
+        "大豆耕地面积正在扩大中"
+      ],
+      "infraestrutura": [
+        "谷物仓储设施",
+        "三相电力供应",
+        "邻近区域公路,交通便利"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-cristal-da-serra": {
+    "en": {
+      "titulo": "Fazenda Cristal da Serra (Mountain Crystal Farm)",
+      "subtitulo": "2,000 hectares in Santa Rosa do Tocantins with a long cropping tradition",
+      "descricao": "A 2,000-hectare farm in the municipality of Santa Rosa do Tocantins, just 3km from town, currently planting 1,260 hectares across three distinct areas.\n\nThe smaller area has been in production for 10 years and the larger one for 25 years, currently under crops but with the possibility of conversion to pasture. Includes a support house on the property.",
+      "caracteristicas": [
+        "1,260 hectares under cultivation",
+        "Long-standing production track record",
+        "3km from town"
+      ],
+      "infraestrutura": [
+        "Support house"
+      ],
+      "documentacao": [
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Cristal da Serra 农场（山地水晶农场）",
+      "subtitulo": "占地2,000公顷,位于圣罗莎（Santa Rosa do Tocantins）,拥有悠久的耕种历史",
+      "descricao": "该农场面积达2,000公顷,位于托坎廷斯州圣罗莎市,距市区仅3公里,目前在三个不同区域耕种,总面积1,260公顷。\n\n其中较小地块已耕种10年,较大地块已耕种25年,目前均用于种植,但也可根据需要转换为牧场。场内配有一栋辅助住房。",
+      "caracteristicas": [
+        "耕种面积1,260公顷",
+        "耕种历史悠久",
+        "距市区3公里"
+      ],
+      "infraestrutura": [
+        "辅助住房"
+      ],
+      "documentacao": [
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-diamante-do-cerrado": {
+    "en": {
+      "titulo": "Fazenda Diamante do Cerrado (Cerrado Diamond Farm)",
+      "subtitulo": "7,589 hectares near Centenário, with potential for 4,000ha of cropland",
+      "descricao": "A 7,589-hectare farm (1,570 alqueires) near the town of Centenário, with potential for up to 4,000 hectares of cultivation.\n\nCurrently 1,470 hectares are formed pasture, of which 400 hectares are already prepared for soybean planting, with a permit requested for an additional 350 hectares. Features 6 artesian wells, a covered cattle pen with a chute, 20 pasture divisions, two fish ponds and new infrastructure for a manager and 12 staff.",
+      "caracteristicas": [
+        "Potential for 4,000ha of cropland",
+        "6 artesian wells",
+        "20 pasture divisions"
+      ],
+      "infraestrutura": [
+        "Manager's house with dining hall and lodging for 12 staff",
+        "Covered cattle pen with chute",
+        "Two fish ponds"
+      ],
+      "documentacao": [
+        "CAR and georeferencing up to date",
+        "Clearing permits requested"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Diamante do Cerrado 农场（塞拉多钻石农场）",
+      "subtitulo": "占地7,589公顷,毗邻森特纳里奥（Centenário）,具备开发4,000公顷耕地的潜力",
+      "descricao": "该农场面积达7,589公顷（1,570阿尔盖尔）,毗邻森特纳里奥镇,具备开发多达4,000公顷耕地的潜力。\n\n目前已形成牧场1,470公顷,其中400公顷已为大豆种植做好准备,并已申请额外350公顷的开垦许可。配有6口人工井、带通道的有顶牛栏、20个牧场分区、2个养鱼塘,以及为管理人员和12名员工新建的住宿设施。",
+      "caracteristicas": [
+        "具备开发4,000公顷耕地的潜力",
+        "6口人工井",
+        "20个牧场分区"
+      ],
+      "infraestrutura": [
+        "管理人员住房,配食堂及12人宿舍",
+        "带通道的有顶牛栏",
+        "两个养鱼塘"
+      ],
+      "documentacao": [
+        "CAR及地籍测绘齐全",
+        "已申请开垦许可"
+      ]
+    }
+  },
+  "fazenda-diamante-do-vale": {
+    "en": {
+      "titulo": "Fazenda Diamante do Vale (Valley Diamond Farm)",
+      "subtitulo": "1,824.68 hectares with complete cattle infrastructure and excellent water resources",
+      "descricao": "A 1,824.68-hectare farm (377 alqueires) in the municipality of Campos Lindos, fully formed and currently used for cattle ranching, with suitability also for irrigated agriculture.\n\nBorders the Bonito River (Tabocas), with excellent flow for irrigation, plus 16 pastures with covered troughs, two cattle pens (for 800 and 500 head), an artesian well, a simple pond and a signal tower. Complete infrastructure with an industrial-style main house, machinery shed and staff housing.",
+      "caracteristicas": [
+        "Excellent water availability, with a river on the border",
+        "16 pastures with covered troughs",
+        "Suitable for irrigated agriculture"
+      ],
+      "infraestrutura": [
+        "Two cattle pens (800 and 500 head)",
+        "Industrial-style main house and staff housing",
+        "Cell phone and internet signal tower"
+      ],
+      "documentacao": [
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Diamante do Vale 农场（山谷钻石农场）",
+      "subtitulo": "占地1,824.68公顷,配备完善畜牧设施及优质水资源",
+      "descricao": "该农场面积达1,824.68公顷（377阿尔盖尔）,位于坎波斯林多斯（Campos Lindos）市,土地已全面开垦,目前用于畜牧业,同时也适合发展灌溉农业。\n\n毗邻博尼托河（塔博卡斯支流,Bonito/Tabocas River）,水流量充沛,适合灌溉。另配有16个带顶棚水槽的牧场、两座牛栏（分别可容纳800头及500头）、一口人工井、一个简易水塘及一座信号塔。基础设施完善,包括工业化主宅、机械棚及员工住房。",
+      "caracteristicas": [
+        "水资源优越,场界毗邻河流",
+        "16个带顶棚水槽的牧场",
+        "适合发展灌溉农业"
+      ],
+      "infraestrutura": [
+        "两座牛栏（分别容纳800头及500头）",
+        "工业化主宅及员工住房",
+        "手机与网络信号塔"
+      ],
+      "documentacao": [
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-diamante": {
+    "en": {
+      "titulo": "Fazenda Diamante (Diamond Farm)",
+      "subtitulo": "2,000 hectares of consolidated cropland 3km from Santa Rosa do Tocantins",
+      "descricao": "A 2,000-hectare cropland farm in Santa Rosa do Tocantins, just 3km from town. Planting takes place across three areas, with a cultivation history of 10 and 25 years, and the property includes a house and operational support structure.\n\nThe land is currently under crops, with potential for conversion to pasture depending on the buyer's profile.",
+      "caracteristicas": [
+        "1,260 hectares under active cultivation",
+        "Three cropland areas with a consolidated track record",
+        "Potential for conversion to cattle ranching"
+      ],
+      "infraestrutura": [
+        "House and support structure",
+        "Only 3km from town"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Diamante 农场（钻石农场）",
+      "subtitulo": "占地2,000公顷,耕地成熟稳定,距圣罗莎（Santa Rosa do Tocantins）仅3公里",
+      "descricao": "该农场面积达2,000公顷,位于圣罗莎,距市区仅3公里,专注耕种。种植分布于三个区域,分别拥有10年及25年的耕种历史,场内配有住宅及运营辅助设施。\n\n目前该地区以耕种为主,可根据买家需求转换为牧场用途。",
+      "caracteristicas": [
+        "1,260公顷正在积极耕种",
+        "三个耕种区域,历史稳定成熟",
+        "可转换为畜牧用途"
+      ],
+      "infraestrutura": [
+        "住宅及辅助设施",
+        "距市区仅3公里"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  },
+  "fazenda-esmeralda-do-cerrado": {
+    "en": {
+      "titulo": "Fazenda Esmeralda do Cerrado (Cerrado Emerald Farm)",
+      "subtitulo": "64 alqueires of well-formed cattle land near Palmas",
+      "descricao": "A cattle farm in the municipality of Palmas, with 64 alqueires, of which 30 are well-formed pasture and a permit is in place to clear 5 more. Features 3 year-round springs and an artesian well more than 200 meters deep.\n\nSupports about 450 head in winter and 300 in summer, with a covered cattle pen and scale, plus a 10,000-liter water tank supplying troughs by gravity.",
+      "caracteristicas": [
+        "30 alqueires of formed pasture, permit for 5 more",
+        "3 springs that never run dry",
+        "Abundant preserved native timber"
+      ],
+      "infraestrutura": [
+        "Cattle pen with scale and covering",
+        "Cowhand's house",
+        "Artesian well over 200m deep",
+        "10,000-liter water tank"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Esmeralda do Cerrado 农场（塞拉多祖母绿农场）",
+      "subtitulo": "占地64阿尔盖尔,牧场发育良好,毗邻帕尔马斯（Palmas）",
+      "descricao": "该畜牧农场位于帕尔马斯市,面积64阿尔盖尔,其中30阿尔盖尔为发育良好的牧场,并已获批可再开垦5阿尔盖尔。场内拥有3处常年泉水及一口深度超过200米的人工井。\n\n可支持冬季存栏约450头,夏季约300头,配有带顶棚牛栏及电子秤,另有一个10,000升储水罐,通过重力向饮水槽供水。",
+      "caracteristicas": [
+        "已形成牧场30阿尔盖尔,另获批开垦5阿尔盖尔",
+        "3处常年不干涸的泉水",
+        "天然林木资源保存完好"
+      ],
+      "infraestrutura": [
+        "带顶棚及电子秤的牛栏",
+        "牧工住房",
+        "深度超过200米的人工井",
+        "10,000升储水罐"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  },
+  "fazenda-galena": {
+    "en": {
+      "titulo": "Fazenda Galena (Galena Farm)",
+      "subtitulo": "2,100 hectares of dual-purpose land with direct access to the BR-153 highway",
+      "descricao": "A dual-purpose farm in Fortaleza do Tabocão, with 2,100 hectares (433 alqueires), 60% of which is cleared, fenced and divided with electric fencing. Part of the property has practiced crop-cattle rotation for over 10 years.\n\nMixed soil (sandy, gravelly and clay), rolling terrain, good water availability with streams, brooks, artesian wells and two ponds. Excellent logistics with direct access to the BR-153 highway.",
+      "caracteristicas": [
+        "60% cleared area with crop-cattle rotation",
+        "Feed, water and salt troughs in every paddock",
+        "Annual rainfall of 1,600 to 1,700mm"
+      ],
+      "infraestrutura": [
+        "2 main houses and 4 staff houses",
+        "Feed mill and covered cattle pen with chute and scale",
+        "Dining hall, sheds, workshop and storage"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Documentation up to date",
+        "Access via the BR-153 highway"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Galena 农场（方铅矿农场）",
+      "subtitulo": "占地2,100公顷,兼具农牧双重用途,直接连通BR-153公路",
+      "descricao": "该农场位于福塔莱萨杜塔博康（Fortaleza do Tabocão）,兼具农牧双重用途,面积达2,100公顷（433阿尔盖尔）,其中60%已开垦、围栏并以电围栏分区。部分区域已实行农牧轮作超过10年。\n\n土壤类型混合（沙质、砾石及粘土）,地势起伏,水资源充足,拥有溪流、小河、人工井及两个水塘。物流条件优越,直接连通BR-153公路。",
+      "caracteristicas": [
+        "60%已开垦区域实行农牧轮作",
+        "每个围栏区均配有饲料、饮水及盐槽",
+        "年降雨量1,600至1,700毫米"
+      ],
+      "infraestrutura": [
+        "2栋主宅及4栋员工住房",
+        "饲料加工厂及带通道与电子秤的有顶牛栏",
+        "食堂、棚屋、工坊及仓库"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "文件齐全",
+        "可通过BR-153公路进入"
+      ]
+    }
+  },
+  "fazenda-jade-do-campo": {
+    "en": {
+      "titulo": "Fazenda Jade do Campo (Field Jade Farm)",
+      "subtitulo": "678 hectares with 5km of frontage on the Paranaíba River Lake",
+      "descricao": "A 678-hectare farm in the municipality of Quirinópolis-GO, 36km from town, 12km from the paved road and 22km from the Boa Vista power plant. Flat terrain, red clay soil, with 495 hectares planted in sugarcane under lease to a mill for production purposes.\n\nFeatures 5,030 meters of frontage on the Paranaíba River Lake, on the border with Minas Gerais, giving it potential for leisure, rural tourism and irrigation.",
+      "caracteristicas": [
+        "5,030 meters of frontage on the Paranaíba River Lake",
+        "Red clay soil, flat topography",
+        "Active lease for sugarcane cultivation"
+      ],
+      "infraestrutura": [
+        "Simple improvements",
+        "12km from the paved road"
+      ],
+      "documentacao": [
+        "Environmentally compliant documentation",
+        "Georeferencing available"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Jade do Campo 农场（田野翡翠农场）",
+      "subtitulo": "占地678公顷,沿帕拉那伊巴河湖（Paranaíba River Lake）拥有5公里河岸线",
+      "descricao": "该农场面积达678公顷,位于戈亚斯州基里诺波利斯（Quirinópolis-GO）市,距市区36公里,距柏油路12公里,距博阿维斯塔（Boa Vista）电站22公里。地势平坦,红色粘土土壤,已出租给制糖厂用于生产用途,种植甘蔗495公顷。\n\n沿帕拉那伊巴河湖拥有5,030米河岸线,毗邻米纳斯吉拉斯州（Minas Gerais）边界,具备发展休闲、乡村旅游及灌溉的潜力。",
+      "caracteristicas": [
+        "沿帕拉那伊巴河湖拥有5,030米河岸线",
+        "红色粘土土壤,地势平坦",
+        "甘蔗种植租约有效"
+      ],
+      "infraestrutura": [
+        "基础设施简单",
+        "距柏油路12公里"
+      ],
+      "documentacao": [
+        "环保合规文件齐全",
+        "地籍测绘资料齐备"
+      ]
+    }
+  },
+  "fazenda-jade-do-cerrado": {
+    "en": {
+      "titulo": "Fazenda Jade do Cerrado (Cerrado Jade Farm)",
+      "subtitulo": "828 hectares near Porto Nacional, ideal for cattle ranching",
+      "descricao": "A 828.80-hectare farm in the municipality of Porto Nacional, near the TO-255 highway, 30km from town and 100km from Palmas. Excellent logistics and infrastructure geared toward cattle ranching.\n\nAnnual rainfall of 1,800mm. Registered legal reserve of 314.37 hectares under an active CAR.",
+      "caracteristicas": [
+        "Excellent logistics, near the TO-255 highway",
+        "Annual rainfall of 1,800mm",
+        "Registered legal reserve"
+      ],
+      "infraestrutura": [
+        "House",
+        "Shed",
+        "Cattle pen"
+      ],
+      "documentacao": [
+        "Active CAR (Rural Environmental Registry)",
+        "Individualized title"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Jade do Cerrado 农场（塞拉多翡翠农场）",
+      "subtitulo": "占地828公顷,毗邻波尔图纳西奥纳尔（Porto Nacional）,适合发展畜牧业",
+      "descricao": "该农场面积达828.80公顷,位于波尔图纳西奥纳尔市,靠近TO-255公路,距市区30公里,距帕尔马斯100公里。物流条件优越,基础设施专注于畜牧业发展。\n\n年降雨量1,800毫米。根据有效的CAR登记,已备案法定保留地314.37公顷。",
+      "caracteristicas": [
+        "物流条件优越,靠近TO-255公路",
+        "年降雨量1,800毫米",
+        "已备案法定保留地"
+      ],
+      "infraestrutura": [
+        "住宅",
+        "棚屋",
+        "牛栏"
+      ],
+      "documentacao": [
+        "CAR（农村环境登记）有效",
+        "独立产权登记"
+      ]
+    }
+  },
+  "fazenda-jade-serena": {
+    "en": {
+      "titulo": "Fazenda Jade Serena (Serene Jade Farm)",
+      "subtitulo": "17,416 hectares right off the paved road, with two structured cattle pens",
+      "descricao": "A large dual-purpose property in Guaraí, with 17,416.02 hectares (3,598.35 alqueires), of which 2,100 hectares are brachiaria pasture in use and 2,300 hectares are cleared with a permit for renewal, plus potential for up to 10,000 hectares of cropland use.\n\nTopography is 95% flat with gentle rolling, clay content of 18% to 24% and red clay soil. Privileged logistics right off the TO-239 paved road, 12km from the BR-153 (north-south corridor), with two year-round rivers and several springs.",
+      "caracteristicas": [
+        "95% flat topography",
+        "2 year-round rivers and several springs",
+        "Right off the TO-239 paved road, 12km from the BR-153"
+      ],
+      "infraestrutura": [
+        "Main house and 3 support houses",
+        "2 structured cattle pens (900 and 500 head)",
+        "Cowhand's house and machinery shed"
+      ],
+      "documentacao": [
+        "Active title and CAR",
+        "CAR registration TO-1709302",
+        "Complete documentation for a public deed"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Jade Serena 农场（宁静翡翠农场）",
+      "subtitulo": "占地17,416公顷,紧邻柏油路,配备两座结构完善的牛栏",
+      "descricao": "该大型农场位于瓜拉伊（Guaraí）,兼具农牧双重用途,面积达17,416.02公顷（3,598.35阿尔盖尔）,其中2,100公顷为正在使用的臂形草牧场,2,300公顷已开垦并获续期许可,另有潜力开发多达10,000公顷用于耕种。\n\n地势95%平坦,略有起伏,粘土含量18%至24%,土壤为红色粘土。物流条件优越,紧邻TO-239柏油路,距BR-153公路（南北走廊）仅12公里,拥有两条常年河流及多处泉水。",
+      "caracteristicas": [
+        "地势95%平坦",
+        "两条常年河流及多处泉水",
+        "紧邻TO-239柏油路,距BR-153公路12公里"
+      ],
+      "infraestrutura": [
+        "主宅及3栋辅助住房",
+        "两座结构完善的牛栏（分别容纳900头及500头）",
+        "牧工住房及机械棚"
+      ],
+      "documentacao": [
+        "产权及CAR均有效",
+        "CAR登记号TO-1709302",
+        "文件齐全,可办理公证过户"
+      ]
+    }
+  },
+  "fazenda-lapis-lazuli-do-tocantins": {
+    "en": {
+      "titulo": "Fazenda Lápis-Lazúli do Tocantins (Tocantins Lapis Lazuli Farm)",
+      "subtitulo": "4,446 hectares with soybeans in production and fully registered documentation",
+      "descricao": "Fazenda Novo Acordo, with 4,446.86 hectares fully registered with the notary office, located 120km from Palmas and 34km from the town of Novo Acordo (24km paved, 10km dirt road to the main house).\n\nAbout 1,000 hectares are already planted in soybeans and the rest is being prepared, with an environmental permit for 1,843 hectares of cleared land. Soil with 10% to 20% clay, flat to gently rolling terrain, bordering soybean-producing areas in the region.",
+      "caracteristicas": [
+        "Flat to gently rolling terrain",
+        "2 springs on the property",
+        "Expansion potential of another 300 to 500 hectares"
+      ],
+      "infraestrutura": [
+        "Caretaker's house and staff dormitory",
+        "Workshop with a concreted shed and fuel tank",
+        "Semi-artesian well and machinery shed"
+      ],
+      "documentacao": [
+        "Fully registered with the notary office",
+        "Active CAR and Naturatins clearing permit",
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Lápis-Lazúli do Tocantins 农场（托坎廷斯青金石农场）",
+      "subtitulo": "占地4,446公顷,大豆已投产,产权登记齐全",
+      "descricao": "诺沃阿科尔多农场（Fazenda Novo Acordo）,面积达4,446.86公顷,已在公证处全面登记,距帕尔马斯120公里,距诺沃阿科尔多（Novo Acordo）镇34公里（其中24公里为柏油路,10公里为通往主宅的土路）。\n\n约1,000公顷已种植大豆,其余部分正在整地准备中,并已获得1,843公顷开垦面积的环保许可。土壤粘土含量10%至20%,地势平坦至轻微起伏,与该地区其他大豆产区相邻。",
+      "caracteristicas": [
+        "地势平坦至轻微起伏",
+        "场内拥有2处泉水",
+        "具备再扩展300至500公顷的潜力"
+      ],
+      "infraestrutura": [
+        "看护人住房及员工宿舍",
+        "配混凝土棚屋及燃料罐的工坊",
+        "半人工井及机械棚"
+      ],
+      "documentacao": [
+        "已在公证处全面登记",
+        "CAR有效,并获Naturatins开垦许可",
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-painita": {
+    "en": {
+      "titulo": "Fazenda Painita (Painite Farm)",
+      "subtitulo": "159 alqueires with genetic improvement and potential for fish farming",
+      "descricao": "A 769.56-hectare farm (159 alqueires) in the municipality of Dois Irmãos do Tocantins, split across three titles, 35km from town and 15km down a local road.\n\n90% flat land, with clay content above 35% and good water availability. Fully formed, with potential for cattle ranching, cropping and fish farming. A genetic improvement program with 200 breeding females is already operating on the property.",
+      "caracteristicas": [
+        "90% flat topography",
+        "Clay content above 35%",
+        "Genetic improvement program with 200 breeding females"
+      ],
+      "infraestrutura": [
+        "House and support structure",
+        "Potential for fish farming"
+      ],
+      "documentacao": [
+        "Split across three titles",
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Painita 农场（帕莱石农场）",
+      "subtitulo": "占地159阿尔盖尔,已开展基因改良项目,并具备发展水产养殖的潜力",
+      "descricao": "该农场面积达769.56公顷（159阿尔盖尔）,位于托坎廷斯州多伊斯伊尔芒斯（Dois Irmãos do Tocantins）市,分为三个产权,距市区35公里,沿地方道路15公里。\n\n90%地势平坦,粘土含量超过35%,水资源充足。土地已全面开垦,适合发展畜牧、耕种及水产养殖。场内已开展基因改良项目,拥有200头种母畜。",
+      "caracteristicas": [
+        "地势90%平坦",
+        "粘土含量超过35%",
+        "基因改良项目,拥有200头种母畜"
+      ],
+      "infraestrutura": [
+        "住宅及辅助设施",
+        "具备发展水产养殖的潜力"
+      ],
+      "documentacao": [
+        "分为三个产权",
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-perola-do-araguaia": {
+    "en": {
+      "titulo": "Fazenda Pérola do Araguaia (Araguaia Pearl Farm)",
+      "subtitulo": "10,164 hectares on the banks of the Araguaia River, in Pará",
+      "descricao": "A 10,164-hectare farm in the municipality of São Geraldo do Araguaia (PA), with 12km of frontage on the Araguaia River, 160km from Marabá and 145km from Araguaína.\n\nA cleared area of 5,663 hectares dedicated to cattle ranching, with a main house, 3 outposts and 148 pasture divisions. A herd of approximately 6,000 head and machinery can be negotiated separately.",
+      "caracteristicas": [
+        "12km of frontage on the Araguaia River",
+        "148 pasture divisions",
+        "5,663 hectares cleared"
+      ],
+      "infraestrutura": [
+        "Main house and 3 outposts",
+        "Complete cattle-ranching infrastructure"
+      ],
+      "documentacao": [
+        "Regularized documentation"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Pérola do Araguaia 农场（阿拉瓜亚珍珠农场）",
+      "subtitulo": "占地10,164公顷,沿阿拉瓜亚河（Araguaia River）而建,位于帕拉州（Pará）",
+      "descricao": "该农场面积达10,164公顷,位于帕拉州圣杰拉尔多杜阿拉瓜亚（São Geraldo do Araguaia）市,沿阿拉瓜亚河拥有12公里河岸线,距马拉巴（Marabá）160公里,距阿拉瓜伊纳（Araguaína）145公里。\n\n已开垦5,663公顷用于畜牧业,配有主宅、3处哨所及148个牧场分区。存栏约6,000头牲畜及机械设备可另行协商。",
+      "caracteristicas": [
+        "沿阿拉瓜亚河拥有12公里河岸线",
+        "148个牧场分区",
+        "已开垦5,663公顷"
+      ],
+      "infraestrutura": [
+        "主宅及3处哨所",
+        "完善的畜牧业基础设施"
+      ],
+      "documentacao": [
+        "产权文件已合规化"
+      ]
+    }
+  },
+  "fazenda-perola-do-leste": {
+    "en": {
+      "titulo": "Fazenda Pérola do Leste (Eastern Pearl Farm)",
+      "subtitulo": "2,320 preserved hectares bordered by the Perdida River",
+      "descricao": "A 2,320.33-hectare area (479.40 alqueires) in the Lizarda region, near the TO-245 highway, 18km from the main road. Still-preserved land, covered by native vegetation with no built improvements.\n\nBordered by the Perdida River and several smaller rivers, ensuring abundant water across the entire property. Excellent suitability for both cropping and cattle ranching, with medium-texture type II soil.",
+      "caracteristicas": [
+        "Bordered by the Perdida River",
+        "Annual rainfall of 1,800mm",
+        "Preserved native vegetation"
+      ],
+      "infraestrutura": [
+        "No built improvements",
+        "Near the TO-245 highway"
+      ],
+      "documentacao": [
+        "Documentation in order"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Pérola do Leste 农场（东方珍珠农场）",
+      "subtitulo": "占地2,320公顷,生态保存完好,沿佩尔迪达河（Perdida River）而建",
+      "descricao": "该地块面积达2,320.33公顷（479.40阿尔盖尔）,位于利扎尔达（Lizarda）地区,靠近TO-245公路,距主干道18公里。土地生态保存完好,覆盖原生植被,尚无建筑设施。\n\n沿佩尔迪达河及多条小型河流分布,确保全场水资源充沛。土壤为中等质地II型,极适合耕种及畜牧业发展。",
+      "caracteristicas": [
+        "沿佩尔迪达河而建",
+        "年降雨量1,800毫米",
+        "原生植被保存完好"
+      ],
+      "infraestrutura": [
+        "尚无建筑设施",
+        "靠近TO-245公路"
+      ],
+      "documentacao": [
+        "产权文件齐全"
+      ]
+    }
+  },
+  "fazenda-pirita": {
+    "en": {
+      "titulo": "Fazenda Pirita (Pyrite Farm)",
+      "subtitulo": "3,020 hectares in Almas with a limestone deposit and complete infrastructure",
+      "descricao": "A 3,020-hectare farm in the municipality of Almas, split across three titles, located right off the paved road with a limestone deposit within the property itself.\n\nWith 1,000 hectares planting soybeans and another 400 hectares permitted for clearing, clay content above 40% and annual rainfall of 1,800mm. 60% utilization for agriculture, with three-phase power, a dining hall, staff dormitories, machinery shed, artesian well and a year-round stream inside the property.",
+      "caracteristicas": [
+        "Limestone deposit within the property",
+        "Clay content above 40%",
+        "60% utilization for agriculture"
+      ],
+      "infraestrutura": [
+        "Dining hall and staff dormitories",
+        "Machinery shed",
+        "Three-phase power and artesian well"
+      ],
+      "documentacao": [
+        "Three titles",
+        "Right off the paved road",
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Pirita 农场（黄铁矿农场）",
+      "subtitulo": "占地3,020公顷,位于阿尔马斯（Almas）,拥有石灰石矿藏及完善基础设施",
+      "descricao": "该农场面积达3,020公顷,位于阿尔马斯市,分为三个产权,紧邻柏油路,场内自带石灰石矿藏。\n\n已种植大豆1,000公顷,另有400公顷已获开垦许可,粘土含量超过40%,年降雨量1,800毫米。农业利用率达60%,配备三相电力、食堂、员工宿舍、机械棚、人工井及场内常年溪流。",
+      "caracteristicas": [
+        "场内自带石灰石矿藏",
+        "粘土含量超过40%",
+        "农业利用率达60%"
+      ],
+      "infraestrutura": [
+        "食堂及员工宿舍",
+        "机械棚",
+        "三相电力及人工井"
+      ],
+      "documentacao": [
+        "分为三个产权",
+        "紧邻柏油路",
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-quartzo-rosa": {
+    "en": {
+      "titulo": "Fazenda Quartzo Rosa (Rose Quartz Farm)",
+      "subtitulo": "1,350 hectares planting soybeans in Silvanópolis",
+      "descricao": "A 1,350-hectare farm (278 alqueires) in Silvanópolis-TO, in its sixth year of soybean planting on 650 hectares, with room to expand to 730 hectares. After the main harvest, allows a second crop of corn, sorghum or sesame.\n\nComplete infrastructure with a 1,500 m² pavilion, main house, dining hall, office, artesian well and solar power.",
+      "caracteristicas": [
+        "Sixth year of soybean planting",
+        "Second-crop potential: corn, sorghum and sesame",
+        "Solar power installed"
+      ],
+      "infraestrutura": [
+        "Main house and dining hall",
+        "Office and lodging",
+        "1,500 m² pavilion",
+        "Artesian well"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Quartzo Rosa 农场（粉水晶农场）",
+      "subtitulo": "占地1,350公顷,位于西尔瓦诺波利斯（Silvanópolis）,现正种植大豆",
+      "descricao": "该农场面积达1,350公顷（278阿尔盖尔）,位于托坎廷斯州西尔瓦诺波利斯,已进入第六年大豆种植期,种植面积650公顷,并具备扩展至730公顷的空间。主季收获后,可轮作玉米、高粱或芝麻等次季作物。\n\n基础设施完善,配有1,500平方米厂房、主宅、食堂、办公室、人工井及太阳能发电系统。",
+      "caracteristicas": [
+        "第六年大豆种植",
+        "具备次季轮作潜力:玉米、高粱及芝麻",
+        "已安装太阳能系统"
+      ],
+      "infraestrutura": [
+        "主宅及食堂",
+        "办公室及宿舍",
+        "1,500平方米厂房",
+        "人工井"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  },
+  "fazenda-rubi-negro": {
+    "en": {
+      "titulo": "Fazenda Rubi Negro (Black Ruby Farm)",
+      "subtitulo": "2,328 hectares of high-tech cattle ranching near Cristalândia",
+      "descricao": "A 2,328-hectare farm (481 alqueires) 25km from Cristalândia-TO, with 1,360 hectares of formed pasture across 60 divisions, supplied by gravity from a reservoir fed by an artesian well and ponds.\n\nAnti-stress cattle pen with chute and scale, a shed with a workshop and feed mill, plus 3 residences and three-phase power.",
+      "caracteristicas": [
+        "1,360 hectares of pasture across 60 divisions",
+        "Stream, springs and 10 ponds",
+        "120 hectares planted in soybeans"
+      ],
+      "infraestrutura": [
+        "Anti-stress cattle pen with chute and scale",
+        "Shed with workshop and feed mill",
+        "3 residences",
+        "Three-phase power"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Rubi Negro 农场（黑红宝石农场）",
+      "subtitulo": "占地2,328公顷,采用高科技畜牧模式,毗邻克里斯塔兰迪亚（Cristalândia）",
+      "descricao": "该农场面积达2,328公顷（481阿尔盖尔）,距托坎廷斯州克里斯塔兰迪亚25公里,拥有已形成牧场1,360公顷,划分为60个分区,通过人工井及水塘供水的蓄水池以重力方式供水。\n\n配备防应激牛栏（带通道及电子秤）、带工坊及饲料加工厂的棚屋,另有3栋住宅及三相电力供应。",
+      "caracteristicas": [
+        "已形成牧场1,360公顷,划分为60个分区",
+        "溪流、泉水及10个水塘",
+        "已种植大豆120公顷"
+      ],
+      "infraestrutura": [
+        "防应激牛栏,配通道及电子秤",
+        "带工坊及饲料加工厂的棚屋",
+        "3栋住宅",
+        "三相电力供应"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  },
+  "fazenda-safira-azul": {
+    "en": {
+      "titulo": "Fazenda Safira Azul (Blue Sapphire Farm)",
+      "subtitulo": "980 alqueires of dual-purpose land in the municipality of Peixe",
+      "descricao": "A 980-alqueire farm in Peixe-TO, fully formed as pasture and dual-purpose, convertible to cropland. Has water availability for a center-pivot irrigation system.\n\nSupport infrastructure with a house, canteen and lodging, the entire property fenced with sustainable pasture management.",
+      "caracteristicas": [
+        "Fully formed pasture, suitable for conversion to cropland",
+        "Water availability for a center-pivot system",
+        "Well-managed pastures"
+      ],
+      "infraestrutura": [
+        "House and canteen",
+        "Lodging",
+        "Entire property fenced"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Safira Azul 农场（蓝宝石农场）",
+      "subtitulo": "占地980阿尔盖尔,兼具农牧双重用途,位于培克斯（Peixe）市",
+      "descricao": "该农场位于托坎廷斯州培克斯,面积980阿尔盖尔,已全面形成牧场,兼具农牧双重用途,可转换为耕地。具备安装中心枢轴灌溉系统所需的水资源条件。\n\n配备住宅、食堂及宿舍等辅助设施,全场已围栏,牧场管理科学可持续。",
+      "caracteristicas": [
+        "牧场已全面形成,适合转为耕地",
+        "具备中心枢轴灌溉系统所需水资源",
+        "牧场管理良好"
+      ],
+      "infraestrutura": [
+        "住宅及食堂",
+        "宿舍",
+        "全场围栏"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  },
+  "fazenda-safira-do-norte": {
+    "en": {
+      "titulo": "Fazenda Safira do Norte (Northern Sapphire Farm)",
+      "subtitulo": "2,032 hectares under cultivation, with potential to double the cropland",
+      "descricao": "A 2,032-hectare farm (420 alqueires) in the municipality of Miracema do Tocantins, 87km from the capital Palmas. Currently 540 hectares are planted, with potential to reach 1,200 hectares.\n\nPredominantly flat topography with a few rolling hills, soil of yellow and red clay, fine gravel and sandy patches, with clay content between 18% and 30%. Water resources from streams and springs.",
+      "caracteristicas": [
+        "Potential to double the planted area",
+        "Annual rainfall of 1,800 to 2,000mm",
+        "Close to the capital, easing logistics and input supply"
+      ],
+      "infraestrutura": [
+        "Main house",
+        "House",
+        "Shed"
+      ],
+      "documentacao": [
+        "Documentation up to date",
+        "87km from Palmas"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Safira do Norte 农场（北方蓝宝石农场）",
+      "subtitulo": "占地2,032公顷,现已耕种,具备耕地面积翻倍的潜力",
+      "descricao": "该农场面积达2,032公顷（420阿尔盖尔）,位于托坎廷斯州米拉塞马（Miracema do Tocantins）市,距首府帕尔马斯87公里。目前耕种面积540公顷,潜力可达1,200公顷。\n\n地势以平坦为主,略有起伏,土壤为黄色及红色粘土,含细砾石及沙质区域,粘土含量18%至30%。水资源来自溪流及泉水。",
+      "caracteristicas": [
+        "耕种面积具备翻倍潜力",
+        "年降雨量1,800至2,000毫米",
+        "毗邻首府,物流及农资供应便利"
+      ],
+      "infraestrutura": [
+        "主宅",
+        "住宅",
+        "棚屋"
+      ],
+      "documentacao": [
+        "文件齐全",
+        "距帕尔马斯87公里"
+      ]
+    }
+  },
+  "fazenda-safira-do-vale": {
+    "en": {
+      "titulo": "Fazenda Safira do Vale (Valley Sapphire Farm)",
+      "subtitulo": "963 hectares in São Valério da Natividade, right off the paved road",
+      "descricao": "A 963-hectare farm (200 alqueires) in the municipality of São Valério da Natividade, 20km from town toward Natividade, right off the paved road.\n\nWith 100 hectares planting soybeans (entering the second and third year) and 220 hectares awaiting a clearing permit. Soil with 70% clay (22-25%) and 30% sandy. Includes a three-bedroom main house, lodging, a small shed, an artesian well with a 10,000-liter water tank and internet.",
+      "caracteristicas": [
+        "100 hectares already planting soybeans",
+        "220 hectares awaiting a clearing permit",
+        "Right off the paved road"
+      ],
+      "infraestrutura": [
+        "Three-bedroom main house",
+        "Lodging and small shed",
+        "Artesian well with a 10,000-liter tank"
+      ],
+      "documentacao": [
+        "Deeded and registered",
+        "Georeferenced"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Safira do Vale 农场（山谷蓝宝石农场）",
+      "subtitulo": "占地963公顷,位于圣瓦莱里奥达纳蒂维达迪（São Valério da Natividade）,紧邻柏油路",
+      "descricao": "该农场面积达963公顷（200阿尔盖尔）,位于圣瓦莱里奥达纳蒂维达迪市,距市区20公里（朝纳蒂维达迪方向）,紧邻柏油路。\n\n已种植大豆100公顷（进入第二至第三年）,另有220公顷正等待开垦许可。土壤含70%粘土（22-25%）及30%沙质。配有三居室主宅、宿舍、小型棚屋、人工井及10,000升储水罐,并接入网络。",
+      "caracteristicas": [
+        "已种植大豆100公顷",
+        "220公顷正等待开垦许可",
+        "紧邻柏油路"
+      ],
+      "infraestrutura": [
+        "三居室主宅",
+        "宿舍及小型棚屋",
+        "配10,000升储水罐的人工井"
+      ],
+      "documentacao": [
+        "已办理过户登记",
+        "已完成地籍测绘"
+      ]
+    }
+  },
+  "fazenda-topazio-do-sol": {
+    "en": {
+      "titulo": "Fazenda Topázio do Sol (Sun Topaz Farm)",
+      "subtitulo": "987 hectares with 6.5km of frontage on the Lajeado power plant lake",
+      "descricao": "A 987-hectare property (204 alqueires) in the municipality of Miracema do Tocantins, just 87km from Palmas, with 300 hectares planted in rice in the 2023/2024 season and potential for 500 to 600 hectares of cropland.\n\nThe farm sits on the edge of the Lajeado power plant lake, with 6.5km of frontage, offering great potential for irrigation. Predominantly flat topography, with yellow and red clay soil and fine gravel, clay content between 20% and 35%.",
+      "caracteristicas": [
+        "6.5km of frontage on the Lajeado power plant lake",
+        "Potential for irrigation",
+        "Annual rainfall of 1,800 to 2,000mm"
+      ],
+      "infraestrutura": [
+        "Main house",
+        "Cowhand's house",
+        "Shed"
+      ],
+      "documentacao": [
+        "Documentation up to date",
+        "87km from Palmas"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Topázio do Sol 农场（太阳黄玉农场）",
+      "subtitulo": "占地987公顷,沿拉热阿多水电站湖泊（Lajeado power plant lake）拥有6.5公里岸线",
+      "descricao": "该地产面积达987公顷（204阿尔盖尔）,位于托坎廷斯州米拉塞马市,距帕尔马斯仅87公里,2023/2024季度已种植水稻300公顷,具备发展500至600公顷耕地的潜力。\n\n该农场毗邻拉热阿多水电站湖泊,拥有6.5公里岸线,灌溉潜力巨大。地势以平坦为主,土壤为黄色及红色粘土,含细砾石,粘土含量20%至35%。",
+      "caracteristicas": [
+        "沿拉热阿多水电站湖泊拥有6.5公里岸线",
+        "灌溉潜力大",
+        "年降雨量1,800至2,000毫米"
+      ],
+      "infraestrutura": [
+        "主宅",
+        "牧工住房",
+        "棚屋"
+      ],
+      "documentacao": [
+        "文件齐全",
+        "距帕尔马斯87公里"
+      ]
+    }
+  },
+  "fazenda-topazio-imperial": {
+    "en": {
+      "titulo": "Fazenda Topázio Imperial (Imperial Topaz Farm)",
+      "subtitulo": "1,948 hectares between Silvanópolis and Monte do Carmo",
+      "descricao": "A dual-purpose farm located between Silvanópolis and Monte do Carmo, right off a state highway. Pasture 65% formed in brachiaria, kikuyu and andropogon grasses, surrounded by corn and soybean cropland.\n\nLatosol soil, clay content above 20% and flat topography, with a 3-hectare pond.",
+      "caracteristicas": [
+        "Pasture 65% formed, under a paddock rotation system",
+        "Flat topography with latosol soil",
+        "3-hectare pond"
+      ],
+      "infraestrutura": [
+        "Settler's house and artesian well",
+        "Cattle pen and single-phase power"
+      ],
+      "documentacao": [
+        "Individualized title",
+        "Active CAR (Rural Environmental Registry)"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Topázio Imperial 农场（帝王黄玉农场）",
+      "subtitulo": "占地1,948公顷,位于西尔瓦诺波利斯与蒙特多卡尔莫之间",
+      "descricao": "该农场兼具农牧双重用途,位于西尔瓦诺波利斯与蒙特多卡尔莫之间,紧邻州级公路。牧场65%已形成,种植臂形草、非洲狗尾草及须芒草,四周环绕玉米及大豆耕地。\n\n土壤为氧化土,粘土含量超过20%,地势平坦,场内配有一处3公顷水塘。",
+      "caracteristicas": [
+        "牧场65%已形成,采用轮牧制度",
+        "地势平坦,氧化土土壤",
+        "3公顷水塘"
+      ],
+      "infraestrutura": [
+        "定居者住房及人工井",
+        "牛栏及单相电力"
+      ],
+      "documentacao": [
+        "独立产权登记",
+        "CAR（农村环境登记）有效"
+      ]
+    }
+  },
+  "fazenda-turmalina-do-cerrado": {
+    "en": {
+      "titulo": "Fazenda Turmalina do Cerrado (Cerrado Tourmaline Farm)",
+      "subtitulo": "28,500 hectares with an airstrip, silo and 40km of river frontage",
+      "descricao": "A large 28,500-hectare property in the municipalities of Dianópolis and Conceição do Tocantins, near the border with Bahia, 120km from Luís Eduardo Magalhães. Agricultural studies point to 14,000 hectares suitable for soybean and corn planting.\n\nThe farm has 40km of frontage on the Manoel Alves River and 20 year-round lagoons and streams, excellent for irrigation. Complete infrastructure with a 1,000-meter airstrip, a silo with dryer (1,500-ton capacity), 5 outposts and 4 cattle pens.",
+      "caracteristicas": [
+        "40km of frontage on the Manoel Alves River",
+        "14,000 hectares suitable for soybeans and corn",
+        "20 year-round lagoons and streams"
+      ],
+      "infraestrutura": [
+        "1,000m airstrip",
+        "Silo with dryer for 1,500 tons",
+        "Main house, manager's house, brick-built village, 5 outposts and 4 cattle pens"
+      ],
+      "documentacao": [
+        "Complete documents for a public deed",
+        "Three-phase electric power"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Turmalina do Cerrado 农场（塞拉多碧玺农场）",
+      "subtitulo": "占地28,500公顷,配备私人机场跑道、粮仓,沿河岸线达40公里",
+      "descricao": "该大型地产面积达28,500公顷,横跨迪亚诺波利斯及孔塞桑杜托坎廷斯（Conceição do Tocantins）两市,毗邻巴伊亚州（Bahia）边界,距路易斯·爱德华多·马加良斯120公里。农业研究显示,其中14,000公顷适合种植大豆及玉米。\n\n该农场沿马诺埃尔阿尔维斯河（Manoel Alves River）拥有40公里岸线,另有20处常年泻湖及溪流,灌溉条件极佳。基础设施完善,配备1,000米跑道、带烘干设备的粮仓（容量1,500吨）、5处哨所及4座牛栏。",
+      "caracteristicas": [
+        "沿马诺埃尔阿尔维斯河拥有40公里岸线",
+        "14,000公顷适合种植大豆及玉米",
+        "20处常年泻湖及溪流"
+      ],
+      "infraestrutura": [
+        "1,000米跑道",
+        "带烘干设备的粮仓,容量1,500吨",
+        "主宅、管理人员住房、砖砌村落、5处哨所及4座牛栏"
+      ],
+      "documentacao": [
+        "文件齐全,可办理公证过户",
+        "三相电力供应"
+      ]
+    }
+  },
+  "fazenda-turquesa-do-araguaia": {
+    "en": {
+      "titulo": "Fazenda Turquesa do Araguaia (Araguaia Turquoise Farm)",
+      "subtitulo": "4,241.57 hectares in the municipality of Pium, with 1,200ha under cultivation",
+      "descricao": "A 4,241.57-hectare farm in the municipality of Pium, 230km from Palmas (entirely paved) and 60km from Lagoa da Confusão.\n\nExcellent land utilization: 1,200 hectares under cultivation, 130 hectares nearly ready, 180 hectares of broken land and another 400 hectares available for permitting and clearing. Includes a main house, machinery shed, canteen and lodging.",
+      "caracteristicas": [
+        "1,200 hectares under cultivation",
+        "400 hectares available for permitting and clearing",
+        "Excellent land utilization"
+      ],
+      "infraestrutura": [
+        "Main house and machinery shed",
+        "Canteen and lodging"
+      ],
+      "documentacao": [
+        "Documentation up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Turquesa do Araguaia 农场（阿拉瓜亚绿松石农场）",
+      "subtitulo": "占地4,241.57公顷,位于皮乌姆（Pium）市,已耕种面积达1,200公顷",
+      "descricao": "该农场面积达4,241.57公顷,位于皮乌姆市,距帕尔马斯230公里（全程柏油路）,距拉戈阿达孔富桑60公里。\n\n土地利用率极佳:已耕种1,200公顷,准耕地130公顷,待整理地块180公顷,另有400公顷可申请开垦许可。配有主宅、机械棚、食堂及宿舍。",
+      "caracteristicas": [
+        "已耕种1,200公顷",
+        "400公顷可申请开垦许可",
+        "土地利用率极佳"
+      ],
+      "infraestrutura": [
+        "主宅及机械棚",
+        "食堂及宿舍"
+      ],
+      "documentacao": [
+        "文件齐全"
+      ]
+    }
+  },
+  "fazenda-turquesa-do-cerrado": {
+    "en": {
+      "titulo": "Fazenda Turquesa do Cerrado (Cerrado Turquoise Farm)",
+      "subtitulo": "980 alqueires of cropland and cattle ranching in Novo Acordo",
+      "descricao": "A 980-alqueire farm in the municipality of Novo Acordo-TO, 150km from Palmas and 1km from the paved road. Produces 1,700 hectares of cropland, with sandy soil and rich water resources from a large river and springs.\n\nThe rest of the land is used for cattle ranching, with average productivity of 60 sacks per hectare and annual rainfall of 1,600mm.",
+      "caracteristicas": [
+        "1,700 hectares of cropland, remainder in cattle ranching",
+        "Sandy soil, 10 to 20% clay",
+        "Large river and springs"
+      ],
+      "infraestrutura": [
+        "Access 1km from the paved road",
+        "150km from Palmas"
+      ],
+      "documentacao": [
+        "Two titles",
+        "Active CAR (Rural Environmental Registry)",
+        "CCIR and ITR up to date"
+      ]
+    },
+    "zh": {
+      "titulo": "Fazenda Turquesa do Cerrado 农场（塞拉多绿松石农场）",
+      "subtitulo": "占地980阿尔盖尔,位于诺沃阿科尔多,兼营耕种与畜牧",
+      "descricao": "该农场面积达980阿尔盖尔,位于托坎廷斯州诺沃阿科尔多市,距帕尔马斯150公里,距柏油路1公里。耕地面积达1,700公顷,土壤为沙质,拥有大型河流及泉水等丰富水资源。\n\n其余土地用于畜牧业,平均产量为每公顷60袋,年降雨量1,600毫米。",
+      "caracteristicas": [
+        "耕地1,700公顷,其余用于畜牧",
+        "沙质土壤,粘土含量10%至20%",
+        "大型河流及泉水"
+      ],
+      "infraestrutura": [
+        "距柏油路1公里",
+        "距帕尔马斯150公里"
+      ],
+      "documentacao": [
+        "两个产权登记",
+        "CAR（农村环境登记）有效",
+        "CCIR及ITR税务齐全"
+      ]
+    }
+  }
+}
