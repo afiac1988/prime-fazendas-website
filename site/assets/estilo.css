@@ -20,8 +20,8 @@
   --terra-500: #8A6A4E;
   --terra-200: #DFD4C6;
 
-  --osso: #FAF9F6;
-  --osso-2: #F1EFE8;
+  --osso: #F5F8FB;      /* antes #FAF9F6 — branco frio, sem tom bege */
+  --osso-2: #E3EAF2;    /* antes #F1EFE8 — azul-100 da marca, intercalando com o hero escuro */
   --branco: #FFFFFF;
 
   --tinta: #171A1F;
