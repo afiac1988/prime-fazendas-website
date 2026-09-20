@@ -193,7 +193,7 @@ def fmt_reais(valor) -> str:
     return "R$ " + fmt_num(round(v))
 
 
-def resumo_fator_regiao(texto: str, indice: int) -> tuple[str, str]:
+def resumo_fator_regiao(texto: str, indice: int, lang: str = "pt") -> tuple[str, str]:
     """Transforma a lista bruta de fatores regionais em titulo + resumo curto."""
     texto = str(texto).strip().rstrip(".")
     mapa = {
@@ -218,6 +218,29 @@ def resumo_fator_regiao(texto: str, indice: int) -> tuple[str, str]:
             "A leitura hídrica continua sendo peça central para produtividade e valorização.",
         ),
     }
+    mapa_en = {
+        "Logistics connected to the Northern corridors and the Arco Norte": (
+            "Logistics", "Connection to the Northern corridors and the most strategic outlet for production."),
+        "Soil and climate suited to soybeans, corn, cotton and cattle ranching": (
+            "Production fitness", "Strong technical base for grains, fiber crops and cattle ranching at scale."),
+        "Cost per hectare still below the consolidated Center-South regions": (
+            "Entry price", "There is still an acquisition window below the already fully consolidated markets."),
+        "Growing technology base and agricultural services": (
+            "Ecosystem", "The supply of technology, inputs and technical support has matured a lot in the region."),
+        "Water availability and irrigation potential": (
+            "Water", "Water availability remains a central factor for productivity and appreciation."),
+    }
+    mapa_zh = {
+        "物流连接北方走廊及北方弧线（Arco Norte）": ("物流", "连接北方走廊及最具战略意义的农产品出口通道。"),
+        "土壤与气候适宜种植大豆、玉米、棉花及发展畜牧业": ("生产适宜性", "为规模化的谷物、纤维作物及畜牧业提供强大的技术基础。"),
+        "每公顷成本仍低于已整合的中南部地区": ("进入价格", "相较于已完全整合的市场,仍存在较低成本的购入窗口。"),
+        "技术基础与农业服务体系不断扩展": ("生态体系", "该地区的技术、投入品及技术支持供给已大幅成熟。"),
+        "水资源可用性及灌溉潜力": ("水资源", "水资源可用性仍是生产力与增值的核心因素。"),
+    }
+    if lang == "en" and texto in mapa_en:
+        return mapa_en[texto]
+    if lang == "zh" and texto in mapa_zh:
+        return mapa_zh[texto]
     if texto in mapa:
         return mapa[texto]
 
@@ -576,6 +599,7 @@ PAGINAS_TRADUZIDAS = {
     "/agenda-agro/": {"en": "/en/agenda-agro/", "zh": "/zh/agenda-agro/"},
     "/imoveis/": {"en": "/en/imoveis/", "zh": "/zh/imoveis/"},
     "/blog/": {"en": "/en/blog/", "zh": "/zh/blog/"},
+    "/investir-no-agro/": {"en": "/en/investir-no-agro/", "zh": "/zh/investir-no-agro/"},
 }
 
 
@@ -1847,7 +1871,7 @@ NAV_I18N = {
         {"titulo": "Services", "url": "/en/servicos/"},
         {"titulo": "Data Center", "url": "/en/data-center/"},
         {"titulo": "Properties", "url": "/en/imoveis/"},
-        {"titulo": "Invest in Agribusiness", "url": "/investir-no-agro/"},
+        {"titulo": "Invest in Agribusiness", "url": "/en/investir-no-agro/"},
         {"titulo": "News", "url": "/en/blog/"},
         {"titulo": "Contact", "url": "/en/contato/"},
     ],
@@ -1857,7 +1881,7 @@ NAV_I18N = {
         {"titulo": "服务项目", "url": "/zh/servicos/"},
         {"titulo": "数据中心", "url": "/zh/data-center/"},
         {"titulo": "房产项目", "url": "/zh/imoveis/"},
-        {"titulo": "投资农业", "url": "/investir-no-agro/"},
+        {"titulo": "投资农业", "url": "/zh/investir-no-agro/"},
         {"titulo": "新闻资讯", "url": "/zh/blog/"},
         {"titulo": "联系我们", "url": "/zh/contato/"},
     ],
@@ -2536,7 +2560,107 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
 
     return pagina(cfg, titulo=s.get("titulo", "Por que investir no agronegócio"),
                   descricao=s.get("descricao_meta", s.get("chamada", "")), url="/investir-no-agro/",
-                  corpo="\n".join(corpo), json_ld=[ld_migalha])
+                  corpo="\n".join(corpo), json_ld=[ld_migalha],
+                  hreflang=hreflang_para(cfg, "/investir-no-agro/"))
+
+
+def gerar_investir_i18n(cfg: dict, s: dict, lang: str, dados_agro: dict) -> str:
+    idioma_html = {"en": "en", "zh": "zh-Hans"}[lang]
+    tx = {
+        "en": {"tese_olho": "The thesis", "tese_titulo": "Why farmland",
+               "regiao_olho": "The region", "atencao": "Attention",
+               "cta_titulo": "Want to evaluate an opportunity?",
+               "cta_texto": "We review the property — soil, documentation, liabilities and price — before you commit capital.",
+               "cta_botao": "Talk to a specialist", "breadcrumb_home": "Home", "breadcrumb_pagina": "Invest in Agribusiness"},
+        "zh": {"tese_olho": "投资逻辑", "tese_titulo": "为什么选择农地",
+               "regiao_olho": "区域", "atencao": "注意事项",
+               "cta_titulo": "想评估一个投资机会吗？",
+               "cta_texto": "在您投入资金之前,我们会先审查物业——土壤、文件资料、潜在风险及价格。",
+               "cta_botao": "联系专家", "breadcrumb_home": "首页", "breadcrumb_pagina": "投资农业"},
+    }[lang]
+
+    corpo = [f"""<section class="hero hero--interno">
+  <div class="env hero__int"><h1>{e(s.get('titulo',''))}</h1><p class="hero__texto">{e(s.get('chamada',''))}</p></div>
+</section>
+<section class="secao"><div class="env"><div class="prosa">{paragrafos(s.get('intro'))}</div></div></section>"""]
+
+    args = "".join(
+        f'<article class="card"><h3>{e(a["titulo"])}</h3><p>{e(a["texto"])}</p></article>'
+        for a in dados_agro.get("argumentos_investimento", [])
+    )
+    if args:
+        corpo.append(f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="cabeca-secao"><p class="olho">{e(tx['tese_olho'])}</p><h2>{e(tx['tese_titulo'])}</h2></div>
+    <div class="grade grade--2">{args}</div>
+  </div>
+</section>""")
+
+    indics = [i for i in dados_agro.get("indicadores", []) if not i.get("verificar")]
+    if indics:
+        blocos = ""
+        for i in indics:
+            fonte = f'{e(i.get("fonte", ""))} · {e(i.get("ano", ""))}'
+            if preenchido(i.get("url")):
+                fonte = f'<a href="{e(i["url"])}" target="_blank" rel="noopener">{fonte}</a>'
+            blocos += (f'<div class="indic"><span class="indic__valor">{e(i.get("valor", ""))}</span>'
+                       f'<p class="indic__rotulo">{e(i.get("rotulo", ""))}</p>'
+                       f'<p class="indic__fonte">{fonte}</p></div>')
+        corpo.append(f'<section class="secao secao--escura"><div class="env">'
+                     f'<div class="grade grade--3">{blocos}</div></div></section>')
+
+    fatores_brutos = dados_agro.get("fatores_regiao", [])
+    if fatores_brutos:
+        painel_fatores = []
+        for i, fator in enumerate(fatores_brutos):
+            titulo_fator, resumo_fator = resumo_fator_regiao(fator, i + 1, lang)
+            painel_fatores.append(
+                f'<article class="territorio-card">'
+                f'<p class="territorio-card__num">{numeral_romano(i + 1)}</p>'
+                f'<h3>{e(titulo_fator)}</h3>'
+                f'<p>{e(resumo_fator)}</p>'
+                f'</article>'
+            )
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="cabeca-secao">
+      <p class="olho">{e(tx['regiao_olho'])}</p>
+      <h2>{e(s.get('regiao_titulo', ''))}</h2>
+      <p class="chamada chamada--larga">{e(s.get('regiao_subtitulo', ''))}</p>
+    </div>
+    <div class="territorio">
+      <div class="territorio__mapa" aria-hidden="true">
+        <span class="territorio__tag territorio__tag--secundaria">MATOPIBA</span>
+        <span class="territorio__tag">Tocantins</span>
+        <strong class="territorio__titulo">Strategic position</strong>
+        <p class="territorio__texto">Combined reading of logistics, market and legal security.</p>
+        <div class="territorio__chip-list">
+          <span class="territorio__chip">Arco Norte</span>
+          <span class="territorio__chip">Due diligence</span>
+          <span class="territorio__chip">Price on request</span>
+        </div>
+      </div>
+      <div class="grade grade--2">{''.join(painel_fatores)}</div>
+    </div>
+  </div>
+</section>""")
+
+    corpo.append(f"""<section class="secao secao--clara">
+  <div class="env"><div class="prosa">
+    <p class="olho">{e(tx['atencao'])}</p>
+    <h2>{e(s.get('fechamento_titulo', ''))}</h2>
+    {paragrafos(s.get('fechamento_texto'))}
+  </div></div>
+</section>""")
+
+    corpo.append(cta_faixa_i18n(cfg, tx["cta_titulo"], tx["cta_texto"], tx["cta_botao"], lang))
+
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "WebPage", "inLanguage": idioma_html,
+        "name": s.get("titulo", ""), "description": s.get("descricao_meta", ""),
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, "/investir-no-agro/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
 
 
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
@@ -4170,6 +4294,17 @@ def main() -> int:
         escrever(f"{lang}/contato/index.html", gerar_contato_i18n(cfg, pag.get(f"contato_{lang}", {}), lang))
         escrever(f"{lang}/agenda-agro/index.html", gerar_agenda_agro_i18n(cfg, pag.get(f"agenda_agro_{lang}", {}), lang))
     escrever("investir-no-agro/index.html", gerar_investir(cfg, pag, dados_agro))
+    dados_agro_i18n = {
+        "en": {"argumentos_investimento": dados_agro.get("argumentos_investimento_en", []),
+               "indicadores": dados_agro.get("indicadores_en", []),
+               "fatores_regiao": dados_agro.get("fatores_regiao_en", [])},
+        "zh": {"argumentos_investimento": dados_agro.get("argumentos_investimento_zh", []),
+               "indicadores": dados_agro.get("indicadores_zh", []),
+               "fatores_regiao": dados_agro.get("fatores_regiao_zh", [])},
+    }
+    for lang in ("en", "zh"):
+        escrever(f"{lang}/investir-no-agro/index.html",
+                 gerar_investir_i18n(cfg, pag.get(f"investir_{lang}", {}), lang, dados_agro_i18n[lang]))
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
     for lang in ("en", "zh"):
         escrever(f"{lang}/imoveis/index.html", gerar_lista_imoveis_i18n(cfg, imoveis, lang, imoveis_i18n_map))
@@ -4200,7 +4335,8 @@ def main() -> int:
             "/blog/", "/agenda-agro/", "/contato/"]
     for lang in ("en", "zh"):
         urls += [f"/{lang}/", f"/{lang}/sobre/", f"/{lang}/servicos/", f"/{lang}/data-center/",
-                 f"/{lang}/contato/", f"/{lang}/agenda-agro/", f"/{lang}/imoveis/", f"/{lang}/blog/"]
+                 f"/{lang}/contato/", f"/{lang}/agenda-agro/", f"/{lang}/imoveis/", f"/{lang}/blog/",
+                 f"/{lang}/investir-no-agro/"]
         urls += [f"/{lang}/imoveis/{slug}/" for slug in imoveis_i18n_map]
         urls += [f"/{lang}/blog/{slug}/" for slug in noticias_i18n_map]
     urls += [im["url"] for im in imoveis]
@@ -4285,6 +4421,7 @@ def main() -> int:
             f"- [About us (English)]({dominio}/en/sobre/)",
             f"- [Services (English)]({dominio}/en/servicos/)",
             f"- [Data Center (English)]({dominio}/en/data-center/)",
+            f"- [Invest in agribusiness (English)]({dominio}/en/investir-no-agro/)",
             f"- [Contact (English)]({dominio}/en/contato/)",
             "",
             "## 中文（简体）",
@@ -4298,6 +4435,7 @@ def main() -> int:
             f"- [关于我们（中文）]({dominio}/zh/sobre/)",
             f"- [服务项目（中文）]({dominio}/zh/servicos/)",
             f"- [数据中心（中文）]({dominio}/zh/data-center/)",
+            f"- [投资农业（中文）]({dominio}/zh/investir-no-agro/)",
             f"- [联系我们（中文）]({dominio}/zh/contato/)",
         ]
         escrever("llms.txt", "\n".join(linhas) + "\n")

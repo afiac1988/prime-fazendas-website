@@ -797,5 +797,25 @@
   "rodape_zh": {
     "sobre_curto": "专注于托坎廷斯州及马托皮巴地区农场与乡村地产的房地产公司,提供技术、法律及环境尽职调查中介服务。",
     "aviso_legal": "本网站有关地产的信息仅供参考,不构成具有约束力的要约。价格、面积、可售状态及特征等信息均须在尽职调查中予以确认。本网站不提供投资咨询服务。"
+  },
+  "investir_en": {
+    "titulo": "Why invest in agribusiness",
+    "chamada": "A real, finite, productive asset — in an agricultural frontier that is still being consolidated.",
+    "descricao_meta": "Farmland in Matopiba as a real asset: strong production fitness, Arco Norte logistics, and a price window still below the consolidated Center-South region.",
+    "intro": "Brazil is one of the world's great agricultural powers, and agribusiness accounts for a significant share of national GDP. Investing in farmland combines real-asset appreciation with income generation — provided the property chosen is technically sound and legally clean.",
+    "regiao_titulo": "Tocantins and Matopiba: reading the territory",
+    "regiao_subtitulo": "Instead of a generic map, we show a visual market-reading panel: logistics, production fitness, entry cost and legal security.",
+    "fechamento_titulo": "Regularity is what separates opportunity from a trap",
+    "fechamento_texto": "An area with pending registry or environmental issues looks cheap and turns out expensive: it won't qualify for bank financing, it drags out closing, and it carries a liability that follows the property, not the previous seller. Every property in our portfolio is verified before it is presented."
+  },
+  "investir_zh": {
+    "titulo": "为什么投资农业",
+    "chamada": "真实、有限、具有生产力的资产——位于仍在整合中的农业前沿地区。",
+    "descricao_meta": "马托皮巴的农地作为真实资产：强大的生产适宜性、北方走廊物流,以及仍低于已整合的中南部地区的价格窗口。",
+    "intro": "巴西是世界农业大国之一,农业综合体占国家GDP的重要份额。投资农地将真实资产的增值与收入创造结合在一起——前提是所选物业在技术上合格、法律上清晰。",
+    "regiao_titulo": "托坎廷斯与马托皮巴：解读区域",
+    "regiao_subtitulo": "我们展示的不是一张泛泛的地图,而是一个市场解读可视化面板：物流、生产适宜性、进入成本与法律保障。",
+    "fechamento_titulo": "合规性是区分机遇与陷阱的关键",
+    "fechamento_texto": "登记或环保手续存在瑕疵的地块看起来便宜,实际代价高昂：无法获得银行融资、拖长成交周期,并背负跟随物业本身而非前任卖方的责任风险。我们投资组合中的每一处物业在展示前均经过核实。"
   }
 }

@@ -1,6 +1,5 @@
 {
   "_leia": "Todo número que aparece no site sai daqui, com fonte e ano. Motivo: número sem fonte em site de imobiliária é passivo — se um investidor cobrar, você tem que ter de onde tirou. Revise a cada safra. Se um item tiver 'verificar': true, ele NÃO é exibido no site até você confirmar e trocar para false.",
-
   "indicadores": [
     {
       "valor": "~24%",
@@ -28,7 +27,6 @@
       "verificar": true
     }
   ],
-
   "argumentos_investimento": [
     {
       "titulo": "Valorização de longo prazo",
@@ -47,12 +45,113 @@
       "texto": "Propriedade com matrícula limpa, CAR validado e georreferenciamento aprovado negocia mais rápido, aceita financiamento bancário e vale mais do que área equivalente com pendências. Regularidade é valor, não burocracia."
     }
   ],
-
   "fatores_regiao": [
     "Logística conectada aos corredores Norte e ao Arco Norte",
     "Solo e clima com aptidão para soja, milho, algodão e pecuária",
     "Custo por hectare ainda abaixo das regiões consolidadas do Centro-Sul",
     "Base tecnológica e serviços agrícolas em expansão",
     "Disponibilidade hídrica e potencial de irrigação"
+  ],
+  "argumentos_investimento_en": [
+    {
+      "titulo": "Long-term appreciation",
+      "texto": "Farmland is a real, finite asset with a consistent history of appreciation tracking the region's productivity. In agricultural frontiers still consolidating, like Matopiba, the gain comes from appreciation plus production combined."
+    },
+    {
+      "titulo": "Income and production in the same asset",
+      "texto": "Unlike a purely speculative asset, the farm generates revenue — directly, through leasing, or through a farming partnership — while it appreciates."
+    },
+    {
+      "titulo": "Wealth protection",
+      "texto": "A real asset with low correlation to financial markets and a track record of preserving value through inflation cycles."
+    },
+    {
+      "titulo": "Legal security as a price differentiator",
+      "texto": "A property with a clean title, validated CAR (Rural Environmental Registry) and approved georeferencing sells faster, qualifies for bank financing, and is worth more than an equivalent area with pending issues. Regularity is value, not bureaucracy."
+    }
+  ],
+  "argumentos_investimento_zh": [
+    {
+      "titulo": "长期增值",
+      "texto": "农地是一种真实、有限的资产,其增值历史与区域生产力的提升保持一致。在马托皮巴这类仍在整合中的农业前沿地区,收益来自增值与生产的叠加。"
+    },
+    {
+      "titulo": "同一资产兼具收入与生产",
+      "texto": "与纯投机性资产不同,农场在增值的同时还能产生收入——无论是自营、出租还是农业合作方式。"
+    },
+    {
+      "titulo": "资产保值",
+      "texto": "这是一种与金融市场相关性较低的真实资产,在通胀周期中具有保值的历史记录。"
+    },
+    {
+      "titulo": "法律保障作为价格差异化因素",
+      "texto": "拥有清晰产权证明、已验证的CAR(农村环境登记)及已批准地理坐标测绘的物业成交更快,可获得银行融资,其价值也高于存在待决事项的同等面积地块。合规性是价值,而非繁文缛节。"
+    }
+  ],
+  "fatores_regiao_en": [
+    "Logistics connected to the Northern corridors and the Arco Norte",
+    "Soil and climate suited to soybeans, corn, cotton and cattle ranching",
+    "Cost per hectare still below the consolidated Center-South regions",
+    "Growing technology base and agricultural services",
+    "Water availability and irrigation potential"
+  ],
+  "fatores_regiao_zh": [
+    "物流连接北方走廊及北方弧线（Arco Norte）",
+    "土壤与气候适宜种植大豆、玉米、棉花及发展畜牧业",
+    "每公顷成本仍低于已整合的中南部地区",
+    "技术基础与农业服务体系不断扩展",
+    "水资源可用性及灌溉潜力"
+  ],
+  "indicadores_en": [
+    {
+      "valor": "~24%",
+      "rotulo": "of Brazilian GDP comes from agribusiness",
+      "fonte": "Cepea/USP em parceria com a CNA",
+      "ano": "2024",
+      "url": "https://www.cepea.esalq.usp.br/br/pib-do-agronegocio-brasileiro.aspx",
+      "verificar": true
+    },
+    {
+      "valor": "1º",
+      "rotulo": "world's largest exporter of soybeans, coffee, sugar and beef",
+      "fonte": "USDA / Comex Stat",
+      "ano": "2025",
+      "url": "https://comexstat.mdic.gov.br/",
+      "verificar": true
+    },
+    {
+      "valor": "Matopiba",
+      "rotulo": "the country's last great agricultural frontier, with Tocantins at its center",
+      "fonte": "Embrapa",
+      "ano": "2024",
+      "url": "https://www.embrapa.br/tema-matopiba",
+      "verificar": true
+    }
+  ],
+  "indicadores_zh": [
+    {
+      "valor": "~24%",
+      "rotulo": "巴西GDP来自农业综合体",
+      "fonte": "Cepea/USP em parceria com a CNA",
+      "ano": "2024",
+      "url": "https://www.cepea.esalq.usp.br/br/pib-do-agronegocio-brasileiro.aspx",
+      "verificar": true
+    },
+    {
+      "valor": "1º",
+      "rotulo": "大豆、咖啡、糖及牛肉的全球最大出口国",
+      "fonte": "USDA / Comex Stat",
+      "ano": "2025",
+      "url": "https://comexstat.mdic.gov.br/",
+      "verificar": true
+    },
+    {
+      "valor": "Matopiba",
+      "rotulo": "全国最后的重大农业前沿地区,托坎廷斯州位于其核心",
+      "fonte": "Embrapa",
+      "ano": "2024",
+      "url": "https://www.embrapa.br/tema-matopiba",
+      "verificar": true
+    }
   ]
 }

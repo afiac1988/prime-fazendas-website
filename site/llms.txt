@@ -34,6 +34,7 @@ Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil)
 - [About us (English)](https://www.primefazendas.com/en/sobre/)
 - [Services (English)](https://www.primefazendas.com/en/servicos/)
 - [Data Center (English)](https://www.primefazendas.com/en/data-center/)
+- [Invest in agribusiness (English)](https://www.primefazendas.com/en/investir-no-agro/)
 - [Contact (English)](https://www.primefazendas.com/en/contato/)
 
 ## 中文（简体）
@@ -44,4 +45,5 @@ Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil)
 - [关于我们（中文）](https://www.primefazendas.com/zh/sobre/)
 - [服务项目（中文）](https://www.primefazendas.com/zh/servicos/)
 - [数据中心（中文）](https://www.primefazendas.com/zh/data-center/)
+- [投资农业（中文）](https://www.primefazendas.com/zh/investir-no-agro/)
 - [联系我们（中文）](https://www.primefazendas.com/zh/contato/)
