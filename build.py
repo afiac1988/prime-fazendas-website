@@ -3955,9 +3955,41 @@ ErrorDocument 404 /404.html
 
 # ================================================================== build ==
 
+_RE_IMG_MIDIA = re.compile(r'<img\b([^>]*?)src="(/midia/[^"]+)\.(jpg|jpeg|png)"([^>]*?)>')
+
+
+def _webp_existe(caminho_sem_extensao: str) -> bool:
+    """Confere se existe uma versao .webp gerada ao lado do arquivo original
+    em conteudo/midia/. Usado para so oferecer o formato quando ele realmente
+    compensa (ver script de otimizacao de imagens)."""
+    caminho = CONTEUDO / "midia" / (caminho_sem_extensao[len("/midia/"):] + ".webp")
+    return caminho.exists()
+
+
+def _envolver_imagens_com_webp(html_pagina: str) -> str:
+    """Envolve toda <img src="/midia/....jpg|.png"> que tenha uma versao .webp
+    mais leve com um <picture><source type="image/webp">, mantendo a tag
+    <img> original como fallback (mesmo src, mesmos atributos) para
+    navegadores antigos e para o crawler que so olhar o <img>."""
+
+    def _sub(m: re.Match) -> str:
+        antes, caminho, ext, depois = m.group(1), m.group(2), m.group(3), m.group(4)
+        tag_original = f'<img {antes}src="{caminho}.{ext}"{depois}>'
+        if not _webp_existe(caminho):
+            return tag_original
+        return (
+            f'<picture><source srcset="{caminho}.webp" type="image/webp">'
+            f'{tag_original}</picture>'
+        )
+
+    return _RE_IMG_MIDIA.sub(_sub, html_pagina)
+
+
 def escrever(caminho_rel: str, conteudo: str) -> None:
     destino = SAIDA / caminho_rel
     destino.parent.mkdir(parents=True, exist_ok=True)
+    if caminho_rel.endswith(".html"):
+        conteudo = _envolver_imagens_com_webp(conteudo)
     destino.write_text(conteudo, encoding="utf-8", newline="\n")
 
 
