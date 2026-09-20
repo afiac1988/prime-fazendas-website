@@ -2892,7 +2892,9 @@ def traduzir_imovel(im: dict, lang: str, trad_map: dict) -> dict:
         for campo in ("titulo", "subtitulo", "descricao", "caracteristicas", "infraestrutura", "documentacao"):
             if campo in t:
                 novo[campo] = t[campo]
-    novo["url"] = f"/{lang}/imoveis/{im['slug']}/"
+    # Sem traducao para este slug: mantem o link apontando para a ficha em
+    # portugues (existente) em vez de um caminho /{lang}/... que nao foi gerado.
+    novo["url"] = f"/{lang}/imoveis/{im['slug']}/" if t else im["url"]
     return novo
 
 
@@ -3270,7 +3272,9 @@ def traduzir_post(p: dict, lang: str, trad_map: dict) -> dict:
         novo["html"] = markdown(t.get("corpo_markdown", ""))
     novo["_categoria_pt"] = categoria_pt
     novo["categoria"] = CATEGORIA_I18N[lang].get(categoria_pt, categoria_pt)
-    novo["url"] = f"/{lang}/blog/{p['slug']}/"
+    # Sem traducao para este slug: mantem o link apontando para o post em
+    # portugues (existente) em vez de um caminho /{lang}/... que nao foi gerado.
+    novo["url"] = f"/{lang}/blog/{p['slug']}/" if t else p["url"]
     return novo
 
 

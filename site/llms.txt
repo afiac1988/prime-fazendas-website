@@ -10,7 +10,7 @@ Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil)
 
 ## Notícias e insights
 
-- [Blog](https://www.primefazendas.com/blog/): artigos objetivos sobre mercado de terras, jurídico, financiamento, recursos hídricos, exportação e regularização fundiária no Matopiba. Categorias cobertas hoje: Arrendamento, Clima, Exportação, Financiamento, Gestão, Guia, Institucional, Investidores internacionais, Investimento, Jurídico, Logística, Mercado, Operação, Recursos Hídricos, Regularização, Tendências.
+- [Blog](https://www.primefazendas.com/blog/): artigos objetivos sobre mercado de terras, jurídico, financiamento, recursos hídricos, exportação e regularização fundiária no Matopiba. Categorias cobertas hoje: Arrendamento, Clima, Data Center, Exportação, Financiamento, Gestão, Guia, Institucional, Investidores internacionais, Investimento, Jurídico, Logística, Mercado, Operação, Recursos Hídricos, Regularização, Tendências.
 
 ## Institucional
 
@@ -29,7 +29,7 @@ Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil)
 
 - [Home (English)](https://www.primefazendas.com/en/): farm listings, services and the Data Center division are also available in English, with the same photos, prices and technical data as the Portuguese pages.
 - [Farms for sale (English)](https://www.primefazendas.com/en/imoveis/): all 35 available farms, translated in full — description, features, infrastructure and documentation.
-- [News (English)](https://www.primefazendas.com/en/blog/): the full news archive translated into English, covering land market, legal, financing, water resources, exports and land regularization topics for the Matopiba region. Categories: Climate, Company, Exports, Financing, Guide, International Investors, Investment, Land Regularization, Leasing, Legal, Logistics, Management, Market, Operations, Trends, Water Resources.
+- [News (English)](https://www.primefazendas.com/en/blog/): the full news archive translated into English, covering land market, legal, financing, water resources, exports and land regularization topics for the Matopiba region. Categories: Climate, Company, Data Center, Exports, Financing, Guide, International Investors, Investment, Land Regularization, Leasing, Legal, Logistics, Management, Market, Operations, Trends, Water Resources.
 - [About us (English)](https://www.primefazendas.com/en/sobre/)
 - [Services (English)](https://www.primefazendas.com/en/servicos/)
 - [Data Center (English)](https://www.primefazendas.com/en/data-center/)
@@ -39,7 +39,7 @@ Imobiliária rural especializada em fazendas no Tocantins e no Matopiba (Brasil)
 
 - [首页（中文）](https://www.primefazendas.com/zh/)：农场房源、服务及数据中心业务板块同样提供中文版本，照片、价格及技术数据与葡萄牙语页面完全一致。
 - [在售农场（中文）](https://www.primefazendas.com/zh/imoveis/)：全部35处可售农场的完整中文译文——描述、特点、基础设施及文件资料。
-- [新闻资讯（中文）](https://www.primefazendas.com/zh/blog/)：完整的新闻档案中文译文，涵盖马托皮巴地区的土地市场、法律、融资、水资源、出口及土地合规等主题。分类：公司动态、出口、国际投资者、土地合规、土地租赁、市场、投资、指南、气候、水资源、法律、物流、管理、融资、趋势、运营。
+- [新闻资讯（中文）](https://www.primefazendas.com/zh/blog/)：完整的新闻档案中文译文，涵盖马托皮巴地区的土地市场、法律、融资、水资源、出口及土地合规等主题。分类：Data Center、公司动态、出口、国际投资者、土地合规、土地租赁、市场、投资、指南、气候、水资源、法律、物流、管理、融资、趋势、运营。
 - [关于我们（中文）](https://www.primefazendas.com/zh/sobre/)
 - [服务项目（中文）](https://www.primefazendas.com/zh/servicos/)
 - [数据中心（中文）](https://www.primefazendas.com/zh/data-center/)
