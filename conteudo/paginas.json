@@ -109,7 +109,33 @@
     "regiao_titulo": "Tocantins e Matopiba: leitura de território",
     "regiao_subtitulo": "Em vez de um mapa genérico, mostramos um painel visual de leitura de mercado: logística, aptidão produtiva, custo de entrada e segurança documental.",
     "fechamento_titulo": "Regularidade é o que separa oportunidade de armadilha",
-    "fechamento_texto": "Área com pendência registral ou ambiental parece barata e sai caro: não aceita financiamento, alonga o fechamento e carrega passivo que acompanha o imóvel, não o vendedor anterior. Toda propriedade do nosso portfólio passa por verificação antes de ser apresentada."
+    "fechamento_texto": "Área com pendência registral ou ambiental parece barata e sai caro: não aceita financiamento, alonga o fechamento e carrega passivo que acompanha o imóvel, não o vendedor anterior. Toda propriedade do nosso portfólio passa por verificação antes de ser apresentada.",
+    "faq": [
+      {
+        "pergunta": "Estrangeiro pode comprar fazenda no Brasil?",
+        "resposta": "Pode, dentro de limites definidos pela Lei nº 5.709/1971, confirmada como constitucional pelo STF em abril de 2026. Empresas brasileiras controladas por capital estrangeiro seguem a mesma regra. Os limites variam por área e por município — analisamos isso caso a caso antes de qualquer negociação."
+      },
+      {
+        "pergunta": "O que são CAR, CCIR, ITR e georreferenciamento, e por que importam?",
+        "resposta": "São os quatro documentos que comprovam a regularidade fundiária e ambiental de uma propriedade rural: CAR (Cadastro Ambiental Rural) mapeia a reserva legal e áreas de preservação; CCIR (Certificado de Cadastro de Imóvel Rural) é o registro no INCRA; ITR (Imposto Territorial Rural) precisa estar em dia; e o georreferenciamento certificado pelo INCRA define os limites exatos da área. Sem esses quatro, o imóvel não qualifica para financiamento bancário e o negócio trava."
+      },
+      {
+        "pergunta": "É possível financiar a compra de uma fazenda?",
+        "resposta": "Sim, desde que a propriedade tenha documentação regular (ver pergunta anterior). Linhas de crédito rural e financiamento bancário tradicional exigem matrícula limpa, CAR validado e georreferenciamento aprovado — por isso auditamos a documentação antes de publicar qualquer propriedade no portfólio."
+      },
+      {
+        "pergunta": "Quanto tempo leva para fechar a compra de uma fazenda?",
+        "resposta": "Varia com a complexidade da due diligence e da forma de pagamento, mas para uma propriedade com documentação já regular, o prazo típico entre proposta e escritura fica entre 60 e 120 dias, incluindo checagem documental, vistoria e formalização em cartório."
+      },
+      {
+        "pergunta": "O que significa 'preço sob consulta'?",
+        "resposta": "Significa que o valor final depende de variáveis confirmadas no momento da negociação — disponibilidade da área, forma de pagamento e eventuais ajustes de escopo. Fornecemos a faixa de preço e os detalhes completos diretamente a quem demonstra interesse real."
+      },
+      {
+        "pergunta": "Como funciona a disponibilidade de recursos hídricos e a outorga de uso da água?",
+        "resposta": "Fazendas com captação de água superficial ou poços para irrigação em escala geralmente precisam de outorga de uso da água, emitida pelo órgão estadual ou federal competente. Verificamos a situação de outorga (ou o potencial de obtê-la) como parte da due diligence de cada propriedade."
+      }
+    ]
   },
   "imoveis": {
     "titulo": "Imóveis rurais à venda",
@@ -806,7 +832,33 @@
     "regiao_titulo": "Tocantins and Matopiba: reading the territory",
     "regiao_subtitulo": "Instead of a generic map, we show a visual market-reading panel: logistics, production fitness, entry cost and legal security.",
     "fechamento_titulo": "Regularity is what separates opportunity from a trap",
-    "fechamento_texto": "An area with pending registry or environmental issues looks cheap and turns out expensive: it won't qualify for bank financing, it drags out closing, and it carries a liability that follows the property, not the previous seller. Every property in our portfolio is verified before it is presented."
+    "fechamento_texto": "An area with pending registry or environmental issues looks cheap and turns out expensive: it won't qualify for bank financing, it drags out closing, and it carries a liability that follows the property, not the previous seller. Every property in our portfolio is verified before it is presented.",
+    "faq": [
+      {
+        "pergunta": "Can a foreigner buy a farm in Brazil?",
+        "resposta": "Yes, within limits set by Law No. 5,709/1971, upheld as constitutional by Brazil's Supreme Court (STF) in April 2026. Brazilian companies controlled by foreign capital follow the same rule. Limits vary by area size and municipality — we review this case by case before any negotiation."
+      },
+      {
+        "pergunta": "What are CAR, CCIR, ITR and georeferencing, and why do they matter?",
+        "resposta": "These are the four documents that prove a rural property's land-title and environmental standing: CAR (Rural Environmental Registry) maps legal reserve and preservation areas; CCIR (Rural Property Registration Certificate) is the INCRA registration; ITR (Rural Land Tax) must be current; and INCRA-certified georeferencing defines the area's exact boundaries. Without all four, the property does not qualify for bank financing and the deal stalls."
+      },
+      {
+        "pergunta": "Can you finance the purchase of a farm?",
+        "resposta": "Yes, provided the property has regular documentation (see previous question). Rural credit lines and traditional bank financing require a clean title, validated CAR and approved georeferencing — which is why we audit documentation before listing any property in our portfolio."
+      },
+      {
+        "pergunta": "How long does it take to close on a farm purchase?",
+        "resposta": "It varies with the complexity of due diligence and the payment structure, but for a property with documentation already in order, the typical timeline from offer to deed runs 60 to 120 days, including document review, inspection and formalization at the notary's office."
+      },
+      {
+        "pergunta": "What does 'price on request' mean?",
+        "resposta": "It means the final value depends on variables confirmed at the time of negotiation — area availability, payment structure and any scope adjustments. We provide the price range and full details directly to genuinely interested buyers."
+      },
+      {
+        "pergunta": "How does water availability and water-use permitting work?",
+        "resposta": "Farms with surface water intake or wells for large-scale irrigation generally require a water-use permit issued by the relevant state or federal agency. We check permit status (or the potential to obtain one) as part of every property's due diligence."
+      }
+    ]
   },
   "investir_zh": {
     "titulo": "为什么投资农业",
@@ -816,6 +868,32 @@
     "regiao_titulo": "托坎廷斯与马托皮巴：解读区域",
     "regiao_subtitulo": "我们展示的不是一张泛泛的地图,而是一个市场解读可视化面板：物流、生产适宜性、进入成本与法律保障。",
     "fechamento_titulo": "合规性是区分机遇与陷阱的关键",
-    "fechamento_texto": "登记或环保手续存在瑕疵的地块看起来便宜,实际代价高昂：无法获得银行融资、拖长成交周期,并背负跟随物业本身而非前任卖方的责任风险。我们投资组合中的每一处物业在展示前均经过核实。"
+    "fechamento_texto": "登记或环保手续存在瑕疵的地块看起来便宜,实际代价高昂：无法获得银行融资、拖长成交周期,并背负跟随物业本身而非前任卖方的责任风险。我们投资组合中的每一处物业在展示前均经过核实。",
+    "faq": [
+      {
+        "pergunta": "外国人可以在巴西购买农场吗？",
+        "resposta": "可以,但须遵守1971年第5709号法律规定的限制,该法律已于2026年4月被巴西联邦最高法院（STF）确认为合宪。由外国资本控制的巴西公司同样适用该规则。限制因面积大小及所在市镇而异——我们会在任何谈判前逐案审查。"
+      },
+      {
+        "pergunta": "CAR、CCIR、ITR及地理坐标测绘分别是什么,为何重要？",
+        "resposta": "这四项文件用于证明农村物业的产权及环保合规状况：CAR（农村环境登记）标明法定保护区及保护区域;CCIR（农村物业登记证书）是INCRA（国家土地改革局）的登记证明;ITR（农村土地税）须为最新缴纳状态;经INCRA认证的地理坐标测绘则界定地块的精确边界。缺少其中任何一项,该物业将无法获得银行融资,交易也会因此停滞。"
+      },
+      {
+        "pergunta": "购买农场可以申请融资吗？",
+        "resposta": "可以,前提是物业文件资料齐全合规（参见上一问题）。农村信贷及传统银行融资均要求产权清晰、CAR已验证及地理坐标测绘已获批准——这也是我们在将任何物业纳入项目组合前先审核文件的原因。"
+      },
+      {
+        "pergunta": "完成一笔农场交易通常需要多长时间？",
+        "resposta": "具体时长取决于尽职调查的复杂程度及付款方式,但对于文件资料已合规的物业,从报价到过户登记的典型周期为60至120天,期间包括文件审查、实地查验及公证处的正式手续。"
+      },
+      {
+        "pergunta": "“价格面议”是什么意思？",
+        "resposta": "这意味着最终价格取决于谈判时确认的变量——地块的可用情况、付款方式以及可能的范围调整。我们会向真正有意向的买家直接提供价格区间及完整细节。"
+      },
+      {
+        "pergunta": "水资源可用性及用水许可如何运作？",
+        "resposta": "拥有地表取水或大规模灌溉水井的农场通常需要向相关州级或联邦机构申请用水许可。作为每处物业尽职调查的一部分,我们会核实许可状态（或获取许可的可能性）。"
+      }
+    ]
   }
 }

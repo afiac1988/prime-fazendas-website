@@ -2553,14 +2553,40 @@ def gerar_investir(cfg, pag, dados_agro) -> str:
   </div></div>
 </section>""")
 
+    faq = s.get("faq", [])
+    if faq:
+        faq_html = "".join(
+            f'<details class="ficha-tecnica" style="margin-top:0"><summary class="ficha-tecnica__abrir">{e(qa.get("pergunta",""))}</summary>'
+            f'<div class="ficha-tecnica__corpo"><p>{e(qa.get("resposta",""))}</p></div></details>'
+            for qa in faq
+        )
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="cabeca-secao cabeca-secao--centro">
+      <p class="olho olho--centro">Perguntas frequentes</p>
+      <h2>Dúvidas comuns de quem está comprando terra rural</h2>
+    </div>
+    {faq_html}
+  </div>
+</section>""")
+
     corpo.append(cta_faixa(cfg, "Quer avaliar uma oportunidade?",
                            "Analisamos a propriedade — solo, documentação, passivo e preço — antes de você comprometer capital."))
 
     ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Investir no Agro", "/investir-no-agro/")])
+    ld_faq = json.dumps({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+            {"@type": "Question", "name": qa.get("pergunta", ""),
+             "acceptedAnswer": {"@type": "Answer", "text": qa.get("resposta", "")}}
+            for qa in faq
+        ],
+    }, ensure_ascii=False) if faq else ""
 
     return pagina(cfg, titulo=s.get("titulo", "Por que investir no agronegócio"),
                   descricao=s.get("descricao_meta", s.get("chamada", "")), url="/investir-no-agro/",
-                  corpo="\n".join(corpo), json_ld=[ld_migalha],
+                  corpo="\n".join(corpo), json_ld=[b for b in [ld_migalha, ld_faq] if b],
                   hreflang=hreflang_para(cfg, "/investir-no-agro/"))
 
 
@@ -2653,14 +2679,43 @@ def gerar_investir_i18n(cfg: dict, s: dict, lang: str, dados_agro: dict) -> str:
   </div></div>
 </section>""")
 
+    faq = s.get("faq", [])
+    if faq:
+        faq_titulo = "Frequently asked questions" if lang == "en" else "常见问题"
+        faq_sub = ("Common questions from people buying rural land" if lang == "en"
+                   else "购买农地时的常见问题")
+        faq_html = "".join(
+            f'<details class="ficha-tecnica" style="margin-top:0"><summary class="ficha-tecnica__abrir">{e(qa.get("pergunta",""))}</summary>'
+            f'<div class="ficha-tecnica__corpo"><p>{e(qa.get("resposta",""))}</p></div></details>'
+            for qa in faq
+        )
+        corpo.append(f"""<section class="secao">
+  <div class="env">
+    <div class="cabeca-secao cabeca-secao--centro">
+      <p class="olho olho--centro">{e(faq_titulo)}</p>
+      <h2>{e(faq_sub)}</h2>
+    </div>
+    {faq_html}
+  </div>
+</section>""")
+
     corpo.append(cta_faixa_i18n(cfg, tx["cta_titulo"], tx["cta_texto"], tx["cta_botao"], lang))
 
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "WebPage", "inLanguage": idioma_html,
         "name": s.get("titulo", ""), "description": s.get("descricao_meta", ""),
     }, ensure_ascii=False)
+    ld_faq = json.dumps({
+        "@context": "https://schema.org", "@type": "FAQPage", "inLanguage": idioma_html,
+        "mainEntity": [
+            {"@type": "Question", "name": qa.get("pergunta", ""),
+             "acceptedAnswer": {"@type": "Answer", "text": qa.get("resposta", "")}}
+            for qa in faq
+        ],
+    }, ensure_ascii=False) if faq else ""
 
-    return _skeleton_i18n(cfg, lang, "/investir-no-agro/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+    return _skeleton_i18n(cfg, lang, "/investir-no-agro/", s.get("titulo", ""), s.get("descricao_meta", ""),
+                          "\n".join(corpo), [b for b in [ld, ld_faq] if b])
 
 
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
