@@ -3223,7 +3223,7 @@ CATEGORIA_I18N = {
         "Financiamento": "Financing", "Investidores internacionais": "International Investors",
         "Clima": "Climate", "Gestão": "Management", "Operação": "Operations",
         "Regularização": "Land Regularization", "Recursos Hídricos": "Water Resources",
-        "Insights": "Insights", "Bem-estar": "Well-being",
+        "Insights": "Insights", "Bem-estar": "Well-being", "Data Center": "Data Center",
     },
     "zh": {
         "Arrendamento": "土地租赁", "Investimento": "投资", "Tendências": "趋势",
@@ -3232,7 +3232,7 @@ CATEGORIA_I18N = {
         "Financiamento": "融资", "Investidores internacionais": "国际投资者",
         "Clima": "气候", "Gestão": "管理", "Operação": "运营",
         "Regularização": "土地合规", "Recursos Hídricos": "水资源",
-        "Insights": "洞察", "Bem-estar": "身心健康",
+        "Insights": "洞察", "Bem-estar": "身心健康", "Data Center": "数据中心",
     },
 }
 

@@ -32,4 +32,10 @@ Diferente de uma área agrícola, um terreno para data center é avaliado por um
 
 Essa é exatamente a due diligence que a Prime Fazendas já aplica há anos vendendo fazendas de grande porte para investidores institucionais no Matopiba e no Tocantins — energia, água, documentação e logística verificadas antes de qualquer proposta chegar à mesa. Por isso estendemos a mesma operação para quem busca terreno e estruturação para data center: vendemos terrenos com energia, água e conectividade já mapeadas; estruturamos o negócio do ponto de vista jurídico, financeiro, energético e ambiental antes da obra começar; e administramos a construção de ponta a ponta com parceiros especializados em infraestrutura crítica, nos modelos MicroCenter, Standard ou HyperScale. Com o volume de capital internacional — chinês, americano e de outras origens — buscando ativos de data center no Brasil, a experiência que construímos vendendo terra para o agronegócio agora atende quem procura terreno para infraestrutura digital, com o mesmo padrão de verificação.
 
-Se você está avaliando terreno ou estruturação para um projeto de data center no Brasil, fale com o nosso time — te ajudamos do terreno à obra, com energia, água e documentação já verificadas.
+## Fale com a Prime Fazendas
+
+Se você está avaliando terreno ou estruturação para um projeto de data center no Brasil, fale direto com o nosso time — te ajudamos do terreno à obra, com energia, água e documentação já verificadas:
+
+- **WhatsApp**: [+55 (63) 98143-7860](https://wa.me/5563981437860?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20terreno%2Festrutura%C3%A7%C3%A3o%20para%20Data%20Center.)
+- **E-mail**: [contato@primefazendas.com](mailto:contato@primefazendas.com)
+- **Instagram**: [@prime_fazendas](https://www.instagram.com/prime_fazendas/)
