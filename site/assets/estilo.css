@@ -613,18 +613,16 @@ strong { font-weight: 600; color: var(--azul-900); }
 .galeria__link { display: block; cursor: zoom-in; }
 .galeria img { border-radius: var(--raio); aspect-ratio: 4/3; object-fit: cover; width: 100%; filter: saturate(1.05) contrast(1.03); }
 
-/* Galeria curada da ficha de imóvel: poucas fotos (3 a 6), grandes e bem
-   espaçadas — no máximo duas colunas, nunca a grade apertada de muitas fotos
-   pequenas. A primeira foto ocupa a largura toda para dar peso editorial;
-   as demais dividem em pares. */
+/* Galeria curada (ficha de imovel e Data Center): grade em quadrantes,
+   todas as fotos do mesmo tamanho - nada de foto "hero" ocupando a largura
+   toda. Mais colunas, fotos menores e mais leves, contact-sheet editorial
+   em vez de blocos gigantes empilhados. */
 .galeria--curada {
-  grid-template-columns: repeat(auto-fit, minmax(min(100%, 360px), 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr));
+  gap: 0.9rem;
   margin-bottom: 3rem;
 }
-.galeria--curada img { aspect-ratio: 3/2; }
-.galeria--curada .galeria__link:first-child { grid-column: 1 / -1; }
-.galeria--curada .galeria__link:first-child img { aspect-ratio: 16/9; }
+.galeria--curada img { aspect-ratio: 4/3; }
 .foto-modal[hidden] { display: none; }
 .foto-modal {
   position: fixed;
