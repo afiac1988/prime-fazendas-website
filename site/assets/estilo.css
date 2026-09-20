@@ -1274,3 +1274,45 @@ body.modal-aberta { overflow: hidden; }
   color: var(--tinta-suave);
   margin-top: 0.6rem;
 }
+
+/* --- Seletor de idioma (bandeiras) --- */
+.idioma-seletor {
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+  margin-right: 0.5rem;
+}
+.idioma__opcao {
+  display: inline-flex;
+  width: 1.7rem;
+  height: 1.7rem;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 1px solid rgba(12, 30, 51, 0.15);
+  opacity: 0.55;
+  transition: opacity 0.15s ease, transform 0.15s ease;
+}
+.idioma__opcao svg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.idioma__opcao:hover {
+  opacity: 1;
+  transform: translateY(-1px);
+}
+.idioma__opcao--atual {
+  opacity: 1;
+  border-color: var(--dourado, #C9A44C);
+  box-shadow: 0 0 0 2px rgba(201, 164, 76, 0.35);
+}
+.secao--escura .idioma__opcao,
+.topo .idioma__opcao {
+  border-color: rgba(255, 255, 255, 0.3);
+}
+@media (max-width: 900px) {
+  .idioma-seletor {
+    order: -1;
+    margin: 0 0 1rem 0;
+  }
+}

@@ -553,6 +553,33 @@ def formatar_telefone_exibicao(contato: dict, idioma: str = "") -> str:
     return local
 
 
+PAGINAS_TRADUZIDAS = {
+    "/": {"en": "/en/", "zh": "/zh/"},
+    "/sobre/": {"en": "/en/sobre/", "zh": "/zh/sobre/"},
+    "/servicos/": {"en": "/en/servicos/", "zh": "/zh/servicos/"},
+    "/data-center/": {"en": "/en/data-center/", "zh": "/zh/data-center/"},
+    "/contato/": {"en": "/en/contato/", "zh": "/zh/contato/"},
+    "/agenda-agro/": {"en": "/en/agenda-agro/", "zh": "/zh/agenda-agro/"},
+}
+
+BANDEIRA_SVG = {
+    "pt": '<svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#009739"/><path d="M12 2 22 8 12 14 2 8Z" fill="#FEDD00"/><circle cx="12" cy="8" r="3.2" fill="#012169"/></svg>',
+    "en": '<svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#B22234"/><rect width="24" height="1.23" y="1.23" fill="#fff"/><rect width="24" height="1.23" y="3.69" fill="#fff"/><rect width="24" height="1.23" y="6.15" fill="#fff"/><rect width="24" height="1.23" y="8.62" fill="#fff"/><rect width="24" height="1.23" y="11.08" fill="#fff"/><rect width="24" height="1.23" y="13.54" fill="#fff"/><rect width="10" height="8.62" fill="#3C3B6E"/></svg>',
+    "zh": '<svg viewBox="0 0 24 16" aria-hidden="true"><rect width="24" height="16" fill="#DE2910"/><path d="M4 3 4.9 5.7 2.4 4.1H5.6L3.1 5.7Z" fill="#FFDE00"/></svg>',
+}
+
+
+def seletor_idioma(pt_url: str | None, en_url: str | None, zh_url: str | None, atual: str) -> str:
+    """Bandeirinhas de troca de idioma, canto superior direito do menu."""
+    opcoes = [("pt", pt_url, "Português"), ("en", en_url, "English"), ("zh", zh_url, "中文")]
+    itens = "".join(
+        f'<a href="{e(url)}" class="idioma__opcao{" idioma__opcao--atual" if cod == atual else ""}" '
+        f'title="{e(rotulo)}" aria-label="{e(rotulo)}">{BANDEIRA_SVG[cod]}</a>'
+        for cod, url, rotulo in opcoes if url
+    )
+    return f'<div class="idioma-seletor">{itens}</div>'
+
+
 def cabecalho(cfg: dict, url_atual: str) -> str:
     itens = []
     for item in cfg.get("navegacao", []):
@@ -570,6 +597,9 @@ def cabecalho(cfg: dict, url_atual: str) -> str:
         '<a class="btn btn--principal" href="/contato/">Fale com um especialista</a>'
     )
 
+    trad = PAGINAS_TRADUZIDAS.get(url_atual, {})
+    seletor = seletor_idioma(url_atual, trad.get("en") or "/en/", trad.get("zh") or "/zh/", "pt")
+
     return f"""<header class="topo">
   <div class="env topo__int">
     <a class="marca" href="/" aria-label="{e(cfg['marca']['nome'])} — página inicial">
@@ -584,6 +614,7 @@ def cabecalho(cfg: dict, url_atual: str) -> str:
       {cta_mobile}
     </nav>
     <div class="topo__acao">
+      {seletor}
       {cta_topo}
       <button class="hamburguer" type="button" aria-expanded="false"
               aria-controls="nav-principal" aria-label="Abrir menu"><span></span></button>
@@ -1753,36 +1784,36 @@ def gerar_datacenter(cfg, pag) -> str:
 
 NAV_I18N = {
     "en": [
-        {"titulo": "Home", "url": "/"},
-        {"titulo": "About Us", "url": "/sobre/"},
-        {"titulo": "Services", "url": "/servicos/"},
+        {"titulo": "Home", "url": "/en/"},
+        {"titulo": "About Us", "url": "/en/sobre/"},
+        {"titulo": "Services", "url": "/en/servicos/"},
         {"titulo": "Data Center", "url": "/en/data-center/"},
         {"titulo": "Properties", "url": "/imoveis/"},
         {"titulo": "Invest in Agribusiness", "url": "/investir-no-agro/"},
         {"titulo": "News", "url": "/blog/"},
-        {"titulo": "Contact", "url": "/contato/"},
+        {"titulo": "Contact", "url": "/en/contato/"},
     ],
     "zh": [
-        {"titulo": "首页", "url": "/"},
-        {"titulo": "关于我们", "url": "/sobre/"},
-        {"titulo": "服务项目", "url": "/servicos/"},
+        {"titulo": "首页", "url": "/zh/"},
+        {"titulo": "关于我们", "url": "/zh/sobre/"},
+        {"titulo": "服务项目", "url": "/zh/servicos/"},
         {"titulo": "数据中心", "url": "/zh/data-center/"},
         {"titulo": "房产项目", "url": "/imoveis/"},
         {"titulo": "投资农业", "url": "/investir-no-agro/"},
         {"titulo": "新闻资讯", "url": "/blog/"},
-        {"titulo": "联系我们", "url": "/contato/"},
+        {"titulo": "联系我们", "url": "/zh/contato/"},
     ],
 }
 
 RODAPE_I18N = {
     "en": {
-        "aviso_idioma": "This page is available in English. Other site pages are currently in Portuguese only.",
+        "aviso_idioma": "Properties and news articles are currently only available in Portuguese.",
         "nav_titulo": "Navigation", "contato_titulo": "Contact", "comunidade_titulo": "Community",
         "entrar_comunidade": "Join the community", "noticias": "News and insights", "imoveis": "Properties for sale",
         "direitos": "All rights reserved.",
     },
     "zh": {
-        "aviso_idioma": "本页面提供中文版本。网站其他页面目前仅提供葡萄牙语版本。",
+        "aviso_idioma": "房产项目及新闻资讯目前仅提供葡萄牙语版本。",
         "nav_titulo": "导航", "contato_titulo": "联系方式", "comunidade_titulo": "社区",
         "entrar_comunidade": "加入社区", "noticias": "新闻与洞察", "imoveis": "在售房产",
         "direitos": "版权所有。",
@@ -1807,9 +1838,14 @@ def cabecalho_i18n(cfg: dict, lang: str, url_atual: str) -> str:
     )
     subtitulo = {"en": "Rural Real Estate", "zh": "乡村地产"}[lang]
 
+    pt_atual = url_atual.replace(f"/{lang}/", "/", 1) if url_atual != f"/{lang}/" else "/"
+    trad = PAGINAS_TRADUZIDAS.get(pt_atual, {})
+    outro_lang = "zh" if lang == "en" else "en"
+    seletor = seletor_idioma(pt_atual, trad.get("en") or "/en/", trad.get("zh") or "/zh/", lang)
+
     return f"""<header class="topo">
   <div class="env topo__int">
-    <a class="marca" href="/" aria-label="{e(cfg['marca']['nome'])}">
+    <a class="marca" href="/{lang}/" aria-label="{e(cfg['marca']['nome'])}">
       {SVG_SELO}
       <span class="marca__txt">
         <span class="marca__nome">{e(cfg['marca']['nome'])}</span>
@@ -1821,6 +1857,7 @@ def cabecalho_i18n(cfg: dict, lang: str, url_atual: str) -> str:
       {cta_mobile}
     </nav>
     <div class="topo__acao">
+      {seletor}
       {cta_topo}
       <button class="hamburguer" type="button" aria-expanded="false"
               aria-controls="nav-principal" aria-label="Open menu"><span></span></button>
@@ -2099,6 +2136,242 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
 </body>
 </html>
 """
+
+
+def _skeleton_i18n(cfg: dict, lang: str, url_path: str, titulo: str, descricao_meta: str,
+                    corpo_html: str, json_ld_list: list[str] | None = None) -> str:
+    """Skeleton HTML reutilizavel para paginas institucionais traduzidas (home,
+    sobre, servicos, contato, agenda-agro). Mesmo padrao de hreflang/idioma/schema
+    usado em gerar_datacenter_i18n, generalizado para qualquer pagina simples."""
+    idioma_html = {"en": "en", "zh": "zh-Hans"}[lang]
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    pt_path = url_path  # url_path aqui é sempre o caminho em PT, ex: "/sobre/"
+    hreflang = [
+        ("pt-BR", f"{dominio}{pt_path}"),
+        ("en", f"{dominio}/en{pt_path}" if pt_path != "/" else f"{dominio}/en/"),
+        ("zh-Hans", f"{dominio}/zh{pt_path}" if pt_path != "/" else f"{dominio}/zh/"),
+        ("x-default", f"{dominio}{pt_path}"),
+    ]
+    canonica = f"{dominio}/{lang}{pt_path}" if pt_path != "/" else f"{dominio}/{lang}/"
+    hreflang_tags = "\n".join(f'<link rel="alternate" hreflang="{e(l)}" href="{e(h)}">' for l, h in hreflang)
+    blocos_ld = json_ld_list or []
+    ld_html = "\n".join(f'<script type="application/ld+json">{b}</script>' for b in blocos_ld if b)
+    ga = ""
+    if preenchido(cfg.get("analytics", {}).get("ga4_id")):
+        gid = e(cfg["analytics"]["ga4_id"])
+        ga = (f'<script async src="https://www.googletagmanager.com/gtag/js?id={gid}"></script>\n'
+              f'<script>window.dataLayer=window.dataLayer||[];function gtag(){{dataLayer.push(arguments);}}'
+              f"gtag('js',new Date());gtag('config','{gid}');</script>")
+    zap = montar_url_zap(cfg)
+    zap_botao = ""
+    if zap:
+        zap_botao = f'<a class="zap" href="{e(zap)}" target="_blank" rel="noopener" aria-label="WhatsApp">{SVG_ZAP}</a>'
+    titulo_completo = f"{titulo} | {cfg['marca']['nome']}"
+    url_atual_i18n = f"/{lang}{pt_path}" if pt_path != "/" else f"/{lang}/"
+
+    return f"""<!DOCTYPE html>
+<html lang="{e(idioma_html)}">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>{e(titulo_completo)}</title>
+<meta name="description" content="{e(descricao_meta)}">
+<link rel="canonical" href="{e(canonica)}">
+<meta name="robots" content="index, follow">
+{hreflang_tags}
+<meta name="theme-color" content="#0C1E33">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="{e(cfg['marca']['nome'])}">
+<meta property="og:title" content="{e(titulo)}">
+<meta property="og:description" content="{e(descricao_meta)}">
+<meta property="og:url" content="{e(canonica)}">
+<meta property="og:locale" content="{e(idioma_html.replace('-','_'))}">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
+<link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600&family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Inter:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="/assets/estilo.css">
+{ld_html}
+{ga}
+<script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+<a class="pular" href="#principal">{"Skip to content" if lang=="en" else "跳转到主要内容"}</a>
+{cabecalho_i18n(cfg, lang, url_atual_i18n)}
+<main id="principal">
+{corpo_html}
+</main>
+{rodape_i18n(cfg, lang)}
+{zap_botao}
+<script src="/assets/site.js" defer></script>
+</body>
+</html>
+"""
+
+
+def gerar_home_i18n(cfg: dict, s: dict, lang: str) -> str:
+    zap = montar_url_zap(cfg)
+    botoes = f'<a class="btn btn--dourado" href="/imoveis/">{e(s.get("hero_cta",""))}</a>'
+    if zap:
+        botoes += f'<a class="btn btn--claro" href="{e(zap)}" target="_blank" rel="noopener">{e(s.get("hero_cta_secundario",""))}</a>'
+    largura, altura = dimensoes_midia_url("/midia/imoveis/fazenda-amazonita/aerea-02.jpg", 1920, 1080)
+    img = (f'<img class="hero__foto" src="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" alt="{e(s.get("hero_titulo",""))}" '
+           f'width="{largura}" height="{altura}" loading="eager" fetchpriority="high">')
+    corpo = [f"""<section class="hero">
+  {img}{SVG_HORIZONTE}
+  <div class="env hero__int">
+    <h1>{e(s.get('hero_titulo',''))}</h1>
+    <p class="hero__texto">{e(s.get('hero_texto',''))}</p>
+    <div class="grupo-btn">{botoes}</div>
+  </div>
+</section>"""]
+
+    pilares = "".join(
+        f'<article class="card"><h3>{e(p.get("titulo",""))}</h3><p>{e(p.get("texto",""))}</p></article>'
+        for p in s.get("pilares", [])
+    )
+    if pilares:
+        corpo.append(f'<section class="secao secao--branca"><div class="env"><div class="grade grade--2">{pilares}</div></div></section>')
+
+    corpo.append(cta_faixa_i18n(cfg, s.get("faixa_titulo", ""), s.get("faixa_texto", ""),
+                                 "Talk to a specialist" if lang == "en" else "联系专业顾问", lang))
+
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "RealEstateAgent", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"],
+        "description": s.get("hero_texto", ""),
+        "areaServed": {"@type": "State", "name": "Tocantins"},
+    }, ensure_ascii=False)
+
+    titulo = {"en": "Prime Fazendas — Farms and rural properties in Tocantins",
+              "zh": "Prime Fazendas — 托坎廷斯州农场与乡村地产"}[lang]
+    return _skeleton_i18n(cfg, lang, "/", titulo, s.get("hero_texto", ""), "\n".join(corpo), [ld])
+
+
+def gerar_sobre_i18n(cfg: dict, s: dict, lang: str) -> str:
+    quem_somos = paragrafos(s.get("quem_somos"))
+    historia = paragrafos(s.get("historia"))
+    diferenciais = "".join(
+        f'<article class="card"><h3>{e(d.get("titulo",""))}</h3><p>{e(d.get("texto",""))}</p></article>'
+        for d in s.get("diferenciais", [])
+    )
+    valores = "".join(f"<li>{e(v)}</li>" for v in s.get("valores", []))
+
+    corpo = [f"""<section class="hero hero--interno">
+  <div class="env hero__int"><h1>{e(s.get('titulo',''))}</h1><p class="hero__texto">{e(s.get('chamada',''))}</p></div>
+</section>
+<section class="secao"><div class="env"><div class="prosa">{quem_somos}</div></div></section>"""]
+
+    if historia:
+        corpo.append(f'<section class="secao secao--clara"><div class="env"><h2>{e(s.get("historia_titulo",""))}</h2><div class="prosa">{historia}</div></div></section>')
+
+    if diferenciais:
+        corpo.append(f"""<section class="secao"><div class="env">
+  <div class="cabeca-secao"><h2>{e(s.get("diferenciais_titulo",""))}</h2><p class="chamada">{e(s.get("diferenciais_texto",""))}</p></div>
+  <div class="grade grade--2">{diferenciais}</div>
+</div></section>""")
+
+    corpo.append(f"""<section class="secao secao--escura"><div class="env">
+  <div class="grade grade--2" style="align-items:start">
+    <div><h2>{"Mission" if lang=="en" else "使命"}</h2><p class="chamada">{e(s.get("missao",""))}</p></div>
+    <div><p class="olho">{"Values" if lang=="en" else "价值观"}</p><ul class="marcada marcada--check">{valores}</ul></div>
+  </div>
+</div></section>""")
+
+    corpo.append(cta_faixa_i18n(cfg, "Want to know our portfolio?" if lang == "en" else "想了解我们的项目库吗?",
+                                 "" , "See properties" if lang == "en" else "查看房产项目", lang, href="/imoveis/"))
+
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "AboutPage", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "name": s.get("titulo", ""),
+        "mainEntity": {"@type": "Organization", "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"]},
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, "/sobre/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+
+
+def gerar_servicos_i18n(cfg: dict, s: dict, lang: str) -> str:
+    cards = "".join(
+        f'<article class="card"><div class="card__num">{i+1:02d}</div><h3>{e(x["titulo"])}</h3><p>{e(x["texto"])}</p></article>'
+        for i, x in enumerate(s.get("lista", []))
+    )
+    corpo = [f"""<section class="hero hero--interno">
+  <div class="env hero__int"><h1>{e(s.get('titulo',''))}</h1><p class="hero__texto">{e(s.get('chamada',''))}</p></div>
+</section>
+<section class="secao"><div class="env"><div class="grade grade--2">{cards}</div></div></section>"""]
+
+    corpo.append(cta_faixa_i18n(cfg, s.get("cta_titulo", ""), s.get("cta_texto", ""), s.get("cta_botao", ""), lang))
+
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "Service", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "name": s.get("titulo", ""), "description": s.get("chamada", ""),
+        "provider": {"@type": "RealEstateAgent", "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"]},
+        **({"hasOfferCatalog": {"@type": "OfferCatalog", "name": "Prime Fazendas services",
+            "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": x["titulo"], "description": x.get("texto","")}} for x in s.get("lista", [])]}} if s.get("lista") else {}),
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, "/servicos/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+
+
+def gerar_contato_i18n(cfg: dict, s: dict, lang: str) -> str:
+    zap = montar_url_zap(cfg)
+    c = cfg["contato"]
+    linhas = []
+    if preenchido(c.get("telefone")):
+        tel = re.sub(r"\D", "", c.get("telefone_link") or c["telefone"])
+        linhas.append(f'<li><a href="tel:+{tel}">{e(formatar_telefone_exibicao(c, ""))}</a></li>')
+    if preenchido(c.get("email")):
+        linhas.append(f'<li><a href="mailto:{e(c["email"])}">{e(c["email"])}</a></li>')
+    botao_zap = ""
+    if zap:
+        rotulo = "Talk on WhatsApp" if lang == "en" else "微信/WhatsApp咨询"
+        botao_zap = f'<a class="btn btn--dourado" href="{e(zap)}" target="_blank" rel="noopener">{rotulo}</a>'
+
+    corpo = [f"""<section class="hero hero--interno">
+  <div class="env hero__int"><h1>{e(s.get('titulo',''))}</h1><p class="hero__texto">{e(s.get('chamada',''))}</p></div>
+</section>
+<section class="secao"><div class="env">
+  <div class="prosa"><p>{e(s.get('intro',''))}</p></div>
+  <h2>{e(s.get('form_titulo',''))}</h2>
+  <ul class="marcada">{''.join(linhas)}</ul>
+  {botao_zap}
+  <p style="margin-top:1rem;font-size:.85rem;color:var(--tinta-suave)">{e(s.get('form_nota',''))}</p>
+</div></section>"""]
+
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "ContactPage", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "name": s.get("titulo", ""),
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, "/contato/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+
+
+def gerar_agenda_agro_i18n(cfg: dict, s: dict, lang: str) -> str:
+    corpo = [f"""<section class="hero hero--interno">
+  <div class="env hero__int"><h1>{e(s.get('titulo',''))}</h1><p class="hero__texto">{e(s.get('chamada',''))}</p></div>
+</section>
+<section class="secao"><div class="env">
+  <div class="cabeca-secao cabeca-secao--centro">
+    <p class="olho olho--centro">{e(s.get('vazio_titulo',''))}</p>
+    <p class="chamada">{e(s.get('vazio_texto',''))}</p>
+  </div>
+</div></section>"""]
+    return _skeleton_i18n(cfg, lang, "/agenda-agro/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [])
+
+
+def cta_faixa_i18n(cfg: dict, titulo: str, texto: str, botao: str, lang: str, href: str | None = None) -> str:
+    zap = montar_url_zap(cfg)
+    url = href or (zap if zap else "/contato/")
+    alvo = ' target="_blank" rel="noopener"' if (not href and zap) else ""
+    return f"""<section class="cta-faixa">
+  <div class="env cta-faixa__int">
+    <h2>{e(titulo)}</h2>
+    {f'<p>{e(texto)}</p>' if texto else ''}
+    <a class="btn btn--dourado" href="{e(url)}"{alvo}>{e(botao)}</a>
+  </div>
+</section>"""
 
 
 def gerar_investir(cfg, pag, dados_agro) -> str:
@@ -3145,6 +3418,12 @@ def main() -> int:
     escrever("data-center/index.html", gerar_datacenter(cfg, pag))
     escrever("en/data-center/index.html", gerar_datacenter_i18n(cfg, pag.get("datacenter_en", {}), "en"))
     escrever("zh/data-center/index.html", gerar_datacenter_i18n(cfg, pag.get("datacenter_zh", {}), "zh"))
+    for lang in ("en", "zh"):
+        escrever(f"{lang}/index.html", gerar_home_i18n(cfg, pag.get(f"home_{lang}", {}), lang))
+        escrever(f"{lang}/sobre/index.html", gerar_sobre_i18n(cfg, pag.get(f"sobre_{lang}", {}), lang))
+        escrever(f"{lang}/servicos/index.html", gerar_servicos_i18n(cfg, pag.get(f"servicos_{lang}", {}), lang))
+        escrever(f"{lang}/contato/index.html", gerar_contato_i18n(cfg, pag.get(f"contato_{lang}", {}), lang))
+        escrever(f"{lang}/agenda-agro/index.html", gerar_agenda_agro_i18n(cfg, pag.get(f"agenda_agro_{lang}", {}), lang))
     escrever("investir-no-agro/index.html", gerar_investir(cfg, pag, dados_agro))
     escrever("imoveis/index.html", gerar_lista_imoveis(cfg, pag, imoveis))
     escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
@@ -3160,8 +3439,11 @@ def main() -> int:
 
     # sitemap + robots + htaccess
     dominio = cfg["site"]["dominio"].rstrip("/")
-    urls = ["/", "/sobre/", "/servicos/", "/data-center/", "/en/data-center/", "/zh/data-center/",
-            "/investir-no-agro/", "/imoveis/", "/blog/", "/agenda-agro/", "/contato/"]
+    urls = ["/", "/sobre/", "/servicos/", "/data-center/", "/investir-no-agro/", "/imoveis/",
+            "/blog/", "/agenda-agro/", "/contato/"]
+    for lang in ("en", "zh"):
+        urls += [f"/{lang}/", f"/{lang}/sobre/", f"/{lang}/servicos/", f"/{lang}/data-center/",
+                 f"/{lang}/contato/", f"/{lang}/agenda-agro/"]
     urls += [im["url"] for im in imoveis]
     urls += [p["url"] for p in posts]
     hoje = date.today().isoformat()
