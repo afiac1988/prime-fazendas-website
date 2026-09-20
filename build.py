@@ -1903,6 +1903,15 @@ def cabecalho_i18n(cfg: dict, lang: str, url_atual: str) -> str:
 def rodape_i18n(cfg: dict, lang: str) -> str:
     t = RODAPE_I18N[lang]
     nav = "".join(f'<li><a href="{e(i["url"])}">{e(i["titulo"])}</a></li>' for i in NAV_I18N[lang])
+
+    redes = ""
+    for rede, url in cfg.get("redes", {}).items():
+        if preenchido(url) and rede in ICONES_REDE:
+            redes += (f'<a href="{e(url)}" target="_blank" rel="noopener me" '
+                      f'aria-label="{rede.capitalize()}">{ICONES_REDE[rede]}</a>')
+    if redes:
+        redes = f'<div class="redes">{redes}</div>'
+
     c = cfg["contato"]
     linhas = []
     if preenchido(c.get("telefone")):
@@ -1925,6 +1934,7 @@ def rodape_i18n(cfg: dict, lang: str) -> str:
           <span class="marca__txt"><span class="marca__nome">{e(cfg['marca']['nome'])}</span></span>
         </a>
         <p class="rodape__sobre">{e(t['aviso_idioma'])}</p>
+        {redes}
       </div>
       <div>
         <h4>{e(t['nav_titulo'])}</h4>
