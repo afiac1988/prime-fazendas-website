@@ -1319,7 +1319,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
     # destaques
     destaques = [i for i in imoveis if i.get("destaque")] or imoveis[:3]
     if destaques:
-        corpo.append(f"""<section class="secao">
+        corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="cabeca-secao">
       <p class="olho">Oportunidades</p>
@@ -2523,7 +2523,7 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
                         f'{e(TIPOS.get(t, t.capitalize()))}</button>')
 
         n = len(imoveis)
-        corpo.append(f"""<section class="secao">
+        corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="lista-imoveis__barra">
       <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
@@ -2979,7 +2979,7 @@ def gerar_lista_imoveis_i18n(cfg: dict, imoveis: list[dict], lang: str, trad_map
 
         n = len(imoveis_i18n)
         rotulo_n = tx["propriedade"] if n == 1 else tx["propriedades"]
-        corpo.append(f"""<section class="secao">
+        corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="lista-imoveis__barra">
       <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
