@@ -1803,7 +1803,7 @@ NAV_I18N = {
         {"titulo": "Data Center", "url": "/en/data-center/"},
         {"titulo": "Properties", "url": "/en/imoveis/"},
         {"titulo": "Invest in Agribusiness", "url": "/investir-no-agro/"},
-        {"titulo": "News", "url": "/blog/"},
+        {"titulo": "News", "url": "/en/blog/"},
         {"titulo": "Contact", "url": "/en/contato/"},
     ],
     "zh": [
@@ -1813,20 +1813,20 @@ NAV_I18N = {
         {"titulo": "数据中心", "url": "/zh/data-center/"},
         {"titulo": "房产项目", "url": "/zh/imoveis/"},
         {"titulo": "投资农业", "url": "/investir-no-agro/"},
-        {"titulo": "新闻资讯", "url": "/blog/"},
+        {"titulo": "新闻资讯", "url": "/zh/blog/"},
         {"titulo": "联系我们", "url": "/zh/contato/"},
     ],
 }
 
 RODAPE_I18N = {
     "en": {
-        "aviso_idioma": "Properties and news articles are currently only available in Portuguese.",
+        "aviso_idioma": "Farm listings and news are now available in English. Some institutional pages remain Portuguese-only for now.",
         "nav_titulo": "Navigation", "contato_titulo": "Contact", "comunidade_titulo": "Community",
         "entrar_comunidade": "Join the community", "noticias": "News and insights", "imoveis": "Properties for sale",
         "direitos": "All rights reserved.",
     },
     "zh": {
-        "aviso_idioma": "房产项目及新闻资讯目前仅提供葡萄牙语版本。",
+        "aviso_idioma": "房产项目及新闻资讯现已提供中文版本。部分公司介绍页面目前仅提供葡萄牙语版本。",
         "nav_titulo": "导航", "contato_titulo": "联系方式", "comunidade_titulo": "社区",
         "entrar_comunidade": "加入社区", "noticias": "新闻与洞察", "imoveis": "在售房产",
         "direitos": "版权所有。",
@@ -1916,9 +1916,9 @@ def rodape_i18n(cfg: dict, lang: str) -> str:
       <div>
         <h4>{e(t['comunidade_titulo'])}</h4>
         <ul class="rodape__lista">
-          <li><a href="/blog/">{e(t['entrar_comunidade'])}</a></li>
-          <li><a href="/blog/">{e(t['noticias'])}</a></li>
-          <li><a href="/imoveis/">{e(t['imoveis'])}</a></li>
+          <li><a href="/{lang}/blog/">{e(t['entrar_comunidade'])}</a></li>
+          <li><a href="/{lang}/blog/">{e(t['noticias'])}</a></li>
+          <li><a href="/{lang}/imoveis/">{e(t['imoveis'])}</a></li>
         </ul>
       </div>
     </div>
@@ -3191,6 +3191,219 @@ def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: 
     return _skeleton_i18n(cfg, lang, im_pt["url"], im["titulo"], desc, "\n".join(corpo), [ld])
 
 
+CATEGORIA_I18N = {
+    "en": {
+        "Arrendamento": "Leasing", "Investimento": "Investment", "Tendências": "Trends",
+        "Guia": "Guide", "Institucional": "Company", "Logística": "Logistics",
+        "Jurídico": "Legal", "Mercado": "Market", "Exportação": "Exports",
+        "Financiamento": "Financing", "Investidores internacionais": "International Investors",
+        "Clima": "Climate", "Gestão": "Management", "Operação": "Operations",
+        "Regularização": "Land Regularization", "Recursos Hídricos": "Water Resources",
+        "Insights": "Insights",
+    },
+    "zh": {
+        "Arrendamento": "土地租赁", "Investimento": "投资", "Tendências": "趋势",
+        "Guia": "指南", "Institucional": "公司动态", "Logística": "物流",
+        "Jurídico": "法律", "Mercado": "市场", "Exportação": "出口",
+        "Financiamento": "融资", "Investidores internacionais": "国际投资者",
+        "Clima": "气候", "Gestão": "管理", "Operação": "运营",
+        "Regularização": "土地合规", "Recursos Hídricos": "水资源",
+        "Insights": "洞察",
+    },
+}
+
+TEXTOS_BLOG_I18N = {
+    "en": {
+        "noticias": "News", "noticias_insights": "News and insights", "mais_artigos": "More articles",
+        "em_breve": "Coming soon", "continue_lendo": "Continue reading", "ler_artigo": "Read the article",
+        "min_leitura": "min read", "portfolio_titulo": "Prime Fazendas Portfolio",
+        "ja_leu": "Already read the news? Check out some available farms",
+        "ver_todas": "See all properties", "tem_propriedade": "Have a property or a question?",
+        "fale_quem_negocia": "Talk to people who negotiate land in Tocantins every day.",
+        "acervo": "Illustrative image — Prime Fazendas archive",
+    },
+    "zh": {
+        "noticias": "新闻资讯", "noticias_insights": "新闻与洞察", "mais_artigos": "更多文章",
+        "em_breve": "敬请期待", "continue_lendo": "继续阅读", "ler_artigo": "阅读全文",
+        "min_leitura": "分钟阅读", "portfolio_titulo": "Prime Fazendas 项目组合",
+        "ja_leu": "看完新闻了吗？了解一些当前可售的农场",
+        "ver_todas": "查看全部房产", "tem_propriedade": "有房产或疑问想咨询吗？",
+        "fale_quem_negocia": "与每天在托坎廷斯州从事土地交易的专业团队沟通。",
+        "acervo": "示意图片 — Prime Fazendas 资料库",
+    },
+}
+
+
+def traduzir_post(p: dict, lang: str, trad_map: dict) -> dict:
+    """Retorna uma copia do post com titulo/resumo/corpo traduzidos (quando existir
+    entrada em conteudo/noticias_i18n.json) e url apontando para a versao no idioma.
+    Categoria mantem o valor PT original em '_categoria_pt' (usado so pelo icone),
+    e ganha o rotulo traduzido em 'categoria'."""
+    novo = dict(p)
+    t = trad_map.get(p["slug"], {}).get(lang)
+    categoria_pt = p.get("categoria", "")
+    if t:
+        novo["titulo"] = t.get("titulo", novo["titulo"])
+        novo["resumo"] = t.get("resumo", novo.get("resumo", ""))
+        novo["html"] = markdown(t.get("corpo_markdown", ""))
+    novo["_categoria_pt"] = categoria_pt
+    novo["categoria"] = CATEGORIA_I18N[lang].get(categoria_pt, categoria_pt)
+    novo["url"] = f"/{lang}/blog/{p['slug']}/"
+    return novo
+
+
+def card_post_i18n(p: dict, lang: str, destaque: bool = False) -> str:
+    tx = TEXTOS_BLOG_I18N[lang]
+    tempo = p.get('tempo_leitura')
+    meta_tempo = f'<span>·</span><span>{tempo} {e(tx["min_leitura"])}</span>' if tempo else ''
+    classe = "post-card post-card--destaque reveal" if destaque else "post-card reveal"
+    icone_cat = p.get("_categoria_pt", p["categoria"])
+    if preenchido(p.get('capa')):
+        largura_post, altura_post = dimensoes_midia_url(p["capa"], 640, 400)
+        capa = (f'<a class="post-card__capa post-card__capa--foto" href="{e(p["url"])}" '
+                f'aria-hidden="true" tabindex="-1">'
+                f'<img src="{e(p["capa"])}" alt="{e(p["titulo"])}" loading="lazy" '
+                f'width="{largura_post}" height="{altura_post}">'
+                f'<span class="post-card__selo">Prime News</span>'
+                f'<span class="post-card__icone">{icone_noticia(icone_cat)}</span>'
+                f'</a>')
+    else:
+        capa = (f'<a class="post-card__capa" href="{e(p["url"])}" aria-hidden="true" tabindex="-1">'
+                f'<span class="post-card__selo">Prime News</span>'
+                f'<span class="post-card__icone">{icone_noticia(icone_cat)}</span>'
+                f'</a>')
+    return f"""<article class="{classe}">
+  {capa}
+  <div class="post-card__corpo">
+    <p class="post-card__meta"><span class="post-card__cat">{e(p['categoria'])}</span>
+    <span>·</span><time datetime="{p['data'].isoformat()}">{e(fmt_data(p['data']))}</time>
+    {meta_tempo}</p>
+    <h3><a href="{e(p['url'])}">{e(p['titulo'])}</a></h3>
+    {f"<p>{e(p['resumo'])}</p>" if p.get('resumo') else ''}
+    <a class="link-seta" href="{e(p['url'])}">{e(tx['ler_artigo'])}</a>
+  </div>
+</article>"""
+
+
+def gerar_blog_i18n(cfg: dict, posts: list[dict], imoveis: list[dict], lang: str, trad_map: dict) -> str:
+    tx = TEXTOS_BLOG_I18N[lang]
+    posts_i18n = [traduzir_post(p, lang, trad_map) for p in posts]
+
+    corpo = []
+    if posts_i18n:
+        destaque, resto = posts_i18n[0], posts_i18n[1:]
+        corpo.append(f'<section class="secao secao--compacta"><div class="env">'
+                     f'{card_post_i18n(destaque, lang, destaque=True)}'
+                     f"</div></section>")
+        if resto:
+            corpo.append(f'<section class="secao secao--clara"><div class="env">'
+                         f'<div class="cabeca-secao"><p class="olho">{e(tx["mais_artigos"])}</p></div>'
+                         f'<div class="grade-posts">{"".join(card_post_i18n(p, lang) for p in resto)}</div>'
+                         f"</div></section>")
+    else:
+        corpo.append(f'<section class="secao"><div class="env"><div class="vazio">'
+                     f'<h2>{e(tx["em_breve"])}</h2></div></div></section>')
+
+    destaques_imoveis_pt = [i for i in imoveis if i.get("destaque")] or imoveis[:3]
+    if destaques_imoveis_pt:
+        from_lang_imoveis = []
+        for i in destaques_imoveis_pt[:3]:
+            if i["slug"] in IMOVEIS_I18N_MAP_ATUAL:
+                from_lang_imoveis.append(traduzir_imovel(i, lang, IMOVEIS_I18N_MAP_ATUAL))
+            else:
+                from_lang_imoveis.append(i)
+        bloco_portfolio = ('<section class="secao secao--clara">'
+                            '<div class="env">'
+                            '<div class="cabeca-secao">'
+                            f'<p class="olho">{e(tx["portfolio_titulo"])}</p>'
+                            f'<h2>{e(tx["ja_leu"])}</h2>'
+                            '</div>'
+                            f'<div class="grade-imoveis">{"".join(card_imovel_i18n(i, lang) for i in from_lang_imoveis)}</div>'
+                            f'<p style="margin-top:2.5rem"><a class="link-seta" href="/{lang}/imoveis/">{e(tx["ver_todas"])}</a></p>'
+                            '</div></section>')
+        corpo.append(bloco_portfolio)
+
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "CollectionPage", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "name": tx["noticias_insights"], "url": dominio + f"/{lang}/blog/",
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, "/blog/", tx["noticias_insights"], tx["noticias_insights"],
+                           "\n".join(corpo), [ld])
+
+
+def gerar_post_i18n(cfg: dict, p_pt: dict, outros_pt: list[dict], lang: str, trad_map: dict) -> str:
+    tx = TEXTOS_BLOG_I18N[lang]
+    p = traduzir_post(p_pt, lang, trad_map)
+
+    capa_html = ""
+    if preenchido(p.get('capa')):
+        capa_html = (
+            '<section class="secao secao--compacta secao--sem-topo"><div class="env">'
+            '<div class="artigo"><figure class="artigo__capa">'
+            f'<img src="{e(p["capa"])}" alt="{e(p["titulo"])}" loading="lazy" width="1200" height="675">'
+            f'<figcaption>{e(tx["acervo"])}</figcaption>'
+            '</figure></div></div></section>'
+        )
+
+    migalha_home = "Home" if lang == "en" else "首页"
+    migalha_html = ('<nav class="migalhas" aria-label="Breadcrumb"><ol>'
+                    f'<li><a href="/{lang}/">{migalha_home}</a></li>'
+                    f'<li><a href="/{lang}/blog/">{e(tx["noticias"])}</a></li>'
+                    f'<li aria-current="page">{e(p["titulo"])}</li></ol></nav>')
+
+    meta_tempo_post = ""
+    if p.get("tempo_leitura"):
+        meta_tempo_post = f'<span>\u00b7</span><span>{p["tempo_leitura"]} {e(tx["min_leitura"])}</span>'
+    chamada_post = ""
+    if p.get("resumo"):
+        chamada_post = f'<p class="chamada chamada--larga">{e(p["resumo"])}</p>'
+
+    corpo = [(f'<section class="secao secao--compacta">'
+              f'<div class="env">'
+              f'<div class="artigo">'
+              f'{migalha_html}'
+              f'<p class="artigo__meta"><span class="post-card__cat">{e(p["categoria"])}</span>'
+              f'<span>\u00b7</span><time datetime="{p["data"].isoformat()}">{e(fmt_data(p["data"]))}</time>'
+              f'<span>\u00b7</span><span>{e(p["autor"])}</span>'
+              f'{meta_tempo_post}</p>'
+              f'<h1>{e(p["titulo"])}</h1>'
+              f'{chamada_post}'
+              f'</div></div></section>'
+              f'{capa_html}'
+              f'<section class="secao secao--compacta"><div class="env">'
+              f'<article class="artigo prosa artigo__corpo">{p["html"]}</article>'
+              f'</div></section>')]
+
+    relacionados_pt = [o for o in outros_pt if o["slug"] != p_pt["slug"]][:2]
+    if relacionados_pt:
+        relacionados_i18n = [traduzir_post(o, lang, trad_map) for o in relacionados_pt]
+        bloco_relacionados = ('<section class="secao secao--clara"><div class="env">'
+                              f'<div class="cabeca-secao"><p class="olho">{e(tx["continue_lendo"])}</p></div>'
+                              f'<div class="grade-posts">{"".join(card_post_i18n(o, lang) for o in relacionados_i18n)}</div>'
+                              '</div></section>')
+        corpo.append(bloco_relacionados)
+
+    corpo.append(cta_faixa_i18n(cfg, tx["tem_propriedade"], tx["fale_quem_negocia"], TEXTOS_IMOVEL_I18N[lang]["falar_especialista"], lang))
+
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    ld = json.dumps({
+        "@context": "https://schema.org", "@type": "Article", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
+        "headline": p["titulo"], "description": p.get("resumo", ""),
+        "datePublished": p["data"].isoformat(), "dateModified": p["data"].isoformat(),
+        **({"image": dominio + p["capa"]} if preenchido(p.get("capa")) else {}),
+        "author": {"@type": "Organization", "name": p["autor"]},
+        "publisher": {"@type": "Organization", "name": cfg["marca"]["nome"]},
+        "mainEntityOfPage": dominio + p["url"],
+    }, ensure_ascii=False)
+
+    return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo), [ld])
+
+
+IMOVEIS_I18N_MAP_ATUAL: dict = {}
+
+
 def gerar_redirect(cfg, destino: str) -> str:
     """Pagina simples de redirecionamento (usada para URLs antigas que saem do menu,
     ex.: /comunidade/ apos a fusao do conteudo dentro do Blog)."""
@@ -3795,7 +4008,16 @@ def main() -> int:
     imoveis = carregar_imoveis()
     imoveis_i18n_map = ler_json(CONTEUDO / "imoveis_i18n.json") or {}
     registrar_imoveis_traduzidos(imoveis, imoveis_i18n_map)
+    global IMOVEIS_I18N_MAP_ATUAL
+    IMOVEIS_I18N_MAP_ATUAL = imoveis_i18n_map
     posts = carregar_posts()
+    noticias_i18n_map = ler_json(CONTEUDO / "noticias_i18n.json") or {}
+    for p in posts:
+        if p["slug"] in noticias_i18n_map:
+            PAGINAS_TRADUZIDAS[p["url"]] = {
+                "en": f"/en/blog/{p['slug']}/",
+                "zh": f"/zh/blog/{p['slug']}/",
+            }
     agenda_agro = carregar_agenda_agro()
 
     auditar(cfg, imoveis, posts, dados_agro, depoimentos)
@@ -3841,6 +4063,8 @@ def main() -> int:
         escrever(f"{lang}/imoveis/index.html", gerar_lista_imoveis_i18n(cfg, imoveis, lang, imoveis_i18n_map))
     escrever("comunidade/index.html", gerar_redirect(cfg, "/blog/"))
     escrever("blog/index.html", gerar_blog(cfg, pag, posts, imoveis))
+    for lang in ("en", "zh"):
+        escrever(f"{lang}/blog/index.html", gerar_blog_i18n(cfg, posts, imoveis, lang, noticias_i18n_map))
     escrever("agenda-agro/index.html", gerar_agenda_agro(cfg, pag, agenda_agro))
     escrever("contato/index.html", gerar_contato(cfg, pag))
     escrever("404.html", gerar_404(cfg))
@@ -3853,6 +4077,10 @@ def main() -> int:
                          gerar_ficha_imovel_i18n(cfg, im, imoveis, lang, imoveis_i18n_map))
     for p in posts:
         escrever(f"blog/{p['slug']}/index.html", gerar_post(cfg, p, posts))
+        if p["slug"] in noticias_i18n_map:
+            for lang in ("en", "zh"):
+                escrever(f"{lang}/blog/{p['slug']}/index.html",
+                         gerar_post_i18n(cfg, p, posts, lang, noticias_i18n_map))
 
     # sitemap + robots + htaccess
     dominio = cfg["site"]["dominio"].rstrip("/")
@@ -3860,8 +4088,9 @@ def main() -> int:
             "/blog/", "/agenda-agro/", "/contato/"]
     for lang in ("en", "zh"):
         urls += [f"/{lang}/", f"/{lang}/sobre/", f"/{lang}/servicos/", f"/{lang}/data-center/",
-                 f"/{lang}/contato/", f"/{lang}/agenda-agro/", f"/{lang}/imoveis/"]
+                 f"/{lang}/contato/", f"/{lang}/agenda-agro/", f"/{lang}/imoveis/", f"/{lang}/blog/"]
         urls += [f"/{lang}/imoveis/{slug}/" for slug in imoveis_i18n_map]
+        urls += [f"/{lang}/blog/{slug}/" for slug in noticias_i18n_map]
     urls += [im["url"] for im in imoveis]
     urls += [p["url"] for p in posts]
     hoje = date.today().isoformat()
@@ -3928,6 +4157,34 @@ def main() -> int:
             "",
             f"- E-mail: {contato.get('email', '')}",
             f"- WhatsApp: {contato.get('whatsapp', '')}",
+            "",
+            "## English",
+            "",
+            f"- [Home (English)]({dominio}/en/): farm listings, services and the Data Center "
+            "division are also available in English, with the same photos, prices and technical "
+            "data as the Portuguese pages.",
+            f"- [Farms for sale (English)]({dominio}/en/imoveis/): all {len(imoveis_disp)} available "
+            "farms, translated in full — description, features, infrastructure and documentation.",
+            f"- [News (English)]({dominio}/en/blog/): the full news archive translated into English, "
+            "covering land market, legal, financing, water resources, exports and land regularization "
+            f"topics for the Matopiba region. Categories: {', '.join(sorted({CATEGORIA_I18N['en'].get(c, c) for c in categorias_posts}))}.",
+            f"- [About us (English)]({dominio}/en/sobre/)",
+            f"- [Services (English)]({dominio}/en/servicos/)",
+            f"- [Data Center (English)]({dominio}/en/data-center/)",
+            f"- [Contact (English)]({dominio}/en/contato/)",
+            "",
+            "## 中文（简体）",
+            "",
+            f"- [首页（中文）]({dominio}/zh/)：农场房源、服务及数据中心业务板块同样提供中文版本，"
+            "照片、价格及技术数据与葡萄牙语页面完全一致。",
+            f"- [在售农场（中文）]({dominio}/zh/imoveis/)：全部{len(imoveis_disp)}处可售农场的完整中文译文——"
+            "描述、特点、基础设施及文件资料。",
+            f"- [新闻资讯（中文）]({dominio}/zh/blog/)：完整的新闻档案中文译文，涵盖马托皮巴地区的土地市场、"
+            f"法律、融资、水资源、出口及土地合规等主题。分类：{'、'.join(sorted({CATEGORIA_I18N['zh'].get(c, c) for c in categorias_posts}))}。",
+            f"- [关于我们（中文）]({dominio}/zh/sobre/)",
+            f"- [服务项目（中文）]({dominio}/zh/servicos/)",
+            f"- [数据中心（中文）]({dominio}/zh/data-center/)",
+            f"- [联系我们（中文）]({dominio}/zh/contato/)",
         ]
         escrever("llms.txt", "\n".join(linhas) + "\n")
 
