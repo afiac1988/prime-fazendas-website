@@ -5,7 +5,7 @@ autor: Prime Fazendas
 categoria: Mercado
 resumo: Crise de margem no agro está gerando descontos de até 40% em fazendas à venda — uma janela de entrada que gestores especializados já estão aproveitando.
 capa: /midia/imoveis/fazenda-ambar/aerea-03.jpg
-publicado: false
+publicado: true
 ---
 
 Enquanto o preço médio da terra rural no Brasil segue em trajetória de alta nos últimos anos, um movimento paralelo chamou a atenção de gestoras especializadas em ativos agrícolas: propriedades específicas, principalmente as que entraram em execução de garantia ou recuperação judicial, estão sendo negociadas com descontos de 30% a 40% em relação aos valores de 2022. Para quem pensa em entrar no mercado de terras, essa combinação — ciclo de baixa pontual dentro de uma tendência estrutural de valorização — é o tipo de janela que não aparece com frequência.
