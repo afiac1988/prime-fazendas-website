@@ -1,0 +1,27 @@
+name: Avisar IndexNow após publicar
+
+# Dispara o protocolo IndexNow (indexnow.org) toda vez que o main muda, para
+# que Bing/Yandex/etc recebam aviso instantâneo das páginas novas/atualizadas
+# em vez de esperar o próximo rastreio agendado. Não bloqueia nada: o próprio
+# script (ferramentas/indexnow_ping.py) nunca falha o job por causa de um
+# problema de rede ou do serviço de terceiro estar fora do ar.
+#
+# Roda depois do deploy (não antes): a Vercel já publica via integração
+# GitHub nativa a cada push no main, então este workflow só espera um pouco
+# e avisa o IndexNow com as URLs que já estão em site/sitemap.xml no commit.
+
+on:
+  push:
+    branches: [main]
+
+jobs:
+  indexnow:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Aguardar a Vercel publicar
+        run: sleep 60
+
+      - name: Disparar IndexNow
+        run: python3 ferramentas/indexnow_ping.py

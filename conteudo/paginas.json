@@ -2,7 +2,7 @@
   "_leia": "Todo o texto institucional do site mora aqui. Editar aqui muda o site — nenhum texto está preso no código. Parágrafos: separe com \\n\\n dentro da string, ou use uma lista de strings.",
   "home": {
     "hero_titulo": "Conectando pessoas à terra, à natureza e à prosperidade.",
-    "hero_texto": "Intermediação de fazendas e propriedades rurais no Tocantins e no Matopiba, com due diligence técnica, jurídica e ambiental em cada negócio. Preço e disponibilidade são confirmados antes de qualquer proposta.",
+    "hero_texto": "Intermediação de grandes fazendas e propriedades rurais no Tocantins e no Matopiba para investidores do Brasil e do mundo todo, incluindo terras estratégicas para data centers, com due diligence técnica, jurídica e ambiental em cada negócio. Preço e disponibilidade são confirmados antes de qualquer proposta.",
     "hero_cta": "Conheça nossas oportunidades",
     "hero_cta_secundario": "Falar com um especialista",
     "pilares": [
@@ -16,7 +16,7 @@
       },
       {
         "titulo": "Rede nacional e internacional",
-        "texto": "Conectamos vendedores e investidores no Brasil e no exterior."
+        "texto": "Vendemos fazendas e terras para data center a investidores no Brasil e no mundo todo."
       },
       {
         "titulo": "Conhecimento de região",
@@ -586,7 +586,7 @@
   },
   "home_en": {
     "hero_titulo": "Connecting people to the land, to nature, and to prosperity.",
-    "hero_texto": "Intermediation of farms and rural properties in Tocantins and Matopiba, with technical, legal and environmental due diligence on every deal. Price and availability are confirmed before any offer.",
+    "hero_texto": "Intermediation of large farms and rural properties in Tocantins and Matopiba for investors across Brazil and around the world, including strategic land for data centers, with technical, legal and environmental due diligence on every deal. Price and availability are confirmed before any offer.",
     "hero_cta": "See our opportunities",
     "hero_cta_secundario": "Talk to a specialist",
     "pilares": [
@@ -600,7 +600,7 @@
       },
       {
         "titulo": "National and international network",
-        "texto": "We connect sellers and investors in Brazil and abroad."
+        "texto": "We sell farms and data center land to investors across Brazil and around the world."
       },
       {
         "titulo": "Regional expertise",
@@ -612,7 +612,7 @@
   },
   "home_zh": {
     "hero_titulo": "连接人、土地、自然与繁荣。",
-    "hero_texto": "在托坎廷斯州（Tocantins）及马托皮巴（Matopiba）地区提供农场与乡村地产中介服务,每笔交易均经过技术、法律和环境尽职调查。价格与可售状态在任何报价前均已确认。",
+    "hero_texto": "在托坎廷斯州（Tocantins）及马托皮巴（Matopiba）地区，为巴西国内及全球投资者提供大型农场与乡村地产中介服务，包括数据中心战略用地，每笔交易均经过技术、法律和环境尽职调查。价格与可售状态在任何报价前均已确认。",
     "hero_cta": "查看我们的项目",
     "hero_cta_secundario": "联系专业顾问",
     "pilares": [
@@ -626,7 +626,7 @@
       },
       {
         "titulo": "国内外网络",
-        "texto": "连接巴西国内外的卖家与投资者。"
+        "texto": "我们向巴西及全球各地的投资者出售农场与数据中心用地。"
       },
       {
         "titulo": "区域专业知识",
