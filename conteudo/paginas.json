@@ -205,9 +205,9 @@
     "titulo": "Contato e consultoria",
     "chamada": "Conte o que você procura. Um especialista responde.",
     "descricao_meta": "Fale com a Prime Fazendas sobre comprar, vender, arrendar ou avaliar uma fazenda no Tocantins. Resposta de um especialista por telefone ou WhatsApp.",
-    "intro": "Seja para comprar, vender, avaliar ou regularizar uma propriedade rural, o primeiro passo é uma conversa. Sem compromisso e sem discurso de vendas.",
+    "intro": "Comprar, vender, avaliar ou regularizar uma propriedade de grande porte começa com uma conversa direta — sem discurso de vendas. Sigilo sobre quem compra e quem vende faz parte do processo, não é só política interna.",
     "form_titulo": "Fale com um especialista",
-    "form_nota": "Seus dados são usados exclusivamente para o retorno do contato. Nome e e-mail já bastam para registrar seu contato — telefone é opcional, mas agiliza o WhatsApp."
+    "form_nota": "Seus dados são usados exclusivamente para o retorno do contato, com sigilo sobre a operação. Nome e e-mail já bastam para registrar seu contato — telefone é opcional, mas agiliza o WhatsApp."
   },
   "rodape": {
     "sobre_curto": "Imobiliária especializada em fazendas e propriedades rurais no Tocantins e no Matopiba. Intermediação com due diligence técnica, jurídica e ambiental.",
@@ -829,17 +829,17 @@
     "titulo": "Contact and consulting",
     "chamada": "Tell us what you're looking for. A specialist will respond.",
     "descricao_meta": "Talk to Prime Fazendas about buying, selling, leasing or appraising a farm in Tocantins. A specialist will respond by phone or WhatsApp.",
-    "intro": "Whether you want to buy, sell, appraise or regularize a rural property, the first step is a conversation. No commitment, no sales pitch.",
+    "intro": "Buying, selling, appraising or regularizing a large-scale property starts with a direct conversation — no sales pitch. Confidentiality about who is buying and who is selling is part of the process, not just internal policy.",
     "form_titulo": "Talk to a specialist",
-    "form_nota": "Your details are used exclusively to get back to you. Name and email are enough to register your contact — phone is optional, but speeds up WhatsApp."
+    "form_nota": "Your details are used exclusively to get back to you, under strict confidentiality about the transaction. Name and email are enough to register your contact — phone is optional, but speeds up WhatsApp."
   },
   "contato_zh": {
     "titulo": "联系与咨询",
     "chamada": "告诉我们您的需求,专业顾问将为您解答。",
     "descricao_meta": "就托坎廷斯州农场的购买、出售、租赁或评估事宜联系 Prime Fazendas。专业顾问将通过电话或 WhatsApp 与您联系。",
-    "intro": "无论您是想购买、出售、评估还是办理乡村地产合规手续,第一步都是先聊一聊。无需承诺,也没有推销话术。",
+    "intro": "无论是购买、出售、评估还是办理大宗地产的合规手续，第一步都是一次直接的沟通——没有推销话术。对买卖双方身份保密是我们流程的一部分，而不仅仅是内部政策。",
     "form_titulo": "联系专业顾问",
-    "form_nota": "您的信息仅用于回复您的咨询。姓名和邮箱即可登记您的联系方式——电话为可选项，但有助于加快 WhatsApp 沟通。"
+    "form_nota": "您的信息仅用于回复您的咨询，交易过程严格保密。姓名和邮箱即可登记您的联系方式——电话为可选项，但有助于加快 WhatsApp 沟通。"
   },
   "agenda_agro_en": {
     "titulo": "Agribusiness Calendar",

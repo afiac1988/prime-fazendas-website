@@ -968,6 +968,36 @@ def ld_breadcrumbs_i18n(cfg: dict, lang: str, trilha: list[tuple[str, str]]) -> 
     return ld_breadcrumbs(cfg, [(home_label, f"/{lang}/")] + trilha)
 
 
+def ld_dataset_lei_5709(cfg: dict, url_artigo: str) -> str:
+    """Dataset schema.org citavel por IA com os parametros da Lei 5.709/1971
+    (aquisicao de terra rural por estrangeiro). Complementa o Article do post,
+    nao substitui — GEO/AEO: motores generativos citam fatos estruturados com
+    mais confianca do que prosa solta."""
+    dominio = cfg["site"]["dominio"].rstrip("/")
+    return json.dumps({
+        "@context": "https://schema.org",
+        "@type": "Dataset",
+        "name": "Limites da Lei 5.709/1971 para aquisição de terra rural por estrangeiros no Brasil",
+        "description": ("Parâmetros vigentes da Lei nº 5.709/1971, confirmada constitucional pelo STF "
+                         "em abril de 2026, para aquisição de imóvel rural por pessoa ou empresa "
+                         "estrangeira, ou empresa brasileira controlada por capital estrangeiro."),
+        "url": dominio + url_artigo,
+        "keywords": ["Lei 5.709/1971", "módulo de exploração indefinida", "INCRA",
+                     "aquisição de terra por estrangeiro", "Matopiba"],
+        "variableMeasured": [
+            {"@type": "PropertyValue", "name": "Limite de área por propriedade",
+             "value": "até 50 módulos de exploração indefinida (varia por município)"},
+            {"@type": "PropertyValue", "name": "Autorização prévia",
+             "value": "obrigatória em áreas de fronteira / segurança nacional"},
+            {"@type": "PropertyValue", "name": "Registro obrigatório",
+             "value": "INCRA, para toda aquisição por estrangeiro ou empresa controlada por capital estrangeiro"},
+            {"@type": "PropertyValue", "name": "Teto por município",
+             "value": "soma das áreas rurais em mãos estrangeiras não pode superar percentual definido do território municipal"},
+        ],
+        "creator": {"@type": "Organization", "name": cfg["marca"]["nome"]},
+    }, ensure_ascii=False)
+
+
 def descricao_foto(url_publica: str, titulo: str, local: str) -> str:
     """Alt text da foto de um imóvel. Quando o nome do arquivo dá uma pista
     razoável do conteúdo (ex.: 'aerea-02.jpg' — convenção usada pelo banco de
@@ -1257,6 +1287,11 @@ def carregar_posts() -> list[dict]:
             aviso(f"{arq.name}: data ausente ou fora do formato AAAA-MM-DD. Usando hoje.")
             d = date.today()
 
+        try:
+            d_mod = datetime.strptime(str(meta.get("atualizado_em", "")).strip(), "%Y-%m-%d").date()
+        except ValueError:
+            d_mod = d  # sem 'atualizado_em' no frontmatter: cai para a data de publicacao
+
         n_palavras = len(re.findall(r"\S+", corpo))
         tempo_leitura = max(1, round(n_palavras / 200))
 
@@ -1267,6 +1302,7 @@ def carregar_posts() -> list[dict]:
             "categoria": meta.get("categoria", "Insights"),
             "capa": meta.get("capa", ""),
             "data": d,
+            "data_modificacao": d_mod,
             "slug": arq.stem,
             "url": f"/blog/{arq.stem}/",
             "html": markdown(corpo),
@@ -1517,6 +1553,10 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
             "addressLocality": cfg["contato"].get("cidade", ""),
             "addressRegion": cfg["contato"].get("estado", ""),
             "addressCountry": cfg["contato"].get("pais", "BR"),
+        },
+        "speakable": {
+            "@type": "SpeakableSpecification",
+            "cssSelector": [".hero h1", ".hero__texto"],
         },
     }, ensure_ascii=False)
 
@@ -3022,6 +3062,8 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
                            "Diga região, tamanho, aptidão e faixa de investimento. Boa parte do que negociamos não chega a ser anunciado."))
 
     dominio = cfg["site"]["dominio"].rstrip("/")
+    precos_disponiveis = [im["preco"] for im in imoveis
+                           if im.get("preco") and not im.get("preco_sob_consulta")]
     ld = json.dumps({
         "@context": "https://schema.org",
         "@type": "CollectionPage",
@@ -3030,11 +3072,19 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
         "url": dominio + "/imoveis/",
         "mainEntity": {
             "@type": "ItemList",
+            "numberOfItems": len(imoveis),
             "itemListElement": [
                 {"@type": "ListItem", "position": i + 1, "url": dominio + im["url"], "name": im["titulo"]}
                 for i, im in enumerate(imoveis)
             ],
         },
+        **({"offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "BRL",
+            "offerCount": len(precos_disponiveis),
+            "lowPrice": min(precos_disponiveis),
+            "highPrice": max(precos_disponiveis),
+        }} if precos_disponiveis else {}),
     }, ensure_ascii=False)
     ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Imóveis", "/imoveis/")])
 
@@ -3489,17 +3539,27 @@ def gerar_lista_imoveis_i18n(cfg: dict, imoveis: list[dict], lang: str, trad_map
                                  tx["falar_especialista"], lang))
 
     dominio = cfg["site"]["dominio"].rstrip("/")
+    precos_disponiveis_i18n = [im["preco"] for im in imoveis_i18n
+                                if im.get("preco") and not im.get("preco_sob_consulta")]
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "CollectionPage",
         "name": tx["imoveis_titulo"], "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
         "url": dominio + f"/{lang}/imoveis/",
         "mainEntity": {
             "@type": "ItemList",
+            "numberOfItems": len(imoveis_i18n),
             "itemListElement": [
                 {"@type": "ListItem", "position": i + 1, "url": dominio + im["url"], "name": im["titulo"]}
                 for i, im in enumerate(imoveis_i18n)
             ],
         },
+        **({"offers": {
+            "@type": "AggregateOffer",
+            "priceCurrency": "BRL",
+            "offerCount": len(precos_disponiveis_i18n),
+            "lowPrice": min(precos_disponiveis_i18n),
+            "highPrice": max(precos_disponiveis_i18n),
+        }} if precos_disponiveis_i18n else {}),
     }, ensure_ascii=False)
 
     titulo = tx["imoveis_titulo"] + " | Prime Fazendas"
@@ -3900,18 +3960,22 @@ def gerar_post_i18n(cfg: dict, p_pt: dict, outros_pt: list[dict], lang: str, tra
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "Article", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],
         "headline": p["titulo"], "description": p.get("resumo", ""),
-        "datePublished": p["data"].isoformat(), "dateModified": p["data"].isoformat(),
+        "datePublished": p["data"].isoformat(), "dateModified": p.get("data_modificacao", p["data"]).isoformat(),
         **({"image": dominio + p["capa"]} if preenchido(p.get("capa")) else {}),
         "author": {"@type": "Organization", "name": p["autor"]},
         "publisher": {"@type": "Organization", "name": cfg["marca"]["nome"]},
         "mainEntityOfPage": dominio + p["url"],
     }, ensure_ascii=False)
 
+    ld_dataset_i18n = (ld_dataset_lei_5709(cfg, p["url"])
+                       if p_pt["slug"] == "2026-09-04-estrangeiro-pode-comprar-fazenda-no-brasil-stf" else "")
+
     ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [
         ({"en": "News", "zh": "新闻资讯"}[lang], f"/{lang}/blog/"),
         (p["titulo"], p["url"]),
     ])
-    return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo), [ld, ld_migalha])
+    return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo),
+                           [b for b in [ld, ld_dataset_i18n, ld_migalha] if b])
 
 
 
@@ -4168,7 +4232,7 @@ def gerar_post(cfg, p, outros) -> str:
         "headline": p["titulo"],
         "description": p.get("resumo", ""),
         "datePublished": p["data"].isoformat(),
-        "dateModified": p["data"].isoformat(),
+        "dateModified": p.get("data_modificacao", p["data"]).isoformat(),
         **({"image": dominio + p["capa"]} if preenchido(p.get("capa")) else {}),
         "author": {"@type": "Organization", "name": p["autor"]},
         "publisher": {"@type": "Organization", "name": cfg["marca"]["nome"]},
@@ -4176,10 +4240,13 @@ def gerar_post(cfg, p, outros) -> str:
     }, ensure_ascii=False)
     ld_migalha = ld_breadcrumbs(cfg, [("Início", "/"), ("Notícias", "/blog/"), (p["titulo"], p["url"])])
 
+    ld_dataset = ld_dataset_lei_5709(cfg, p["url"]) if p["slug"] == "2026-09-04-estrangeiro-pode-comprar-fazenda-no-brasil-stf" else ""
+
     og_img_post = (dominio + p["capa"]) if preenchido(p.get("capa")) else ""
 
     return pagina(cfg, titulo=p["titulo"], descricao=p.get("resumo", ""), url=p["url"],
-                  corpo="\n".join(corpo), og_tipo="article", json_ld=[ld, ld_migalha],
+                  corpo="\n".join(corpo), og_tipo="article",
+                  json_ld=[b for b in [ld, ld_dataset, ld_migalha] if b],
                   rascunho=bool(p.get("_rascunho")), og_imagem=og_img_post,
                   hreflang=hreflang_para(cfg, p["url"]))
 

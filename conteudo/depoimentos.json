@@ -1,22 +1,4 @@
 {
-  "_leia": "IMPORTANTE: depoimento é prova social — só entra no ar se for real e autorizado pelo cliente. Os dois abaixo vieram do documento de rascunho e são FICTÍCIOS, por isso estão com publicado=false. Troque pelos verdadeiros e vire para true.",
-
-  "depoimentos": [
-    {
-      "publicado": false,
-      "nome": "João Silva",
-      "cargo": "Investidor",
-      "cidade": "",
-      "texto": "A Prime Fazendas me ajudou a encontrar a fazenda dos meus sonhos. O processo foi simples, transparente e rápido.",
-      "_origem": "FICTÍCIO — rascunho. Não publicar."
-    },
-    {
-      "publicado": false,
-      "nome": "Maria Oliveira",
-      "cargo": "Produtora rural",
-      "cidade": "",
-      "texto": "Graças à consultoria da Prime Fazendas, consegui investir em uma propriedade agrícola com excelente retorno financeiro.",
-      "_origem": "FICTÍCIO — rascunho. Não publicar."
-    }
-  ]
+  "_leia": "Depoimento é prova social — só entra no ar se for real e autorizado pelo cliente. Os 2 rascunhos fictícios que existiam aqui foram removidos (Bloco 20); Parceiros estratégicos é a prova social ativa hoje (ver Sobre). Adicione aqui só depoimentos reais e autorizados, com publicado=true.",
+  "depoimentos": []
 }

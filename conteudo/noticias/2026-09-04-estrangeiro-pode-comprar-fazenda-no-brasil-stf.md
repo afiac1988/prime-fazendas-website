@@ -6,6 +6,7 @@ categoria: Jurídico
 resumo: Em abril de 2026 o STF confirmou, por unanimidade, os limites de 1971 para compra de terra por capital estrangeiro. Entenda o que isso muda — e o que não muda — pra quem investe.
 capa: /midia/imoveis/fazenda-citrino/aerea-02.jpg
 publicado: true
+atualizado_em: 2026-09-23
 ---
 
 Pergunte a dez pessoas se um estrangeiro pode comprar fazenda no Brasil e você provavelmente vai ouvir duas respostas opostas com a mesma convicção: "pode, é só ter dinheiro" ou "não pode, é proibido por lei". Nenhuma das duas está certa. E em abril de 2026 o Supremo Tribunal Federal colocou um ponto final numa discussão que já durava décadas.
@@ -18,10 +19,12 @@ Por unanimidade, o STF declarou constitucional a Lei nº 5.709, de 1971 — a no
 
 A restrição não é uma proibição — é um teto com regras claras:
 
-- **Limite de área**: até 50 módulos de exploração indefinida por propriedade, um valor que varia conforme o município.
-- **Autorização prévia** para aquisições em áreas consideradas de segurança nacional, incluindo faixas de fronteira.
-- **Registro obrigatório no INCRA** de toda aquisição por estrangeiro ou empresa sob controle estrangeiro.
-- **Controle por município**: soma das áreas rurais em mãos estrangeiras não pode ultrapassar determinado percentual do território de cada município.
+| Parâmetro | Regra vigente (Lei 5.709/1971, confirmada pelo STF em abril de 2026) |
+| --- | --- |
+| Limite de área | Até 50 módulos de exploração indefinida por propriedade (valor varia por município) |
+| Autorização prévia | Obrigatória em áreas de segurança nacional, incluindo faixas de fronteira |
+| Registro obrigatório | No INCRA, para toda aquisição por estrangeiro ou empresa sob controle estrangeiro |
+| Teto por município | Soma das áreas rurais em mãos estrangeiras não pode ultrapassar percentual definido do território municipal |
 
 > A decisão do STF não criou uma regra nova. Ela confirmou que a regra de 1971 continua valendo — e isso, pra quem estrutura um investimento sério, é uma boa notícia: significa previsibilidade.
 
