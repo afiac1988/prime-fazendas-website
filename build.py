@@ -3938,21 +3938,26 @@ def gerar_contato(cfg, pag) -> str:
 
     numero_zap = re.sub(r"\D", "", str(c.get("whatsapp_numero_internacional") or "")) \
         if preenchido(c.get("whatsapp_numero_internacional")) else ""
+    endpoint_lead = cfg.get("formulario", {}).get("endpoint", "")
 
-    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}">
+    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}"{f' data-endpoint="{e(endpoint_lead)}"' if preenchido(endpoint_lead) else ''}>
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+  <input type="hidden" name="_subject" value="Novo lead — site Prime Fazendas">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
   <div class="campo--duplo">
     <div class="campo">
       <label for="nome">Nome <span class="req">*</span></label>
       <input type="text" id="nome" name="nome" required autocomplete="name">
     </div>
     <div class="campo">
-      <label for="telefone">Telefone / WhatsApp <span class="req">*</span></label>
-      <input type="tel" id="telefone" name="telefone" required autocomplete="tel">
+      <label for="email">E-mail <span class="req">*</span></label>
+      <input type="email" id="email" name="email" required autocomplete="email">
     </div>
   </div>
   <div class="campo">
-    <label for="email">E-mail</label>
-    <input type="email" id="email" name="email" autocomplete="email">
+    <label for="telefone">Telefone / WhatsApp</label>
+    <input type="tel" id="telefone" name="telefone" autocomplete="tel">
   </div>
   <div class="campo--duplo">
     <div class="campo">
@@ -3998,9 +4003,9 @@ def gerar_contato(cfg, pag) -> str:
     <textarea id="mensagem" name="mensagem" placeholder="Conte o que você procura: tamanho, aptidão, região, prazo."></textarea>
   </div>
   <div class="grupo-btn">
-    <button class="btn btn--principal" type="submit">Enviar pelo WhatsApp</button>
+    <button class="btn btn--principal" type="submit">Enviar e falar no WhatsApp</button>
   </div>
-  <p class="form__nota">{e(s.get('form_nota', '')) or 'Quer anunciar ou arrendar sua propriedade? Preencha os dados acima e envie as fotos direto pelo WhatsApp após o primeiro contato.'}</p>
+  <p class="form__nota">{e(s.get('form_nota', '')) or 'Nome e e-mail bastam para registrarmos seu contato. Um dos nossos consultores vai falar com você — se preferir, informe também o telefone para agilizar o WhatsApp.'}</p>
   <p class="form__nota" data-retorno hidden role="status"></p>
 </form>"""
 

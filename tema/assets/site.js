@@ -100,6 +100,21 @@
       }
 
       var dados = new FormData(form);
+
+      /* honeypot anti-spam: se o campo oculto veio preenchido, é bot — não faz nada */
+      if ((dados.get('_honey') || '').toString().trim()) return;
+
+      /* captura o lead por e-mail (nome + e-mail já bastam para qualificar) antes
+         de abrir o WhatsApp — funciona mesmo se o WhatsApp não abrir no aparelho */
+      var endpoint = form.getAttribute('data-endpoint');
+      if (endpoint) {
+        fetch(endpoint, {
+          method: 'POST',
+          body: dados,
+          headers: { 'Accept': 'application/json' }
+        }).catch(function () { /* falha silenciosa: o WhatsApp segue normalmente */ });
+      }
+
       var linhas = ['*Contato pelo site — Prime Fazendas*', ''];
       var rotulos = {
         nome: 'Nome',
@@ -120,7 +135,7 @@
 
       var url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(linhas.join('\n'));
       window.open(url, '_blank', 'noopener');
-      alertaForm(form, 'Abrimos o WhatsApp com a sua mensagem pronta. Se não abriu, verifique o bloqueador de pop-ups.');
+      alertaForm(form, 'Recebemos seus dados e abrimos o WhatsApp com sua mensagem pronta. Um dos nossos consultores vai entrar em contato em breve. Se o WhatsApp não abriu, verifique o bloqueador de pop-ups.');
     });
   }
 

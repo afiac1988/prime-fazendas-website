@@ -7,7 +7,7 @@
     "slogan": "Conectando pessoas à terra, à natureza e à prosperidade.",
     "descricao_curta": "Imobiliária especializada na venda de fazendas e propriedades rurais no Tocantins, com análise de disponibilidade e documentação antes de qualquer proposta.",
     "fundador": "André Amorim",
-    "ano_fundacao": "2025"
+    "ano_fundacao": "2016"
   },
   "site": {
     "dominio": "https://www.primefazendas.com",
@@ -43,8 +43,8 @@
     "facebook": ""
   },
   "formulario": {
-    "_leia": "Endpoint que recebe os envios do formulário. Deixe vazio para o formulário cair no WhatsApp (modo padrão, funciona sem servidor).",
-    "endpoint": "",
+    "_leia": "Endpoint que recebe os envios do formulário por e-mail (FormSubmit.co, sem necessidade de criar conta — só confirmar o primeiro e-mail recebido em contato@primefazendas.com, depois funciona sozinho). Deixe vazio para desativar a captura por e-mail e manter só o WhatsApp.",
+    "endpoint": "https://formsubmit.co/ajax/contato@primefazendas.com",
     "modo": "whatsapp"
   },
   "analytics": {
