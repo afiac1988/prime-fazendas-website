@@ -100,16 +100,48 @@
   if (form) {
     form.addEventListener('submit', function (e) {
       e.preventDefault();
+
+      /* duas acoes possiveis no mesmo formulario: qual botao foi clicado decide
+         o fluxo. 'mensagem' so envia por e-mail; 'whatsapp' (padrao, inclusive
+         em navegadores antigos sem suporte a submitter) envia por e-mail em
+         paralelo e ja abre o WhatsApp com a mensagem pronta. */
+      var acao = (e.submitter && e.submitter.value) || 'whatsapp';
+      var dados = new FormData(form);
+
+      /* honeypot anti-spam: se o campo oculto veio preenchido, é bot — não faz nada */
+      if ((dados.get('_honey') || '').toString().trim()) return;
+
+      var endpoint = form.getAttribute('data-endpoint');
+
+      if (acao === 'mensagem') {
+        if (!endpoint) {
+          alertaForm(form, 'O envio direto por e-mail ainda não foi configurado. Use o botão de WhatsApp ou o e-mail de contato.');
+          return;
+        }
+        evento('generate_lead', {
+          method: 'formulario_mensagem',
+          idioma: document.documentElement.lang || 'pt'
+        });
+        fetch(endpoint, {
+          method: 'POST',
+          body: dados,
+          headers: { 'Accept': 'application/json' }
+        }).then(function (resp) {
+          if (!resp.ok) throw new Error('envio falhou');
+          var msgOk = form.getAttribute('data-msg-sucesso-mensagem') || 'Recebemos sua mensagem por e-mail. Um dos nossos consultores vai te responder em breve.';
+          alertaForm(form, msgOk);
+          form.reset();
+        }).catch(function () {
+          alertaForm(form, 'Não conseguimos confirmar o envio agora. Tente de novo ou fale direto no WhatsApp.');
+        });
+        return;
+      }
+
       var numero = form.getAttribute('data-whatsapp') || '';
       if (!numero) {
         alertaForm(form, 'O número de WhatsApp ainda não foi configurado. Use o e-mail de contato.');
         return;
       }
-
-      var dados = new FormData(form);
-
-      /* honeypot anti-spam: se o campo oculto veio preenchido, é bot — não faz nada */
-      if ((dados.get('_honey') || '').toString().trim()) return;
 
       evento('generate_lead', {
         method: 'formulario_whatsapp',
@@ -118,7 +150,6 @@
 
       /* captura o lead por e-mail (nome + e-mail já bastam para qualificar) antes
          de abrir o WhatsApp — funciona mesmo se o WhatsApp não abrir no aparelho */
-      var endpoint = form.getAttribute('data-endpoint');
       if (endpoint) {
         fetch(endpoint, {
           method: 'POST',

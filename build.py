@@ -2535,9 +2535,12 @@ TEXTOS_CONTATO_I18N = {
         ],
         "mensagem": "Message", "mensagem_placeholder": "Tell us what you're looking for: size, suitability, region, timeline.",
         "enviar": "Send and talk on WhatsApp",
+        "enviar_mensagem": "Just send a message",
         "confirmacao": ("We've received your details and opened WhatsApp with your message ready. "
                         "One of our consultants will contact you shortly. If WhatsApp didn't open, "
                         "check your pop-up blocker."),
+        "confirmacao_mensagem": ("We've received your message by email. One of our consultants will "
+                                  "get back to you shortly."),
         "canais": "Direct channels", "onde_estamos": "Where we are", "atendimento": "Hours",
     },
     "zh": {
@@ -2558,9 +2561,12 @@ TEXTOS_CONTATO_I18N = {
         ],
         "mensagem": "\u7559\u8a00", "mensagem_placeholder": "\u8bf7\u544a\u8bc9\u6211\u4eec\u60a8\u7684\u9700\u6c42\uff1a\u9762\u79ef\u3001\u7528\u9014\u3001\u5730\u533a\u3001\u65f6\u95f4\u8981\u6c42\u3002",
         "enviar": "\u53d1\u9001\u5e76\u524d\u5f80WhatsApp\u54a8\u8be2",
+        "enviar_mensagem": "\u4ec5\u53d1\u9001\u7559\u8a00",
         "confirmacao": ("\u6211\u4eec\u5df2\u6536\u5230\u60a8\u7684\u4fe1\u606f\uff0c\u5e76\u4e3a\u60a8\u6253\u5f00\u4e86WhatsApp\uff0c"
                         "\u6d88\u606f\u5df2\u51c6\u5907\u597d\u3002\u6211\u4eec\u7684\u987e\u95ee\u4f1a\u5c3d\u5feb\u4e0e\u60a8\u8054\u7cfb\u3002"
                         "\u5982\u679cWhatsApp\u672a\u80fd\u6253\u5f00\uff0c\u8bf7\u68c0\u67e5\u60a8\u7684\u5f39\u7a97\u62e6\u622a\u8bbe\u7f6e\u3002"),
+        "confirmacao_mensagem": ("\u6211\u4eec\u5df2\u901a\u8fc7\u7535\u5b50\u90ae\u4ef6\u6536\u5230\u60a8\u7684\u7559\u8a00\uff0c"
+                                  "\u6211\u4eec\u7684\u987e\u95ee\u4f1a\u5c3d\u5feb\u4e0e\u60a8\u8054\u7cfb\u3002"),
         "canais": "\u76f4\u63a5\u8054\u7cfb\u65b9\u5f0f", "onde_estamos": "\u6211\u4eec\u7684\u4f4d\u7f6e", "atendimento": "\u670d\u52a1\u65f6\u95f4",
     },
 }
@@ -2577,7 +2583,7 @@ def gerar_contato_i18n(cfg: dict, s: dict, lang: str) -> str:
     opcoes_interesse = "".join(f"<option>{e(o)}</option>" for o in tx["opcoes_interesse"])
     opcoes_investimento = "".join(f"<option>{e(o)}</option>" for o in tx["opcoes_investimento"])
 
-    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}"{f' data-endpoint="{e(endpoint_lead)}"' if preenchido(endpoint_lead) else ''} data-msg-sucesso="{e(tx['confirmacao'])}">
+    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}"{f' data-endpoint="{e(endpoint_lead)}"' if preenchido(endpoint_lead) else ''} data-msg-sucesso="{e(tx['confirmacao'])}" data-msg-sucesso-mensagem="{e(tx['confirmacao_mensagem'])}">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input type="hidden" name="_subject" value="Novo lead — site Prime Fazendas ({lang.upper()})">
   <input type="hidden" name="_template" value="table">
@@ -2625,7 +2631,8 @@ def gerar_contato_i18n(cfg: dict, s: dict, lang: str) -> str:
     <textarea id="mensagem-{lang}" name="mensagem" placeholder="{e(tx['mensagem_placeholder'])}"></textarea>
   </div>
   <div class="grupo-btn">
-    <button class="btn btn--principal" type="submit">{e(tx['enviar'])}</button>
+    <button class="btn btn--vazado" type="submit" name="acao" value="mensagem">{e(tx['enviar_mensagem'])}</button>
+    <button class="btn btn--principal" type="submit" name="acao" value="whatsapp">{e(tx['enviar'])}</button>
   </div>
   <p class="form__nota">{e(s.get('form_nota', ''))}</p>
   <p class="form__nota" data-retorno hidden role="status"></p>
@@ -4188,7 +4195,11 @@ def gerar_contato(cfg, pag) -> str:
         if preenchido(c.get("whatsapp_numero_internacional")) else ""
     endpoint_lead = cfg.get("formulario", {}).get("endpoint", "")
 
-    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}"{f' data-endpoint="{e(endpoint_lead)}"' if preenchido(endpoint_lead) else ''}>
+    msg_sucesso_zap = ("Recebemos seus dados e abrimos o WhatsApp com sua mensagem pronta. Um dos "
+                        "nossos consultores vai entrar em contato em breve. Se o WhatsApp não abriu, "
+                        "verifique o bloqueador de pop-ups.")
+    msg_sucesso_email = "Recebemos sua mensagem por e-mail. Um dos nossos consultores vai te responder em breve."
+    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}"{f' data-endpoint="{e(endpoint_lead)}"' if preenchido(endpoint_lead) else ''} data-msg-sucesso="{e(msg_sucesso_zap)}" data-msg-sucesso-mensagem="{e(msg_sucesso_email)}">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input type="hidden" name="_subject" value="Novo lead — site Prime Fazendas">
   <input type="hidden" name="_template" value="table">
@@ -4251,7 +4262,8 @@ def gerar_contato(cfg, pag) -> str:
     <textarea id="mensagem" name="mensagem" placeholder="Conte o que você procura: tamanho, aptidão, região, prazo."></textarea>
   </div>
   <div class="grupo-btn">
-    <button class="btn btn--principal" type="submit">Enviar e falar no WhatsApp</button>
+    <button class="btn btn--vazado" type="submit" name="acao" value="mensagem">Só enviar mensagem</button>
+    <button class="btn btn--principal" type="submit" name="acao" value="whatsapp">Enviar e falar no WhatsApp</button>
   </div>
   <p class="form__nota">{e(s.get('form_nota', '')) or 'Nome e e-mail bastam para registrarmos seu contato. Um dos nossos consultores vai falar com você — se preferir, informe também o telefone para agilizar o WhatsApp.'}</p>
   <p class="form__nota" data-retorno hidden role="status"></p>

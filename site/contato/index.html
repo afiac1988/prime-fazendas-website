@@ -70,7 +70,7 @@
       <div>
         <h2>Fale com um especialista</h2>
         <p class="chamada chamada--larga" style="margin-bottom:2.25rem">Seja para comprar, vender, avaliar ou regularizar uma propriedade rural, o primeiro passo é uma conversa. Sem compromisso e sem discurso de vendas.</p>
-        <form class="form" data-modo="whatsapp" data-whatsapp="5563981437860" data-endpoint="https://formsubmit.co/ajax/primefazendasto@gmail.com">
+        <form class="form" data-modo="whatsapp" data-whatsapp="5563981437860" data-endpoint="https://formsubmit.co/ajax/primefazendasto@gmail.com" data-msg-sucesso="Recebemos seus dados e abrimos o WhatsApp com sua mensagem pronta. Um dos nossos consultores vai entrar em contato em breve. Se o WhatsApp não abriu, verifique o bloqueador de pop-ups." data-msg-sucesso-mensagem="Recebemos sua mensagem por e-mail. Um dos nossos consultores vai te responder em breve.">
   <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
   <input type="hidden" name="_subject" value="Novo lead — site Prime Fazendas">
   <input type="hidden" name="_template" value="table">
@@ -133,7 +133,8 @@
     <textarea id="mensagem" name="mensagem" placeholder="Conte o que você procura: tamanho, aptidão, região, prazo."></textarea>
   </div>
   <div class="grupo-btn">
-    <button class="btn btn--principal" type="submit">Enviar e falar no WhatsApp</button>
+    <button class="btn btn--vazado" type="submit" name="acao" value="mensagem">Só enviar mensagem</button>
+    <button class="btn btn--principal" type="submit" name="acao" value="whatsapp">Enviar e falar no WhatsApp</button>
   </div>
   <p class="form__nota">Seus dados são usados exclusivamente para o retorno do contato. Nome e e-mail já bastam para registrar seu contato — telefone é opcional, mas agiliza o WhatsApp.</p>
   <p class="form__nota" data-retorno hidden role="status"></p>
