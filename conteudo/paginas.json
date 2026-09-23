@@ -70,6 +70,18 @@
       "Compromisso com a sustentabilidade e a legalidade",
       "Relacionamento de longo prazo acima da transação",
       "Respeito à terra, à natureza e a quem vive dela"
+    ],
+    "parceiros_titulo": "Parceiros estratégicos",
+    "parceiros_intro": "Crescemos ao lado de grupos que compartilham nossos valores de tradição, transparência e compromisso com a terra.",
+    "parceiros": [
+      {
+        "nome": "Grupo Fazenda Costa do Sol",
+        "texto": "Mais de 43 anos de tradição na pecuária no Tocantins — uma parceria que une décadas de know-how de campo à atuação comercial da Prime Fazendas."
+      },
+      {
+        "nome": "Grupo Agro Jalapão",
+        "texto": "Parceiro dedicado à preservação ambiental, atuando em mais de 2.000 hectares de proteção do Cerrado — integrado à iniciativa da Prime Fazendas de unir negócio e responsabilidade socioambiental."
+      }
     ]
   },
   "servicos": {
@@ -681,6 +693,18 @@
       "Commitment to sustainability and legality",
       "Long-term relationships over transactions",
       "Respect for the land, for nature, and for those who live off it"
+    ],
+    "parceiros_titulo": "Strategic partners",
+    "parceiros_intro": "We've grown alongside groups that share our values of tradition, transparency, and commitment to the land.",
+    "parceiros": [
+      {
+        "nome": "Grupo Fazenda Costa do Sol",
+        "texto": "More than 43 years of tradition in cattle ranching in Tocantins — a partnership that brings decades of on-the-ground expertise to Prime Fazendas' commercial operation."
+      },
+      {
+        "nome": "Grupo Agro Jalapão",
+        "texto": "A partner dedicated to environmental preservation, active across more than 2,000 hectares of Cerrado protection — part of Prime Fazendas' commitment to pairing business with environmental responsibility."
+      }
     ]
   },
   "sobre_zh": {
@@ -727,6 +751,18 @@
       "坚持可持续发展与合法合规",
       "重视长期合作关系,而非一次性交易",
       "尊重土地、尊重自然,尊重以此为生的人们"
+    ],
+    "parceiros_titulo": "战略合作伙伴",
+    "parceiros_intro": "我们与秉持传统、透明和土地承诺等共同价值观的集团携手成长。",
+    "parceiros": [
+      {
+        "nome": "Grupo Fazenda Costa do Sol",
+        "texto": "在托坎廷斯州拥有超过43年的畜牧业传统——这一合作为Prime Fazendas的商业运营带来数十年的实地专业经验。"
+      },
+      {
+        "nome": "Grupo Agro Jalapão",
+        "texto": "致力于环境保护的合作伙伴，在塞拉多（Cerrado）保护区开展工作，面积超过2,000公顷——体现了Prime Fazendas将商业与环境社会责任相结合的理念。"
+      }
     ]
   },
   "servicos_en": {

@@ -1664,6 +1664,23 @@ def gerar_sobre(cfg, pag) -> str:
   </div>
 </section>""")
 
+    parceiros_lista = s.get("parceiros", [])
+    if parceiros_lista:
+        parceiros_cards = "".join(
+            f'<article class="card"><h3>{e(pnr["nome"])}</h3><p>{e(pnr["texto"])}</p></article>'
+            for pnr in parceiros_lista
+        )
+        corpo.append(f"""<section class="secao secao--clara">
+  <div class="env">
+    <div class="cabeca-secao">
+      <p class="olho">Parceiros</p>
+      <h2>{e(s.get('parceiros_titulo', 'Parceiros estratégicos'))}</h2>
+      <p class="chamada chamada--larga">{e(s.get('parceiros_intro', ''))}</p>
+    </div>
+    <div class="grade grade--2">{parceiros_cards}</div>
+  </div>
+</section>""")
+
     valores = "".join(f"<li>{e(v)}</li>" for v in s.get("valores", []))
     corpo.append(f"""<section class="secao secao--escura">
   <div class="env">
@@ -2433,6 +2450,18 @@ def gerar_sobre_i18n(cfg: dict, s: dict, lang: str) -> str:
         corpo.append(f"""<section class="secao"><div class="env">
   <div class="cabeca-secao"><h2>{e(s.get("diferenciais_titulo",""))}</h2><p class="chamada">{e(s.get("diferenciais_texto",""))}</p></div>
   <div class="grade grade--2">{diferenciais}</div>
+</div></section>""")
+
+    parceiros_lista = s.get("parceiros", [])
+    if parceiros_lista:
+        parceiros_cards = "".join(
+            f'<article class="card"><h3>{e(pnr.get("nome",""))}</h3><p>{e(pnr.get("texto",""))}</p></article>'
+            for pnr in parceiros_lista
+        )
+        olho_parceiros = "Partners" if lang == "en" else "合作伙伴"
+        corpo.append(f"""<section class="secao secao--clara"><div class="env">
+  <div class="cabeca-secao"><p class="olho">{olho_parceiros}</p><h2>{e(s.get("parceiros_titulo",""))}</h2><p class="chamada">{e(s.get("parceiros_intro",""))}</p></div>
+  <div class="grade grade--2">{parceiros_cards}</div>
 </div></section>""")
 
     corpo.append(f"""<section class="secao secao--escura"><div class="env">
