@@ -37,15 +37,25 @@
   }
 
   /* ------------------------------------------------ filtro de imóveis ---- */
+  /* Tipo (botões), Estado e Região (selects) combinam com E lógico. Nunca
+     existe filtro por Município — decisão de sigilo comercial: a busca não
+     pode virar uma lista navegável fazenda a fazenda por município pra
+     corretores concorrentes. */
   var filtros = document.querySelectorAll('.filtro[data-filtro]');
   var cards = document.querySelectorAll('.imovel[data-tipo]');
   var contador = document.getElementById('contador-imoveis');
+  var filtroEstadoSel = document.getElementById('filtro-estado');
+  var filtroRegiaoSel = document.getElementById('filtro-regiao');
   var filtroAtivo = 'todos';
 
   function aplicarFiltro() {
+    var estadoAtivo = filtroEstadoSel ? filtroEstadoSel.value : 'todos';
+    var regiaoAtiva = filtroRegiaoSel ? filtroRegiaoSel.value : 'todos';
     var visiveis = 0;
     cards.forEach(function (card) {
-      var mostra = filtroAtivo === 'todos' || card.getAttribute('data-tipo') === filtroAtivo;
+      var mostra = (filtroAtivo === 'todos' || card.getAttribute('data-tipo') === filtroAtivo) &&
+                   (estadoAtivo === 'todos' || card.getAttribute('data-estado') === estadoAtivo) &&
+                   (regiaoAtiva === 'todos' || card.getAttribute('data-regiao') === regiaoAtiva);
       card.hidden = !mostra;
       if (mostra) visiveis++;
     });
@@ -65,6 +75,9 @@
       });
     });
   }
+
+  if (filtroEstadoSel) filtroEstadoSel.addEventListener('change', aplicarFiltro);
+  if (filtroRegiaoSel) filtroRegiaoSel.addEventListener('change', aplicarFiltro);
 
   /* -------------------------------------------------- ordenar imóveis ---- */
   var grade = document.getElementById('grade-imoveis');

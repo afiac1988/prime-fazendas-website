@@ -62,6 +62,14 @@
   <div class="env">
     <div class="lista-imoveis__barra">
       <div class="filtros" role="group" aria-label="Filtrar por tipo"><button class="filtro" data-filtro="todos" aria-pressed="true">All</button><button class="filtro" data-filtro="mista" aria-pressed="false">Mixed use</button><button class="filtro" data-filtro="pecuaria" aria-pressed="false">Cattle ranching</button><button class="filtro" data-filtro="agricola" aria-pressed="false">Cropland</button></div>
+      <div class="campo">
+        <label for="filtro-estado">State</label>
+        <select id="filtro-estado"><option value="todos">All states</option><option value="GO">GO</option><option value="PA">PA</option><option value="TO">TO</option></select>
+      </div>
+      <div class="campo">
+        <label for="filtro-regiao">Region</label>
+        <select id="filtro-regiao"><option value="todos">All regions</option><option value="Central do Tocantins">Central do Tocantins</option><option value="Matopiba">Matopiba</option><option value="Norte do Tocantins">Norte do Tocantins</option><option value="Sudeste do Pará">Sudeste do Pará</option><option value="Sudeste do Tocantins">Sudeste do Tocantins</option><option value="Sudoeste de Goiás">Sudoeste de Goiás</option><option value="Sudoeste do Tocantins">Sudoeste do Tocantins</option><option value="Sul do Tocantins">Sul do Tocantins</option></select>
+      </div>
       <div class="campo campo--ordenar">
         <label for="ordenar-imoveis">Sort by</label>
         <select id="ordenar-imoveis">
@@ -76,47 +84,47 @@
     <p style="color:var(--tinta-suave);font-size:.9rem;margin-bottom:1.75rem">
       <span id="contador-imoveis">35 properties</span>
     </p>
-    <div class="grade-imoveis" id="grade-imoveis"><article class="imovel reveal" data-tipo="mista" data-preco="280000000" data-area="17602.69">
+    <div class="grade-imoveis" id="grade-imoveis"><article class="imovel reveal" data-tipo="mista" data-preco="280000000" data-area="17602.69" data-estado="TO" data-regiao="Sul do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-aventurina/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-aventurina/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Aventurina (Aventurine Farm) — Formoso do Araguaia, TO"><picture><source srcset="/midia/imoveis/fazenda-aventurina/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-aventurina/aerea-02.jpg" alt="Vista aérea — Fazenda Aventurina (Aventurine Farm) — Formoso do Araguaia, TO" width="906" height="673" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-aventurina/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-aventurina/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Aventurina (Aventurine Farm) — Formoso do Araguaia, TO"><picture><source srcset="/midia/imoveis/fazenda-aventurina/aerea-02.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-aventurina/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-aventurina/aerea-02.jpg" alt="Vista aérea — Fazenda Aventurina (Aventurine Farm) — Formoso do Araguaia, TO" width="906" height="673" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Formoso do Araguaia, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-aventurina/">Fazenda Aventurina (Aventurine Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">17.602,69 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 280 mi <small class="dado__val-usd">&asymp; US$ 54,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="61230000" data-area="7589">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="61230000" data-area="7589" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg" data-foto-modal-src="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg" data-foto-modal-alt="Fazenda Diamante do Cerrado (Cerrado Diamond Farm) — Centenário, TO"><picture><source srcset="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg" alt="Fazenda Diamante do Cerrado (Cerrado Diamond Farm) — Centenário, TO" width="1600" height="1059" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg" data-foto-modal-src="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg" data-foto-modal-alt="Fazenda Diamante do Cerrado (Cerrado Diamond Farm) — Centenário, TO"><picture><source srcset="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-diamante-do-cerrado/foto-03.jpg" alt="Fazenda Diamante do Cerrado (Cerrado Diamond Farm) — Centenário, TO" width="1600" height="1059" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Centenário, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-diamante-do-cerrado/">Fazenda Diamante do Cerrado (Cerrado Diamond Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">7.589 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 61,2 mi <small class="dado__val-usd">&asymp; US$ 12 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="6000000" data-area="310">
+</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="6000000" data-area="310" data-estado="TO" data-regiao="Central do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.jpg" data-foto-modal-alt="Fazenda Esmeralda do Cerrado (Cerrado Emerald Farm) — Palmas, TO"><picture><source srcset="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.jpg" alt="Fazenda Esmeralda do Cerrado (Cerrado Emerald Farm) — Palmas, TO" width="1280" height="591" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.jpg" data-foto-modal-alt="Fazenda Esmeralda do Cerrado (Cerrado Emerald Farm) — Palmas, TO"><picture><source srcset="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-esmeralda-do-cerrado/capa.jpg" alt="Fazenda Esmeralda do Cerrado (Cerrado Emerald Farm) — Palmas, TO" width="1280" height="591" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Palmas, TO · Cattle ranching</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-esmeralda-do-cerrado/">Fazenda Esmeralda do Cerrado (Cerrado Emerald Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">310 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 6 mi <small class="dado__val-usd">&asymp; US$ 1,2 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="170000000" data-area="17416.02">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="170000000" data-area="17416.02" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-jade-serena/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-jade-serena/foto-01.jpg" data-foto-modal-alt="Fazenda Jade Serena (Serene Jade Farm) — Guaraí, TO"><picture><source srcset="/midia/imoveis/fazenda-jade-serena/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-jade-serena/foto-01.jpg" alt="Fazenda Jade Serena (Serene Jade Farm) — Guaraí, TO" width="1280" height="958" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-jade-serena/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-jade-serena/foto-01.jpg" data-foto-modal-alt="Fazenda Jade Serena (Serene Jade Farm) — Guaraí, TO"><picture><source srcset="/midia/imoveis/fazenda-jade-serena/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-jade-serena/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-jade-serena/foto-01.jpg" alt="Fazenda Jade Serena (Serene Jade Farm) — Guaraí, TO" width="1280" height="958" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Guaraí, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-jade-serena/">Fazenda Jade Serena (Serene Jade Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">17.416,02 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 170 mi <small class="dado__val-usd">&asymp; US$ 33,3 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="agricola" data-preco="50000000" data-area="3020">
+</article><article class="imovel reveal" data-tipo="agricola" data-preco="50000000" data-area="3020" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
     <svg viewBox="0 0 800 200" preserveAspectRatio="none" aria-hidden="true" focusable="false" height="200"><path fill="#0C1E33" fill-opacity=".5" d="M0 128l90-22 80 16 100-32 90 24 100-20 90 26 90-22 80 18 80-16v100H0z"/><path fill="#0C1E33" fill-opacity=".8" d="M0 158l110-16 90 12 110-20 100 16 110-14 100 18 90-12 90 16v42H0z"/></svg>
@@ -126,300 +134,300 @@
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-pirita/">Fazenda Pirita (Pyrite Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">3.020 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 50 mi <small class="dado__val-usd">&asymp; US$ 9,8 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="142296000" data-area="10164">
+</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="142296000" data-area="10164" data-estado="PA" data-regiao="Sudeste do Pará">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.jpg" data-foto-modal-alt="Fazenda Pérola do Araguaia (Araguaia Pearl Farm) — São Geraldo do Araguaia, PA"><picture><source srcset="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.jpg" alt="Fazenda Pérola do Araguaia (Araguaia Pearl Farm) — São Geraldo do Araguaia, PA" width="1107" height="626" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.jpg" data-foto-modal-alt="Fazenda Pérola do Araguaia (Araguaia Pearl Farm) — São Geraldo do Araguaia, PA"><picture><source srcset="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-perola-do-araguaia/foto-01.jpg" alt="Fazenda Pérola do Araguaia (Araguaia Pearl Farm) — São Geraldo do Araguaia, PA" width="1107" height="626" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">São Geraldo do Araguaia, PA · Cattle ranching</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-perola-do-araguaia/">Fazenda Pérola do Araguaia (Araguaia Pearl Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">10.164 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 142,3 mi <small class="dado__val-usd">&asymp; US$ 27,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="235000000" data-area="28500">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="235000000" data-area="28500" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.jpg" data-foto-modal-alt="Fazenda Turmalina do Cerrado (Cerrado Tourmaline Farm) — Dianópolis, TO"><img  src="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.jpg" alt="Fazenda Turmalina do Cerrado (Cerrado Tourmaline Farm) — Dianópolis, TO" width="960" height="1280" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.jpg" data-foto-modal-alt="Fazenda Turmalina do Cerrado (Cerrado Tourmaline Farm) — Dianópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.avif" type="image/avif"><img  src="/midia/imoveis/fazenda-turmalina-do-cerrado/foto-04.jpg" alt="Fazenda Turmalina do Cerrado (Cerrado Tourmaline Farm) — Dianópolis, TO" width="960" height="1280" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Dianópolis, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-turmalina-do-cerrado/">Fazenda Turmalina do Cerrado (Cerrado Tourmaline Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">28.500 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 235 mi <small class="dado__val-usd">&asymp; US$ 46,1 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="0" data-area="1200">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="0" data-area="1200" data-estado="TO" data-regiao="Central do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Amazonita (Amazonite Farm) — Monte do Carmo, TO"><picture><source srcset="/midia/imoveis/fazenda-amazonita/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" alt="Vista aérea — Fazenda Amazonita (Amazonite Farm) — Monte do Carmo, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Amazonita (Amazonite Farm) — Monte do Carmo, TO"><picture><source srcset="/midia/imoveis/fazenda-amazonita/aerea-02.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-amazonita/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-amazonita/aerea-02.jpg" alt="Vista aérea — Fazenda Amazonita (Amazonite Farm) — Monte do Carmo, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Monte do Carmo, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-amazonita/">Fazenda Amazonita (Amazonite Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.200 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">Available on request</span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="27000000" data-area="1210">
+</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="27000000" data-area="1210" data-estado="TO" data-regiao="Central do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-real/aerea-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-real/aerea-01.jpg" data-foto-modal-alt="Vista aérea — Fazenda Ametista Real (Royal Amethyst Farm) — Porto Nacional, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-real/aerea-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-real/aerea-01.jpg" alt="Vista aérea — Fazenda Ametista Real (Royal Amethyst Farm) — Porto Nacional, TO" width="1600" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-real/aerea-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-real/aerea-01.jpg" data-foto-modal-alt="Vista aérea — Fazenda Ametista Real (Royal Amethyst Farm) — Porto Nacional, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-real/aerea-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-ametista-real/aerea-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-real/aerea-01.jpg" alt="Vista aérea — Fazenda Ametista Real (Royal Amethyst Farm) — Porto Nacional, TO" width="1600" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Porto Nacional, TO · Cattle ranching</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-ametista-real/">Fazenda Ametista Real (Royal Amethyst Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.210 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 27 mi <small class="dado__val-usd">&asymp; US$ 5,3 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="15400000" data-area="1064.8">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="15400000" data-area="1064.8" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg" data-foto-modal-alt="Fazenda Ametista do Cerrado (Cerrado Amethyst Farm) — Chapada da Natividade, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg" alt="Fazenda Ametista do Cerrado (Cerrado Amethyst Farm) — Chapada da Natividade, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg" data-foto-modal-alt="Fazenda Ametista do Cerrado (Cerrado Amethyst Farm) — Chapada da Natividade, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-do-cerrado/foto-05.jpg" alt="Fazenda Ametista do Cerrado (Cerrado Amethyst Farm) — Chapada da Natividade, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Chapada da Natividade, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-ametista-do-cerrado/">Fazenda Ametista do Cerrado (Cerrado Amethyst Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.064,80 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 15,4 mi <small class="dado__val-usd">&asymp; US$ 3 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="67340000" data-area="1761.76">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="67340000" data-area="1761.76" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-do-sul/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-do-sul/foto-01.jpg" data-foto-modal-alt="Fazenda Ametista do Sul (Southern Amethyst Farm) — Peixe, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-do-sul/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-do-sul/foto-01.jpg" alt="Fazenda Ametista do Sul (Southern Amethyst Farm) — Peixe, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-do-sul/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-do-sul/foto-01.jpg" data-foto-modal-alt="Fazenda Ametista do Sul (Southern Amethyst Farm) — Peixe, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-do-sul/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-ametista-do-sul/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-do-sul/foto-01.jpg" alt="Fazenda Ametista do Sul (Southern Amethyst Farm) — Peixe, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Peixe, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-ametista-do-sul/">Fazenda Ametista do Sul (Southern Amethyst Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.761,76 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 67,3 mi <small class="dado__val-usd">&asymp; US$ 13,2 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="54600000" data-area="1887">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="54600000" data-area="1887" data-estado="TO" data-regiao="Sudeste do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-do-vale/capa.jpeg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-do-vale/capa.jpeg" data-foto-modal-alt="Fazenda Ametista do Vale (Valley Amethyst Farm) — Silvanópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-do-vale/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-do-vale/capa.jpeg" alt="Fazenda Ametista do Vale (Valley Amethyst Farm) — Silvanópolis, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ametista-do-vale/capa.jpeg" data-foto-modal-src="/midia/imoveis/fazenda-ametista-do-vale/capa.jpeg" data-foto-modal-alt="Fazenda Ametista do Vale (Valley Amethyst Farm) — Silvanópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-ametista-do-vale/capa.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-ametista-do-vale/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ametista-do-vale/capa.jpeg" alt="Fazenda Ametista do Vale (Valley Amethyst Farm) — Silvanópolis, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Silvanópolis, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-ametista-do-vale/">Fazenda Ametista do Vale (Valley Amethyst Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.887 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 54,6 mi <small class="dado__val-usd">&asymp; US$ 10,7 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="25000000" data-area="1338.8">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="25000000" data-area="1338.8" data-estado="TO" data-regiao="Sul do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-citrino/aerea-05.jpg" data-foto-modal-src="/midia/imoveis/fazenda-citrino/aerea-05.jpg" data-foto-modal-alt="Vista aérea — Fazenda Citrino (Citrine Farm) — Dueré, TO"><picture><source srcset="/midia/imoveis/fazenda-citrino/aerea-05.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-citrino/aerea-05.jpg" alt="Vista aérea — Fazenda Citrino (Citrine Farm) — Dueré, TO" width="1600" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-citrino/aerea-05.jpg" data-foto-modal-src="/midia/imoveis/fazenda-citrino/aerea-05.jpg" data-foto-modal-alt="Vista aérea — Fazenda Citrino (Citrine Farm) — Dueré, TO"><picture><source srcset="/midia/imoveis/fazenda-citrino/aerea-05.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-citrino/aerea-05.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-citrino/aerea-05.jpg" alt="Vista aérea — Fazenda Citrino (Citrine Farm) — Dueré, TO" width="1600" height="900" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Dueré, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-citrino/">Fazenda Citrino (Citrine Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.338,80 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 25 mi <small class="dado__val-usd">&asymp; US$ 4,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="260000000" data-area="13792">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="260000000" data-area="13792" data-estado="TO" data-regiao="Norte do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-cristal-azul/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-cristal-azul/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Cristal Azul (Blue Crystal Farm) — Colinas do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-cristal-azul/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-cristal-azul/aerea-02.jpg" alt="Vista aérea — Fazenda Cristal Azul (Blue Crystal Farm) — Colinas do Tocantins, TO" width="960" height="1280" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-cristal-azul/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-cristal-azul/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Cristal Azul (Blue Crystal Farm) — Colinas do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-cristal-azul/aerea-02.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-cristal-azul/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-cristal-azul/aerea-02.jpg" alt="Vista aérea — Fazenda Cristal Azul (Blue Crystal Farm) — Colinas do Tocantins, TO" width="960" height="1280" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Colinas do Tocantins, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-cristal-azul/">Fazenda Cristal Azul (Blue Crystal Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">13.792 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 260 mi <small class="dado__val-usd">&asymp; US$ 51 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="agricola" data-preco="80000000" data-area="2000">
+</article><article class="imovel reveal" data-tipo="agricola" data-preco="80000000" data-area="2000" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg" data-foto-modal-alt="Fazenda Cristal da Serra (Mountain Crystal Farm) — Santa Rosa do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-cristal-da-serra/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg" alt="Fazenda Cristal da Serra (Mountain Crystal Farm) — Santa Rosa do Tocantins, TO" width="1280" height="720" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg" data-foto-modal-alt="Fazenda Cristal da Serra (Mountain Crystal Farm) — Santa Rosa do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-cristal-da-serra/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-cristal-da-serra/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-cristal-da-serra/foto-01.jpg" alt="Fazenda Cristal da Serra (Mountain Crystal Farm) — Santa Rosa do Tocantins, TO" width="1280" height="720" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Santa Rosa do Tocantins, TO · Cropland</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-cristal-da-serra/">Fazenda Cristal da Serra (Mountain Crystal Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.000 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 80 mi <small class="dado__val-usd">&asymp; US$ 15,7 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="agricola" data-preco="80000000" data-area="2000">
+</article><article class="imovel reveal" data-tipo="agricola" data-preco="80000000" data-area="2000" data-estado="TO" data-regiao="Sudeste do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-diamante/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-diamante/capa.jpg" data-foto-modal-alt="Fazenda Diamante (Diamond Farm) — Santa Rosa do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-diamante/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-diamante/capa.jpg" alt="Fazenda Diamante (Diamond Farm) — Santa Rosa do Tocantins, TO" width="720" height="319" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-diamante/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-diamante/capa.jpg" data-foto-modal-alt="Fazenda Diamante (Diamond Farm) — Santa Rosa do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-diamante/capa.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-diamante/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-diamante/capa.jpg" alt="Fazenda Diamante (Diamond Farm) — Santa Rosa do Tocantins, TO" width="720" height="319" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Santa Rosa do Tocantins, TO · Cropland</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-diamante/">Fazenda Diamante (Diamond Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.000 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 80 mi <small class="dado__val-usd">&asymp; US$ 15,7 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="25000000" data-area="1824.68">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="25000000" data-area="1824.68" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-diamante-do-vale/foto-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-diamante-do-vale/foto-02.jpg" data-foto-modal-alt="Fazenda Diamante do Vale (Valley Diamond Farm) — Campos Lindos, TO"><picture><source srcset="/midia/imoveis/fazenda-diamante-do-vale/foto-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-diamante-do-vale/foto-02.jpg" alt="Fazenda Diamante do Vale (Valley Diamond Farm) — Campos Lindos, TO" width="1280" height="622" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-diamante-do-vale/foto-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-diamante-do-vale/foto-02.jpg" data-foto-modal-alt="Fazenda Diamante do Vale (Valley Diamond Farm) — Campos Lindos, TO"><picture><source srcset="/midia/imoveis/fazenda-diamante-do-vale/foto-02.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-diamante-do-vale/foto-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-diamante-do-vale/foto-02.jpg" alt="Fazenda Diamante do Vale (Valley Diamond Farm) — Campos Lindos, TO" width="1280" height="622" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Campos Lindos, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-diamante-do-vale/">Fazenda Diamante do Vale (Valley Diamond Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.824,68 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 25 mi <small class="dado__val-usd">&asymp; US$ 4,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="55000000" data-area="2100">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="55000000" data-area="2100" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-galena/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-galena/foto-04.jpg" data-foto-modal-alt="Fazenda Galena (Galena Farm) — Fortaleza do Tabocão, TO"><picture><source srcset="/midia/imoveis/fazenda-galena/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-galena/foto-04.jpg" alt="Fazenda Galena (Galena Farm) — Fortaleza do Tabocão, TO" width="545" height="363" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-galena/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-galena/foto-04.jpg" data-foto-modal-alt="Fazenda Galena (Galena Farm) — Fortaleza do Tabocão, TO"><picture><source srcset="/midia/imoveis/fazenda-galena/foto-04.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-galena/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-galena/foto-04.jpg" alt="Fazenda Galena (Galena Farm) — Fortaleza do Tabocão, TO" width="545" height="363" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Fortaleza do Tabocão, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-galena/">Fazenda Galena (Galena Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.100 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 55 mi <small class="dado__val-usd">&asymp; US$ 10,8 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="agricola" data-preco="76000000" data-area="678">
+</article><article class="imovel reveal" data-tipo="agricola" data-preco="76000000" data-area="678" data-estado="GO" data-regiao="Sudoeste de Goiás">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg" data-foto-modal-alt="Fazenda Jade do Campo (Field Jade Farm) — Quirinópolis, GO"><picture><source srcset="/midia/imoveis/fazenda-jade-do-campo/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg" alt="Fazenda Jade do Campo (Field Jade Farm) — Quirinópolis, GO" width="1280" height="720" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg" data-foto-modal-alt="Fazenda Jade do Campo (Field Jade Farm) — Quirinópolis, GO"><picture><source srcset="/midia/imoveis/fazenda-jade-do-campo/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-jade-do-campo/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-jade-do-campo/foto-01.jpg" alt="Fazenda Jade do Campo (Field Jade Farm) — Quirinópolis, GO" width="1280" height="720" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Quirinópolis, GO · Cropland</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-jade-do-campo/">Fazenda Jade do Campo (Field Jade Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">678 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 76 mi <small class="dado__val-usd">&asymp; US$ 14,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="10000000" data-area="828.8">
+</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="10000000" data-area="828.8" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.jpg" data-foto-modal-alt="Fazenda Jade do Cerrado (Cerrado Jade Farm) — Porto Nacional, TO"><picture><source srcset="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.jpg" alt="Fazenda Jade do Cerrado (Cerrado Jade Farm) — Porto Nacional, TO" width="1368" height="912" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.jpg" data-foto-modal-alt="Fazenda Jade do Cerrado (Cerrado Jade Farm) — Porto Nacional, TO"><picture><source srcset="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-jade-do-cerrado/foto-01.jpg" alt="Fazenda Jade do Cerrado (Cerrado Jade Farm) — Porto Nacional, TO" width="1368" height="912" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Porto Nacional, TO · Cattle ranching</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-jade-do-cerrado/">Fazenda Jade do Cerrado (Cerrado Jade Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">828,80 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 10 mi <small class="dado__val-usd">&asymp; US$ 2 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="65000000" data-area="4446.86">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="65000000" data-area="4446.86" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.jpg" data-foto-modal-alt="Fazenda Lápis-Lazúli do Tocantins (Tocantins Lapis Lazuli Farm) — Novo Acordo, TO"><picture><source srcset="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.jpg" alt="Fazenda Lápis-Lazúli do Tocantins (Tocantins Lapis Lazuli Farm) — Novo Acordo, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.jpg" data-foto-modal-alt="Fazenda Lápis-Lazúli do Tocantins (Tocantins Lapis Lazuli Farm) — Novo Acordo, TO"><picture><source srcset="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-lapis-lazuli-do-tocantins/foto-01.jpg" alt="Fazenda Lápis-Lazúli do Tocantins (Tocantins Lapis Lazuli Farm) — Novo Acordo, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Novo Acordo, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-lapis-lazuli-do-tocantins/">Fazenda Lápis-Lazúli do Tocantins (Tocantins Lapis Lazuli Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">4.446,86 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 65 mi <small class="dado__val-usd">&asymp; US$ 12,7 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="20670000" data-area="769.56">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="20670000" data-area="769.56" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-painita/foto-03.jpg" data-foto-modal-src="/midia/imoveis/fazenda-painita/foto-03.jpg" data-foto-modal-alt="Fazenda Painita (Painite Farm) — Dois Irmãos do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-painita/foto-03.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-painita/foto-03.jpg" alt="Fazenda Painita (Painite Farm) — Dois Irmãos do Tocantins, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-painita/foto-03.jpg" data-foto-modal-src="/midia/imoveis/fazenda-painita/foto-03.jpg" data-foto-modal-alt="Fazenda Painita (Painite Farm) — Dois Irmãos do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-painita/foto-03.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-painita/foto-03.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-painita/foto-03.jpg" alt="Fazenda Painita (Painite Farm) — Dois Irmãos do Tocantins, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Dois Irmãos do Tocantins, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-painita/">Fazenda Painita (Painite Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">769,56 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 20,7 mi <small class="dado__val-usd">&asymp; US$ 4,1 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="7191000" data-area="2320.33">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="7191000" data-area="2320.33" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg" data-foto-modal-src="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg" data-foto-modal-alt="Fazenda Pérola do Leste (Eastern Pearl Farm) — Lizarda, TO"><picture><source srcset="/midia/imoveis/fazenda-perola-do-leste/foto-03.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg" alt="Fazenda Pérola do Leste (Eastern Pearl Farm) — Lizarda, TO" width="1440" height="1080" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg" data-foto-modal-src="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg" data-foto-modal-alt="Fazenda Pérola do Leste (Eastern Pearl Farm) — Lizarda, TO"><picture><source srcset="/midia/imoveis/fazenda-perola-do-leste/foto-03.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-perola-do-leste/foto-03.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-perola-do-leste/foto-03.jpg" alt="Fazenda Pérola do Leste (Eastern Pearl Farm) — Lizarda, TO" width="1440" height="1080" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Lizarda, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-perola-do-leste/">Fazenda Pérola do Leste (Eastern Pearl Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.320,33 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 7,2 mi <small class="dado__val-usd">&asymp; US$ 1,4 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="agricola" data-preco="55600000" data-area="1350">
+</article><article class="imovel reveal" data-tipo="agricola" data-preco="55600000" data-area="1350" data-estado="TO" data-regiao="Sudeste do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-quartzo-rosa/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-quartzo-rosa/capa.jpg" data-foto-modal-alt="Fazenda Quartzo Rosa (Rose Quartz Farm) — Silvanópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-quartzo-rosa/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-quartzo-rosa/capa.jpg" alt="Fazenda Quartzo Rosa (Rose Quartz Farm) — Silvanópolis, TO" width="480" height="848" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-quartzo-rosa/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-quartzo-rosa/capa.jpg" data-foto-modal-alt="Fazenda Quartzo Rosa (Rose Quartz Farm) — Silvanópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-quartzo-rosa/capa.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-quartzo-rosa/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-quartzo-rosa/capa.jpg" alt="Fazenda Quartzo Rosa (Rose Quartz Farm) — Silvanópolis, TO" width="480" height="848" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Silvanópolis, TO · Cropland</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-quartzo-rosa/">Fazenda Quartzo Rosa (Rose Quartz Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.350 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 55,6 mi <small class="dado__val-usd">&asymp; US$ 10,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="75000000" data-area="2328">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="75000000" data-area="2328" data-estado="TO" data-regiao="Sul do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg" data-foto-modal-src="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg" data-foto-modal-alt="Fazenda Rubi Negro (Black Ruby Farm) — Cristalândia, TO"><picture><source srcset="/midia/imoveis/fazenda-rubi-negro/foto-07.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg" alt="Fazenda Rubi Negro (Black Ruby Farm) — Cristalândia, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg" data-foto-modal-src="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg" data-foto-modal-alt="Fazenda Rubi Negro (Black Ruby Farm) — Cristalândia, TO"><picture><source srcset="/midia/imoveis/fazenda-rubi-negro/foto-07.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-rubi-negro/foto-07.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-rubi-negro/foto-07.jpg" alt="Fazenda Rubi Negro (Black Ruby Farm) — Cristalândia, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Cristalândia, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-rubi-negro/">Fazenda Rubi Negro (Black Ruby Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.328 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 75 mi <small class="dado__val-usd">&asymp; US$ 14,7 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="100000000" data-area="4743">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="100000000" data-area="4743" data-estado="TO" data-regiao="Sul do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-safira-azul/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-safira-azul/capa.jpg" data-foto-modal-alt="Fazenda Safira Azul (Blue Sapphire Farm) — Peixe, TO"><picture><source srcset="/midia/imoveis/fazenda-safira-azul/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-safira-azul/capa.jpg" alt="Fazenda Safira Azul (Blue Sapphire Farm) — Peixe, TO" width="768" height="1024" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-safira-azul/capa.jpg" data-foto-modal-src="/midia/imoveis/fazenda-safira-azul/capa.jpg" data-foto-modal-alt="Fazenda Safira Azul (Blue Sapphire Farm) — Peixe, TO"><picture><source srcset="/midia/imoveis/fazenda-safira-azul/capa.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-safira-azul/capa.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-safira-azul/capa.jpg" alt="Fazenda Safira Azul (Blue Sapphire Farm) — Peixe, TO" width="768" height="1024" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Peixe, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-safira-azul/">Fazenda Safira Azul (Blue Sapphire Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">4.743 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 100 mi <small class="dado__val-usd">&asymp; US$ 19,6 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="63000000" data-area="2032">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="63000000" data-area="2032" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg" data-foto-modal-alt="Fazenda Safira do Norte (Northern Sapphire Farm) — Miracema do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-safira-do-norte/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg" alt="Fazenda Safira do Norte (Northern Sapphire Farm) — Miracema do Tocantins, TO" width="1599" height="1186" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg" data-foto-modal-alt="Fazenda Safira do Norte (Northern Sapphire Farm) — Miracema do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-safira-do-norte/foto-04.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-safira-do-norte/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-safira-do-norte/foto-04.jpg" alt="Fazenda Safira do Norte (Northern Sapphire Farm) — Miracema do Tocantins, TO" width="1599" height="1186" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Miracema do Tocantins, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-safira-do-norte/">Fazenda Safira do Norte (Northern Sapphire Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.032 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 63 mi <small class="dado__val-usd">&asymp; US$ 12,4 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="agricola" data-preco="15000000" data-area="963">
+</article><article class="imovel reveal" data-tipo="agricola" data-preco="15000000" data-area="963" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-safira-do-vale/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-safira-do-vale/foto-04.jpg" data-foto-modal-alt="Fazenda Safira do Vale (Valley Sapphire Farm) — São Valério da Natividade, TO"><picture><source srcset="/midia/imoveis/fazenda-safira-do-vale/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-safira-do-vale/foto-04.jpg" alt="Fazenda Safira do Vale (Valley Sapphire Farm) — São Valério da Natividade, TO" width="1024" height="576" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-safira-do-vale/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-safira-do-vale/foto-04.jpg" data-foto-modal-alt="Fazenda Safira do Vale (Valley Sapphire Farm) — São Valério da Natividade, TO"><picture><source srcset="/midia/imoveis/fazenda-safira-do-vale/foto-04.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-safira-do-vale/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-safira-do-vale/foto-04.jpg" alt="Fazenda Safira do Vale (Valley Sapphire Farm) — São Valério da Natividade, TO" width="1024" height="576" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">São Valério da Natividade, TO · Cropland</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-safira-do-vale/">Fazenda Safira do Vale (Valley Sapphire Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">963 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 15 mi <small class="dado__val-usd">&asymp; US$ 2,9 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="52346000" data-area="1948.87">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="52346000" data-area="1948.87" data-estado="TO" data-regiao="Sudeste do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-topazio-imperial/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-topazio-imperial/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Topázio Imperial (Imperial Topaz Farm) — Silvanópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-topazio-imperial/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-topazio-imperial/aerea-02.jpg" alt="Vista aérea — Fazenda Topázio Imperial (Imperial Topaz Farm) — Silvanópolis, TO" width="780" height="1040" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-topazio-imperial/aerea-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-topazio-imperial/aerea-02.jpg" data-foto-modal-alt="Vista aérea — Fazenda Topázio Imperial (Imperial Topaz Farm) — Silvanópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-topazio-imperial/aerea-02.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-topazio-imperial/aerea-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-topazio-imperial/aerea-02.jpg" alt="Vista aérea — Fazenda Topázio Imperial (Imperial Topaz Farm) — Silvanópolis, TO" width="780" height="1040" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Silvanópolis, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-topazio-imperial/">Fazenda Topázio Imperial (Imperial Topaz Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">1.948,87 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 52,3 mi <small class="dado__val-usd">&asymp; US$ 10,3 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="30600000" data-area="987">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="30600000" data-area="987" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-topazio-do-sol/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-topazio-do-sol/foto-04.jpg" data-foto-modal-alt="Fazenda Topázio do Sol (Sun Topaz Farm) — Miracema do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-topazio-do-sol/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-topazio-do-sol/foto-04.jpg" alt="Fazenda Topázio do Sol (Sun Topaz Farm) — Miracema do Tocantins, TO" width="1600" height="1197" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-topazio-do-sol/foto-04.jpg" data-foto-modal-src="/midia/imoveis/fazenda-topazio-do-sol/foto-04.jpg" data-foto-modal-alt="Fazenda Topázio do Sol (Sun Topaz Farm) — Miracema do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-topazio-do-sol/foto-04.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-topazio-do-sol/foto-04.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-topazio-do-sol/foto-04.jpg" alt="Fazenda Topázio do Sol (Sun Topaz Farm) — Miracema do Tocantins, TO" width="1600" height="1197" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Miracema do Tocantins, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-topazio-do-sol/">Fazenda Topázio do Sol (Sun Topaz Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">987 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 30,6 mi <small class="dado__val-usd">&asymp; US$ 6 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="160000000" data-area="4241.57">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="160000000" data-area="4241.57" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg" data-foto-modal-alt="Fazenda Turquesa do Araguaia (Araguaia Turquoise Farm) — Pium, TO"><picture><source srcset="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg" alt="Fazenda Turquesa do Araguaia (Araguaia Turquoise Farm) — Pium, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg" data-foto-modal-alt="Fazenda Turquesa do Araguaia (Araguaia Turquoise Farm) — Pium, TO"><picture><source srcset="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-turquesa-do-araguaia/foto-01.jpg" alt="Fazenda Turquesa do Araguaia (Araguaia Turquoise Farm) — Pium, TO" width="1600" height="1200" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Pium, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-turquesa-do-araguaia/">Fazenda Turquesa do Araguaia (Araguaia Turquoise Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">4.241,57 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 160 mi <small class="dado__val-usd">&asymp; US$ 31,4 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="70000000" data-area="4743">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="70000000" data-area="4743" data-estado="TO" data-regiao="Central do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.jpg" data-foto-modal-src="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.jpg" data-foto-modal-alt="Fazenda Turquesa do Cerrado (Cerrado Turquoise Farm) — Novo Acordo, TO"><picture><source srcset="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.jpg" alt="Fazenda Turquesa do Cerrado (Cerrado Turquoise Farm) — Novo Acordo, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.jpg" data-foto-modal-src="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.jpg" data-foto-modal-alt="Fazenda Turquesa do Cerrado (Cerrado Turquoise Farm) — Novo Acordo, TO"><picture><source srcset="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-turquesa-do-cerrado/foto-06.jpg" alt="Fazenda Turquesa do Cerrado (Cerrado Turquoise Farm) — Novo Acordo, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Novo Acordo, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-turquesa-do-cerrado/">Fazenda Turquesa do Cerrado (Cerrado Turquoise Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">4.743 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 70 mi <small class="dado__val-usd">&asymp; US$ 13,7 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="5500000" data-area="629.2">
+</article><article class="imovel reveal" data-tipo="pecuaria" data-preco="5500000" data-area="629.2" data-estado="TO" data-regiao="Matopiba">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-agata-do-campo/foto-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-agata-do-campo/foto-02.jpg" data-foto-modal-alt="Fazenda Ágata do Campo (Agate Farm) — Dianópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-agata-do-campo/foto-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-agata-do-campo/foto-02.jpg" alt="Fazenda Ágata do Campo (Agate Farm) — Dianópolis, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-agata-do-campo/foto-02.jpg" data-foto-modal-src="/midia/imoveis/fazenda-agata-do-campo/foto-02.jpg" data-foto-modal-alt="Fazenda Ágata do Campo (Agate Farm) — Dianópolis, TO"><picture><source srcset="/midia/imoveis/fazenda-agata-do-campo/foto-02.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-agata-do-campo/foto-02.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-agata-do-campo/foto-02.jpg" alt="Fazenda Ágata do Campo (Agate Farm) — Dianópolis, TO" width="1280" height="960" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Dianópolis, TO · Cattle ranching</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-agata-do-campo/">Fazenda Ágata do Campo (Agate Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">629,20 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 5,5 mi <small class="dado__val-usd">&asymp; US$ 1,1 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="55000000" data-area="2090">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="55000000" data-area="2090" data-estado="TO" data-regiao="Central do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.jpg" data-foto-modal-alt="Vista aérea — Fazenda Ágata do Fogo (Fire Agate Farm) — Divinópolis do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.jpg" alt="Vista aérea — Fazenda Ágata do Fogo (Fire Agate Farm) — Divinópolis do Tocantins, TO" width="1280" height="720" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.jpg" data-foto-modal-alt="Vista aérea — Fazenda Ágata do Fogo (Fire Agate Farm) — Divinópolis do Tocantins, TO"><picture><source srcset="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-agata-do-fogo/aerea-01.jpg" alt="Vista aérea — Fazenda Ágata do Fogo (Fire Agate Farm) — Divinópolis do Tocantins, TO" width="1280" height="720" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Divinópolis do Tocantins, TO · Mixed use</p>
     <h3 class="imovel__titulo"><a href="/en/imoveis/fazenda-agata-do-fogo/">Fazenda Ágata do Fogo (Fire Agate Farm)</a></h3>
     <div class="imovel__dados"><div class="dado"><span class="dado__rot">Total area</span><span class="dado__val">2.090 ha</span></div><div class="dado"><span class="dado__rot">Price</span><span class="dado__val dado__val--preco">R$ 55 mi <small class="dado__val-usd">&asymp; US$ 10,8 mi</small></span></div></div>
   </div>
-</article><article class="imovel reveal" data-tipo="mista" data-preco="178950000" data-area="5774">
+</article><article class="imovel reveal" data-tipo="mista" data-preco="178950000" data-area="5774" data-estado="TO" data-regiao="Sudoeste do Tocantins">
   <div class="imovel__capa">
     <div class="imovel__selos"><span class="selo">Documents verified</span></div>
-    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ambar/aerea-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ambar/aerea-01.jpg" data-foto-modal-alt="Vista aérea — Fazenda Âmbar (Amber Farm) — Lagoa da Confusão, TO"><picture><source srcset="/midia/imoveis/fazenda-ambar/aerea-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ambar/aerea-01.jpg" alt="Vista aérea — Fazenda Âmbar (Amber Farm) — Lagoa da Confusão, TO" width="1290" height="951" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
+    <a class="imovel__capa-link js-foto-modal" href="/midia/imoveis/fazenda-ambar/aerea-01.jpg" data-foto-modal-src="/midia/imoveis/fazenda-ambar/aerea-01.jpg" data-foto-modal-alt="Vista aérea — Fazenda Âmbar (Amber Farm) — Lagoa da Confusão, TO"><picture><source srcset="/midia/imoveis/fazenda-ambar/aerea-01.avif" type="image/avif"><source srcset="/midia/imoveis/fazenda-ambar/aerea-01.webp" type="image/webp"><img  src="/midia/imoveis/fazenda-ambar/aerea-01.jpg" alt="Vista aérea — Fazenda Âmbar (Amber Farm) — Lagoa da Confusão, TO" width="1290" height="951" loading="lazy" sizes="(max-width: 640px) 100vw, 50vw"></picture></a>
   </div>
   <div class="imovel__corpo">
     <p class="imovel__local">Lagoa da Confusão, TO · Mixed use</p>

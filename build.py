@@ -1363,6 +1363,19 @@ def carregar_agenda_agro() -> list[dict]:
 
 # ================================================================ páginas ==
 
+def _regiao_norm(regiao: str) -> str:
+    """Normaliza nomes de regiao que vieram cadastrados de forma inconsistente
+    (ex.: 'Sul do Tocantins' e 'Regiao Sul do Tocantins' sao a mesma regiao) —
+    so remove o prefixo 'Regiao '/'Região ' quando presente, sem inventar
+    nome novo. Usado pra faceta de busca por regiao (nunca por municipio,
+    por sigilo comercial)."""
+    r = (regiao or "").strip()
+    for prefixo in ("Região ", "Regiao "):
+        if r.startswith(prefixo):
+            return r[len(prefixo):]
+    return r
+
+
 def card_imovel(im: dict, cambio: dict | None = None) -> str:
     selos = []
     rotulo, classe = STATUS.get(im.get("status", "disponivel"), STATUS["disponivel"])
@@ -1411,7 +1424,7 @@ def card_imovel(im: dict, cambio: dict | None = None) -> str:
     preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
     area_ordenacao = im.get("area_total_ha") or 0
 
-    return f"""<article class="imovel reveal" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}">
+    return f"""<article class="imovel reveal" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}" data-estado="{e(im.get('estado', ''))}" data-regiao="{e(_regiao_norm(im.get('regiao', '')))}">
   <div class="imovel__capa">
     {f'<div class="imovel__selos">{"".join(selos)}</div>' if selos else ''}
     {capa}
@@ -3023,11 +3036,32 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
             filtros += (f'<button class="filtro" data-filtro="{e(t)}" aria-pressed="false">'
                         f'{e(TIPOS.get(t, t.capitalize()))}</button>')
 
+        # Facetas de Estado e Regiao — nunca por Municipio (sigilo: evita que
+        # corretores concorrentes identifiquem fazendas especificas navegando
+        # a lista inteira por municipio).
+        estados_presentes = sorted({im["estado"] for im in imoveis if im.get("estado")})
+        regioes_presentes = sorted({_regiao_norm(im["regiao"]) for im in imoveis if im.get("regiao")})
+
+        opcoes_estado = '<option value="todos">Todos os estados</option>' + "".join(
+            f'<option value="{e(uf)}">{e(uf)}</option>' for uf in estados_presentes
+        )
+        opcoes_regiao = '<option value="todos">Todas as regiões</option>' + "".join(
+            f'<option value="{e(r)}">{e(r)}</option>' for r in regioes_presentes
+        )
+
         n = len(imoveis)
         corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="lista-imoveis__barra">
       <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
+      <div class="campo">
+        <label for="filtro-estado">Estado</label>
+        <select id="filtro-estado">{opcoes_estado}</select>
+      </div>
+      <div class="campo">
+        <label for="filtro-regiao">Região</label>
+        <select id="filtro-regiao">{opcoes_regiao}</select>
+      </div>
       <div class="campo campo--ordenar">
         <label for="ordenar-imoveis">Ordenar por</label>
         <select id="ordenar-imoveis">
@@ -3375,6 +3409,7 @@ TEXTOS_IMOVEL_I18N = {
         "aviso_confirmado": ("Prices, area and availability are confirmed before publication. If a property "
                               "is reserved or under negotiation, it does not appear as available."),
         "portfolio_vazio_titulo": "Portfolio being updated", "diga_regiao": "Procura algo específico?",
+        "estado": "State", "todos_estados": "All states", "todas_regioes": "All regions",
     },
     "zh": {
         "area_total": "总面积", "valor": "价格", "sob_consulta": "价格面议",
@@ -3398,6 +3433,7 @@ TEXTOS_IMOVEL_I18N = {
         "mapa_aviso": "该市镇的大致地图 — {local}。并不代表房产的确切边界。",
         "aviso_confirmado": "价格、面积及可售状态均在发布前予以确认。若某处房产处于预订或洽谈中，将不会显示为可售。",
         "portfolio_vazio_titulo": "项目组合更新中", "diga_regiao": "有具体需求？",
+        "estado": "州", "todos_estados": "所有州", "todas_regioes": "所有地区",
     },
 }
 
@@ -3463,7 +3499,7 @@ def card_imovel_i18n(im: dict, lang: str, cambio: dict | None = None) -> str:
     preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
     area_ordenacao = im.get("area_total_ha") or 0
 
-    return f"""<article class="imovel reveal" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}">
+    return f"""<article class="imovel reveal" data-tipo="{e(im.get('tipo', ''))}" data-preco="{preco_ordenacao}" data-area="{area_ordenacao}" data-estado="{e(im.get('estado', ''))}" data-regiao="{e(_regiao_norm(im.get('regiao', '')))}">
   <div class="imovel__capa">
     {f'<div class="imovel__selos">{"".join(selos)}</div>' if selos else ''}
     {capa}
@@ -3498,12 +3534,30 @@ def gerar_lista_imoveis_i18n(cfg: dict, imoveis: list[dict], lang: str, trad_map
             filtros += (f'<button class="filtro" data-filtro="{e(t)}" aria-pressed="false">'
                         f'{e(TIPOS_I18N[lang].get(t, t.capitalize()))}</button>')
 
+        estados_presentes = sorted({im["estado"] for im in imoveis_i18n if im.get("estado")})
+        regioes_presentes = sorted({_regiao_norm(im["regiao"]) for im in imoveis_i18n if im.get("regiao")})
+
+        opcoes_estado = f'<option value="todos">{e(tx["todos_estados"])}</option>' + "".join(
+            f'<option value="{e(uf)}">{e(uf)}</option>' for uf in estados_presentes
+        )
+        opcoes_regiao = f'<option value="todos">{e(tx["todas_regioes"])}</option>' + "".join(
+            f'<option value="{e(r)}">{e(r)}</option>' for r in regioes_presentes
+        )
+
         n = len(imoveis_i18n)
         rotulo_n = tx["propriedade"] if n == 1 else tx["propriedades"]
         corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="lista-imoveis__barra">
       <div class="filtros" role="group" aria-label="Filtrar por tipo">{filtros}</div>
+      <div class="campo">
+        <label for="filtro-estado">{e(tx['estado'])}</label>
+        <select id="filtro-estado">{opcoes_estado}</select>
+      </div>
+      <div class="campo">
+        <label for="filtro-regiao">{e(tx['regiao'])}</label>
+        <select id="filtro-regiao">{opcoes_regiao}</select>
+      </div>
       <div class="campo campo--ordenar">
         <label for="ordenar-imoveis">{e(tx['ordenar_por'])}</label>
         <select id="ordenar-imoveis">
@@ -4497,29 +4551,32 @@ ErrorDocument 404 /404.html
 _RE_IMG_MIDIA = re.compile(r'<img\b([^>]*?)src="(/midia/[^"]+)\.(jpg|jpeg|png)"([^>]*?)>')
 
 
-def _webp_existe(caminho_sem_extensao: str) -> bool:
-    """Confere se existe uma versao .webp gerada ao lado do arquivo original
-    em conteudo/midia/. Usado para so oferecer o formato quando ele realmente
-    compensa (ver script de otimizacao de imagens)."""
-    caminho = CONTEUDO / "midia" / (caminho_sem_extensao[len("/midia/"):] + ".webp")
+def _midia_variante_existe(caminho_sem_extensao: str, extensao: str) -> bool:
+    """Confere se existe uma variante (.avif/.webp) gerada ao lado do arquivo
+    original em conteudo/midia/. Usado para so oferecer o formato quando ele
+    realmente existe (ver _tmp_gerar_avif.py / conversao manual de webp)."""
+    caminho = CONTEUDO / "midia" / (caminho_sem_extensao[len("/midia/"):] + "." + extensao)
     return caminho.exists()
 
 
 def _envolver_imagens_com_webp(html_pagina: str) -> str:
-    """Envolve toda <img src="/midia/....jpg|.png"> que tenha uma versao .webp
-    mais leve com um <picture><source type="image/webp">, mantendo a tag
-    <img> original como fallback (mesmo src, mesmos atributos) para
-    navegadores antigos e para o crawler que so olhar o <img>."""
+    """Envolve toda <img src="/midia/....jpg|.png"> que tenha variante(s) mais
+    leve(s) com um <picture>, na ordem AVIF (melhor compressao, ~40% menor
+    que o JPEG original) -> WebP -> <img> original como fallback (mesmo src,
+    mesmos atributos) para navegadores antigos e para o crawler que so olhar
+    o <img>. O navegador usa o primeiro <source> que souber decodificar."""
 
     def _sub(m: re.Match) -> str:
         antes, caminho, ext, depois = m.group(1), m.group(2), m.group(3), m.group(4)
         tag_original = f'<img {antes}src="{caminho}.{ext}"{depois}>'
-        if not _webp_existe(caminho):
+        fontes = ""
+        if _midia_variante_existe(caminho, "avif"):
+            fontes += f'<source srcset="{caminho}.avif" type="image/avif">'
+        if _midia_variante_existe(caminho, "webp"):
+            fontes += f'<source srcset="{caminho}.webp" type="image/webp">'
+        if not fontes:
             return tag_original
-        return (
-            f'<picture><source srcset="{caminho}.webp" type="image/webp">'
-            f'{tag_original}</picture>'
-        )
+        return f'<picture>{fontes}{tag_original}</picture>'
 
     return _RE_IMG_MIDIA.sub(_sub, html_pagina)
 
