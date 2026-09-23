@@ -4313,7 +4313,7 @@ def gerar_404(cfg) -> str:
   </div>
 </section>"""]
     return pagina(cfg, titulo="Página não encontrada", descricao="Página não encontrada.",
-                  url="/404.html", corpo="\n".join(corpo))
+                  url="/404.html", corpo="\n".join(corpo), robots="noindex, follow")
 
 
 
@@ -4639,7 +4639,35 @@ def main() -> int:
     if manutencao.get("ativa"):
         escrever("robots.txt", "User-agent: *\nDisallow: /\n")
     else:
-        escrever("robots.txt", f"User-agent: *\nAllow: /\n\nSitemap: {dominio}/sitemap.xml\n")
+        robots_txt = (
+            "User-agent: *\n"
+            "Allow: /\n"
+            "\n"
+            "# Crawlers de IA / LLM — liberados explicitamente (GEO)\n"
+            "User-agent: GPTBot\n"
+            "Allow: /\n"
+            "\n"
+            "User-agent: ChatGPT-User\n"
+            "Allow: /\n"
+            "\n"
+            "User-agent: ClaudeBot\n"
+            "Allow: /\n"
+            "\n"
+            "User-agent: Claude-User\n"
+            "Allow: /\n"
+            "\n"
+            "User-agent: PerplexityBot\n"
+            "Allow: /\n"
+            "\n"
+            "User-agent: CCBot\n"
+            "Allow: /\n"
+            "\n"
+            "User-agent: Google-Extended\n"
+            "Allow: /\n"
+            "\n"
+            f"Sitemap: {dominio}/sitemap.xml\n"
+        )
+        escrever("robots.txt", robots_txt)
 
     # IndexNow — arquivo de posse da chave na raiz do site (indexnow.org).
     # Bing, Yandex e outros usam esse arquivo pra validar os pings de URL nova/atualizada.

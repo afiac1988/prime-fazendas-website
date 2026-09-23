@@ -2,6 +2,13 @@
 (function () {
   'use strict';
 
+  /* ------------------------------------------------- eventos GA4 ---- */
+  function evento(nome, parametros) {
+    if (typeof window.gtag === 'function') {
+      window.gtag('event', nome, parametros || {});
+    }
+  }
+
   /* ---------------------------------------------------- menu mobile ---- */
   var botao = document.querySelector('.hamburguer');
   var nav = document.getElementById('nav-principal');
@@ -104,6 +111,11 @@
       /* honeypot anti-spam: se o campo oculto veio preenchido, é bot — não faz nada */
       if ((dados.get('_honey') || '').toString().trim()) return;
 
+      evento('generate_lead', {
+        method: 'formulario_whatsapp',
+        idioma: document.documentElement.lang || 'pt'
+      });
+
       /* captura o lead por e-mail (nome + e-mail já bastam para qualificar) antes
          de abrir o WhatsApp — funciona mesmo se o WhatsApp não abrir no aparelho */
       var endpoint = form.getAttribute('data-endpoint');
@@ -146,6 +158,19 @@
     box.textContent = texto;
     box.hidden = false;
   }
+
+  /* qualquer link direto pro WhatsApp fora do formulario (header, rodape, faixas de
+     contato, fichas de imovel) conta como clique de contato — sem duplicar o
+     generate_lead do formulario, que e um <a> nunca clicado (o JS so abre a URL) */
+  document.addEventListener('click', function (e) {
+    var link = e.target.closest ? e.target.closest('a[href*="wa.me/"]') : null;
+    if (link) {
+      evento('whatsapp_click', {
+        local: link.getAttribute('data-local-zap') || window.location.pathname,
+        idioma: document.documentElement.lang || 'pt'
+      });
+    }
+  });
 
   /* ------------------------------------------- visualizador de imagens --- */
   var modal = document.querySelector('.foto-modal');
