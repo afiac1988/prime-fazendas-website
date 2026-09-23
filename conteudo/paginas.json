@@ -1,7 +1,7 @@
 {
   "_leia": "Todo o texto institucional do site mora aqui. Editar aqui muda o site — nenhum texto está preso no código. Parágrafos: separe com \\n\\n dentro da string, ou use uma lista de strings.",
   "home": {
-    "hero_titulo": "Conectando pessoas à terra, à natureza e à prosperidade.",
+    "hero_titulo": "Intermediação de fazendas e ativos rurais de grande porte no Tocantins e no Matopiba, para quem aloca capital em terra como tese de investimento.",
     "hero_texto": "Intermediação de grandes fazendas e propriedades rurais no Tocantins e no Matopiba para investidores do Brasil e do mundo todo, incluindo terras estratégicas para data centers, com due diligence técnica, jurídica e ambiental em cada negócio. Preço e disponibilidade são confirmados antes de qualquer proposta.",
     "hero_cta": "Conheça nossas oportunidades",
     "hero_cta_secundario": "Falar com um especialista",
@@ -51,25 +51,26 @@
         "texto": "Transparência total e rigor jurídico, assegurando negociações sólidas e sem riscos."
       },
       {
-        "titulo": "Rede estratégica",
-        "texto": "Ampla rede de compradores e investidores no Brasil e no exterior, facilitando transações rápidas e eficazes."
+        "titulo": "Rede institucional",
+        "texto": "Investidores, fundos e grupos do agronegócio no Brasil e no exterior, com histórico de operações concluídas."
       },
       {
         "titulo": "Expertise de mercado",
         "texto": "Conhecimento profundo do setor para identificar as melhores oportunidades e maximizar o retorno do investimento."
       },
       {
-        "titulo": "Atendimento personalizado",
-        "texto": "Soluções sob medida para cada tipo de empreendimento rural, respeitando as necessidades de cada cliente."
+        "titulo": "Assessoria dedicada",
+        "texto": "Um interlocutor único acompanha a operação do primeiro contato à escritura, com a discrição que negociações dessa escala exigem."
       }
     ],
     "missao_titulo": "Nossa missão",
-    "missao": "Transformar a experiência de compra e venda de fazendas em um processo ágil, seguro e rentável, promovendo o desenvolvimento do agronegócio e contribuindo para o crescimento sustentável do setor. Buscamos não apenas realizar negócios, mas construir relacionamentos de longo prazo baseados em confiança, ética e compromisso com a satisfação de nossos clientes.",
+    "missao": "Estruturar operações de compra e venda de fazendas com o rigor jurídico e técnico que um ativo de grande porte exige, do primeiro contato à escritura, apoiando o crescimento do agronegócio no Tocantins e no Matopiba.",
     "valores": [
       "Transparência e ética em cada negociação",
       "Compromisso com a sustentabilidade e a legalidade",
       "Relacionamento de longo prazo acima da transação",
-      "Respeito à terra, à natureza e a quem vive dela"
+      "Respeito à terra, à natureza e a quem vive dela",
+      "Due diligence completa antes de qualquer proposta"
     ],
     "parceiros_titulo": "Parceiros estratégicos",
     "parceiros_intro": "Crescemos ao lado de grupos que compartilham nossos valores de tradição, transparência e compromisso com a terra.",
@@ -598,7 +599,7 @@
     "cta_botao": "咨询我的数据中心项目"
   },
   "home_en": {
-    "hero_titulo": "Connecting people to the land, to nature, and to prosperity.",
+    "hero_titulo": "Brokering large-scale farms and rural assets in Tocantins and Matopiba, for those who allocate capital in land as an investment thesis.",
     "hero_texto": "Intermediation of large farms and rural properties in Tocantins and Matopiba for investors across Brazil and around the world, including strategic land for data centers, with technical, legal and environmental due diligence on every deal. Price and availability are confirmed before any offer.",
     "hero_cta": "See our opportunities",
     "hero_cta_secundario": "Talk to a specialist",
@@ -624,7 +625,7 @@
     "faixa_texto": "We work with a lean, verified portfolio, not volume. Every opportunity we present has gone through documental, environmental and market review."
   },
   "home_zh": {
-    "hero_titulo": "连接人、土地、自然与繁荣。",
+    "hero_titulo": "在托坎廷斯州与马托皮巴地区，为以土地配置资本、视其为投资策略的客户，提供大型农场与农业地产的居间服务。",
     "hero_texto": "在托坎廷斯州（Tocantins）及马托皮巴（Matopiba）地区，为巴西国内及全球投资者提供大型农场与乡村地产中介服务，包括数据中心战略用地，每笔交易均经过技术、法律和环境尽职调查。价格与可售状态在任何报价前均已确认。",
     "hero_cta": "查看我们的项目",
     "hero_cta_secundario": "联系专业顾问",
@@ -674,25 +675,26 @@
         "texto": "Full transparency and legal rigor, ensuring solid, risk-free deals."
       },
       {
-        "titulo": "Strategic network",
-        "texto": "A broad network of buyers and investors in Brazil and abroad, enabling fast and effective transactions."
+        "titulo": "Institutional network",
+        "texto": "Investors, funds and agribusiness groups in Brazil and abroad, with a track record of completed transactions."
       },
       {
         "titulo": "Market expertise",
         "texto": "Deep knowledge of the sector to identify the best opportunities and maximize investment returns."
       },
       {
-        "titulo": "Personalized service",
-        "texto": "Tailored solutions for every type of rural venture, respecting each client's needs."
+        "titulo": "Dedicated advisory",
+        "texto": "A single point of contact follows the transaction from first contact to closing, with the discretion deals of this scale require."
       }
     ],
     "missao_titulo": "Our mission",
-    "missao": "To transform the experience of buying and selling farms into a fast, secure and profitable process, promoting the development of agribusiness and contributing to the sustainable growth of the sector. We seek not only to close deals, but to build long-term relationships based on trust, ethics and commitment to our clients' satisfaction.",
+    "missao": "Structure farm purchase and sale transactions with the legal and technical rigor a large-scale asset requires, from first contact to closing, supporting the growth of agribusiness in Tocantins and Matopiba.",
     "valores": [
       "Transparency and ethics in every deal",
       "Commitment to sustainability and legality",
       "Long-term relationships over transactions",
-      "Respect for the land, for nature, and for those who live off it"
+      "Respect for the land, for nature, and for those who live off it",
+      "Full due diligence before any proposal"
     ],
     "parceiros_titulo": "Strategic partners",
     "parceiros_intro": "We've grown alongside groups that share our values of tradition, transparency, and commitment to the land.",
@@ -732,25 +734,26 @@
         "texto": "全程透明,恪守法律规范,确保交易稳健、无风险。"
       },
       {
-        "titulo": "战略网络资源",
-        "texto": "覆盖巴西国内外的广泛买家与投资者网络,促成快速高效的交易。"
+        "titulo": "机构网络资源",
+        "texto": "覆盖巴西国内外的投资者、基金与农业集团，拥有已完成交易的良好记录。"
       },
       {
         "titulo": "市场专业能力",
         "texto": "深耕行业多年,精准识别优质机遇,助力投资回报最大化。"
       },
       {
-        "titulo": "个性化服务",
-        "texto": "根据每位客户的需求,为各类乡村项目提供量身定制的解决方案。"
+        "titulo": "专属顾问服务",
+        "texto": "由同一位对接人全程跟进交易，从首次接触到过户，恪守此等规模交易所需的审慎与保密。"
       }
     ],
     "missao_titulo": "我们的使命",
-    "missao": "让农场买卖的过程更加高效、安全且具有盈利性,推动农业产业发展,助力行业实现可持续增长。我们追求的不仅是促成交易,更致力于建立以信任、诚信与客户满意为基础的长期合作关系。",
+    "missao": "以大型资产所要求的法律与技术严谨性，构建农场买卖交易流程，从首次接触到过户，支持托坎廷斯州与马托皮巴地区农业产业的发展。",
     "valores": [
       "每一笔交易都秉持透明与诚信原则",
       "坚持可持续发展与合法合规",
       "重视长期合作关系,而非一次性交易",
-      "尊重土地、尊重自然,尊重以此为生的人们"
+      "尊重土地、尊重自然,尊重以此为生的人们",
+      "在提出任何方案前完成全面尽职调查"
     ],
     "parceiros_titulo": "战略合作伙伴",
     "parceiros_intro": "我们与秉持传统、透明和土地承诺等共同价值观的集团携手成长。",

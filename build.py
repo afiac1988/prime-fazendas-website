@@ -2358,7 +2358,8 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
 <meta property="og:title" content="{e(s.get('titulo',''))}">
 <meta property="og:description" content="{e(s.get('descricao_meta',''))}">
 <meta property="og:url" content="{e(canonica)}">
-<meta property="og:locale" content="{e(idioma_html.replace('-','_'))}">
+<meta property="og:locale" content="{e({"en": "en_US", "zh": "zh_CN"}[lang])}">
+<meta property="og:image" content="{e(dominio + cfg['site'].get('og_imagem', ''))}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
@@ -2383,7 +2384,8 @@ def gerar_datacenter_i18n(cfg: dict, s: dict, lang: str) -> str:
 
 
 def _skeleton_i18n(cfg: dict, lang: str, url_path: str, titulo: str, descricao_meta: str,
-                    corpo_html: str, json_ld_list: list[str] | None = None) -> str:
+                    corpo_html: str, json_ld_list: list[str] | None = None,
+                    og_imagem: str = "") -> str:
     """Skeleton HTML reutilizavel para paginas institucionais traduzidas (home,
     sobre, servicos, contato, agenda-agro). Mesmo padrao de hreflang/idioma/schema
     usado em gerar_datacenter_i18n, generalizado para qualquer pagina simples."""
@@ -2412,6 +2414,8 @@ def _skeleton_i18n(cfg: dict, lang: str, url_path: str, titulo: str, descricao_m
         zap_botao = f'<a class="zap" href="{e(zap)}" target="_blank" rel="noopener" aria-label="WhatsApp">{SVG_ZAP}</a>'
     titulo_completo = f"{titulo} | {cfg['marca']['nome']}"
     url_atual_i18n = f"/{lang}{pt_path}" if pt_path != "/" else f"/{lang}/"
+    og_locale = {"en": "en_US", "zh": "zh_CN"}[lang]
+    og_img_final = og_imagem or (dominio + cfg["site"].get("og_imagem", ""))
 
     return f"""<!DOCTYPE html>
 <html lang="{e(idioma_html)}">
@@ -2429,7 +2433,8 @@ def _skeleton_i18n(cfg: dict, lang: str, url_path: str, titulo: str, descricao_m
 <meta property="og:title" content="{e(titulo)}">
 <meta property="og:description" content="{e(descricao_meta)}">
 <meta property="og:url" content="{e(canonica)}">
-<meta property="og:locale" content="{e(idioma_html.replace('-','_'))}">
+<meta property="og:locale" content="{e(og_locale)}">
+<meta property="og:image" content="{e(og_img_final)}">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="icon" href="/assets/favicon-32.png" sizes="32x32" type="image/png">
 <link rel="icon" href="/assets/favicon-192.png" sizes="192x192" type="image/png">
@@ -3807,7 +3812,10 @@ def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: 
         ({"en": "Properties", "zh": "房产项目"}[lang], f"/{lang}/imoveis/"),
         (im["titulo"], im["url"]),
     ])
-    return _skeleton_i18n(cfg, lang, im_pt["url"], im["titulo"], desc, "\n".join(corpo), [ld, ld_migalha])
+    dominio_og = cfg["site"]["dominio"].rstrip("/")
+    og_img_imovel_i18n = (dominio_og + im["fotos_url"][0]) if im.get("fotos_url") else ""
+    return _skeleton_i18n(cfg, lang, im_pt["url"], im["titulo"], desc, "\n".join(corpo), [ld, ld_migalha],
+                           og_imagem=og_img_imovel_i18n)
 
 
 CATEGORIA_I18N = {
@@ -4028,8 +4036,10 @@ def gerar_post_i18n(cfg: dict, p_pt: dict, outros_pt: list[dict], lang: str, tra
         ({"en": "News", "zh": "新闻资讯"}[lang], f"/{lang}/blog/"),
         (p["titulo"], p["url"]),
     ])
+    og_img_post_i18n = (dominio + p["capa"]) if preenchido(p.get("capa")) else ""
     return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo),
-                           [b for b in [ld, ld_dataset_i18n, ld_migalha] if b])
+                           [b for b in [ld, ld_dataset_i18n, ld_migalha] if b],
+                           og_imagem=og_img_post_i18n)
 
 
 
