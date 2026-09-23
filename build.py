@@ -2477,30 +2477,157 @@ def gerar_servicos_i18n(cfg: dict, s: dict, lang: str) -> str:
     return _skeleton_i18n(cfg, lang, "/servicos/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
 
 
+TEXTOS_CONTATO_I18N = {
+    "en": {
+        "nome": "Name", "email": "Email", "telefone": "Phone / WhatsApp",
+        "interesse": "What are you looking for", "opcoes_interesse": [
+            "Buy a property", "Sell my property", "Lease a property (looking for land)",
+            "I have a property and want to offer it for lease", "Appraise a property",
+            "Land / environmental regularization", "Invest in agribusiness", "Other",
+        ],
+        "regiao": "Region of interest", "regiao_placeholder": "e.g. Palmas, Matopiba, Araguaia Valley",
+        "empresa": "Company / Group (if applicable)", "empresa_placeholder": "Company or group name, if any",
+        "area_pretendida": "Desired or available area (ha)", "area_placeholder": "e.g. 500 to 2,000 ha",
+        "investimento": "Investment range", "opcoes_investimento": [
+            "Prefer not to say", "Up to US$ 1 million", "US$ 1 to 4 million",
+            "US$ 4 to 10 million", "Above US$ 10 million",
+        ],
+        "mensagem": "Message", "mensagem_placeholder": "Tell us what you're looking for: size, suitability, region, timeline.",
+        "enviar": "Send and talk on WhatsApp",
+        "confirmacao": ("We've received your details and opened WhatsApp with your message ready. "
+                        "One of our consultants will contact you shortly. If WhatsApp didn't open, "
+                        "check your pop-up blocker."),
+        "canais": "Direct channels", "onde_estamos": "Where we are", "atendimento": "Hours",
+    },
+    "zh": {
+        "nome": "\u59d3\u540d", "email": "\u90ae\u7bb1", "telefone": "\u7535\u8bdd/WhatsApp",
+        "interesse": "\u60a8\u60f3\u54a8\u8be2\u7684\u4e8b\u9879", "opcoes_interesse": [
+            "\u8d2d\u4e70\u623f\u4ea7", "\u51fa\u552e\u6211\u7684\u623f\u4ea7",
+            "\u79df\u8d41\u571f\u5730\uff08\u5bfb\u627e\u571f\u5730\uff09",
+            "\u6211\u6709\u4e00\u5904\u623f\u4ea7\u60f3\u51fa\u79df",
+            "\u8bc4\u4f30\u623f\u4ea7", "\u571f\u5730/\u73af\u5883\u5408\u89c4\u767b\u8bb0",
+            "\u6295\u8d44\u519c\u4e1a", "\u5176\u4ed6",
+        ],
+        "regiao": "\u610f\u5411\u5730\u533a", "regiao_placeholder": "\u4f8b\u5982\uff1a\u5e15\u5c14\u9a6c\u65af\u3001\u9a6c\u6258\u76ae\u5df4\u3001\u963f\u62c9\u74dc\u4e9a\u6cb3\u8c37",
+        "empresa": "\u516c\u53f8/\u673a\u6784\uff08\u5982\u9002\u7528\uff09", "empresa_placeholder": "\u516c\u53f8\u6216\u673a\u6784\u540d\u79f0\uff08\u5982\u6709\uff09",
+        "area_pretendida": "\u610f\u5411\u6216\u53ef\u552e\u9762\u79ef\uff08\u516c\u9877\uff09", "area_placeholder": "\u4f8b\u5982\uff1a500\u81f32,000\u516c\u9877",
+        "investimento": "\u6295\u8d44\u91d1\u989d\u533a\u95f4", "opcoes_investimento": [
+            "\u4e0d\u613f\u900f\u9732", "100\u4e07\u7f8e\u5143\u4ee5\u4e0b", "100\u81f3400\u4e07\u7f8e\u5143",
+            "400\u81f31000\u4e07\u7f8e\u5143", "1000\u4e07\u7f8e\u5143\u4ee5\u4e0a",
+        ],
+        "mensagem": "\u7559\u8a00", "mensagem_placeholder": "\u8bf7\u544a\u8bc9\u6211\u4eec\u60a8\u7684\u9700\u6c42\uff1a\u9762\u79ef\u3001\u7528\u9014\u3001\u5730\u533a\u3001\u65f6\u95f4\u8981\u6c42\u3002",
+        "enviar": "\u53d1\u9001\u5e76\u524d\u5f80WhatsApp\u54a8\u8be2",
+        "confirmacao": ("\u6211\u4eec\u5df2\u6536\u5230\u60a8\u7684\u4fe1\u606f\uff0c\u5e76\u4e3a\u60a8\u6253\u5f00\u4e86WhatsApp\uff0c"
+                        "\u6d88\u606f\u5df2\u51c6\u5907\u597d\u3002\u6211\u4eec\u7684\u987e\u95ee\u4f1a\u5c3d\u5feb\u4e0e\u60a8\u8054\u7cfb\u3002"
+                        "\u5982\u679cWhatsApp\u672a\u80fd\u6253\u5f00\uff0c\u8bf7\u68c0\u67e5\u60a8\u7684\u5f39\u7a97\u62e6\u622a\u8bbe\u7f6e\u3002"),
+        "canais": "\u76f4\u63a5\u8054\u7cfb\u65b9\u5f0f", "onde_estamos": "\u6211\u4eec\u7684\u4f4d\u7f6e", "atendimento": "\u670d\u52a1\u65f6\u95f4",
+    },
+}
+
+
 def gerar_contato_i18n(cfg: dict, s: dict, lang: str) -> str:
-    zap = montar_url_zap(cfg)
+    tx = TEXTOS_CONTATO_I18N[lang]
     c = cfg["contato"]
-    linhas = []
+
+    numero_zap = re.sub(r"\D", "", str(c.get("whatsapp_numero_internacional") or "")) \
+        if preenchido(c.get("whatsapp_numero_internacional")) else ""
+    endpoint_lead = cfg.get("formulario", {}).get("endpoint", "")
+
+    opcoes_interesse = "".join(f"<option>{e(o)}</option>" for o in tx["opcoes_interesse"])
+    opcoes_investimento = "".join(f"<option>{e(o)}</option>" for o in tx["opcoes_investimento"])
+
+    form = f"""<form class="form" data-modo="whatsapp" data-whatsapp="{e(numero_zap)}"{f' data-endpoint="{e(endpoint_lead)}"' if preenchido(endpoint_lead) else ''} data-msg-sucesso="{e(tx['confirmacao'])}">
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+  <input type="hidden" name="_subject" value="Novo lead — site Prime Fazendas ({lang.upper()})">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <div class="campo--duplo">
+    <div class="campo">
+      <label for="nome-{lang}">{e(tx['nome'])} <span class="req">*</span></label>
+      <input type="text" id="nome-{lang}" name="nome" required autocomplete="name">
+    </div>
+    <div class="campo">
+      <label for="email-{lang}">{e(tx['email'])} <span class="req">*</span></label>
+      <input type="email" id="email-{lang}" name="email" required autocomplete="email">
+    </div>
+  </div>
+  <div class="campo">
+    <label for="telefone-{lang}">{e(tx['telefone'])}</label>
+    <input type="tel" id="telefone-{lang}" name="telefone" autocomplete="tel">
+  </div>
+  <div class="campo--duplo">
+    <div class="campo">
+      <label for="interesse-{lang}">{e(tx['interesse'])}</label>
+      <select id="interesse-{lang}" name="interesse">{opcoes_interesse}</select>
+    </div>
+    <div class="campo">
+      <label for="regiao-{lang}">{e(tx['regiao'])}</label>
+      <input type="text" id="regiao-{lang}" name="regiao" placeholder="{e(tx['regiao_placeholder'])}">
+    </div>
+  </div>
+  <div class="campo--duplo">
+    <div class="campo">
+      <label for="empresa-{lang}">{e(tx['empresa'])}</label>
+      <input type="text" id="empresa-{lang}" name="empresa" placeholder="{e(tx['empresa_placeholder'])}">
+    </div>
+    <div class="campo">
+      <label for="area_pretendida-{lang}">{e(tx['area_pretendida'])}</label>
+      <input type="text" id="area_pretendida-{lang}" name="area_pretendida" placeholder="{e(tx['area_placeholder'])}">
+    </div>
+  </div>
+  <div class="campo">
+    <label for="investimento-{lang}">{e(tx['investimento'])}</label>
+    <select id="investimento-{lang}" name="investimento">{opcoes_investimento}</select>
+  </div>
+  <div class="campo">
+    <label for="mensagem-{lang}">{e(tx['mensagem'])}</label>
+    <textarea id="mensagem-{lang}" name="mensagem" placeholder="{e(tx['mensagem_placeholder'])}"></textarea>
+  </div>
+  <div class="grupo-btn">
+    <button class="btn btn--principal" type="submit">{e(tx['enviar'])}</button>
+  </div>
+  <p class="form__nota">{e(s.get('form_nota', ''))}</p>
+  <p class="form__nota" data-retorno hidden role="status"></p>
+</form>"""
+
+    itens = []
     if preenchido(c.get("telefone")):
         tel = re.sub(r"\D", "", c.get("telefone_link") or c["telefone"])
-        linhas.append(f'<li><a href="tel:+{tel}">{e(formatar_telefone_exibicao(c, ""))}</a></li>')
+        itens.append((tx["telefone"], f'<a href="tel:+{tel}">{e(formatar_telefone_exibicao(c, ""))}</a>'))
     if preenchido(c.get("email")):
-        linhas.append(f'<li><a href="mailto:{e(c["email"])}">{e(c["email"])}</a></li>')
-    botao_zap = ""
-    if zap:
-        rotulo = "Talk on WhatsApp" if lang == "en" else "微信/WhatsApp咨询"
-        botao_zap = f'<a class="btn btn--dourado" href="{e(zap)}" target="_blank" rel="noopener">{rotulo}</a>'
+        itens.append((tx["email"], f'<a href="mailto:{e(c["email"])}">{e(c["email"])}</a>'))
+    if preenchido(c.get("endereco")):
+        itens.append(("Address" if lang == "en" else "\u5730\u5740", e(c["endereco"])))
+    cidade = ", ".join(x for x in [c.get("cidade"), c.get("estado")] if preenchido(x))
+    if cidade:
+        itens.append((tx["onde_estamos"], e(cidade)))
+    if preenchido(c.get("horario")):
+        itens.append((tx["atendimento"], e(c["horario"])))
+
+    lado = "".join(
+        f'<div class="contato-item"><p class="contato-item__rot">{e(r)}</p>'
+        f'<p class="contato-item__val">{v}</p></div>'
+        for r, v in itens
+    )
 
     corpo = [f"""<section class="hero hero--interno">
   <div class="env hero__int"><h1>{e(s.get('titulo',''))}</h1><p class="hero__texto">{e(s.get('chamada',''))}</p></div>
 </section>
-<section class="secao"><div class="env">
-  <div class="prosa"><p>{e(s.get('intro',''))}</p></div>
-  <h2>{e(s.get('form_titulo',''))}</h2>
-  <ul class="marcada">{''.join(linhas)}</ul>
-  {botao_zap}
-  <p style="margin-top:1rem;font-size:.85rem;color:var(--tinta-suave)">{e(s.get('form_nota',''))}</p>
-</div></section>"""]
+<section class="secao">
+  <div class="env">
+    <div class="contato-grade">
+      <div>
+        <h2>{e(s.get('form_titulo',''))}</h2>
+        <p class="chamada chamada--larga" style="margin-bottom:2.25rem">{e(s.get('intro', ''))}</p>
+        {form}
+      </div>
+      <div>
+        <p class="olho">{e(tx['canais'])}</p>
+        {lado}
+      </div>
+    </div>
+  </div>
+</section>"""]
 
     ld = json.dumps({
         "@context": "https://schema.org", "@type": "ContactPage", "inLanguage": {"en": "en", "zh": "zh-Hans"}[lang],

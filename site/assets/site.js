@@ -135,7 +135,8 @@
 
       var url = 'https://wa.me/' + numero + '?text=' + encodeURIComponent(linhas.join('\n'));
       window.open(url, '_blank', 'noopener');
-      alertaForm(form, 'Recebemos seus dados e abrimos o WhatsApp com sua mensagem pronta. Um dos nossos consultores vai entrar em contato em breve. Se o WhatsApp não abriu, verifique o bloqueador de pop-ups.');
+      var msgSucesso = form.getAttribute('data-msg-sucesso') || 'Recebemos seus dados e abrimos o WhatsApp com sua mensagem pronta. Um dos nossos consultores vai entrar em contato em breve. Se o WhatsApp não abriu, verifique o bloqueador de pop-ups.';
+      alertaForm(form, msgSucesso);
     });
   }
 
