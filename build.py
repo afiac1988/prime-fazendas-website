@@ -958,6 +958,16 @@ def ld_breadcrumbs(cfg: dict, trilha: list[tuple[str, str]]) -> str:
     }, ensure_ascii=False)
 
 
+def ld_breadcrumbs_i18n(cfg: dict, lang: str, trilha: list[tuple[str, str]]) -> str:
+    """Mesma ideia de ld_breadcrumbs, para paginas EN/ZH: 'trilha' recebe pares
+    (nome traduzido, caminho ja completo e correto), e a funcao so prefixa o
+    item 'Home'/'首页' na frente. O caminho de itens dinamicos (ficha de imovel,
+    post) deve vir pronto de im['url']/p['url'] (que ja cai pro PT quando nao
+    ha traducao daquele item), nunca recalculado aqui."""
+    home_label = {"en": "Home", "zh": "首页"}[lang]
+    return ld_breadcrumbs(cfg, [(home_label, f"/{lang}/")] + trilha)
+
+
 def descricao_foto(url_publica: str, titulo: str, local: str) -> str:
     """Alt text da foto de um imóvel. Quando o nome do arquivo dá uma pista
     razoável do conteúdo (ex.: 'aerea-02.jpg' — convenção usada pelo banco de
@@ -2480,7 +2490,8 @@ def gerar_sobre_i18n(cfg: dict, s: dict, lang: str) -> str:
         "mainEntity": {"@type": "Organization", "name": cfg["marca"]["nome"], "url": cfg["site"]["dominio"]},
     }, ensure_ascii=False)
 
-    return _skeleton_i18n(cfg, lang, "/sobre/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "About Us", "zh": "关于我们"}[lang], f"/{lang}/sobre/")])
+    return _skeleton_i18n(cfg, lang, "/sobre/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld, ld_migalha])
 
 
 def gerar_servicos_i18n(cfg: dict, s: dict, lang: str) -> str:
@@ -2503,7 +2514,8 @@ def gerar_servicos_i18n(cfg: dict, s: dict, lang: str) -> str:
             "itemListElement": [{"@type": "Offer", "itemOffered": {"@type": "Service", "name": x["titulo"], "description": x.get("texto","")}} for x in s.get("lista", [])]}} if s.get("lista") else {}),
     }, ensure_ascii=False)
 
-    return _skeleton_i18n(cfg, lang, "/servicos/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "Services", "zh": "服务项目"}[lang], f"/{lang}/servicos/")])
+    return _skeleton_i18n(cfg, lang, "/servicos/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld, ld_migalha])
 
 
 TEXTOS_CONTATO_I18N = {
@@ -2663,7 +2675,8 @@ def gerar_contato_i18n(cfg: dict, s: dict, lang: str) -> str:
         "name": s.get("titulo", ""),
     }, ensure_ascii=False)
 
-    return _skeleton_i18n(cfg, lang, "/contato/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld])
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "Contact", "zh": "联系我们"}[lang], f"/{lang}/contato/")])
+    return _skeleton_i18n(cfg, lang, "/contato/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld, ld_migalha])
 
 
 def gerar_agenda_agro_i18n(cfg: dict, s: dict, lang: str) -> str:
@@ -2676,7 +2689,8 @@ def gerar_agenda_agro_i18n(cfg: dict, s: dict, lang: str) -> str:
     <p class="chamada">{e(s.get('vazio_texto',''))}</p>
   </div>
 </div></section>"""]
-    return _skeleton_i18n(cfg, lang, "/agenda-agro/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [])
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "Agro Calendar", "zh": "农业日历"}[lang], f"/{lang}/agenda-agro/")])
+    return _skeleton_i18n(cfg, lang, "/agenda-agro/", s.get("titulo", ""), s.get("descricao_meta", ""), "\n".join(corpo), [ld_migalha])
 
 
 def cta_faixa_i18n(cfg: dict, titulo: str, texto: str, botao: str, lang: str, href: str | None = None) -> str:
@@ -2932,8 +2946,9 @@ def gerar_investir_i18n(cfg: dict, s: dict, lang: str, dados_agro: dict) -> str:
         ],
     }, ensure_ascii=False) if faq else ""
 
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "Invest in Agribusiness", "zh": "投资农业"}[lang], f"/{lang}/investir-no-agro/")])
     return _skeleton_i18n(cfg, lang, "/investir-no-agro/", s.get("titulo", ""), s.get("descricao_meta", ""),
-                          "\n".join(corpo), [b for b in [ld, ld_faq] if b])
+                          "\n".join(corpo), [b for b in [ld, ld_faq, ld_migalha] if b])
 
 
 def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
@@ -3481,8 +3496,9 @@ def gerar_lista_imoveis_i18n(cfg: dict, imoveis: list[dict], lang: str, trad_map
     }, ensure_ascii=False)
 
     titulo = tx["imoveis_titulo"] + " | Prime Fazendas"
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "Properties", "zh": "房产项目"}[lang], f"/{lang}/imoveis/")])
     return _skeleton_i18n(cfg, lang, "/imoveis/", tx["imoveis_titulo"], tx["imoveis_titulo"],
-                           "\n".join(corpo), [ld])
+                           "\n".join(corpo), [ld, ld_migalha])
 
 
 def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: str, trad_map: dict) -> str:
@@ -3666,7 +3682,11 @@ def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: 
            if im.get("preco") and not im.get("preco_sob_consulta") else {}),
     }, ensure_ascii=False)
 
-    return _skeleton_i18n(cfg, lang, im_pt["url"], im["titulo"], desc, "\n".join(corpo), [ld])
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [
+        ({"en": "Properties", "zh": "房产项目"}[lang], f"/{lang}/imoveis/"),
+        (im["titulo"], im["url"]),
+    ])
+    return _skeleton_i18n(cfg, lang, im_pt["url"], im["titulo"], desc, "\n".join(corpo), [ld, ld_migalha])
 
 
 CATEGORIA_I18N = {
@@ -3810,8 +3830,9 @@ def gerar_blog_i18n(cfg: dict, posts: list[dict], imoveis: list[dict], lang: str
         "name": tx["noticias_insights"], "url": dominio + f"/{lang}/blog/",
     }, ensure_ascii=False)
 
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [({"en": "News", "zh": "新闻资讯"}[lang], f"/{lang}/blog/")])
     return _skeleton_i18n(cfg, lang, "/blog/", tx["noticias_insights"], tx["noticias_insights"],
-                           "\n".join(corpo), [ld])
+                           "\n".join(corpo), [ld, ld_migalha])
 
 
 def gerar_post_i18n(cfg: dict, p_pt: dict, outros_pt: list[dict], lang: str, trad_map: dict) -> str:
@@ -3879,7 +3900,11 @@ def gerar_post_i18n(cfg: dict, p_pt: dict, outros_pt: list[dict], lang: str, tra
         "mainEntityOfPage": dominio + p["url"],
     }, ensure_ascii=False)
 
-    return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo), [ld])
+    ld_migalha = ld_breadcrumbs_i18n(cfg, lang, [
+        ({"en": "News", "zh": "新闻资讯"}[lang], f"/{lang}/blog/"),
+        (p["titulo"], p["url"]),
+    ])
+    return _skeleton_i18n(cfg, lang, p_pt["url"], p["titulo"], p.get("resumo", ""), "\n".join(corpo), [ld, ld_migalha])
 
 
 
