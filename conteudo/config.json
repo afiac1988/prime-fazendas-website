@@ -25,7 +25,7 @@
     "whatsapp": "63-98143-7860",
     "whatsapp_numero_internacional": "+55 (63) 98143-7860",
     "whatsapp_mensagem": "Olá! Vim pelo site da Prime Fazendas e gostaria de falar com um especialista.",
-    "email": "contato@primefazendas.com",
+    "email": "primefazendasto@gmail.com",
     "endereco": "Palmas, Tocantins",
     "cidade": "Palmas",
     "estado": "TO",
@@ -43,8 +43,8 @@
     "facebook": ""
   },
   "formulario": {
-    "_leia": "Endpoint que recebe os envios do formulário por e-mail (FormSubmit.co, sem necessidade de criar conta — só confirmar o primeiro e-mail recebido em contato@primefazendas.com, depois funciona sozinho). Deixe vazio para desativar a captura por e-mail e manter só o WhatsApp.",
-    "endpoint": "https://formsubmit.co/ajax/contato@primefazendas.com",
+    "_leia": "Endpoint que recebe os envios do formulário por e-mail (FormSubmit.co, sem necessidade de criar conta — só confirmar o primeiro e-mail recebido em primefazendasto@gmail.com, depois funciona sozinho). Deixe vazio para desativar a captura por e-mail e manter só o WhatsApp.",
+    "endpoint": "https://formsubmit.co/ajax/primefazendasto@gmail.com",
     "modo": "whatsapp"
   },
   "analytics": {

@@ -37,5 +37,5 @@ Essa é exatamente a due diligence que a Prime Fazendas já aplica há anos vend
 Se você está avaliando terreno ou estruturação para um projeto de data center no Brasil, fale direto com o nosso time — te ajudamos do terreno à obra, com energia, água e documentação já verificadas:
 
 - **WhatsApp**: [+55 (63) 98143-7860](https://wa.me/5563981437860?text=Ol%C3%A1%21%20Tenho%20interesse%20em%20terreno%2Festrutura%C3%A7%C3%A3o%20para%20Data%20Center.)
-- **E-mail**: [contato@primefazendas.com](mailto:contato@primefazendas.com)
+- **E-mail**: [primefazendasto@gmail.com](mailto:primefazendasto@gmail.com)
 - **Instagram**: [@prime_fazendas](https://www.instagram.com/prime_fazendas/)
