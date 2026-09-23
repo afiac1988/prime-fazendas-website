@@ -648,6 +648,7 @@ strong { font-weight: 600; color: var(--azul-900); }
 .dado__rot { font-size: 0.68rem; letter-spacing: 0.07em; text-transform: uppercase; color: var(--tinta-suave); }
 .dado__val { font-family: var(--fonte-display); font-size: 1.05rem; color: var(--azul-900); }
 .dado__val--preco { color: var(--dourado-escuro); }
+.dado__val-usd { color: var(--tinta-suave); font-size: 0.78em; font-weight: 400; }
 .dado--nota {
   flex-basis: 100%;
   padding-top: 0.9rem;
@@ -803,6 +804,8 @@ body.modal-aberta { overflow: hidden; }
   color: var(--azul-900);
   margin: 0 0 0.3rem;
 }
+.painel__preco-usd { color: var(--tinta-suave); font-size: 0.5em; font-weight: 400; display: block; margin-top: 0.15rem; }
+.painel__preco-cambio { font-size: 0.78rem; color: var(--tinta-suave); margin: -0.6rem 0 1rem; }
 .painel__preco-nota {
   font-size: 0.95rem;
   font-weight: 600;

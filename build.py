@@ -193,6 +193,67 @@ def fmt_reais(valor) -> str:
     return "R$ " + fmt_num(round(v))
 
 
+def fmt_dolar(valor_reais, taxa) -> str:
+    """Converte um valor em reais para dolar usando uma taxa fixa (cambio referencial,
+    nao uma cotacao ao vivo) e formata no mesmo estilo de fmt_reais."""
+    try:
+        v = float(valor_reais)
+        taxa = float(taxa)
+    except (TypeError, ValueError):
+        return ""
+    if v <= 0 or taxa <= 0:
+        return ""
+    usd = v / taxa
+    if usd >= 1_000_000:
+        milhoes = usd / 1_000_000
+        texto = f"{milhoes:,.1f}".replace(",", "X").replace(".", ",").replace("X", ".")
+        texto = texto.replace(",0", "")
+        return f"US$ {texto} mi"
+    return "US$ " + fmt_num(round(usd))
+
+
+def preco_usd_html(valor, cambio, classe="dado__val-usd") -> str:
+    """Span pequeno com o valor aproximado em dolar, ao lado do preco em reais.
+    Retorna vazio se nao houver taxa de cambio configurada em conteudo/config.json."""
+    taxa = (cambio or {}).get("usd_brl")
+    if not (valor and taxa):
+        return ""
+    txt = fmt_dolar(valor, taxa)
+    if not txt:
+        return ""
+    return " " + '<small class="' + classe + '">&asymp; ' + e(txt) + '</small>'
+
+
+def nota_cambio_html(cambio, lang="pt") -> str:
+    """Aviso de que o valor em dolar usa cambio fixo/referencial, nao uma API ao vivo."""
+    if not cambio or not cambio.get("usd_brl"):
+        return ""
+    taxa_fmt = fmt_num(cambio["usd_brl"])
+    data_fmt = cambio.get("atualizado_em", "")
+    if data_fmt:
+        try:
+            data_fmt = fmt_data(date.fromisoformat(data_fmt))
+        except ValueError:
+            pass
+    if lang == "en":
+        texto = "Reference exchange rate: US$ 1 = R$ " + taxa_fmt
+        if data_fmt:
+            texto += " (" + data_fmt + ")"
+        texto += ". The dollar amount is approximate."
+    elif lang == "zh":
+        texto = "参考汇率：1美元 = " + taxa_fmt + " 雷亚尔"
+        if data_fmt:
+            texto += "（" + data_fmt + "）"
+        texto += "。美元金额为约值。"
+    else:
+        texto = "Câmbio referencial: US$ 1 = R$ " + taxa_fmt
+        if data_fmt:
+            texto += " (" + data_fmt + ")"
+        texto += ". O valor em dólar é aproximado."
+    return '<p class="painel__preco-cambio">' + e(texto) + '</p>'
+
+
+
 def resumo_fator_regiao(texto: str, indice: int, lang: str = "pt") -> tuple[str, str]:
     """Transforma a lista bruta de fatores regionais em titulo + resumo curto."""
     texto = str(texto).strip().rstrip(".")
@@ -1256,7 +1317,7 @@ def carregar_agenda_agro() -> list[dict]:
 
 # ================================================================ páginas ==
 
-def card_imovel(im: dict) -> str:
+def card_imovel(im: dict, cambio: dict | None = None) -> str:
     selos = []
     rotulo, classe = STATUS.get(im.get("status", "disponivel"), STATUS["disponivel"])
     if im.get("status") != "disponivel":
@@ -1299,7 +1360,8 @@ def card_imovel(im: dict) -> str:
                      '<span class="dado__val dado__val--preco">Sob consulta</span></div>')
     else:
         dados.append(f'<div class="dado"><span class="dado__rot">Valor</span>'
-                     f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
+                     f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}'
+                     f'{preco_usd_html(im["preco"], cambio)}</span></div>')
     preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
     area_ordenacao = im.get("area_total_ha") or 0
 
@@ -1363,7 +1425,7 @@ def gerar_home(cfg, pag, imoveis, posts, dados_agro, depoimentos) -> str:
       <p class="chamada chamada--larga">Portfólio verificado. Cada propriedade passou por análise
       documental, ambiental e de mercado antes de ser apresentada.</p>
     </div>
-    <div class="grade-imoveis">{''.join(card_imovel(i) for i in destaques[:3])}</div>
+    <div class="grade-imoveis">{''.join(card_imovel(i, cambio=cfg.get('cambio')) for i in destaques[:3])}</div>
     <p style="margin-top:2.5rem"><a class="link-seta" href="/imoveis/">Ver todas as propriedades</a></p>
   </div>
 </section>""")
@@ -2762,7 +2824,7 @@ def gerar_lista_imoveis(cfg, pag, imoveis) -> str:
     <p style="color:var(--tinta-suave);font-size:.9rem;margin-bottom:1.75rem">
       <span id="contador-imoveis">{n} {'propriedade' if n == 1 else 'propriedades'}</span>
     </p>
-    <div class="grade-imoveis" id="grade-imoveis">{''.join(card_imovel(i) for i in imoveis)}</div>
+    <div class="grade-imoveis" id="grade-imoveis">{''.join(card_imovel(i, cambio=cfg.get('cambio')) for i in imoveis)}</div>
   </div>
 </section>""")
     else:
@@ -2931,14 +2993,16 @@ def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
                       f'<div class="ficha-tecnica__corpo">{"".join(detalhes)}</div></details>')
 
     # painel lateral
+    cambio = cfg.get("cambio")
     if im.get("preco_sob_consulta") or not im.get("preco"):
         preco_html = '<p class="painel__preco">Sob consulta</p>'
         nota = '<p class="painel__preco-nota">Valor informado no primeiro contato.</p>'
     else:
-        preco_html = f'<p class="painel__preco">{e(fmt_reais(im["preco"]))}</p>'
+        preco_html = f'<p class="painel__preco">{e(fmt_reais(im["preco"]))}{preco_usd_html(im["preco"], cambio, "painel__preco-usd")}</p>'
         nota = ""
         if im.get("preco_ha"):
             nota = (f'<p class="painel__preco-nota">≈ R$ {fmt_num(round(im["preco_ha"]))} por hectare</p>')
+        nota += nota_cambio_html(cambio, "pt")
     nota += '<p class="painel__alerta">Preço, área e disponibilidade são confirmados antes de qualquer proposta.</p>'
 
     linhas = []
@@ -2993,7 +3057,7 @@ def gerar_ficha_imovel(cfg, im, todos_imoveis) -> str:
       <p class="olho">Também pode interessar</p>
       <h2>Imóveis relacionados</h2>
     </div>
-    <div class="grade-imoveis">{''.join(card_imovel(o) for o in relacionados)}</div>
+    <div class="grade-imoveis">{''.join(card_imovel(o, cambio=cfg.get('cambio')) for o in relacionados)}</div>
   </div>
 </section>""")
 
@@ -3126,7 +3190,7 @@ def traduzir_imovel(im: dict, lang: str, trad_map: dict) -> dict:
     return novo
 
 
-def card_imovel_i18n(im: dict, lang: str) -> str:
+def card_imovel_i18n(im: dict, lang: str, cambio: dict | None = None) -> str:
     tx = TEXTOS_IMOVEL_I18N[lang]
     selos = []
     rotulo, classe = STATUS_I18N[lang].get(im.get("status", "disponivel"), STATUS_I18N[lang]["disponivel"])
@@ -3166,7 +3230,8 @@ def card_imovel_i18n(im: dict, lang: str) -> str:
                      f'<span class="dado__val dado__val--preco">{e(tx["sob_consulta"])}</span></div>')
     else:
         dados.append(f'<div class="dado"><span class="dado__rot">{e(tx["valor"])}</span>'
-                     f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}</span></div>')
+                     f'<span class="dado__val dado__val--preco">{e(fmt_reais(im["preco"]))}'
+                     f'{preco_usd_html(im["preco"], cambio)}</span></div>')
     preco_ordenacao = im["preco"] if im.get("preco") and not im.get("preco_sob_consulta") else 0
     area_ordenacao = im.get("area_total_ha") or 0
 
@@ -3225,7 +3290,7 @@ def gerar_lista_imoveis_i18n(cfg: dict, imoveis: list[dict], lang: str, trad_map
     <p style="color:var(--tinta-suave);font-size:.9rem;margin-bottom:1.75rem">
       <span id="contador-imoveis">{n} {e(rotulo_n)}</span>
     </p>
-    <div class="grade-imoveis" id="grade-imoveis">{''.join(card_imovel_i18n(i, lang) for i in imoveis_i18n)}</div>
+    <div class="grade-imoveis" id="grade-imoveis">{''.join(card_imovel_i18n(i, lang, cambio=cfg.get('cambio')) for i in imoveis_i18n)}</div>
   </div>
 </section>""")
     else:
@@ -3371,14 +3436,16 @@ def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: 
                       f'{e(tx["ficha_completa"])}</summary>'
                       f'<div class="ficha-tecnica__corpo">{"".join(detalhes)}</div></details>')
 
+    cambio = cfg.get("cambio")
     if im.get("preco_sob_consulta") or not im.get("preco"):
         preco_html = f'<p class="painel__preco">{e(tx["sob_consulta"])}</p>'
         nota = ""
     else:
-        preco_html = f'<p class="painel__preco">{e(fmt_reais(im["preco"]))}</p>'
+        preco_html = f'<p class="painel__preco">{e(fmt_reais(im["preco"]))}{preco_usd_html(im["preco"], cambio, "painel__preco-usd")}</p>'
         nota = ""
         if im.get("preco_ha"):
             nota = f'<p class="painel__preco-nota">≈ R$ {fmt_num(round(im["preco_ha"]))} {e(tx["por_hectare"])}</p>'
+        nota += nota_cambio_html(cambio, lang)
     nota += f'<p class="painel__alerta">{e(tx["preco_confirmado"])}</p>'
 
     linhas = []
@@ -3420,7 +3487,7 @@ def gerar_ficha_imovel_i18n(cfg: dict, im_pt: dict, todos_pt: list[dict], lang: 
         corpo.append(f"""<section class="secao secao--clara">
   <div class="env">
     <div class="cabeca-secao"><p class="olho">{e(tx['tambem_interessar'])}</p><h2>{e(tx['imoveis_relacionados'])}</h2></div>
-    <div class="grade-imoveis">{''.join(card_imovel_i18n(o, lang) for o in relacionados_i18n)}</div>
+    <div class="grade-imoveis">{''.join(card_imovel_i18n(o, lang, cambio=cfg.get('cambio')) for o in relacionados_i18n)}</div>
   </div>
 </section>""")
 
@@ -3576,7 +3643,7 @@ def gerar_blog_i18n(cfg: dict, posts: list[dict], imoveis: list[dict], lang: str
                             f'<p class="olho">{e(tx["portfolio_titulo"])}</p>'
                             f'<h2>{e(tx["ja_leu"])}</h2>'
                             '</div>'
-                            f'<div class="grade-imoveis">{"".join(card_imovel_i18n(i, lang) for i in from_lang_imoveis)}</div>'
+                            f'<div class="grade-imoveis">{"".join(card_imovel_i18n(i, lang, cambio=cfg.get("cambio")) for i in from_lang_imoveis)}</div>'
                             f'<p style="margin-top:2.5rem"><a class="link-seta" href="/{lang}/imoveis/">{e(tx["ver_todas"])}</a></p>'
                             '</div></section>')
         corpo.append(bloco_portfolio)
@@ -3777,7 +3844,7 @@ def gerar_blog(cfg, pag, posts, imoveis) -> str:
       <p class="olho">Portfólio Prime Fazendas</p>
       <h2>Já leu as notícias? Conheça algumas fazendas disponíveis</h2>
     </div>
-    <div class="grade-imoveis">{"".join(card_imovel(i) for i in destaques_imoveis[:3])}</div>
+    <div class="grade-imoveis">{"".join(card_imovel(i, cambio=cfg.get('cambio')) for i in destaques_imoveis[:3])}</div>
     <p style="margin-top:2.5rem"><a class="link-seta" href="/imoveis/">Ver todas as propriedades</a></p>
   </div>
 </section>''')

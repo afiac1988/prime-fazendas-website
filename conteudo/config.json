@@ -99,5 +99,10 @@
       "titulo": "Contato",
       "url": "/contato/"
     }
-  ]
+  ],
+  "cambio": {
+    "_leia": "Cambio FIXO/referencial usado so para mostrar o valor aproximado em dolar ao lado do preco em reais nas fichas de imovel. NAO e uma cotacao ao vivo (sem API, sem dependencia externa, sem risco de travar o build). Atualize aqui de vez em quando (ex: 1x por mes, ou quando o dolar variar bastante) e mude tambem atualizado_em.",
+    "usd_brl": 5.1,
+    "atualizado_em": "2026-09-23"
+  }
 }
